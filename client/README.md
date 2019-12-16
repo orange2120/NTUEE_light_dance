@@ -1,1 +1,1 @@
-# This is for client
+# Client running on Raspberry Pi
