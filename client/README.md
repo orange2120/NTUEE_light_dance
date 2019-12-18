@@ -1,4 +1,5 @@
 # Client running on Raspberry Pi
+<img src="https://img.shields.io/badge/platform-linux-lightgrey.svg">
 
 ## TODOs
 Write Arduino SPI receiver.
@@ -6,20 +7,22 @@ Write Arduino SPI receiver.
 ## RPi to Arduino SPI data transfer protocol for WS2812
 Data frame:
 Assume there are n LEDs.
+
 | Data | Length (bytes) |
-| ---- |  ----  |
+| ---- | ---- |
 | ID | 1 |
 | Data length | 2 |
 | GRB | 3 * n |
-| Stop | 1 |
+| Stop | 2 |
+
 Data length = 3 * n  
-Total 4+3n bytes.  
+Total 5+3n bytes.  
 
 For example, transfer data to LED matrix that has 88 LEDs at address `ID = 0x1`.  
 ```
-| LED ID |  Data length  |    (DATA) Green-Red-Blue ... Green-Red-Blue     | Stop |
----------+---------------+------------------+------------------+-----------+-------
-|  0x1   |     0x0108    |   G1   R1   B1   |   G2   R2   B2   |  .......  | 0xFF |
+| Strip ID |  Data length  |    (DATA) Green-Red-Blue ... Green-Red-Blue     |   Stop    |
+-----------+---------------+------------------+------------------+-----------+------------
+|   0x1    |     0x0108    |   G1   R1   B1   |   G2   R2   B2   |  .......  | 0xFF 0xFF |
 ```
 
 ## References
