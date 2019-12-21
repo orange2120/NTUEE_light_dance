@@ -12,17 +12,17 @@ Assume there are n LEDs.
 | ---- | ---- |
 | ID | 1 |
 | Data length | 2 |
-| GRB | 3 * n |
+| GRB pixel | 3 * n |
 | Stop | 2 |
 
 Data length = 3 * n  
-Total 5+3n bytes.  
+Total **3n+5** bytes.  
 
 For example, transfer data to LED matrix that has 88 LEDs at address `ID = 0x1`.  
 ```
 | Strip ID |  Data length  |    (DATA) Green-Red-Blue ... Green-Red-Blue     |   Stop    |
 -----------+---------------+------------------+------------------+-----------+------------
-|   0x1    |     0x0108    |   G1   R1   B1   |   G2   R2   B2   |  .......  | 0xFF 0xFF |
+|   0x1    |     0x0108    |   G1 - R1 - B1   |   G2 - R2 - B2   |  .......  | 0xFF 0xFF |
 ```
 
 ## References
@@ -36,6 +36,6 @@ For example, transfer data to LED matrix that has 88 LEDs at address `ID = 0x1`.
 
 ### WS2812 LED strip
 **Note:** Color order is GRB.  
-Each LED requires 3 byte (24 bit) to transfer GRB data.  
+Each LED requires 3 byte (24 bit) to transfer GRB pixel data.  
 [WS2812 datasheet](https://cdn-shop.adafruit.com/datasheets/WS2812.pdf)
 [WS2812B datasheet](https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf)
