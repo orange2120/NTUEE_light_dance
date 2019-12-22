@@ -4,9 +4,9 @@
         "./test2.png",
         "./test3.png"
     ],
-    "time_line": [
-        [100, "test1"],
+    "time_line":[ 
+        [100, 200, "a5b4"],
         [200, "test2"],
         [300, "test3"]
-    ]
+	]
 }
