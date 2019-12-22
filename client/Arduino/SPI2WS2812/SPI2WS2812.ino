@@ -7,10 +7,12 @@
 #define COLOR_ORDER NEO_GRB
 #define DATA_RATE   NEO_KHZ800
 
-#define BUF_SIZE 512
-#define DATA_OFFSET 3
+#define BUF_SIZE    512
+#define DATA_OFFSET 4
+#define START_BYTE  0xFF
+#define STOP_BYTE   0xFF
 
-const uint8_t NUM_LEDS[] = {24,96,60,36,36};
+const uint8_t NUM_LEDS[] = {22,96,60,36,36};
 const uint8_t LED_PIN[]  = {8, 6, 7, 5, 9};
 
 volatile uint16_t cnt = 0;
@@ -18,7 +20,7 @@ volatile bool received;      // handle SPI received event flag
 volatile byte receivedData;  // received SPI data
 volatile byte lastData;      // last received data
 
-char buf[BUF_SIZE];
+byte buf[BUF_SIZE];
 
 Adafruit_NeoPixel *strips[NUM_STRIPS];
 
@@ -44,8 +46,14 @@ void loop()
 {
     if (received)
     {
+
+    #ifdef DEBUG
         Serial.println("received!");
-        sendToStrip();
+    #endif
+        delay(1);
+
+        if (buf[0] == START_BYTE)
+            sendToStrip();
 
         received = false;
         cleanBuf();
@@ -53,13 +61,13 @@ void loop()
 }
 
 // Inerrrput vector for SPI slave
-ISR (SPI_STC_vect)   
+ISR (SPI_STC_vect)
 {
     lastData = receivedData;
     receivedData = SPDR; // data received from master
 
     buf[cnt++] = receivedData; // add data to buffer
-    if (receivedData == 0xFF && lastData == 0xFF) // stop signal
+    if (receivedData == STOP_BYTE && lastData == STOP_BYTE) // stop signal
         received = true;       // set received flag
 }
 
@@ -72,8 +80,8 @@ inline void cleanBuf()
 
 void sendToStrip()
 {
-    uint8_t ID = buf[0]; // strip ID
-    uint16_t numLED = (buf[1] << 8) | buf[2]; // number of LEDs in strip
+    uint8_t ID = buf[1]; // strip ID
+    uint16_t numLED = (buf[2] << 8) | buf[3]; // number of LEDs in strip
 
 #ifdef DEBUG
     Serial.println(cnt);
