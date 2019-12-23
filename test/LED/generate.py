@@ -6,14 +6,26 @@ import os
 
 WS_LEN = [88]
 N_WS = 1
+# check if output directory exists
+if not os.path.exists('outputRGB') :
+    os.makedirs('outputRGB')
+    print('create directory : outputRGB')
 
+# convert file to rgb array
 with open('asset.json') as json_file:
     data = json.load(json_file)
     for imgPath in data['path']:
-        img = Image.open(imgPath).convert('RGB')
-        print("Find: " + imgPath)
+        img = Image.open('inputLEDPNG/' + imgPath).convert('RGB')
+        print("Read file:" + imgPath)
         w, h = img.size
         imgArr = np.array(img).reshape(h, w, 3)
-        print(imgArr)
+        imgArr[1::2, :] = imgArr[1::2, ::-1] #invert odd row
+        output_path = 'outputRGB/' + imgPath + '.json'
+        
+        with open(output_path, 'w') as outfile:
+            json.dump(imgArr.tolist(), outfile)
+      
+        print("Save Json file:" + output_path)
+
 
 
