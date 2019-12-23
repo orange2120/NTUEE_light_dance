@@ -23,7 +23,8 @@ with open('asset.json') as json_file:
         output_path = 'outputRGB/' + imgPath + '.json'
         
         with open(output_path, 'w') as outfile:
-            json.dump(imgArr.tolist(), outfile)
+            json.dump(imgArr.tolist(), outfile) #3d array
+            # json.dump(imgArr.flatten().tolist(), outfile) # 1d array
       
         print("Save Json file:" + output_path)
 
