@@ -1,14 +1,23 @@
 import * as PIXI from 'pixi.js'
+
+import Simulator from './simulator.js'
 import '../css/index.css'
+// read data
+import load from '../../data/load.json'
+import control from '../../data/control.json'
 
+// get LEDs
+const LEDs = load.LED
+// add waveform
+const music = load.Music
+
+// add simulate page
 const app = new PIXI.Application({
-    width: 800,
-    height: 500
+    width: 1200,
+    height: 700
 })
-
 document.body.appendChild(app.view)
 
-const LEDTexture = PIXI.Texture.from('../../test/LED/inputLEDPNG/test3.png')
-const LEDSprite = new PIXI.Sprite(LEDTexture)
-LEDSprite.scale.set(40, 40)
-app.stage.addChild(LEDSprite)
+// simulate
+const sim = new Simulator(app, control, LEDs)
+sim.exec(0)
