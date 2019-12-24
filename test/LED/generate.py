@@ -37,7 +37,7 @@ if __name__ == '__main__':
     if not os.path.exists('outputRGB') :
         os.makedirs('outputRGB')
         print('create directory : outputRGB')
-    if len(argv)>1:
+    if len(sys.argv)>1:
         png2rgb(int(sys.argv[1]))
-    elif:
+    else:
         png2rgb()
