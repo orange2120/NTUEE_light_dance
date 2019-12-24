@@ -1,0 +1,42 @@
+{
+  "name": "ntuee_light_dance",
+  "version": "1.0.0",
+  "description": "Light dance system for 2020 NTUEE night",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "editor:build": "webpack --mode production",
+    "editor:dev": "webpack-dev-server --mode development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/orange2120/NTUEE_light_dance.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/orange2120/NTUEE_light_dance/issues"
+  },
+  "homepage": "https://github.com/orange2120/NTUEE_light_dance#readme",
+  "dependencies": {
+    "pixi.js": "^5.2.0",
+    "webpack": "^4.41.4",
+    "webpack-dev-middleware": "^3.7.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "cross-env": "^6.0.3",
+    "css-loader": "^3.4.0",
+    "html-webpack-plugin": "^3.2.0",
+    "style-loader": "^1.1.1",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.1",
+    "webpack-hot-middleware": "^2.25.0"
+  }
+}

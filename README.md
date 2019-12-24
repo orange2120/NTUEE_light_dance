@@ -17,7 +17,10 @@ Every dancer is a client. Receive commands from server.
 
 ## Orange Hsu is not god
 
-## Usage
+### Editor
+usage for develop:
+
+``` npm run editor:dev ```
 
 ## Directory structure
 ### asset
