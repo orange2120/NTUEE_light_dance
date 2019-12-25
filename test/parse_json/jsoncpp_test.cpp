@@ -12,9 +12,9 @@ int main()
 {
     ifstream infile("DATA_v0.json");
     json j = json::parse(infile);
-    person p1(1);
+    Person p1(1);
     for(size_t i = 0; i < j["1"]["time_line"].size(); ++i) {
-        execute exe;
+        Execute exe;
         exe.set_start_time(j["1"]["time_line"][i]["Start"]);
         exe.set_end_time(j["1"]["time_line"][i]["End"]);
         exe.set_LED_part( j["1"]["time_line"][i]["Status"]["LEDH"]["path"], 
