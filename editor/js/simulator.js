@@ -6,40 +6,64 @@ class Simulator {
         this.control = control
         this.LEDTextures = {}
         LEDs.map(led => this.LEDTextures[led] = PIXI.Texture.from(`../../asset/LED/${led}.png`))
-        this.LEDH = new PIXI.Sprite();
         // set time and timeline array index
         this.time = 0
-        this.index = 0
+        this.index = [] // time line index for every dancer
+        this.status = [] // status for every dancer
+        this.dancers = []
     }
     getIndex(t) { // given time
         // update this.time and this.index (binary search)
-        return 0
+        // for now three dancer from time 0
+        return [0, 0, 0]
     }
     checkUpdate() {
         this.time += 30
-        const time_line = this.control["1"]["time_line"]
-        if (this.time >= time_line[this.index]["End"]) {
-            this.index += 1
-            if (this.index >= time_line.length) {
-                clearInterval(this.interval)
+        this.control.map((time_line, i) => {
+            const ind = this.index[i] // time line index of this dancer
+            if (this.index[i] >= time_line.length) return
+            if (this.time >= time_line[ind]["End"]) {
+                this.index[i] += 1
+                this.status[i] = Object.assign({}, time_line[this.index[i]]["Status"])
             }
-            this.status = Object.assign({}, time_line[this.index]["Status"])
-            this.update()
-        }
+        })
+        this.update()
     }
     update() { // update by status
-        this.LEDH.texture = this.LEDTextures[this.status["LEDH"]["path"]]
-        this.LEDH.alpha = this.status["LEDH"]["alpha"]
+        this.status.map((status, i) => {
+            const path = status["LEDH"]["path"]
+            this.dancers[i].texture = this.LEDTextures[path]
+            this.dancers[i].alpha = status["LEDH"]["alpha"]
+        })
     }
-    exec(t) { // execute from time t
+    initial(t) {
+        this.status = []
         this.time = t
         this.index = this.getIndex(t)
-        this.status = this.control["1"]["time_line"][this.index]["Status"]
+        this.control.map((time_line, i) => {
+            const tindex = this.index[i] // time_line index
+            this.status.push(time_line[tindex]["Status"])
+        })
+        console.log(this.status)
+
+        // just for testing LED
+        this.status.map(status => {
+            const path = status["LEDH"]["path"]
+            this.dancers.push(new PIXI.Sprite(this.LEDTextures[path]))
+        })
+        this.dancers.map((dancer, i) => {
+            dancer.scale.set(40)
+            console.log(dancer.texture)
+            dancer.x += i * dancer.width * 8.5 //
+            this.app.stage.addChild(dancer)
+        })
+    }
+
+    exec(t) { // execute from time t
+        this.initial(t);
         this.update()
 
         // for testing
-        this.LEDH.scale.set(40, 40)
-        this.app.stage.addChild(this.LEDH)
         this.interval = setInterval(() => this.checkUpdate(), 30)
     }
 }
