@@ -15,7 +15,7 @@ using namespace std;
 #define START_BYTE 0xFF
 #define STOP_BYTE  0xFF
 #define LED_ID 0x00
-#define NUM_LED 22
+#define NUM_LED 88
 #define DATA_OFFSET 4
 
 void genColorSeq(char *, const uint16_t &, const uint8_t, const uint8_t, const uint8_t);
@@ -58,6 +58,11 @@ int main()
 		
 		printf("Send color 3...\n");
 		genColorSeq(test_seq, dataLen, 0x00, 0x00, 0xFF);
+		bcm2835_spi_transfern(test_seq, dataLen);
+		usleep(TEST_DELAY);
+
+		printf("Send color 4...\n");
+		genColorSeq(test_seq, dataLen, 0x00, 0xFF, 0xFF);
 		bcm2835_spi_transfern(test_seq, dataLen);
 		usleep(TEST_DELAY);
 	}

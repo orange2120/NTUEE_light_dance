@@ -3,14 +3,17 @@ CFLAGS = -Wall -std=c++11
 OPTFLAGS = -g
 # OPTFLAGS = -O3
 
-INC = inc/
+INC = inc
 SRC = src/
 LIB = -lbcm2835
+
+TARGET = clientApp
+
 .PHONY: all clean
 
 all: $(TARGET)
 
-clientApp: src/clientApp.cpp $(LIB)
+clientApp: src/clientApp.cpp $(LIB) $(INC)/definition.h
 	$(CXX) $(CFLAGS) $(OPTFLAGS) $(LDFLAGS) $^ -o $@
 
 EL.o: $(INC)/EL.h

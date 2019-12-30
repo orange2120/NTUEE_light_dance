@@ -8,9 +8,32 @@
 
 SPI_comm::SPI_comm()
 {
-    bcm2835_spi_setBitOrder(BCM2835_SPI_BIT_ORDER_MSBFIRST);      // The default
-	bcm2835_spi_setDataMode(BCM2835_SPI_MODE0);                   // The default
-	bcm2835_spi_setClockDivider(BCM2835_SPI_CLOCK_DIVIDER_256);   // div by 256 = 1MHz 
-	bcm2835_spi_chipSelect(BCM2835_SPI_CS0);                      // The default
-	bcm2835_spi_setChipSelectPolarity(BCM2835_SPI_CS0, LOW);      // the default
+    // SPI init
+    if (!bcm2835_init())
+	{
+		printf("bcm2835_init failed. Are you running as root??\n");
+		return 1;
+	}
+	if (!bcm2835_spi_begin())
+	{
+		printf("bcm2835_spi_begin failed. Are you running as root??\n");
+		return 1;
+	}
+
+    bcm2835_spi_setBitOrder(BCM2835_SPI_BIT_ORDER_MSBFIRST);
+	bcm2835_spi_setDataMode(BCM2835_SPI_MODE0);
+	bcm2835_spi_setClockDivider(SPI_CLOCK_DIV);
+	bcm2835_spi_chipSelect(BCM2835_SPI_CS0);
+	bcm2835_spi_setChipSelectPolarity(BCM2835_SPI_CS0, LOW);
+}
+
+~SPI_comm::SPI_comm()
+{
+    bcm2835_spi_end();
+	bcm2835_close();
+}
+
+void SPI_comm::send(uint16_t &len, const char *seq)
+{
+    bcm2835_spi_transfern(seq, len);
 }

@@ -14,7 +14,7 @@
 class EL
 {
   public:
-    EL(const uint8_t &nEL) : _nEL(nEL) {};
+    EL(const uint8_t nEL) : _nEL(nEL) {};
     ~EL(){};
 
     void setEL(const uint8_t &id, const uint16_t &dt) {
