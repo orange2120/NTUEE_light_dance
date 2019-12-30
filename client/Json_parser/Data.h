@@ -1,3 +1,5 @@
+#ifndef DATA_H
+#define DATA_H
 #include <vector>
 #include <string>
 #include <iostream>
@@ -13,7 +15,7 @@ class LED_part;
 class Person { // for every dancer
 public:
     Person() {}
-    ~Person();
+    ~Person() {}
     void set_execute(const Execute&); // push execution one by one
     void print();
 private:
@@ -44,11 +46,15 @@ private:
 
 class LED_part { // for each part of LED
 public:
-    LED_part(const string& s, const double& d):path(s), alpha(d) {} 
+    LED_part(const string&, const double&); 
     string get_path() { return path; }
     double get_alpha(){ return alpha; }
+    void print();
 private:
     string path;  // LED array path
     double alpha; // for brightness
+    uint dataSize;
+    uint8_t* RGB_data;
 };
 
+#endif

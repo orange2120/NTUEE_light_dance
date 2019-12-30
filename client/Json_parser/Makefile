@@ -1,11 +1,14 @@
 CFLAGS = -g -Wall -std=c++11
 
-parserRun: Data_parser.o Data.o
-	g++ -o Data_parser.o Data.o $(CFLAGS)
+./build/parserRun: ./build/Data_parser.o ./build/Data.o
+	g++ -o ./build/parserRun ./build/Data_parser.o ./build/Data.o $(CFLAGS)
 
-Data_parser.o: Data_parser.cpp Data.h
-	g++ -c Data_parser.cpp $(CFLAGS)
+./build/Data_parser.o: Data_parser.cpp Data.h
+	g++ -c -o ./build/Data_parser.o Data_parser.cpp $(CFLAGS)
 
-Data.o: Data.cpp Data.h
-	g++ -c Data.cpp $(CFLAGS)
-
+./build/Data.o: Data.cpp Data.h
+	g++ -c -o ./build/Data.o Data.cpp $(CFLAGS)
+	
+clean:
+	rm -rf ./build/*
+	
