@@ -15,3 +15,4 @@
 //----------------------------------------------------------------------
 
 #define NUM_OF_EL 10 // number of EL strips
+#define PEOPLE_NUM 8
