@@ -17,6 +17,7 @@ int main()
     json data = json::parse(infile);
     vector<Person>  people;
     ReadJson(data, people);
+    people[0].print();
 }
 
 void ReadJson(json& data, vector<Person>& people)
