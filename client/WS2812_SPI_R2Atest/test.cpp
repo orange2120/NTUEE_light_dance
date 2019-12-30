@@ -6,7 +6,7 @@
 
 using namespace std;
 
-#define TEST_TIMES 2
+#define TEST_TIMES 10
 #define TEST_DELAY 500000 // us 
 
 #define COLOR1 0xFFEE00
