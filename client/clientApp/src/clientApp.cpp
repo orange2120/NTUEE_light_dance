@@ -23,8 +23,6 @@ int main(int argc, char *argv[]) // arg == person id
         if(cmd == "run") run(dancer_id);
     }
     
-
-    
     printf("Hello World!\n");
 }
 

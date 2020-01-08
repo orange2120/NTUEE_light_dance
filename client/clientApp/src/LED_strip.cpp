@@ -33,7 +33,6 @@ LED_Strip::LED_Strip(const uint8_t &nStrips,const uint16_t *nLEDs) : _nStrip(nSt
 
 LED_Strip::~LED_Strip()
 {
-
 	bcm2835_spi_end();
 	bcm2835_close();
 
@@ -43,7 +42,7 @@ LED_Strip::~LED_Strip()
 // send strip pixel secquence
 void LED_Strip::sendToStrip(const uint8_t &id, const char *color)
 {
-	uint16_t dataLen = 3 * _nLEDs[id] + 6;
+	uint16_t dataLen = 3 * _nLEDs[id] + 6; // data length = 3n + 6
 	char buf[len] = {0};
 	getSeq(id, buf, color);
 	bcm2835_spi_transfern(test_seq, dataLen);

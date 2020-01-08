@@ -23,7 +23,7 @@ For example, transfer data to LED matrix that has 88 LEDs at address `ID = 0x1`.
 ```
 | Start | Strip ID |  Data length  |    (DATA) Green-Red-Blue ... Green-Red-Blue     |   Stop    |
 --------+----------+---------------+------------------+------------------+-----------+------------
-| 0xFF  |   0x1    |     0x0108    |   R1 - G1 - B1   |   R2 - G2 - B2   |  .......  | 0xFF 0xFF |
+| 0xFF  |   0x1    |     0x0058    |   R1 - G1 - B1   |   R2 - G2 - B2   |  .......  | 0xFF 0xFF |
 ```
 
 ## References

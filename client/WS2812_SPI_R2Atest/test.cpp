@@ -6,8 +6,8 @@
 
 using namespace std;
 
-#define TEST_TIMES 10
-#define TEST_DELAY 500000 // us 
+#define TEST_TIMES 20
+#define TEST_DELAY 100000 // us 
 
 #define COLOR1 0xFFEE00
 #define COLOR2 0x11EE22

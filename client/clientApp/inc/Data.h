@@ -1,5 +1,5 @@
-#ifndef DATA_H
-#define DATA_H
+#ifndef _DATA_H_
+#define _DATA_H_
 #include <vector>
 #include <string>
 #include <iostream>
@@ -30,7 +30,7 @@ public:
     void set_end_time(const double& d) { end_time = d; }
     void set_LED_part(const string&, const double& ); // set each LED_part one by one 
     void set_EL_part(int[7]); // set every EL_parts for one time
-    void print();
+    void print() const;
 private:
     double start_time;
     double end_time;
@@ -43,7 +43,7 @@ class EL_part { // for each part of EL
     friend class Person;
 public:
     EL_part(const int& s){ brightness = uint16_t(s); }
-    uint16_t get_brightness() { return brightness; }
+    uint16_t get_brightness() const { return brightness; }
 private:
     uint16_t brightness;
 };
@@ -53,9 +53,9 @@ class LED_part { // for each part of LED
     friend class Person;
 public:
     LED_part(const string&, const double&); 
-    string get_path() { return path; }
-    double get_alpha(){ return alpha; }
-    void print();
+    string get_path() const { return path; }
+    double get_alpha() const { return alpha; }
+    void print() const;
 private:
     string path;  // LED array path
     double alpha; // for brightness
@@ -63,4 +63,4 @@ private:
     uint8_t* RGB_data;
 };
 
-#endif
+#endif // _DATA_H_

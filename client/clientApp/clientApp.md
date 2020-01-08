@@ -15,7 +15,6 @@
 - paths
     - path of LED arrays
 
-
 - Person
     - time_line(vector of execute)
         - start_time

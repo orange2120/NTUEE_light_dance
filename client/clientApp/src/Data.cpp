@@ -22,7 +22,7 @@ void Person::set_execute(const Execute& e) {
     time_line.push_back(e); 
 }
 
-void Execute::print()
+void Execute::print() const
 {
     cout << "\t" << "\"Start\": " << start_time << "," << endl;
     cout << "\t" << "\"End\": " << end_time << "," << endl;
@@ -60,7 +60,7 @@ LED_part::LED_part(const string& s, const double& d):path(s), alpha(d) {
     }
 }
 
-void LED_part::print() 
+void LED_part::print() const
 {
     cout << "[";
     for(uint i = 0; i < dataSize; ++i) {
