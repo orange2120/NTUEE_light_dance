@@ -8,8 +8,6 @@
 
 using namespace std;
 
-
-
 int main(int argc, char *argv[]) // arg == person id
 {
     Person people; // dancer

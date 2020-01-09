@@ -13,7 +13,7 @@ Light dance system for 2020 NTUEE night
 Control dancers via a Wi-Fi router. 
 
 ### Client
-Every dancer is a client. Receive commands from server.
+Each dancer is a client device. Receive commands from the server.
 
 ## Orange Hsu is not god
 
@@ -23,6 +23,19 @@ usage for develop:
 ``` npm run editor:dev ```
 
 ## Directory structure
+```
+NTUEE_light_dance
+├── asset
+│   ├── Arduino
+│   └── clientApp
+│
+├── client
+├── data
+├── editor
+├── server
+└── test
+```
+
 ### asset
 ### client
 Client program including RPi and Arduino 
