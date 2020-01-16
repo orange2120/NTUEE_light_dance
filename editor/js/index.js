@@ -1,6 +1,8 @@
 import * as PIXI from 'pixi.js'
+// import Constant
+import { DISPLAY_WIDTH, DISPLAY_HEIGHT } from './constants'
 
-import Simulator from './simulator.js'
+import Simulator from './simulator/simulator.js'
 import '../css/index.css'
 // read data
 import load from '../../data/load.json'
@@ -13,8 +15,8 @@ const music = load.Music
 
 // add simulate page
 const app = new PIXI.Application({
-    width: 1200,
-    height: 700,
+    width: DISPLAY_WIDTH,
+    height: DISPLAY_HEIGHT,
     backgroundColor: 0x555555,
 })
 document.body.appendChild(app.view)

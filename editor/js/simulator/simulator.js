@@ -1,4 +1,5 @@
 import * as PIXI from 'pixi.js'
+import { DANCER_NUM, DISPLAY_WIDTH, DISPLAY_HEIGHT } from '../constants'
 
 class Simulator {
     constructor(app, control, LEDs) {
@@ -14,7 +15,7 @@ class Simulator {
     }
     getIndex(t) { // given time
         // update this.time and this.index (binary search)
-        // for now three dancer from time 0
+        // for now three dancer from index 0
         return [0, 0, 0]
     }
     checkUpdate() {
