@@ -1,5 +1,6 @@
 import * as PIXI from 'pixi.js'
-import { DANCER_NUM, DISPLAY_WIDTH, DISPLAY_HEIGHT } from '../constants'
+import Dancer from 'dancer'
+import { DANCER_NUM, FPS } from '../constants'
 
 class Simulator {
     constructor(app, control, LEDs) {
@@ -19,7 +20,7 @@ class Simulator {
         return [0, 0, 0]
     }
     checkUpdate() {
-        this.time += 30
+        this.time += FPS
         this.control.map((time_line, i) => {
             const ind = this.index[i] // time line index of this dancer
             if (this.index[i] >= time_line.length) return
