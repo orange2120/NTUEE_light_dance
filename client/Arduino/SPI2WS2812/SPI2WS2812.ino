@@ -1,9 +1,17 @@
+/****************************************************************************
+  FileName     [ SPIWS2812.h ]
+  PackageName  [ Arduino ]
+  Synopsis     [ SPI to WS2812 LED light strip Arduino program ]
+  Author       [  ]
+  Copyright    [ Copyleft(c) , NTUEE, Taiwan ]
+****************************************************************************/
+
 #include <SPI.h>
 #include "Adafruit_NeoPixel.h"
 
 // #define DEBUG
 
-#define NUM_STRIPS  5 // total 5 WS2812 strips
+#define NUM_STRIPS  5
 #define COLOR_ORDER NEO_GRB
 #define DATA_RATE   NEO_KHZ800
 
@@ -12,7 +20,7 @@
 #define START_BYTE  0xFF
 #define STOP_BYTE   0xFF
 
-const uint8_t NUM_LEDS[] = {22,96,60,36,36};
+const uint8_t NUM_LEDS[] = {88,22,60,36,36};
 const uint8_t LED_PIN[]  = {8, 6, 7, 5, 9};
 
 volatile uint16_t cnt = 0;
@@ -50,7 +58,7 @@ void loop()
     #ifdef DEBUG
         Serial.println("received!");
     #endif
-        delay(1);
+        delay(5);
 
         if (buf[0] == START_BYTE)
             sendToStrip();
