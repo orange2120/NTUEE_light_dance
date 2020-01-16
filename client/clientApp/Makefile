@@ -5,37 +5,30 @@ OPTFLAGS = -g
 
 SRC_DIR = src/
 INC_DIR = inc/
+BIN_DIR = bin/
+LIB_DIR = lib/
 
-# EXEC = clientApp
-BIN = bin/
+EXEC = clientApp
+BIN	= $(addprefix $(BIN_DIR), $(EXEC))
 INC = -I$(INC_DIR)
 SRC = $(wildcard $(SRC_DIR)*.cpp)
-OBJ = $(SRC:%.cpp=%.o) #$(patsubst %.c, %.o, $(SRC))
-LIB = -lbcm2835
+OBJ = $(SRC:%.cpp=%.o)
+LIB = -lbcm2835 -lpca9685 -L./$(LIB_DIR)
+LIBDEP = $(LIB_DIR)libpca9685.a
+# LDFLAGS += -L$(LIB_DIR)
 
 TARGET = clientApp
 
 .PHONY: all clean
 
-all: $(TARGET)
+all: $(BIN)
 
-$(TARGET): $(OBJ)
-	echo $(SRC)
-	$(CXX) $(CFLAGS) $(OPTFLAGS) $(LDFLAGS) $^ -o $(BIN)/$@
+$(BIN): $(OBJ)
+	$(CXX) $(CFLAGS) $(OPTFLAGS) $(LDFLAGS) $(OBJ) $^ -o $(BIN)
 
 %.o : %.cpp
-	@$(ECHO) "> compiling: $<"
-	$(CXX) $(CFLAGS) $(INC) $(LIB) -c $< -o $@
-
-
-# EL.o: $(INC)/EL.h
-# 	$(CXX) $(CFLAGS) $(OPTFLAGS) $< -o $(SRC)/$@
-
-# LED_strip.o: $(INC)/LED_strip.h $(SRC)/LED_strip.cpp
-# 	$(CXX) $(CFLAGS) $(OPTFLAGS) $< -o $(SRC)/$@
-
-# Data.o: $(SRC)/
-# 	$(CXX) $(CFLAGS) &(OPTFLAGS) $< -o $(SRC)/$@
+	@echo "> compiling: $<"
+	$(CXX) $(CFLAGS) $(INC) $(LIB) $(LIBDEP) -c $< -o $@
 
 clean:
 	rm -f $(TARGET) $(OBJ)
