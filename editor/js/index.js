@@ -7,7 +7,7 @@ import '../css/index.css'
 // read data
 import load from '../../data/load.json'
 import control from '../../data/control_test.json'
-
+// ddd
 // get LEDs
 const LEDs = load.LED
 // add waveform
