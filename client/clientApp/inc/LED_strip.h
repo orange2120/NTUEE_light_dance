@@ -33,7 +33,7 @@ class LED_Strip
   
   private:
     uint8_t _nStrips = 0;
-    uint8_t *_nLEDs;
+    uint16_t *_nLEDs;
     // SPI_comm spi;
 
 };

@@ -11,18 +11,16 @@ using namespace std;
 int main(int argc, char *argv[]) // arg == person id
 {
     Person people; // dancer
-    init();
+    // init();
 
     int dancer_id = atoi(argv[0]);
     string cmd;
     bool end = false;
     while(!end) {
         cin >> cmd;
-        if(cmd == "run") run(dancer_id);
+        cout << ">> "  << cmd << endl;
+        // if(cmd == "run") run(dancer_id);
     }
     
     printf("Hello World!\n");
 }
-
-
-

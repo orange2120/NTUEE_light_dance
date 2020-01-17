@@ -7,9 +7,10 @@
 ****************************************************************************/
 #include "LED_strip.h"
 
-LED_Strip::LED_Strip(const uint8_t &nStrips,const uint16_t *nLEDs) : _nStrips(nStrips)
+// constructor : number of LED strips, LED number array
+LED_Strip::LED_Strip(const uint8_t &nStrips, const uint16_t *nLEDs) : _nStrips(nStrips)
 {
-	_nLEDs = new uint8_t[nStrips];
+	_nLEDs = new uint16_t[nStrips];
 	for (uint8_t i = 0; i < nStrips; ++i)
 		_nLEDs[i] = nLEDs[i];
 

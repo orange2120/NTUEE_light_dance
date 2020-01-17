@@ -12,3 +12,4 @@ test: test.cpp $(LIB)
 
 clean:
 	rm -f $(TARGET)
+	@echo "done."

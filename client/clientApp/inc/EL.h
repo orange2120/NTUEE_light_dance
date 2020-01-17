@@ -9,40 +9,46 @@
 #ifndef _EL_H_
 #define _EL_H_
 
+#include <bcm2835.h>
 #include "pca9685.h"
 
 class EL
 {
   public:
-    EL(const uint8_t nEL) : _nEL(nEL) {};
-    ~EL(){};
+    EL(const uint8_t nEL) : _nEL(nEL) {
+      _dutyCycle = new uint16_t[nEL];
+    };
+    ~EL(){
+      delete _dutyCycle;
+    };
 
     void setEL(const uint8_t &id, const uint16_t &dt) {
-        _dutyCycle = dt;
+        _dutyCycle[id] = dt;
         pca.Write(CHANNEL(id), VALUE(dt));
     };
 
-    uint16_t getDutyCycle(const uint8_t &id) const { 
-      uint16_t pOn, Off;
-      pca.Read(CHANNEL(id), pOn, pOff);
+    uint16_t getDutyCycle(const uint8_t &id) { 
+      uint16_t pOn, pOff;
+      pca.Read(CHANNEL(id), &pOn, &pOff);
       
       return (pOff - pOn) / 4096;
     };
 
     // turn off all the ELs
-    void offAll() const {
+    void offAll() {
         for (uint8_t i = 0; i < _nEL; ++i)
             pca.Write(CHANNEL(i), VALUE(0));
     };
 
     // turn on all the ELs
-    void onAll() const { 
+    void onAll() { 
         for (uint8_t i = 0; i < _nEL; ++i)
             pca.Write(CHANNEL(i), VALUE(4095));
     };
 
   private:
     uint8_t _nEL; // number of ELs
+    uint16_t *_dutyCycle; // range 0~4095
     PCA9685 pca;
 };
 

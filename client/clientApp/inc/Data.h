@@ -1,9 +1,14 @@
 #ifndef _DATA_H_
 #define _DATA_H_
+
 #include <vector>
+#include <string>
+#include <fstream>
 #include <string>
 #include <iostream>
 #include <map>
+
+#include "nlohmann/json.hpp"
 
 using namespace std;
 
