@@ -27,4 +27,4 @@ $(BIN): $(OBJ)
 	$(CXX) $(CFLAGS) $(INC) $(LIB) $(LIBDEP) -c $< -o $@
 
 clean:
-	rm -f $(TARGET) $(OBJ)
+	rm -f $(BIN) $(OBJ)

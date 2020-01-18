@@ -26,10 +26,10 @@ usage for develop:
 ```
 NTUEE_light_dance
 ├── asset
+├── client
 │   ├── Arduino
 │   └── clientApp
 │
-├── client
 ├── data
 ├── editor
 ├── server
@@ -49,4 +49,4 @@ Testing program and files
 
 ## References
 - [2019 NTUEE light dance](https://github.com/andyh0913/NTUEE_light_dance)
-- [Youtube video](https://www.youtube.com/watch?v=5fHv55kS9Lo)
+- [Youtube video playlist](https://www.youtube.com/watch?v=5fHv55kS9Lo)

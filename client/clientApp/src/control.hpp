@@ -1,10 +1,12 @@
-#include "json.hpp"
+#include <unistd.h>
+#include "nlohmann/json.hpp"
 #include "Data.h"
 #include "definition.h"
 #include "EL.h"
 #include "LED_strip.h"
 #include "time.h"
-#include <unistd.h>
+
+using json = nlohmann::json;
 
 void ReadJson(json& data, vector<Person>& people)
 {
@@ -38,39 +40,37 @@ void ReadJson(json& data, vector<Person>& people)
 void init() {
     ifstream infile("./json/test1.json");
     json data = json::parse(infile);
-    ReadJson(data, people);
+    // ReadJson(data, people);
 }
 
 void sendSig(int id) {
     EL el(NUM_OF_EL);
-    LED_Strip leds;
+    // LED_Strip leds();
     
 }
 
 void run(int id) {
+    /*
     long time = 0;
     Person &p = people[id]; // FIXME:
     while(true) 
     {
         if(time >= p.time_line[p.t_index].end_time) {
             ++p.t_index;
-            sendSig();
+            sendSig(1);
         }
         usleep(30000); // us
         time += 30;
     }
+    */
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+// system call handler
+void sigint_handler(int sig)
+{
+    printf("Catch SIGINT signal...\n");
+    // TODO
+    // turn off ELs, LEDS, close file...
+    printf("exiting...\n");
+    exit(1);
+}
