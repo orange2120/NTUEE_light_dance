@@ -71,6 +71,13 @@ void sigint_handler(int sig)
     printf("Catch SIGINT signal...\n");
     // TODO
     // turn off ELs, LEDS, close file...
-    printf("exiting...\n");
+    printf("Exiting...\n");
     exit(1);
+}
+
+void sig_pause(int sig)
+{
+    printf("Pause!\n");
+    // printf("Enter any to continue:\n");
+    // cin.get();
 }

@@ -1,16 +1,22 @@
 # client Application
 
+## Usage
+```
+$ ./clientApp <dancer ID>
+```
 
-## Dependencies
-- [bcm2835](https://www.airspayce.com/mikem/bcm2835/)
-- [rpidmx512](https://github.com/vanvught/rpidmx512)
-- [JSON for Modern C++](https://github.com/nlohmann/json)
+Catch system `signal` to do following actions:
+- `2/SIGINT` (ctrl + c): Exit the process. Turn off all the ELs, LEDs.
+- `10/SIGUSR1`: Pause the process, waiting for `` to continue.
 
-## Argument
-- dancer id
+For testing:  
+```bash
+$ kill -s SIGINT <pid>
+$ kill -s SIGUSR1 <pid>
+$ ps -C clientApp -o pid=|xargs kill -2
+```
 
-# Data.h
-
+## Data.h
 
 - paths
     - path of LED arrays
@@ -37,3 +43,8 @@
 - 0:
 - 1:
 - 2:
+
+## Dependencies
+- [bcm2835](https://www.airspayce.com/mikem/bcm2835/)
+- [rpidmx512](https://github.com/vanvught/rpidmx512)
+- [JSON for Modern C++](https://github.com/nlohmann/json)

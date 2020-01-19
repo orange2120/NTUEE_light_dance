@@ -9,11 +9,9 @@
 #ifndef _LED_STRIP_H_
 #define _LED_STRIP_H_
 
+#include <cstdio>
 #include <unistd.h>
 #include <bcm2835.h>
-#include <cstdio>
-
-// #include "SPI_comm.h"
 
 #define DATA_OFFSET   4     // real data after start bytes
 #define START_BYTE    0xFF
@@ -34,8 +32,6 @@ class LED_Strip
   private:
     uint8_t _nStrips = 0;
     uint16_t *_nLEDs;
-    // SPI_comm spi;
-
 };
 
 #endif // _LED_STRIP_H_

@@ -48,7 +48,6 @@ void LED_Strip::sendToStrip(const uint8_t &id, const char *color)
 	char buf[dataLen] = {0};
 	getSeq(id, dataLen, buf, color);
 	bcm2835_spi_transfern(buf, dataLen);
-	// spi.send(dataLen, buf);
 }
 
 

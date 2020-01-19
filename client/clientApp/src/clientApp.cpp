@@ -11,7 +11,6 @@
 #include <fstream>
 #include <signal.h>
 
-// #include "Data.h"
 #include "control.hpp"
 #include "definition.h"
 
@@ -19,8 +18,9 @@ using namespace std;
 
 int main(int argc, char *argv[]) // arg == person id
 {
-    struct sigaction handler;
-    handler.sa_handler = sigint_handler;
+    struct sigaction handler_int, handler_usr1;
+    handler_int.sa_handler = sigint_handler;
+    handler_usr1.sa_handler = sig_pause;
 
     Person people; // dancer
 
@@ -30,14 +30,15 @@ int main(int argc, char *argv[]) // arg == person id
         return -1;
     }
 
-    if (sigfillset(&handler.sa_mask) < 0)
+    if (sigfillset(&handler_int.sa_mask) < 0 || sigfillset(&handler_usr1.sa_mask) < 0)
     {
         perror("Fillset error!\n");
         return -1;
     }
-    handler.sa_flags = 0;
+    handler_int.sa_flags = 0;
+    handler_usr1.sa_flags = 0;
 
-    if (sigaction(SIGINT, &handler, 0) < 0)
+    if (sigaction(SIGINT, &handler_int, 0) < 0 || sigaction(SIGUSR1, &handler_usr1, 0) < 0 )
     {
         perror("[ERROR] sigaction failed!\n");
         return -1;
@@ -52,6 +53,7 @@ int main(int argc, char *argv[]) // arg == person id
     printf("Dancer ID = %d\n", dancer_id);
 
     while(!end) {
+        cin.clear();
         cin >> cmd;
         cout << ">> "  << cmd << endl;
         if(cmd == "run") 
@@ -59,7 +61,7 @@ int main(int argc, char *argv[]) // arg == person id
             printf("Start!\n");
             // run(dancer_id);
         }
+        // printf("test\n");
     }
-    
-    printf("Hello World!\n");
+    return 0;
 }

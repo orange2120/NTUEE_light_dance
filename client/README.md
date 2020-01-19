@@ -1,8 +1,12 @@
-# Client running on Raspberry Pi
+# Client 
+
 <img src="https://img.shields.io/badge/platform-linux-lightgrey.svg">
 
 ## TODOs
-Integrate the system.  
+Integrate the system with web interface.  
+
+## clientApp
+client application is running on Raspberry Pi.  
 
 ## RPi to Arduino SPI data transfer protocol for WS2812
 Data frame:  
