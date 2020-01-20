@@ -8,8 +8,8 @@ import '../css/index.css'
 import load from '../../data/load.json'
 import control from '../../data/control_test.json'
 
-// get LEDs
-const LEDs = load.LED
+// // get LEDs
+// const LEDs = load.LED
 // add waveform
 const music = load.Music
 
@@ -22,5 +22,5 @@ const app = new PIXI.Application({
 document.body.appendChild(app.view)
 
 // simulate
-const sim = new Simulator(app, control, LEDs)
+const sim = new Simulator(app, control, load.Texture)
 sim.exec(0)

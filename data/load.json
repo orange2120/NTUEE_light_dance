@@ -1,8 +1,7 @@
 {
     "Music": "",
-    "LED": [ 
-        "LEDH1", 
-        "LEDH2",
-        "LEDH3"
-    ]
+    "Texture": {
+        "LEDH": ["LEDH1", "LEDH2", "LEDH3"]
+    }
+
 }
