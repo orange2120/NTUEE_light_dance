@@ -25,28 +25,35 @@ usage for develop:
 ## Directory structure
 ```
 NTUEE_light_dance
+├── accessories
 ├── asset
+├── client
 │   ├── Arduino
 │   └── clientApp
 │
-├── client
 ├── data
 ├── editor
+│   ├── css
+│   ├── html
+│   └── js
+│
 ├── server
 └── test
 ```
+### accessories
+For 道具
 
 ### asset
 ### client
-Client program including RPi and Arduino 
+Client program including RPi and Arduino  
 
 ### data
 ### editor
-Dancing parameter online editor and simulator
+Dancing parameter online editor and simulator  
 
 ### test
-Testing program and files
+For Testing Everything  
 
 ## References
 - [2019 NTUEE light dance](https://github.com/andyh0913/NTUEE_light_dance)
-- [Youtube video](https://www.youtube.com/watch?v=5fHv55kS9Lo)
+- [Youtube video playlist](https://www.youtube.com/watch?v=5fHv55kS9Lo)

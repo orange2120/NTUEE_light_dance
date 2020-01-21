@@ -7,9 +7,10 @@
 ****************************************************************************/
 #include "LED_strip.h"
 
-LED_Strip::LED_Strip(const uint8_t &nStrips,const uint16_t *nLEDs) : _nStrips(nStrips)
+// constructor : number of LED strips, LED number array
+LED_Strip::LED_Strip(const uint8_t &nStrips, const uint16_t *nLEDs) : _nStrips(nStrips)
 {
-	_nLEDs = new uint8_t[nStrips];
+	_nLEDs = new uint16_t[nStrips];
 	for (uint8_t i = 0; i < nStrips; ++i)
 		_nLEDs[i] = nLEDs[i];
 
@@ -47,7 +48,6 @@ void LED_Strip::sendToStrip(const uint8_t &id, const char *color)
 	char buf[dataLen] = {0};
 	getSeq(id, dataLen, buf, color);
 	bcm2835_spi_transfern(buf, dataLen);
-	// spi.send(dataLen, buf);
 }
 
 
