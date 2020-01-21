@@ -6,8 +6,9 @@
 #include "nlohmann/json.hpp"
 
 using json = nlohmann::json;
-string LED_NAME[1] = { "LEDH" };
-char   EL_NAME[7]  = { 'A', 'B', 'C', 'D', 'E', 'F', 'G'};
+
+int EL_part::el_count = 0;
+int LED_part::led_count = 0;
 
 void Person::print()
 {
@@ -28,21 +29,24 @@ void Execute::print() const
     cout << "\t" << "\"End\": " << end_time << "," << endl;
     cout << "\t" << "\"Status\": {" << endl;
     for(size_t i = 0; i < LED_parts.size(); ++i) {
-        cout << "\t\t\"" << LED_NAME[i] << "\": {" << endl;
-        cout << "\t\t\t\"path\": \"" << LED_parts[i].get_path() << "\"," << endl;
-        cout << "\t\t\t\"alpha\": \"" << LED_parts[i].get_alpha() << endl;
+        cout << "\t\t\"" << Part_EL(i) << "\": {" << endl;
+        cout << "\t\t\t\"path\": \"" << LED_parts[i].path << "\"," << endl;
+        cout << "\t\t\t\"alpha\": \"" << LED_parts[i].alpha << endl;
         cout << "\t\t}," << endl;
     }
 
     for(size_t i = 0; i < EL_parts.size(); ++i) {
-        cout << "\t\t\"" << EL_NAME[i] << "\": " << EL_parts[i].get_brightness();
+        cout << "\t\t\"" << Part_LED(i) << "\": " << EL_parts[i].get_brightness();
         if(i != EL_parts.size()-1) cout << ",";
         cout << endl;
     }
     cout << "\t}" << endl;
 }
 
-void Execute::set_LED_part(const string& s, const double& d) { LED_parts.push_back(LED_part(s, d)); }
+void Execute::set_LED_part(const string& s, const double& d) { 
+    LED_part led(s, d);
+    LED_parts.push_back(led); 
+}
 void Execute::set_EL_part(int a[7]) { // set every EL_parts for one time
     for(int i = 0; i < 7; ++i) {
         EL_parts.push_back(EL_part(a[i]));
@@ -53,19 +57,17 @@ LED_part::LED_part(const string& s, const double& d):path(s), alpha(d) {
     ifstream infile(s);
     json RGB = json::parse(infile);
     dataSize = RGB.size();
-    RGB_data = new uint8_t[dataSize];
+    RGB_data = new char[dataSize];
 
-    for(size_t i = 0; i < dataSize; ++i) {
-        RGB_data[i] = uint8_t(RGB[i]);
+    for(uint8_t i = 0; i < dataSize; ++i) {
+        int tmp = RGB[i];
+        RGB_data[i] = char(tmp);
     }
 }
 
-void LED_part::print() const
-{
-    cout << "[";
-    for(uint i = 0; i < dataSize; ++i) {
-        cout << int(RGB_data[i]);
-        if(i != dataSize-1) cout << ", ";
-        else cout << "]" << endl;
+void LED_part::print() const {
+    for(uint8_t i = 0; i < dataSize; ++i) {
+        cout << RGB_data[i];
     }
+    cout << endl;
 }

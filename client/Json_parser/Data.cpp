@@ -43,6 +43,7 @@ void Execute::print()
 }
 
 void Execute::set_LED_part(const string& s, const double& d) { LED_parts.push_back(LED_part(s, d)); }
+
 void Execute::set_EL_part(int a[7]) { // set every EL_parts for one time
     for(int i = 0; i < 7; ++i) {
         EL_parts.push_back(EL_part(a[i]));
