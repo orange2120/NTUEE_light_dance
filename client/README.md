@@ -8,6 +8,24 @@ Integrate the system with web interface.
 ## clientApp
 client application is running on Raspberry Pi.  
 
+## Arduino/SPI2WS2812
+Receive RGB data via from RPi, convert ton WS2812 signal. 
+
+## WS2812_SPI_R2Atest
+Test program for SPI protocol to WS2812 LED strip from RPi to Ardunio.
+
+## PCA9685_test
+Test program for PCA9685 PWM module.
+
+## Hardware architecture
+```
+ Wi-Fi \|/  ┌─────────┐    I2C
+        └───│         │────────────── PCA9685 ───> ELs
+            │   RPi   │    SPI     ┌─────────┐
+            │         │────────────│ Arduino │───> LED strips
+            └─────────┘            └─────────┘
+```
+
 ## RPi to Arduino SPI data transfer protocol for WS2812
 Data frame:  
 Assume there are n LEDs.  

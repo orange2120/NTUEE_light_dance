@@ -5,11 +5,11 @@
             "End": 1000,
             "Status": {
                 "LEDH": {
-                    "path": "LEDH1",
+                    "path": "./json/test1.png.json",
                     "alpha": 1
                 },
                 "A": 3000, 
-                "B": 3000,
+                "B": 0,
                 "C": 3000,
                 "D": 3000,
                 "E": 3000,
@@ -22,12 +22,12 @@
             "End": 2000,
             "Status": {
                 "LEDH": {
-                    "path": "LEDH2",
+                    "path": "./json/test2.png.json",
                     "alpha": 1
                 },
-                "A": 3000, 
+                "A": 0, 
                 "B": 3000,
-                "C": 3000,
+                "C": 0,
                 "D": 3000,
                 "E": 3000,
                 "F": 3000,
@@ -39,11 +39,11 @@
             "End": 4000,
             "Status": {
                 "LEDH": {
-                    "path": "LEDH2",
+                    "path": "./json/test3.png.json",
                     "alpha": 0.5
                 },
                 "A": 3000, 
-                "B": 3000,
+                "B": 0,
                 "C": 3000,
                 "D": 3000,
                 "E": 3000,
@@ -56,7 +56,7 @@
             "End": 5000,
             "Status": {
                 "LEDH": {
-                    "path": "LEDH3",
+                    "path": "./json/test1.png.json",
                     "alpha": 0.8
                 },
                 "A": 3000, 
@@ -75,7 +75,7 @@
             "End": 1000,
             "Status": {
                 "LEDH": {
-                    "path": "LEDH1",
+                    "path": "./json/test1.png.json",
                     "alpha": 1
                 },
                 "A": 3000, 
@@ -92,7 +92,7 @@
             "End": 2000,
             "Status": {
                 "LEDH": {
-                    "path": "LEDH2",
+                    "path": "./json/test1.png.json",
                     "alpha": 1
                 },
                 "A": 3000, 
@@ -109,7 +109,7 @@
             "End": 4000,
             "Status": {
                 "LEDH": {
-                    "path": "LEDH2",
+                    "path": "./json/test1.png.json",
                     "alpha": 0.5
                 },
                 "A": 3000, 
@@ -126,7 +126,7 @@
             "End": 5000,
             "Status": {
                 "LEDH": {
-                    "path": "LEDH3",
+                    "path": "./json/test1.png.json",
                     "alpha": 0.8
                 },
                 "A": 3000, 
@@ -145,10 +145,10 @@
             "End": 1000,
             "Status": {
                 "LEDH": {
-                    "path": "LEDH1",
+                    "path": "./json/test1.png.json",
                     "alpha": 1
                 },
-                "A": 3000, 
+                "A": 0, 
                 "B": 3000,
                 "C": 3000,
                 "D": 3000,
@@ -162,7 +162,7 @@
             "End": 2000,
             "Status": {
                 "LEDH": {
-                    "path": "LEDH2",
+                    "path": "./json/test1.png.json",
                     "alpha": 1
                 },
                 "A": 3000, 
@@ -179,7 +179,7 @@
             "End": 4000,
             "Status": {
                 "LEDH": {
-                    "path": "LEDH2",
+                    "path": "./json/test1.png.json",
                     "alpha": 0.5
                 },
                 "A": 3000, 
@@ -196,7 +196,7 @@
             "End": 5000,
             "Status": {
                 "LEDH": {
-                    "path": "LEDH3",
+                    "path": "./json/test1.png.json",
                     "alpha": 0.8
                 },
                 "A": 3000, 

@@ -10,21 +10,21 @@
 // constructor : number of LED strips, LED number array
 LED_Strip::LED_Strip(const uint8_t &nStrips, const uint16_t *nLEDs) : _nStrips(nStrips)
 {
-	_nLEDs = new uint16_t[nStrips];
-	for (uint8_t i = 0; i < nStrips; ++i)
-		_nLEDs[i] = nLEDs[i];
-
 	// SPI init
     if (!bcm2835_init())
 	{
 		printf("bcm2835_init failed. Are you running as root??\n");
-		return;
+		exit(-1);
 	}
 	if (!bcm2835_spi_begin())
 	{
 		printf("bcm2835_spi_begin failed. Are you running as root??\n");
-		return;
+		exit(-1);
 	}
+
+	_nLEDs = new uint16_t[nStrips];
+	for (uint8_t i = 0; i < nStrips; ++i)
+		_nLEDs[i] = nLEDs[i];
 
     bcm2835_spi_setBitOrder(BCM2835_SPI_BIT_ORDER_MSBFIRST);
 	bcm2835_spi_setDataMode(BCM2835_SPI_MODE0);

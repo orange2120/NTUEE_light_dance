@@ -1,4 +1,5 @@
 #include "Data.h"
+#include "definition.h"
 
 using json = nlohmann::json;
 
@@ -14,8 +15,8 @@ void Person::print()
     }
 }
 
-void Person::set_execute(const Execute& e) { 
-    time_line.push_back(e); 
+void Person::set_execute(Execute e) { 
+    time_line.push_back(e);
 }
 
 void Execute::print() const
@@ -25,8 +26,8 @@ void Execute::print() const
     cout << "\t" << "\"Status\": {" << endl;
     for(size_t i = 0; i < LED_parts.size(); ++i) {
         cout << "\t\t\"" << Part_EL(i) << "\": {" << endl;
-        cout << "\t\t\t\"path\": \"" << LED_parts[i].path << "\"," << endl;
-        cout << "\t\t\t\"alpha\": \"" << LED_parts[i].alpha << endl;
+        cout << "\t\t\t\"path\": \"" << LED_parts[i]->path << "\"," << endl;
+        cout << "\t\t\t\"alpha\": \"" << LED_parts[i]->alpha << endl;
         cout << "\t\t}," << endl;
     }
 
@@ -38,25 +39,35 @@ void Execute::print() const
     cout << "\t}" << endl;
 }
 
-void Execute::set_LED_part(const string& s, const double& d) { 
-    LED_part led(s, d);
-    LED_parts.push_back(led); 
+void Execute::set_LED_part(const string& s, const double& d) {
+    LED_part* tmp = new LED_part(s, d);
+    LED_parts.push_back(tmp);
 }
-void Execute::set_EL_part(int a[7]) { // set every EL_parts for one time
-    for(int i = 0; i < 7; ++i) {
+void Execute::set_EL_part(int a[NUM_OF_EL]) { // set every EL_parts for one time
+    for(int i = 0; i < NUM_OF_EL; ++i) {
         EL_parts.push_back(EL_part(a[i]));
     }
 }
 
 LED_part::LED_part(const string& s, const double& d):path(s), alpha(d) {
+    part = Part_LED(led_count);
+    ++led_count;
     ifstream infile(s);
+    if(!infile.is_open()){
+        cerr << "[Error] Can't open file \"" << s << "\"." << endl;
+        dataSize = 0;
+        RGB_data = 0;
+        return;
+    }
+
     json RGB = json::parse(infile);
     dataSize = RGB.size();
-    RGB_data = new char[dataSize];
 
-    for(uint8_t i = 0; i < dataSize; ++i) {
-        int tmp = RGB[i];
-        RGB_data[i] = char(tmp);
+    RGB_data = new char[dataSize];
+    for(int i = 0; i < dataSize; ++i) {
+        double tmp = RGB[i];
+        tmp *= d;
+        RGB_data[i] = char(int(tmp));
     }
 }
 

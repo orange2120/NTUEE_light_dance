@@ -2,17 +2,17 @@
 
 ## Usage
 ```
-$ ./clientApp <dancer ID>
+$ sudo ./clientApp <dancer ID> <Input file path>
 ```
+**Note:** must be run with `sudo` permission.  
 
 Catch system `signal` to do following actions:
 - `2/SIGINT` (ctrl + c): Exit the process. Turn off all the ELs, LEDs.
-- `10/SIGUSR1`: Pause the process, waiting for `` to continue.
+- `19/SIGSTOP`: Pause the process, waiting for `SIGCONT` to continue.
 
 For testing:  
 ```bash
 $ kill -s SIGINT <pid>
-$ kill -s SIGUSR1 <pid>
 $ ps -C clientApp -o pid=|xargs kill -2
 ```
 
