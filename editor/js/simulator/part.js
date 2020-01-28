@@ -12,7 +12,8 @@ class Part {
         this.sprite = new PIXI.Sprite();
         this.sprite.width = PARTARGS[name].width;
         this.sprite.height = PARTARGS[name].height;
-        app.stage.addChild(this.sprite);
+        this.sprite.position.set(PARTARGS[name].x, PARTARGS[name].y);
+        // app.stage.addChild(this.sprite);
         console.log(this);
     }
 }
