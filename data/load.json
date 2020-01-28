@@ -1,6 +1,7 @@
 {
     "Music": "",
     "Texture": {
+        "HAT": ["HAT1"],
         "LEDH": ["LEDH1", "LEDH2", "LEDH3"]
     }
 

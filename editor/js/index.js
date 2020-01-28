@@ -6,7 +6,7 @@ import Simulator from './simulator/simulator.js'
 import '../css/index.css'
 // read data
 import load from '../../data/load.json'
-import control from '../../data/control_test.json'
+import control from '../../data/control_test2.json'
 
 // // get LEDs
 // const LEDs = load.LED
@@ -20,6 +20,9 @@ const app = new PIXI.Application({
     backgroundColor: 0x555555,
 })
 document.body.appendChild(app.view)
+
+// Testing 
+const testSprite = new PIXI.Sprite();
 
 // simulate
 const sim = new Simulator(app, control, load.Texture)

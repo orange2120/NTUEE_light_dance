@@ -1,30 +1,25 @@
-import * as PIXI from 'pixi.js'
 import Dancer from './dancer'
 import { DANCER_NUM, FPS } from '../constants'
 
 class Simulator {
     constructor(app, control, loadTexture) {
-        this.app = app
-        this.control = control
+        this.app = app;
+        this.control = control;
         // set time and timeline array index
-        this.time = 0
-        this.dancers = []
+        this.time = 0;
+        this.dancers = [];
         for (let i = 0;i < DANCER_NUM; ++i) {
-            this.dancers.push(new Dancer(i, control[i], this.app, loadTexture))
+            this.dancers.push(new Dancer(i, control[i], this.app, loadTexture));
         }
     }
-    getIndex(t) { // given time
-        // update this.time and this.index (binary search)
-        // for now three dancer from index 0
-        return [0, 0, 0]
-    }
+
     update() {
         this.dancers.map(dancer => dancer.update(this.time));
     }
 
     setStat(t) {
         this.dancers.map(dancer => dancer.setStat(t)); // set dancers' status
-        this.time = t
+        this.time = t;
     }
 
     initial(t) {
@@ -37,7 +32,7 @@ class Simulator {
         this.interval = setInterval(() => {
             this.time += FPS;
             this.update();
-        }, 30)
+        }, 30);
     }
 }
 
