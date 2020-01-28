@@ -1,10 +1,29 @@
 # 2020 NTUEE Light dance
 Light dance system for 2020 NTUEE night
 
+## Table of contents
+- [2020 NTUEE Light dance](#2020-ntuee-light-dance)
+  - [Table of contents](#table-of-contents)
+  - [Features](#features)
+  - [System architecture](#system-architecture)
+    - [Server](#server)
+    - [Client](#client)
+    - [Editor](#editor)
+  - [Directory structure](#directory-structure)
+    - [accessories](#accessories)
+    - [asset](#asset)
+    - [client](#client-1)
+    - [data](#data)
+    - [editor](#editor-1)
+    - [hardware](#hardware)
+    - [server](#server-1)
+    - [test](#test)
+  - [References](#references)
+
 ## Features
 - Programs for hardward control
 - Light dance control center
-- Sheet light online editor
+- Online sheet light  editor
 - Sheet light simulator
 
 ## System architecture
@@ -15,14 +34,15 @@ Control dancers via a Wi-Fi router.
 ### Client
 Each dancer is a client device. Receive commands from the server.
 
-## Orange Hsu is not god
-
 ### Editor
-usage for develop:
+> usage for develop:
 
-``` npm run editor:dev ```
+```bash
+$ npm run editor:dev 
+```
 
 ## Directory structure
+
 ```
 NTUEE_light_dance
 ├── accessories
@@ -37,6 +57,7 @@ NTUEE_light_dance
 │   ├── html
 │   └── js
 │
+├── hardware
 ├── server
 └── test
 ```
@@ -49,11 +70,20 @@ Client program including RPi and Arduino
 
 ### data
 ### editor
-Dancing parameter online editor and simulator  
+Online dancing parameter editor and simulator  
+
+### hardware
+Hardware design  
+Controllers, circuits etc.  
+
+### server
+Server program for dancers control  
 
 ### test
 For Testing Everything  
 
+Orange Hsu is not god
+
 ## References
 - [2019 NTUEE light dance](https://github.com/andyh0913/NTUEE_light_dance)
-- [Youtube video playlist](https://www.youtube.com/watch?v=5fHv55kS9Lo)
+- [Youtube playlist of light dance](https://www.youtube.com/watch?v=5fHv55kS9Lo)

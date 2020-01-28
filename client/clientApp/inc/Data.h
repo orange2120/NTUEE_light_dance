@@ -48,8 +48,8 @@ class Person { // for every dancer
   public:
     Person():t_index(0) {}
     ~Person() {}
-    void set_execute(Execute); // push execution one by one
-    void print();
+    inline void set_execute(Execute); // push execution one by one
+    void print() const;
     int t_index = 0 ; // place in time_line
     vector<Execute> time_line; // including every execution in time order
   private:

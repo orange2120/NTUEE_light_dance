@@ -7,7 +7,11 @@
 ****************************************************************************/
 #include "LED_strip.h"
 
-// constructor : number of LED strips, LED number array
+/*!
+  @brief constructor of LED strip, initialize SPI communication.
+  @param nStrips number of LED strips
+  @param nLEDs number of LEDs in each strip
+*/
 LED_Strip::LED_Strip(const uint8_t &nStrips, const uint16_t *nLEDs) : _nStrips(nStrips)
 {
 	// SPI init
@@ -41,7 +45,13 @@ LED_Strip::~LED_Strip()
     delete _nLEDs;
 }
 
-// send strip pixel secquence
+/*!
+  @brief Send pixel secquence to LED strip via SPI.
+  @param id Destination strip ID
+  @param color pixel secquence to send
+
+  @note strip ID from 0 to nStrips - 1
+*/
 void LED_Strip::sendToStrip(const uint8_t &id, const char *color)
 {
 	uint16_t dataLen = 3 * _nLEDs[id] + 6; // data length = 3n + 6
@@ -51,7 +61,13 @@ void LED_Strip::sendToStrip(const uint8_t &id, const char *color)
 }
 
 
-// get strip pixel secquence
+/*!
+  @brief 	   Convert pixel secquence to special dataframe for SPI communication.
+  @param id    Destination strip ID
+  @param len   Data length of pixel secquence
+  @param seq   Pixel secquence to send
+  @param color Output dataframe
+*/
 void LED_Strip::getSeq(const uint8_t &id, const uint16_t &len, char *seq,  const char *color)
 {
 	seq[0] = START_BYTE;

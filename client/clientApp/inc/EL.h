@@ -33,6 +33,7 @@ class EL
       delete _dutyCycle;
     };
 
+    // set an EL with given ID and duty cycle
     void setEL(const uint8_t &id, const uint16_t &dt) {
         _dutyCycle[id] = dt;
         pca->Write(CHANNEL(id), VALUE(dt));

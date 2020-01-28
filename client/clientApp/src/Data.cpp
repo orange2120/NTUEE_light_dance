@@ -1,3 +1,11 @@
+/****************************************************************************
+  FileName     [ Data.cpp ]
+  PackageName  [ clientApp ]
+  Synopsis     [ data read, execute ]
+  Author       [  ]
+  Copyright    [ Copyleft(c) , NTUEE, Taiwan ]
+****************************************************************************/
+
 #include "Data.h"
 #include "definition.h"
 
@@ -6,7 +14,7 @@ using json = nlohmann::json;
 int EL_part::el_count = 0;
 int LED_part::led_count = 0;
 
-void Person::print()
+void Person::print() const
 {
     for(size_t i = 0; i < time_line.size(); ++i) {
         cout << "execution " << i << endl << "{" << endl;
@@ -15,26 +23,26 @@ void Person::print()
     }
 }
 
-void Person::set_execute(Execute e) { 
+inline void Person::set_execute(Execute e) { 
     time_line.push_back(e);
 }
 
 void Execute::print() const
 {
-    cout << "\t" << "\"Start\": " << start_time << "," << endl;
-    cout << "\t" << "\"End\": " << end_time << "," << endl;
-    cout << "\t" << "\"Status\": {" << endl;
+    cout << "\t" << "\"Start\": " << start_time << ",\n"
+         << "\t" << "\"End\": " << end_time << ",\n"
+         << "\t" << "\"Status\": {" << endl;
     for(size_t i = 0; i < LED_parts.size(); ++i) {
-        cout << "\t\t\"" << Part_EL(i) << "\": {" << endl;
-        cout << "\t\t\t\"path\": \"" << LED_parts[i]->path << "\"," << endl;
-        cout << "\t\t\t\"alpha\": \"" << LED_parts[i]->alpha << endl;
-        cout << "\t\t}," << endl;
+        cout << "\t\t\"" << Part_EL(i) << "\": {\n"
+             << "\t\t\t\"path\": \"" << LED_parts[i]->path << "\",\n"
+             << "\t\t\t\"alpha\": \"" << LED_parts[i]->alpha << "\n"
+             << "\t\t},\n";
     }
 
     for(size_t i = 0; i < EL_parts.size(); ++i) {
         cout << "\t\t\"" << Part_LED(i) << "\": " << EL_parts[i].get_brightness();
         if(i != EL_parts.size()-1) cout << ",";
-        cout << endl;
+        cout << "\n";
     }
     cout << "\t}" << endl;
 }

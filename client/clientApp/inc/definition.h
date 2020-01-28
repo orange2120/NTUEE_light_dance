@@ -16,7 +16,7 @@
 #define NUM_OF_LED 6 // number of LED strips
 #define PEOPLE_NUM 3 // number of dancer
 
-// Pin of LEDs
+// Number of LEDs in strip
 #define LEDS_0 88
 #define LEDS_1 22
 #define LEDS_2 60
