@@ -1,4 +1,4 @@
-import PIXI from 'pixi.js'
+import * as PIXI from 'pixi.js'
 import { BlackPart, LightPart, LEDPart } from './part.js'
 
 class Dancer {
@@ -32,6 +32,13 @@ class Dancer {
         // this.parts["LEDH"] = new LEDPart(this, this.app, loadTexture["LEDH"]);    // LED Head
         // this.parts["LEDH"] = new LEDPart();
         // this.parts["LEDH"] = new LEDPart();
+
+        // PIXI Rendering
+        this.container = new PIXI.Container();
+        Object.keys(this.parts).map(key => {
+            this.container.addChild(this.parts[key].sprite);
+        });
+        app.stage.addChild(this.container);
     }
 
     getIndex(t) {
