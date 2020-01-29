@@ -1,5 +1,6 @@
-import * as PIXI from 'pixi.js'
-import { BlackPart, LightPart, LEDPart } from './part.js'
+import * as PIXI from 'pixi.js';
+import { BlackPart, LightPart, LEDPart } from './part.js';
+import { DANCERPOS } from '../constants';
 
 class Dancer {
     constructor(id, timeline, app, loadTexture) {
@@ -9,8 +10,6 @@ class Dancer {
         this.id       = id;         // dancer id
         this.timeInd  = 0;          // dancer timeline index
         this.status   = {};         // dancer current status
-        this.posX     = 0;          // dancer position
-        this.posY     = 0;          // dancer position
         this.parts    = {};         // dancer body part
         
         // BlackPart
@@ -22,22 +21,33 @@ class Dancer {
         this.parts["BLPANTS"] = new BlackPart(this, "BLPANTS", this.app);
         this.parts["BLSHOES"] = new BlackPart(this, "BLSHOES", this.app);
 
-        // this.parts["A"]  = new Part();
-        // this.parts["B"]  = new Part();
-        // this.parts["C"]  = new Part();
-        // this.parts["D"]  = new Part();
-        // this.parts["E"]  = new Part();
-        // this.parts["F"]  = new Part();
-        // this.parts["HAT"]  = new LightPart(this, this.app, loadTexture["HAT"]);
+        // LightPart
+        this.parts["HAT1"] =  new LightPart(this, "HAT1", this.app);
+        this.parts["HAT2"] = new LightPart(this, "HAT2", this.app);
+        this.parts["FACE1"] = new LightPart(this, "FACE1", this.app);
+        this.parts["FACE2"] = new LightPart(this, "FACE2", this.app);
+        this.parts["FACE3"] = new LightPart(this, "FACE3", this.app);
+        this.parts["HAND"] = new LightPart(this, "HAND", this.app);
+        this.parts["PANTS1"] = new LightPart(this, "PANTS1", this.app);
+        this.parts["PANTS2"] = new LightPart(this, "PANTS2", this.app);
+        this.parts["INNER2"] = new LightPart(this, "INNER2", this.app);
+        this.parts["INNER1"] = new LightPart(this, "INNER1", this.app);
+        this.parts["COAT1"] = new LightPart(this, "COAT1", this.app);
+        this.parts["COAT2"] = new LightPart(this, "COAT2", this.app);
+        this.parts["COLLAR"] = new LightPart(this, "COLLAR", this.app);
+        this.parts["WRIST"] = new LightPart(this, "WRIST", this.app);
+        this.parts["SHOES1"] = new LightPart(this, "SHOES1", this.app);
+        this.parts["SHOES2"] = new LightPart(this, "SHOES2", this.app);
+
+        // LEDPART
         // this.parts["LEDH"] = new LEDPart(this, this.app, loadTexture["LEDH"]);    // LED Head
-        // this.parts["LEDH"] = new LEDPart();
-        // this.parts["LEDH"] = new LEDPart();
 
         // PIXI Rendering
         this.container = new PIXI.Container();
         Object.keys(this.parts).map(key => {
             this.container.addChild(this.parts[key].sprite);
         });
+        this.container.position.set(DANCERPOS[id].x, DANCERPOS[id].y);
         app.stage.addChild(this.container);
     }
 
