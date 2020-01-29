@@ -45,7 +45,7 @@ class LightPart extends Part {
     updateTexture(bright) {
         console.log("Updating bright", bright);
         this.sprite.texture = this.textures[this.paths[0]];
-        this.sprite.alpha = 1;
+        this.sprite.alpha = bright;
     }
 }
 
