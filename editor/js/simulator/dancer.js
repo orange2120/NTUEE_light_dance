@@ -1,10 +1,9 @@
 import * as PIXI from 'pixi.js';
 import { BlackPart, LightPart, LEDPart } from './part.js';
-import { DANCERPOS } from '../constants';
+import { BLPARTS, LIGHTPARTS, DANCERPOS } from '../constants';
 
 class Dancer {
     constructor(id, timeline, app, loadTexture) {
-        console.log(`Construct Dacner ${id} with`, timeline);
         this.app = app;
         this.timeline = timeline;
         this.id       = id;         // dancer id
@@ -13,32 +12,9 @@ class Dancer {
         this.parts    = {};         // dancer body part
         
         // BlackPart
-        this.parts["BLHAT"] = new BlackPart(this, "BLHAT", this.app);
-        this.parts["BLFACE"] = new BlackPart(this, "BLFACE", this.app);
-        this.parts["BLCOAT"] = new BlackPart(this, "BLCOAT", this.app);
-        this.parts["BLHAND"] = new BlackPart(this, "BLHAND", this.app);
-        this.parts["BLINNER"] = new BlackPart(this, "BLINNER", this.app);
-        this.parts["BLPANTS"] = new BlackPart(this, "BLPANTS", this.app);
-        this.parts["BLSHOES"] = new BlackPart(this, "BLSHOES", this.app);
-
+        BLPARTS.map(blpart => this.parts[blpart] = new BlackPart(this, blpart, this.app));
         // LightPart
-        this.parts["HAT1"] =  new LightPart(this, "HAT1", this.app);
-        this.parts["HAT2"] = new LightPart(this, "HAT2", this.app);
-        this.parts["FACE1"] = new LightPart(this, "FACE1", this.app);
-        this.parts["FACE2"] = new LightPart(this, "FACE2", this.app);
-        this.parts["FACE3"] = new LightPart(this, "FACE3", this.app);
-        this.parts["HAND"] = new LightPart(this, "HAND", this.app);
-        this.parts["PANTS1"] = new LightPart(this, "PANTS1", this.app);
-        this.parts["PANTS2"] = new LightPart(this, "PANTS2", this.app);
-        this.parts["INNER2"] = new LightPart(this, "INNER2", this.app);
-        this.parts["INNER1"] = new LightPart(this, "INNER1", this.app);
-        this.parts["COAT1"] = new LightPart(this, "COAT1", this.app);
-        this.parts["COAT2"] = new LightPart(this, "COAT2", this.app);
-        this.parts["COLLAR"] = new LightPart(this, "COLLAR", this.app);
-        this.parts["WRIST"] = new LightPart(this, "WRIST", this.app);
-        this.parts["SHOES1"] = new LightPart(this, "SHOES1", this.app);
-        this.parts["SHOES2"] = new LightPart(this, "SHOES2", this.app);
-
+        LIGHTPARTS.map(lipart => this.parts[lipart] = new LightPart(this, lipart, this.app));
         // LEDPART
         // this.parts["LEDH"] = new LEDPart(this, this.app, loadTexture["LEDH"]);    // LED Head
 
@@ -48,7 +24,10 @@ class Dancer {
             this.container.addChild(this.parts[key].sprite);
         });
         this.container.position.set(DANCERPOS[id].x, DANCERPOS[id].y);
+        this.container.sortableChildren = true;
         app.stage.addChild(this.container);
+
+        console.log("Dancer Constructed", this);
     }
 
     getIndex(t) {
@@ -81,7 +60,7 @@ class Dancer {
 
     update (t) {
         if (this.checkUpdate(t)) {
-            console.log("Going to update to new status");
+            // console.log("Going to update to new status");
             this.updateTexture();
         }
     }
