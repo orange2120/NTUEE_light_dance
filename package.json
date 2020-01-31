@@ -23,12 +23,15 @@
   "homepage": "https://github.com/orange2120/NTUEE_light_dance#readme",
   "dependencies": {
     "pixi.js": "^5.2.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
     "webpack": "^4.41.4",
     "webpack-dev-middleware": "^3.7.2"
   },
   "devDependencies": {
     "@babel/core": "^7.7.7",
     "@babel/preset-env": "^7.7.7",
+    "@babel/preset-react": "^7.8.3",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
     "cross-env": "^6.0.3",
