@@ -1,8 +1,11 @@
 import * as PIXI from 'pixi.js'
+import React from 'react';
+import ReactDOM from 'react-dom';
 // import Constant
 import { DISPLAY_WIDTH, DISPLAY_HEIGHT } from './constants'
 
 import Simulator from './simulator/simulator.js'
+import Editor from './editor/editor.jsx'
 import '../css/index.css'
 // read data
 import load from '../../data/load.json'
@@ -19,7 +22,7 @@ const app = new PIXI.Application({
     height: DISPLAY_HEIGHT,
     backgroundColor: 0x555555,
 })
-document.body.appendChild(app.view)
+document.getElementById('simulator').appendChild(app.view)
 
 // Testing 
 const testSprite = new PIXI.Sprite();
@@ -27,3 +30,6 @@ const testSprite = new PIXI.Sprite();
 // simulate
 const sim = new Simulator(app, control, load.Texture)
 sim.exec(0)
+
+// editor
+ReactDOM.render(<Editor />, document.querySelector("#editor"));

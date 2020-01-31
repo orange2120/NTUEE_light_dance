@@ -230,6 +230,27 @@
                 "SHOES1": 0,
                 "SHOES2": 0
             }
+        },
+        {
+            "Start": 2000,
+            "Status": {
+                "HAT1": 1,
+                "HAT2": 1,
+                "FACE1": 1,
+                "FACE2": 1,
+                "FACE3": 1,
+                "COAT1": 1,
+                "COAT2": 1,
+                "INNER1": 1,
+                "INNER2": 1,
+                "COLLAR": 1,
+                "WRIST": 1,
+                "HAND": 1,
+                "PANTS1": 1,
+                "PANTS2": 1,
+                "SHOES1": 1,
+                "SHOES2": 1
+            }
         }
     ],
     [

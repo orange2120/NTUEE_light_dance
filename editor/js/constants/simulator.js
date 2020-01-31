@@ -1,6 +1,6 @@
 export const DANCER_NUM = 8
 export const DISPLAY_WIDTH = 1400
-export const DISPLAY_HEIGHT = 900
+export const DISPLAY_HEIGHT = 850
 export const FPS = 30
 // Set All Dancer position
 export const DANCERPOS = [
