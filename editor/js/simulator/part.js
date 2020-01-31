@@ -13,7 +13,7 @@ class Part {
         this.sprite.width = PARTARGS[name].width;
         this.sprite.height = PARTARGS[name].height;
         this.sprite.position.set(PARTARGS[name].x, PARTARGS[name].y);
-        // app.stage.addChild(this.sprite);
+        this.sprite.zIndex = PARTARGS[name].zIndex;
         console.log(this);
     }
 }
@@ -26,7 +26,7 @@ class BlackPart extends Part {
     }
 
     updateTexture(args) {
-        console.log("Error: Black Part shouldn't be updateTexture!!!", args);
+        // console.log("Error: Black Part shouldn't be updateTexture!!!", args);
     }
 }
 
@@ -42,10 +42,10 @@ class LightPart extends Part {
             console.log("This is clicked!!", this);
         });
     }
-    updateTexture(bright) {
-        console.log("Updating bright", bright);
+    updateTexture(alpha) {
+        // console.log("Updating bright", alpha);
         this.sprite.texture = this.textures[this.paths[0]];
-        this.sprite.alpha = bright;
+        this.sprite.alpha = alpha;
     }
 }
 
