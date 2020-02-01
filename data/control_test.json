@@ -1,1 +1,450 @@
-[[{"Start":0,"End":100,"Status":{"LEDH":{"path":"LEDH3","alpha":1}}},{"Start":100,"End":200,"Status":{"LEDH":{"path":"LEDH3","alpha":0.9}}},{"Start":200,"End":300,"Status":{"LEDH":{"path":"LEDH3","alpha":0.8}}},{"Start":300,"End":400,"Status":{"LEDH":{"path":"LEDH3","alpha":0.7}}},{"Start":400,"End":500,"Status":{"LEDH":{"path":"LEDH3","alpha":0.6}}},{"Start":500,"End":600,"Status":{"LEDH":{"path":"LEDH3","alpha":0.5}}},{"Start":600,"End":700,"Status":{"LEDH":{"path":"LEDH3","alpha":0.4}}},{"Start":700,"End":800,"Status":{"LEDH":{"path":"LEDH3","alpha":0.3}}},{"Start":800,"End":900,"Status":{"LEDH":{"path":"LEDH3","alpha":0.2}}},{"Start":900,"End":1000,"Status":{"LEDH":{"path":"LEDH3","alpha":0.1}}},{"Start":1000,"End":1100,"Status":{"LEDH":{"path":"LEDH3","alpha":0}}}],[{"Start":0,"End":100,"Status":{"LEDH":{"path":"LEDH1","alpha":0}}},{"Start":100,"End":200,"Status":{"LEDH":{"path":"LEDH1","alpha":0}}},{"Start":200,"End":300,"Status":{"LEDH":{"path":"LEDH2","alpha":0.2}}},{"Start":300,"End":400,"Status":{"LEDH":{"path":"LEDH1","alpha":0}}},{"Start":400,"End":500,"Status":{"LEDH":{"path":"LEDH1","alpha":0.4}}},{"Start":500,"End":600,"Status":{"LEDH":{"path":"LEDH1","alpha":0}}},{"Start":600,"End":700,"Status":{"LEDH":{"path":"LEDH2","alpha":0.6}}},{"Start":700,"End":800,"Status":{"LEDH":{"path":"LEDH1","alpha":0}}},{"Start":800,"End":900,"Status":{"LEDH":{"path":"LEDH1","alpha":0.8}}},{"Start":900,"End":1000,"Status":{"LEDH":{"path":"LEDH1","alpha":0}}},{"Start":1000,"End":1100,"Status":{"LEDH":{"path":"LEDH2","alpha":0}}}],[{"Start":0,"End":150,"Status":{"LEDH":{"path":"LEDH2","alpha":0}}},{"Start":150,"End":250,"Status":{"LEDH":{"path":"LEDH2","alpha":0.1}}},{"Start":250,"End":350,"Status":{"LEDH":{"path":"LEDH2","alpha":0}}},{"Start":350,"End":450,"Status":{"LEDH":{"path":"LEDH1","alpha":0.3}}},{"Start":450,"End":550,"Status":{"LEDH":{"path":"LEDH2","alpha":0}}},{"Start":550,"End":650,"Status":{"LEDH":{"path":"LEDH2","alpha":0.5}}},{"Start":650,"End":750,"Status":{"LEDH":{"path":"LEDH2","alpha":0}}},{"Start":750,"End":850,"Status":{"LEDH":{"path":"LEDH1","alpha":0.7}}},{"Start":850,"End":950,"Status":{"LEDH":{"path":"LEDH2","alpha":0}}},{"Start":950,"End":1050,"Status":{"LEDH":{"path":"LEDH2","alpha":0.9}}},{"Start":1050,"End":1150,"Status":{"LEDH":{"path":"LEDH1","alpha":0}}}]]
+[
+    [
+        {
+            "Start": 0,
+            "End": 100,
+            "Status": {
+                "LEDH": {
+                    "path": "LEDH3",
+                    "alpha": 1
+                }
+            }
+        },
+        {
+            "Start": 100,
+            "End": 200,
+            "Status": {
+                "LEDH": {
+                    "path": "LEDH3",
+                    "alpha": 0.9
+                }
+            }
+        },
+        {
+            "Start": 200,
+            "End": 300,
+            "Status": {
+                "LEDH": {
+                    "path": "LEDH3",
+                    "alpha": 0.8
+                }
+            }
+        },
+        {
+            "Start": 300,
+            "End": 400,
+            "Status": {
+                "LEDH": {
+                    "path": "LEDH3",
+                    "alpha": 0.7
+                }
+            }
+        },
+        {
+            "Start": 400,
+            "End": 500,
+            "Status": {
+                "LEDH": {
+                    "path": "LEDH3",
+                    "alpha": 0.6
+                }
+            }
+        },
+        {
+            "Start": 500,
+            "End": 600,
+            "Status": {
+                "LEDH": {
+                    "path": "LEDH3",
+                    "alpha": 0.5
+                }
+            }
+        },
+        {
+            "Start": 600,
+            "End": 700,
+            "Status": {
+                "LEDH": {
+                    "path": "LEDH3",
+                    "alpha": 0.4
+                }
+            }
+        },
+        {
+            "Start": 700,
+            "End": 800,
+            "Status": {
+                "LEDH": {
+                    "path": "LEDH3",
+                    "alpha": 0.3
+                }
+            }
+        },
+        {
+            "Start": 800,
+            "End": 900,
+            "Status": {
+                "LEDH": {
+                    "path": "LEDH3",
+                    "alpha": 0.2
+                }
+            }
+        },
+        {
+            "Start": 900,
+            "End": 1000,
+            "Status": {
+                "LEDH": {
+                    "path": "LEDH3",
+                    "alpha": 0.1
+                }
+            }
+        },
+        {
+            "Start": 1000,
+            "End": 1100,
+            "Status": {
+                "LEDH": {
+                    "path": "LEDH3",
+                    "alpha": 0
+                }
+            }
+        }
+    ],
+    [
+        {
+            "Start": 0,
+            "End": 100,
+            "Status": {
+                "LEDH": {
+                    "path": "LEDH1",
+                    "alpha": 0
+                }
+            }
+        },
+        {
+            "Start": 100,
+            "End": 200,
+            "Status": {
+                "LEDH": {
+                    "path": "LEDH1",
+                    "alpha": 0
+                }
+            }
+        },
+        {
+            "Start": 200,
+            "End": 300,
+            "Status": {
+                "LEDH": {
+                    "path": "LEDH2",
+                    "alpha": 0.2
+                }
+            }
+        },
+        {
+            "Start": 300,
+            "End": 400,
+            "Status": {
+                "LEDH": {
+                    "path": "LEDH1",
+                    "alpha": 0
+                }
+            }
+        },
+        {
+            "Start": 400,
+            "End": 500,
+            "Status": {
+                "LEDH": {
+                    "path": "LEDH1",
+                    "alpha": 0.4
+                }
+            }
+        },
+        {
+            "Start": 500,
+            "End": 600,
+            "Status": {
+                "LEDH": {
+                    "path": "LEDH1",
+                    "alpha": 0
+                }
+            }
+        },
+        {
+            "Start": 600,
+            "End": 700,
+            "Status": {
+                "LEDH": {
+                    "path": "LEDH2",
+                    "alpha": 0.6
+                }
+            }
+        },
+        {
+            "Start": 700,
+            "End": 800,
+            "Status": {
+                "LEDH": {
+                    "path": "LEDH1",
+                    "alpha": 0
+                }
+            }
+        },
+        {
+            "Start": 800,
+            "End": 900,
+            "Status": {
+                "LEDH": {
+                    "path": "LEDH1",
+                    "alpha": 0.8
+                }
+            }
+        },
+        {
+            "Start": 900,
+            "End": 1000,
+            "Status": {
+                "LEDH": {
+                    "path": "LEDH1",
+                    "alpha": 0
+                }
+            }
+        },
+        {
+            "Start": 1000,
+            "End": 1100,
+            "Status": {
+                "LEDH": {
+                    "path": "LEDH2",
+                    "alpha": 0
+                }
+            }
+        }
+    ],
+    [
+        {
+            "Start": 0,
+            "End": 150,
+            "Status": {
+                "LEDH": {
+                    "path": "LEDH2",
+                    "alpha": 0
+                }
+            }
+        },
+        {
+            "Start": 150,
+            "End": 250,
+            "Status": {
+                "LEDH": {
+                    "path": "LEDH2",
+                    "alpha": 0.1
+                }
+            }
+        },
+        {
+            "Start": 250,
+            "End": 350,
+            "Status": {
+                "LEDH": {
+                    "path": "LEDH2",
+                    "alpha": 0
+                }
+            }
+        },
+        {
+            "Start": 350,
+            "End": 450,
+            "Status": {
+                "LEDH": {
+                    "path": "LEDH1",
+                    "alpha": 0.3
+                }
+            }
+        },
+        {
+            "Start": 450,
+            "End": 550,
+            "Status": {
+                "LEDH": {
+                    "path": "LEDH2",
+                    "alpha": 0
+                }
+            }
+        },
+        {
+            "Start": 550,
+            "End": 650,
+            "Status": {
+                "LEDH": {
+                    "path": "LEDH2",
+                    "alpha": 0.5
+                }
+            }
+        },
+        {
+            "Start": 650,
+            "End": 750,
+            "Status": {
+                "LEDH": {
+                    "path": "LEDH2",
+                    "alpha": 0
+                }
+            }
+        },
+        {
+            "Start": 750,
+            "End": 850,
+            "Status": {
+                "LEDH": {
+                    "path": "LEDH1",
+                    "alpha": 0.7
+                }
+            }
+        },
+        {
+            "Start": 850,
+            "End": 950,
+            "Status": {
+                "LEDH": {
+                    "path": "LEDH2",
+                    "alpha": 0
+                }
+            }
+        },
+        {
+            "Start": 950,
+            "End": 1050,
+            "Status": {
+                "LEDH": {
+                    "path": "LEDH2",
+                    "alpha": 0.9
+                }
+            }
+        },
+        {
+            "Start": 1050,
+            "End": 1150,
+            "Status": {
+                "LEDH": {
+                    "path": "LEDH1",
+                    "alpha": 0
+                }
+            }
+        }
+    ],
+    [
+        {
+            "Start": 0,
+            "End": 150,
+            "Status": {
+                "LEDH": {
+                    "path": "LEDH2",
+                    "alpha": 0
+                }
+            }
+        },
+        {
+            "Start": 150,
+            "End": 250,
+            "Status": {
+                "LEDH": {
+                    "path": "LEDH2",
+                    "alpha": 0.1
+                }
+            }
+        },
+        {
+            "Start": 250,
+            "End": 350,
+            "Status": {
+                "LEDH": {
+                    "path": "LEDH2",
+                    "alpha": 0
+                }
+            }
+        },
+        {
+            "Start": 350,
+            "End": 450,
+            "Status": {
+                "LEDH": {
+                    "path": "LEDH1",
+                    "alpha": 0.3
+                }
+            }
+        },
+        {
+            "Start": 450,
+            "End": 550,
+            "Status": {
+                "LEDH": {
+                    "path": "LEDH2",
+                    "alpha": 0
+                }
+            }
+        },
+        {
+            "Start": 550,
+            "End": 650,
+            "Status": {
+                "LEDH": {
+                    "path": "LEDH2",
+                    "alpha": 0.5
+                }
+            }
+        },
+        {
+            "Start": 650,
+            "End": 750,
+            "Status": {
+                "LEDH": {
+                    "path": "LEDH2",
+                    "alpha": 0
+                }
+            }
+        },
+        {
+            "Start": 750,
+            "End": 850,
+            "Status": {
+                "LEDH": {
+                    "path": "LEDH1",
+                    "alpha": 0.7
+                }
+            }
+        },
+        {
+            "Start": 850,
+            "End": 950,
+            "Status": {
+                "LEDH": {
+                    "path": "LEDH2",
+                    "alpha": 0
+                }
+            }
+        },
+        {
+            "Start": 950,
+            "End": 1050,
+            "Status": {
+                "LEDH": {
+                    "path": "LEDH2",
+                    "alpha": 0.9
+                }
+            }
+        },
+        {
+            "Start": 1050,
+            "End": 1150,
+            "Status": {
+                "LEDH": {
+                    "path": "LEDH1",
+                    "alpha": 0
+                }
+            }
+        }
+    ]
+]
