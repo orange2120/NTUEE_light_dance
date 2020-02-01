@@ -970,8 +970,8 @@ function Timeliner(target,callBackUpdateTime) {
 
 	this.getValues = getValueRanges;
 
-	(function DockingWindow() {
-		"use strict";
+	function DockingWindow() {
+		// "use strict";
 
 		// Minimum resizable area
 		var minWidth = 100;
@@ -1017,7 +1017,13 @@ function Timeliner(target,callBackUpdateTime) {
 			snapType = 'full-screen';
 			resizeEdges();
 		});
-
+		// add by myself
+		function change_snap(_type){
+			snapType = _type;//'snap-bottom-edge';
+			resizeEdges();
+			return 0;
+		}
+		this.change_snap = change_snap;
 		// pane_status.addEventListener('mouseover', function() {
 		// 	mouseOnTitle = true;
 		// });
@@ -1320,8 +1326,19 @@ function Timeliner(target,callBackUpdateTime) {
 			clicked = null;
 
 		}
-	})();
-
+		// add by myself
+		snapType = 'snap-bottom-edge';
+		resizeEdges();
+		ghostpane.style.opacity = 0;
+	};
+	
+	function changee_snap(_type){
+		console.log(DockingWindow);
+		let s = DockingWindow;
+		s.change_snap(_type);
+	}
+	this.change_snap = changee_snap;
+	DockingWindow();
 }
 
 window.Timeliner = Timeliner;

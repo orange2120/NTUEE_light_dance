@@ -1,6 +1,6 @@
 import   './timeliner.js'
 
-// todo: file format conversion
+// todo: play flag move and scroll
 
 class Mytimeline {
     constructor(callback_func) {
@@ -86,8 +86,13 @@ class Mytimeline {
         this.timeliner.addKeyFrame(layer_index,time,0)
     }
     getCurrentTime(){
-
+        
     }
+
+    // change_dock(t){
+        // console.log(this.timeliner);
+        // this.timeliner.change_snap(t);
+    // }
 
 }
 
