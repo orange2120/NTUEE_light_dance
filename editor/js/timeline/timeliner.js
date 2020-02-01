@@ -239,7 +239,7 @@ function Timeliner(target,callBackUpdateTime) {
 		var t = data.get('ui:currentTime').value;
 		// add_by_myself
 		if(x===-1){
-			console.log(layer,t,value);
+			// console.log(layer,t,value);
 		}else{
 			t = x;
 		}
@@ -400,7 +400,10 @@ function Timeliner(target,callBackUpdateTime) {
 
 	dispatcher.on('update.scale', function(v) {
 		console.log('range', v);
+		// myself
+		// data.get('ui:scrollTime').value = data.get('ui:currentTime').value;
 		data.get('ui:timeScale').value = v;
+		data.setValue('ui:scrollTime',data.get('ui:currentTime').value);
 
 		timeline.repaint();
 	});
@@ -507,9 +510,13 @@ function Timeliner(target,callBackUpdateTime) {
 
 	function loadJSONString(o) {
 		// should catch and check errors here
+		console.log("asd")
 		var json = JSON.parse(o);
 		load(json);
 	}
+
+	// add by myself
+	this.loadJSONString = loadJSONString
 
 	function load(o) {
 		data.setJSON(o);

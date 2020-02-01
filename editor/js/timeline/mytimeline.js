@@ -1,36 +1,94 @@
 import   './timeliner.js'
 
+// todo: file format conversion
+
 class Mytimeline {
-    constructor(data) {
+    constructor(callback_func) {
+        this.target = {
+            currentTime: 0
+        };
+    }
+    createFromRaw(data,callback_func){
         this.target = {
             dancer_1: 0,
             dancer_2: 0,
             dancer_3: 0,
+            dancer_4: 0,
+            dancer_5: 0,
+            dancer_6: 0,
+            dancer_7: 0,
+            dancer_8: 0,
             pos_1: 0,
             pos_2: 0,
             pos_3: 0,
             currentTime: 0
         };
-        this.timelineData = data;
         function callBack_updateTime(t)
         {
-            console.log(t);
+            // console.log(t);
+            // callback_func(_type,param)
+            callback_func("time_update",t)
         }
+        this.timelineData = JSON.parse(JSON.stringify(data));
         this.timeliner = new Timeliner(this.target,callBack_updateTime);
         this.timeliner.load(this.timelineData)
+    }
+    createFromData(data_control,data_load,callback_func){
+        this.target = {
+            currentTime: 0
+        };
+        let data = this.convertData(data_control,data_load,this.target)
+        function callBack_updateTime(t)
+        {
+            // this.target.currentTime = t
+            // console.log("target= ")
+            // console.log(this.target)
+            // console.log(t);
+            // callback_func(_type,param)
+            callback_func("time_update",t)
+        }
+        this.timelineData = JSON.parse(JSON.stringify(data));
+        this.timeliner = new Timeliner(this.target,callBack_updateTime);
+        this.timeliner.load(this.timelineData)
+    }
+    reload(data,ui_conserve = true){
+        if(ui_conserve){
+            let _tmp_ui = this.timelineData.ui
+            this.timelineData = JSON.parse(JSON.stringify(data))
+            this.timelineData.ui = _tmp_ui
+        }else{
+            this.timelineData = JSON.parse(JSON.stringify(data))
+        }
+        
+        // this.timeliner.loadJSONString(JSON.stringify(this.timelineData))
+        this.timeliner.load(this.timelineData)
+    }
+    convertData(data_control,data_load,_tar){
+        let data_from_load = data_load["timeline_setting"]
+        let newa = data_control.map(timeline => { 
+            return{ name : "dancer_",tmpValue : 3.500023, _color: "#6ee167",
+            _value: 0.9955620977777778 ,values : timeline.map( entry => {
+                return {time : entry.Start, value: 0, _color : "#1b3e5c"};
+            })
+        }; 
+        })
+        for (let i = 0; i < newa.length; i++) { 
+            newa[i].name = 'dancer_' + String(i+1);
+            _tar['dancer_' + String(i+1)] = 0;
+        }
+        data_from_load.layers = newa
+        return data_from_load
     }
     gotoTime(t){
 
     }
-    createKeyFrame(layer_index,time){
-
-    }
-    deleteKeyFrame(layer_index,time){
-
+    KeyFrame(layer_index,time){
+        this.timeliner.addKeyFrame(layer_index,time,0)
     }
     getCurrentTime(){
-        
+
     }
+
 }
 
 export default Mytimeline

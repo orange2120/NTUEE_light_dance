@@ -66,8 +66,50 @@ let data_blank={
         "timeScale": 60
     }
 };
+// let data_from_load = load["timeline_setting"]
+// console.log(data_from_load)
 
-const tl = new Mytimeline(data_blank)
+// console.log(control)
+// let newa = control.map(timeline => { 
+//     return{ name : "dancer_",tmpValue : 3.500023, _color: "#6ee167",
+//     _value: 0.9955620977777778 ,values : timeline.map( entry => {
+//         return {time : entry.Start, value: 0, _color : "#1b3e5c"};
+//     })
+// }; 
+// })
+// for (let i = 0; i < newa.length; i++) { 
+//     newa[i].name = 'dancer_' + String(i);
+// }
+// data_from_load.layers = newa
+// console.log(newa)
+// console.log(data_from_load)
+// control.map(timeline => ({ value: person.id, text: person.name }));
+// let tmp = data_blank
+// let data_used = Object.assign({},data_blank);
+function cb(_type,time){
+
+    console.log("callback! " + String(time) )
+    console.log(tl.target)
+}
+const tl = new Mytimeline()
+tl.createFromData(control,load,cb)
+
+
+function conv(){
+    
+}
+
+document.getElementById("aa").onclick = function test(){
+    tl.KeyFrame(1,2)
+}
+
+document.getElementById("btn_reload").onclick = function test1(){
+
+    console.log("reload!!")
+    console.log(data_blank)
+    tl.reload(data_blank)
+    // delete tl
+}
 
 // get LEDs
 const LEDs = load.LED
