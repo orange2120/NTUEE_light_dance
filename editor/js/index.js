@@ -11,8 +11,96 @@ import '../css/index.css'
 import load from '../../data/load.json'
 import control from '../../data/control_test2.json'
 
+<<<<<<< HEAD
 // // get LEDs
 // const LEDs = load.LED
+=======
+import  Mytimeline from './timeline/mytimeline.js'
+
+// timeline
+let data_blank={
+    "version": "1.2.0",
+    "modified": "Mon Dec 08 2014 10:41:11 GMT+0800 (SGT)",
+    "title": "Light_Dance",
+    "layers": [
+        {
+            "name": "dancer_1",
+            "values": [],
+            "tmpValue": 3.500023,
+            "_color": "#6ee167",
+            "_value": 0.9955620977777778
+        },
+        {
+            "name": "dancer_2",
+            "values": [],
+            "tmpValue": 3.500023,
+            "_color": "#6ee167",
+            "_value": 0.9955620977777778
+        },
+        {
+            "name": "dancer_3",
+            "values": [],
+            "tmpValue": 3.500023,
+            "_color": "#6ee167",
+            "_value": 0.9955620977777778
+        },
+        {
+            "name": "pos_1",
+            "values": [],
+            "tmpValue": 3.500023,
+            "_color": "#6ee167",
+            "_value": 0.9955620977777778
+        },
+        {
+            "name": "pos_2",
+            "values": [],
+            "tmpValue": 3.500023,
+            "_color": "#6ee167",
+            "_value": 0.9955620977777778
+        },
+        {
+            "name": "pos_3",
+            "values": [],
+            "tmpValue": 3.500023,
+            "_color": "#6ee167",
+            "_value": 0.9955620977777778
+        }
+    ],
+    "ui": {
+        "currentTime": 1.6,
+        "totalTime": 20,
+        "scrollTime": 0,
+        "timeScale": 60
+    }
+};
+
+function cb(_type,param){
+
+    console.log("callback! " + String(param) )
+    // console.log(tl.target)
+}
+const tl = new Mytimeline()
+tl.createFromData(control,load,cb)
+
+
+
+document.getElementById("aa").onclick = function test(){
+    // tl.KeyFrame(1,2)
+    // snapType = 'snap-bottom-edge';
+    // tl.change_dock("snap-bottom-edge");
+}
+
+document.getElementById("btn_reload").onclick = function test1(){
+
+    console.log("reload!!")
+    console.log(data_blank)
+    tl.reload(data_blank)
+    // delete tl
+}
+
+// get LEDs
+const LEDs = load.LED
+>>>>>>> dev-timeline
 // add waveform
 const music = load.Music
 

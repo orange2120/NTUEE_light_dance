@@ -1,0 +1,222 @@
+{
+    "version": "1.2.0",
+    "modified": "Mon Dec 08 2014 10:41:11 GMT+0800 (SGT)",
+    "title": "Light_Dance",
+    "layers": [
+        {
+            "name": "dancer_1",
+            "tmpValue": 3.500023,
+            "_color": "#6ee167",
+            "_value": 0,
+            "values": [
+                {
+                    "time": 0,
+                    "value": 0,
+                    "_color": "#1b3e5c"
+                },
+                {
+                    "time": 100,
+                    "value": 0,
+                    "_color": "#1b3e5c"
+                },
+                {
+                    "time": 200,
+                    "value": 0,
+                    "_color": "#1b3e5c"
+                },
+                {
+                    "time": 300,
+                    "value": 0,
+                    "_color": "#1b3e5c"
+                },
+                {
+                    "time": 400,
+                    "value": 0,
+                    "_color": "#1b3e5c"
+                },
+                {
+                    "time": 500,
+                    "value": 0,
+                    "_color": "#1b3e5c"
+                },
+                {
+                    "time": 600,
+                    "value": 0,
+                    "_color": "#1b3e5c"
+                },
+                {
+                    "time": 700,
+                    "value": 0,
+                    "_color": "#1b3e5c"
+                },
+                {
+                    "time": 800,
+                    "value": 0,
+                    "_color": "#1b3e5c"
+                },
+                {
+                    "time": 900,
+                    "value": 0,
+                    "_color": "#1b3e5c"
+                },
+                {
+                    "time": 1000,
+                    "value": 0,
+                    "_color": "#1b3e5c"
+                }
+            ]
+        },
+        {
+            "name": "dancer_2",
+            "tmpValue": 3.500023,
+            "_color": "#6ee167",
+            "_value": 0,
+            "values": [
+                {
+                    "time": 0,
+                    "value": 0,
+                    "_color": "#1b3e5c"
+                },
+                {
+                    "time": 100,
+                    "value": 0,
+                    "_color": "#1b3e5c"
+                },
+                {
+                    "time": 200,
+                    "value": 0,
+                    "_color": "#1b3e5c"
+                },
+                {
+                    "time": 300,
+                    "value": 0,
+                    "_color": "#1b3e5c"
+                },
+                {
+                    "time": 400,
+                    "value": 0,
+                    "_color": "#1b3e5c"
+                },
+                {
+                    "time": 500,
+                    "value": 0,
+                    "_color": "#1b3e5c"
+                },
+                {
+                    "time": 600,
+                    "value": 0,
+                    "_...olor": "#1b3e5c"
+                },
+                {
+                    "time": 350,
+                    "value": 0,
+                    "_color": "#1b3e5c"
+                },
+                {
+                    "time": 450,
+                    "value": 0,
+                    "_color": "#1b3e5c"
+                },
+                {
+                    "time": 550,
+                    "value": 0,
+                    "_color": "#1b3e5c"
+                },
+                {
+                    "time": 650,
+                    "value": 0,
+                    "_color": "#1b3e5c"
+                },
+                {
+                    "time": 750,
+                    "value": 0,
+                    "_color": "#1b3e5c"
+                },
+                {
+                    "time": 850,
+                    "value": 0,
+                    "_color": "#1b3e5c"
+                },
+                {
+                    "time": 950,
+                    "value": 0,
+                    "_color": "#1b3e5c"
+                },
+                {
+                    "time": 1050,
+                    "value": 0,
+                    "_color": "#1b3e5c"
+                }
+            ]
+        },
+        {
+            "name": "dancer_4",
+            "tmpValue": 3.500023,
+            "_color": "#6ee167",
+            "_value": 0,
+            "values": [
+                {
+                    "time": 0,
+                    "value": 0,
+                    "_color": "#1b3e5c"
+                },
+                {
+                    "time": 150,
+                    "value": 0,
+                    "_color": "#1b3e5c"
+                },
+                {
+                    "time": 250,
+                    "value": 0,
+                    "_color": "#1b3e5c"
+                },
+                {
+                    "time": 350,
+                    "value": 0,
+                    "_color": "#1b3e5c"
+                },
+                {
+                    "time": 450,
+                    "value": 0,
+                    "_color": "#1b3e5c"
+                },
+                {
+                    "time": 550,
+                    "value": 0,
+                    "_color": "#1b3e5c"
+                },
+                {
+                    "time": 650,
+                    "value": 0,
+                    "_color": "#1b3e5c"
+                },
+                {
+                    "time": 750,
+                    "value": 0,
+                    "_color": "#1b3e5c"
+                },
+                {
+                    "time": 850,
+                    "value": 0,
+                    "_color": "#1b3e5c"
+                },
+                {
+                    "time": 950,
+                    "value": 0,
+                    "_color": "#1b3e5c"
+                },
+                {
+                    "time": 1050,
+                    "value": 0,
+                    "_color": "#1b3e5c"
+                }
+            ]
+        }
+    ],
+    "ui": {
+        "currentTime": 128.2138221433996,
+        "totalTime": 20,
+        "scrollTime": 0,
+        "timeScale": 3.162277660168379
+    }
+}
