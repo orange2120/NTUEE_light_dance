@@ -24,7 +24,6 @@ void ReadJson(json& data)
             Execute& e = people[i].time_line[j];
 
             e.set_start_time(data[i][j]["Start"]);
-            e.set_end_time(data[i][j]["End"]);
 
             // set LED part
             e.set_LED_part(data[i][j]["Status"]["LEDH"]["path"], data[i][j]["Status"]["LEDH"]["alpha"]);
@@ -57,7 +56,8 @@ void sendSig(int id) {
     Execute &e = people[id].time_line[people[id].t_index];
     // send EL sig FIXME:
     for(int i = 0; i < NUM_OF_EL; ++i) {
-       el.setEL(i, e.EL_parts[i].get_brightness());
+        double br = e.EL_parts[i].get_brightness()*4096;
+        el.setEL(i, uint16_t(br));
     }
     // send LED sig
     for(int i = 0; i < 1; ++i) {
@@ -94,7 +94,11 @@ void run(int id) {
     {
         cout << "Time now: " << time << endl;
         auto start = high_resolution_clock::now();
-        if(time >= p.time_line[p.t_index].end_time) {
+        if(time >= TOTAL_TIME) { // FIXME:
+            turnOff();
+            off = true;
+        }
+        else if(time >= p.time_line[p.t_index+1].start_time) {
             if(p.t_index == p.time_line.size()-1){
                 turnOff();
                 off = true;

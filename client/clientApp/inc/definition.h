@@ -24,6 +24,7 @@
 #define LEDS_4 36
 #define LEDS_5 6
 
+#define TOTAL_TIME 8000
 
 
 // #endif // _DEF_H_
