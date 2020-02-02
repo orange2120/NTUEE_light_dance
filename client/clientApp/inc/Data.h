@@ -64,12 +64,11 @@ class Execute { // for every execution
     void set_start_time(const double& d) { start_time = d; }
     void set_end_time(const double& d) { end_time = d; }
     void set_LED_part(const string&, const double& ); // set each LED_part one by one 
-    void set_EL_part(int[NUM_OF_EL]); // set every EL_parts for one time
+    void set_EL_part(double[NUM_OF_EL]); // set every EL_parts for one time
     void print() const;
 
     // Data member
     double start_time;
-    double end_time;
     vector<LED_part*> LED_parts;
     vector<EL_part>  EL_parts;
   private:
@@ -81,17 +80,17 @@ class EL_part { // for each part of EL
   public:
     // Member function
     EL_part(const int& s){ 
-      brightness = uint16_t(s); 
+      brightness = double(s); 
       part = Part_EL(el_count); 
       ++el_count; 
     }
-    uint16_t get_brightness() const { return brightness; }
+    double get_brightness() const { return brightness; }
 
     // Data member
     static int el_count;
   private:
     Part_EL part;
-    uint16_t brightness; // 0~4095
+    double brightness; // 0~1
 };
 
 class LED_part { // for each part of LED

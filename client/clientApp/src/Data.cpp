@@ -30,7 +30,6 @@ inline void Person::set_execute(Execute e) {
 void Execute::print() const
 {
     cout << "\t" << "\"Start\": " << start_time << ",\n"
-         << "\t" << "\"End\": " << end_time << ",\n"
          << "\t" << "\"Status\": {" << endl;
     for(size_t i = 0; i < LED_parts.size(); ++i) {
         cout << "\t\t\"" << Part_EL(i) << "\": {\n"
@@ -51,7 +50,7 @@ void Execute::set_LED_part(const string& s, const double& d) {
     LED_part* tmp = new LED_part(s, d);
     LED_parts.push_back(tmp);
 }
-void Execute::set_EL_part(int a[NUM_OF_EL]) { // set every EL_parts for one time
+void Execute::set_EL_part(double a[NUM_OF_EL]) { // set every EL_parts for one time
     for(int i = 0; i < NUM_OF_EL; ++i) {
         EL_parts.push_back(EL_part(a[i]));
     }
