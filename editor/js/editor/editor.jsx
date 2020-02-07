@@ -1,8 +1,10 @@
 import React from 'react';
+import { LIGHTPARTS } from '../constants';
 
 class Editor extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
+        console.log(this.props.mgr);
     }
     render() {
         return (
