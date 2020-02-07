@@ -1,17 +1,16 @@
-import { FPS } from '../constants';
+import { DANCER_NUM, FPS } from '../constants';
 
 class Manager {
     constructor() {
         this.time = 0;
-        this.timeInd = 0;
+        this.timeInd = [];
+        for (let i = 0;i < DANCER_NUM; ++i) this.timeInd.push(0);
         this.control = null;
-        this.timeline = null;
         this.sim = null;
         this.interval = null;
     }
     setControl(control) {  // for global control data
         this.control = control;
-        this.timeline = control[0]; // Sample timeline
         console.log('Manager set control', this.control);
     }
     setSim(sim) {
@@ -27,32 +26,43 @@ class Manager {
     getControl() { return this.control; }
 
 
-    getTimeInd() {
+    getTimeInd(t) {
         // binary search timeInd with this.time
-        return 0;
+        let re = [];
+        for (let i = 0; i < DANCER_NUM; ++i) re.push(0);
+        return re;
     }
 
-    initial() {
-        this.time = 0;
-        this.timeInd = 0;
-        this.sim.update(this.timeInd);
+    initial(t) {
+        this.time = t;
+        this.timeInd = this.getTimeInd(t);
+        for (let i = 0; i < DANCER_NUM; ++i) {
+            this.sim.update(i, this.timeInd[i]);
+        }
     }
 
-    exec() { // Start playing
-        this.timeInd = this.getTimeInd();
+    exec(t) { // Start playing
+        this.initial(t);
         this.interval = setInterval(() => {
             this.time += FPS;
-            if (!this.timeline[this.timeInd + 1]) {
-                // Stop the interval
-                clearInterval(this.interval);
-                this.time = 0;
-                this.timeInd = 0;
-                this.interval = null;
-                console.log("Stop executing", this);
-            }
-            if (this.time >= this.timeline[this.timeInd + 1]["Start"]) {
-                this.timeInd += 1;
-                this.sim.update(this.timeInd);
+            let cnt = 0;
+            for (let i = 0; i < DANCER_NUM; ++i) {
+                if (!this.control[i][this.timeInd[i] + 1]) {
+                    cnt += 1;
+                    if (cnt == DANCER_NUM) {
+                        // Stop the interval
+                        clearInterval(this.interval);
+                        this.interval = null;
+                        this.time = 0;
+                        this.timeInd.fill(0);
+                        console.log("Stop exec");
+                    }
+                    else continue;
+                }
+                if (this.time >= this.control[i][this.timeInd[i] + 1]["Start"]) {
+                    this.timeInd[i] += 1;
+                    this.sim.update(i, this.timeInd[i]);
+                }
             }
         }, 30);
     }

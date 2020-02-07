@@ -12,8 +12,9 @@ class Simulator {
         }
     }
 
-    update(timeInd) {
-        this.dancers.map(dancer => dancer.update(timeInd));
+    update(dancerId, timeInd) {
+        this.dancers[dancerId].update(timeInd);
+        // this.dancers.map(dancer => dancer.update(timeInd));
     }
 }
 

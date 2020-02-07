@@ -32,7 +32,7 @@ const sim = new Simulator(app, control, load.Texture)
 const mgr = new Manager();
 mgr.setControl(control);
 mgr.setSim(sim);
-mgr.exec();
+mgr.exec(0);
 
 // editor
 ReactDOM.render(<Editor mgr={mgr} />, document.querySelector("#editor"));
