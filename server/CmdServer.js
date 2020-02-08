@@ -142,6 +142,7 @@ class CmdServer
                     response_msg.data = {ack_type : "request_to_join" , board_id : find_board[0].id}
                     ws.send(JSON.stringify(response_msg))
                     find_board[0].status = "connected"
+                    find_board[0].ip = ip
                     ws.borad_ID = find_board[0].id
                     ws.ipAddr = ip
                     ws.macAddr = mac
