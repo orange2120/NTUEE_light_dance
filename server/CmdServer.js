@@ -193,34 +193,6 @@ class CmdServer
 }
 // export default CmdServer
 
-const spawn =  require('child_process').spawn
-
-let arp_cmd = spawn('arp' ,['-a'])
-let buffer = ''
-arp_cmd.stdout.on('data', function (data) {
-    buffer += data;
-    // 8c:85:90:d1:41:dc
-});
-arp_cmd.on('close', function(code){
-    console.log('closed with code ' + code);
-    buffer = buffer.split(os.EOL)
-    buffer = buffer.slice(0,buffer.length-1)
-    buffer = buffer.map(d => {
-        let s = d.split(' ')
-        return {
-            ip : s[1].substr(1,s[1].length-2),
-            mac : s[3]
-        }
-    })
-    console.log(buffer)
-});
-  
-// 監聽 exit 事件：
-arp_cmd.on('exit', function(code){
-console.log('exited with code ' + code);
-});
-
-
 
 const CONFIG = require('./config.json')
 const CONTROL = require('../data/control_test2.json')
@@ -246,7 +218,7 @@ rl.on('line', function(line) {
     {
         s.printServerSats()
     }
-    if(line[0].toLowerCase()=="kick")
+    else if(line[0].toLowerCase()=="kick")
     {
         if(line.length<2 ){
             console.log("[Server] kick all boards")
@@ -277,7 +249,7 @@ rl.on('line', function(line) {
         
         console.log("[Server] done")
     }
-    if(line[0].toLowerCase()=="upload"){
+    else if(line[0].toLowerCase()=="upload"){
         console.log("[Server] upload all boards")
         s.wss.clients.forEach((client) => {
             if(client.readyState === WebSocket.OPEN && client.borad_ID > -1) {
@@ -291,6 +263,17 @@ rl.on('line', function(line) {
         });
         console.log("[Server] upload done\n")
     }
+    else if(line[0].toLowerCase()=="help")
+    {
+        console.log("\n[Help]")
+        console.log("upload (id list) : upload data to board(s)")
+        console.log("kick (id list) : kick board\n")
+    }
+    else if(line[0]!="")
+    {
+        console.log(`Command not found ${line[0]}`)
+    }
+    rl.prompt()
 }).on('close',function(){
     process.exit(0);
 });
