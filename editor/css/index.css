@@ -5,3 +5,32 @@ body {
     display: grid;
     grid-template-columns: 1420px 200px;
 }
+
+.light-input-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.light-input {
+    width: 40px;
+}
+
+.noUi-target {
+    height: 8px;
+    width: 120px;
+    margin: 0 20px 0 0;
+}
+
+.noUi-handle {
+    height: 20px;
+    width: 20px;
+    border-radius: 8px;
+    cursor: grab;
+}
+
+.noUi-connect {
+    background: #5c8de0;
+}
+

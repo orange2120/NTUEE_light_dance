@@ -5,12 +5,13 @@ import ReactDOM from 'react-dom';
 import { DISPLAY_WIDTH, DISPLAY_HEIGHT } from './constants'
 
 import Simulator from './simulator/simulator.js'
-import Editor from './editor/editor.jsx'
+import Editor from './editor/editor.js'
 import Manager from './manager/manager.js'
+import '../css/slider.css'
 import '../css/index.css'
 // read data
 import load from '../../data/load.json'
-import control from '../../data/control_test3.json'
+import control from '../../data/control_test2.json'
 
 // // get LEDs
 // const LEDs = load.LED
@@ -25,14 +26,19 @@ const app = new PIXI.Application({
 })
 document.getElementById('simulator').appendChild(app.view)
 
+// manager
+const mgr = new Manager();
+
 // simulate display
 const sim = new Simulator(app, control, load.Texture)
 
-// manager set property
-const mgr = new Manager();
+// editor
+const editor = new Editor(mgr, control);
+
 mgr.setControl(control);
 mgr.setSim(sim);
+mgr.setEditor(editor);
 mgr.exec(0);
 
 // editor
-ReactDOM.render(<Editor mgr={mgr} timeInd={mgr.timeInd} />, document.querySelector("#editor"));
+// ReactDOM.render(<Editor mgr={mgr} timeInd={mgr.timeInd} />, document.querySelector("#editor"));

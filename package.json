@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/orange2120/NTUEE_light_dance#readme",
   "dependencies": {
+    "nouislider": "^14.1.1",
     "pixi.js": "^5.2.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",

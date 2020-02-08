@@ -7,6 +7,7 @@ class Manager {
         for (let i = 0;i < DANCER_NUM; ++i) this.timeInd.push(0);
         this.control = null;
         this.sim = null;
+        this.editor = null;
         this.interval = null;
     }
     setControl(control) {  // for global control data
@@ -16,6 +17,10 @@ class Manager {
     setSim(sim) {
         this.sim = sim;
         console.log('Manager set simulator', sim);
+    }
+    setEditor(editor) {
+        this.editor = editor;
+        console.log('Manager set editor', editor);
     }
 
     setTime(t) {         // for global time
@@ -62,6 +67,7 @@ class Manager {
                 if (this.time >= this.control[i][this.timeInd[i] + 1]["Start"]) {
                     this.timeInd[i] += 1;
                     this.sim.update(i, this.timeInd[i]);
+                    this.editor.update();
                 }
             }
         }, 30);
