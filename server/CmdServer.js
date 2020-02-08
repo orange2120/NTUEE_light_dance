@@ -231,15 +231,37 @@ rl.on('line', function(line) {
     }
     if(line[0].toLowerCase()=="kick")
     {
-        console.log("[Server] kick boards")
-        let li = line.slice(1,)
-        li = li.map(function (x) { 
-            return parseInt(x, 10); 
-          });
-        s.terminateBoard(li)
+        if(line.length<2 ){
+            console.log("[Server] kick all boards")
+            let li = []
+            for (i=0;i<s.wss.BOARDS.length;++i)
+            {
+                li.push(i)
+            }
+            s.terminateBoard(li)
+        }else if(line[1].toLowerCase()==="all")
+        {
+            console.log("[Server] kick all boards")
+            let li = []
+            for (i=0;i<s.wss.BOARDS.length;++i)
+            {
+                li.push(i)
+            }
+            s.terminateBoard(li)
+        }else{
+            console.log("[Server] kick boards")
+            let li = line.slice(1,)
+            li = li.map(function (x) { 
+                return parseInt(x, 10); 
+            });
+            s.terminateBoard(li)
+        }
+
+        
         console.log("[Server] done")
     }
     if(line[0].toLowerCase()=="upload"){
+        console.log("[Server] upload all boards")
         s.wss.clients.forEach((client) => {
             if(client.readyState === WebSocket.OPEN && client.borad_ID > -1) {
                 let boardMsg = {
@@ -250,6 +272,7 @@ rl.on('line', function(line) {
                 client.send(JSON.stringify(boardMsg));
             }
         });
+        console.log("[Server] upload done\n")
     }
 }).on('close',function(){
     process.exit(0);
