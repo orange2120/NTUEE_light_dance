@@ -429,16 +429,22 @@ function Timeliner(target,callBackUpdateTime) {
 
 	function paint() {
 		requestAnimationFrame(paint);
-
+		// console.log("asd");
 		if (start_play) {
 			var t = (performance.now() - start_play) / 1000;
+			//add by myself
+			// console.log(data);
+			// if(t > data.get('ui:scrollTime').value )
+			data.setValue('ui:scrollTime',t  - data.get('ui:currentTime').value + data.get('ui:scrollTime').value);
 			setCurrentTime(t);
+			
 
 
 			if (t > data.get('ui:totalTime').value) {
 				// simple loop
 				start_play = performance.now();
 			}
+			
 		}
 
 		if (needsResize) {
