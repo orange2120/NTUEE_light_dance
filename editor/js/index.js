@@ -35,4 +35,4 @@ mgr.setSim(sim);
 mgr.exec(0);
 
 // editor
-ReactDOM.render(<Editor mgr={mgr} />, document.querySelector("#editor"));
+ReactDOM.render(<Editor mgr={mgr} timeInd={mgr.timeInd} />, document.querySelector("#editor"));

@@ -66,7 +66,6 @@ class Manager {
             }
         }, 30);
     }
-    
 }
 
 export default Manager
