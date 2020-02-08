@@ -3,7 +3,7 @@ const fs = require('fs')
 const WebSocket = require('ws')
 const os = require('os');
 
-
+const libarp = require('arp');
 
 class CmdServer
 {
@@ -113,27 +113,44 @@ class CmdServer
             message = JSON.parse(message)
             if (message.type === "request_to_join")
             {
+                
                 // new board request to join
-                // console.log(this.BOARDS)
+                let self = this
+                libarp.getMAC(ip, function(err, mac) {
+                    // assert.ok(!err);
+                    // assert.ok(mac != null);
+                    if(mac == null)
+                    {
+                        console.log(`[Server] Cannot find corressponding Mac Address of ${ip}`)
+                        ws.terminate()
+                        return
+                    }
+                    console.log(`[Server] Client Mac:${mac}`);
 
-                let find_board =  this.BOARDS.filter(obj => {
-                    return obj.ip === String(ip)
-                })
-                // let find_board = self.getBoardByIP(ip)
-                if(find_board.length===0){
-                    // the board's ip is not regestered
-                    console.log(`[Server] Board(${ip}) not registered`)
-                    ws.terminate()
-                    return
-                }
-                console.log("[Server] Adding Board: ip=",ip," id=" ,find_board[0].id);
-                response_msg.type = "ACKs"
-                response_msg.data = {ack_type : "request_to_join" , board_id : find_board[0].id}
-                ws.send(JSON.stringify(response_msg))
-                find_board[0].status = "connected"
-                ws.borad_ID = find_board[0].id
-                ws.ipAddr = ip
-                console.log("[Server] ACKs sent")
+                    let find_board =  self.BOARDS.filter(obj => {
+                        return obj.mac === String(mac)
+                    })
+                    // let find_board = self.getBoardByIP(ip)
+                    if(find_board.length===0){
+                        // the board's ip is not regestered
+                        console.log(`[Server] Board(${mac}) not registered`)
+                        ws.terminate()
+                        return
+                    }
+                    console.log(`[Server] Adding Board: ip = ${ip} mac = ${mac} id = ${find_board[0].id}`);
+                    response_msg.type = "ACKs"
+                    response_msg.data = {ack_type : "request_to_join" , board_id : find_board[0].id}
+                    ws.send(JSON.stringify(response_msg))
+                    find_board[0].status = "connected"
+                    ws.borad_ID = find_board[0].id
+                    ws.ipAddr = ip
+                    ws.macAddr = mac
+                    console.log("[Server] ACKs sent")
+
+
+                });
+
+
                 // console.log(this.BOARDS)
             }
         });
@@ -141,9 +158,9 @@ class CmdServer
         ws.on('close',function s(){
             if(ws.borad_ID!=-1)
             {
-                server_self.BOARDS[ws.borad_ID].status = "disconnected"
+                server_self.BOARDS[ws.borad_ID].status = "disconnect"
             }
-            console.log(`[Client] (${ws.borad_ID}) ${ip} leave`)
+            console.log(`[Client] (${ws.borad_ID}) ${ws.ipAddr} ${ws.macAddr} leave`)
         })
     }
     sendToBoards(){
