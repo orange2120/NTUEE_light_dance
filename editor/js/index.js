@@ -11,7 +11,7 @@ import '../css/slider.css'
 import '../css/index.css'
 // read data
 import load from '../../data/load.json'
-import control from '../../data/control_test2.json'
+import control from '../../data/control_test3.json'
 
 // // get LEDs
 // const LEDs = load.LED
@@ -22,7 +22,7 @@ const music = load.Music
 const app = new PIXI.Application({
     width: DISPLAY_WIDTH,
     height: DISPLAY_HEIGHT,
-    backgroundColor: 0x555555,
+    backgroundColor: 0x38393d,
 })
 document.getElementById('simulator').appendChild(app.view)
 

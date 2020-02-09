@@ -1,4 +1,4 @@
-import { LIGHTPARTS } from '../constants';
+import { LIGHTPARTS, DANCER_NUM } from '../constants';
 import * as noUiSlider from 'nouislider/distribute/nouislider.js';
 
 class Editor {
@@ -6,16 +6,33 @@ class Editor {
         this.mgr = mgr;
         this.control = control;
         this.el = document.getElementById('editor');
-        this.dancerId = 7;
-        console.log('Editor ', mgr);
+        this.dancerId = 0;
+        // add time
+        // add timeInd
+        this.timeEl = document.createElement("div");
+        this.timeEl.classList.add("time-el");
+        this.el.appendChild(this.timeEl);
+        this.addTimeInd();
+        // add dancer checkbox
+        this.dancerCheckBox = [];
+        this.dancerCheckBoxli = document.createElement("div");
+        this.dancerCheckBoxli.classList.add("checkbox-list");
+        this.el.appendChild(this.dancerCheckBoxli);
+        for (let i = 0;i < DANCER_NUM; ++i) this.addCheckBox(i);
+        // add light slider
         this.sliders = [];
+        this.sliderli = document.createElement("div");
+        this.sliderli.classList.add("slider-list");
+        this.el.appendChild(this.sliderli);
         LIGHTPARTS.map((part) => {
             this.addSlider(part, control[this.dancerId][0]["Status"][part]);
         });
+        console.log('Editor ', this);
     }
 
     update() {
         this.updateSlider();
+        this.updateTimeInd();
     }
 
     updateSlider() {
@@ -24,8 +41,44 @@ class Editor {
         });
     }
 
+    updateTimeInd() {
+        const timeIndInput = this.timeEl.children[1];
+        timeIndInput.value = this.mgr.timeInd[this.dancerId];
+    }
+
+    addTimeInd(timeInd = 0) {
+        const leftBtn = document.createElement("button");
+        leftBtn.innerHTML = '<i class="fa fa-chevron-left fa-2x" aria-hidden="true"></i>';
+        leftBtn.classList.add('timeInd-switch-btn');
+        const rightBtn = document.createElement("button");
+        rightBtn.innerHTML = 'right';
+        rightBtn.innerHTML = '<i class="fa fa-chevron-right fa-2x" aria-hidden="true"></i>';
+        rightBtn.classList.add('timeInd-switch-btn');
+        const timeIndInput = document.createElement("input");
+        timeIndInput.setAttribute("type", "number");
+        timeIndInput.classList.add("timeInd-input");
+        timeIndInput.value = timeInd;
+
+        this.timeEl.appendChild(leftBtn);
+        this.timeEl.appendChild(timeIndInput);
+        this.timeEl.appendChild(rightBtn);
+    }
+
+    addCheckBox(dancerID) {
+        const el = document.createElement("div");
+        el.classList.add("dancer-checkbox-text");
+        const checkBox = document.createElement("input");
+        checkBox.type = "checkbox";
+        checkBox.value = dancerID;
+        checkBox.classList.add("dancer-checkbox");
+        const text = document.createTextNode(dancerID);
+        this.dancerCheckBox.push(checkBox);
+        el.appendChild(checkBox);
+        el.appendChild(text);
+        this.dancerCheckBoxli.appendChild(el);
+    }
+
     addSlider(name, value) {
-        console.log("AddSlider", name, value);
         let el = document.createElement("div");
         let nameText = document.createTextNode(name);
         let lightInput = document.createElement("div");
@@ -63,7 +116,7 @@ class Editor {
         lightInput.appendChild(numInput);
         el.appendChild(nameText);
         el.appendChild(lightInput);
-        this.el.appendChild(el);
+        this.sliderli.appendChild(el);
     }
 }
 

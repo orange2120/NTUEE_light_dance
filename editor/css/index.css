@@ -3,14 +3,14 @@ body {
 }
 .workplace {
     display: grid;
-    grid-template-columns: 1420px 200px;
+    grid-template-columns: 1420px 300px;
 }
 
 .light-input-block {
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin: 10px 0;
+    /* justify-content: center; */
+    margin: 0px 0;
 }
 
 .light-input {
@@ -18,8 +18,8 @@ body {
 }
 
 .noUi-target {
-    height: 8px;
-    width: 120px;
+    height: 10px;
+    width: 180px;
     margin: 0 20px 0 0;
 }
 
@@ -34,3 +34,33 @@ body {
     background: #5c8de0;
 }
 
+.checkbox-list {
+    display: flex;
+}
+
+.dancer-checkbox-text {
+    margin: 0px 0.5em 0.5em 0px;
+}
+
+.dancer-checkbox {
+    font-size: large;
+    margin: 0 0.3em 0 0;
+}
+
+.time-el {
+    /* margin: 5px; */
+    display: flex;
+}
+
+.timeInd-switch-btn {
+    cursor: pointer;
+    -webkit-appearance: none;
+    border-radius: 5px;
+    color: #46474a;
+    margin: 5px 3px;
+}
+
+.timeInd-input {
+    margin: 5px 0;
+    width: 3em;
+}
