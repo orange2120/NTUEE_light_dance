@@ -38,7 +38,7 @@ const editor = new Editor(mgr);
 
 mgr.setSim(sim);
 mgr.setEditor(editor);
-mgr.exec(0);
+// mgr.exec(0);
 
 // editor
 // ReactDOM.render(<Editor mgr={mgr} timeInd={mgr.timeInd} />, document.querySelector("#editor"));

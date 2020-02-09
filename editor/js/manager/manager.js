@@ -9,6 +9,7 @@ class Manager {
         this.sim = null;
         this.editor = null;
         this.interval = null;
+        this.mode = "";
     }
     setControl(control) {  // for global control data
         this.control = control;
@@ -27,9 +28,29 @@ class Manager {
         this.time = t;
         console.log(`Manager set time to ${this.time}`);
     }
+    setEditMode() {
+        this.mode = this.mode === "EDIT" ? "" : "EDIT";
+        this.editor.update();
+        console.log("Set edit mode", this.mode);
+    }
+    setAddMode() {
+        this.mode = this.mode === "ADD" ? "" : "ADD";
+        this.editor.update();
+        console.log("Set add mode", this.mode);
+    }
+    delStatus() {
+
+    }
+
+    updateControl(checkedDancerId, name, value) {
+        // update control with this.timeInd, this.time
+        if (this.mode !== "") {
+            console.log("Update Control", checkedDancerId, name, value);
+        }
+    }
+
     getTime() { return this.time; }
     getControl() { return this.control; }
-
     getTimeInd() {
         // binary search timeInd with this.time
         for (let i = 0; i < this.timeInd.length; ++i) {

@@ -1,4 +1,5 @@
 body {
+    font-family: sans-serif;
     background: #FFFFFF;
 }
 .workplace {
@@ -6,11 +7,15 @@ body {
     grid-template-columns: 1420px 300px;
 }
 
+.slider-list {
+    margin: 10px 0px;
+}
+
 .light-input-block {
     display: flex;
     align-items: center;
     /* justify-content: center; */
-    margin: 0px 0;
+    margin: 3px 0;
 }
 
 .light-input {
@@ -75,4 +80,30 @@ body {
     /* margin: 5px 0; */
     width: 3em;
     height:20px;
+}
+
+.edit-btn-grp {
+    height: 40px;
+    display: flex;
+    margin: 5px 0 5px 0;
+}
+
+.edit-btn {
+    margin: 0px 5px;
+    height: 40px;
+    width: 60px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: large;
+    -webkit-appearance: none;
+}
+
+.delbtn {
+    background-color: #bd4946;
+    color: white;
+}
+
+.edit-btn.selected {
+    background-color: #498df2;
+    color: white;
 }

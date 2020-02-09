@@ -7,22 +7,15 @@ class Editor {
         this.el = document.getElementById('editor');
         this.checkedDancerId = [0];
         // add time and timeInd
-        this.timeEl = document.createElement("div");
-        this.timeEl.classList.add("time-el");
-        this.el.appendChild(this.timeEl);
         this.addTime();
         this.addTimeInd();
         // add dancer checkbox
         this.dancerCheckBox = [];
-        this.dancerCheckBoxli = document.createElement("div");
-        this.dancerCheckBoxli.classList.add("checkbox-list");
-        this.el.appendChild(this.dancerCheckBoxli);
         for (let i = 0;i < DANCER_NUM; ++i) this.addCheckBox(i);
+        // add edit button
+        this.addEditBtn();
         // add light slider
         this.sliders = [];
-        this.sliderli = document.createElement("div");
-        this.sliderli.classList.add("slider-list");
-        this.el.appendChild(this.sliderli);
         LIGHTPARTS.map((part) => {
             this.addSlider(part, this.mgr.control[this.checkedDancerId[0]][0]["Status"][part]);
         });
@@ -40,18 +33,19 @@ class Editor {
     }
 
     updateSlider() {
-        this.sliders.map(slider => {
-            slider.noUiSlider.set(this.mgr.control[this.checkedDancerId[0]][this.mgr.timeInd[this.checkedDancerId[0]]]["Status"][slider.id]);
+        this.sliders.map(sliderInput => {
+            sliderInput.slider.noUiSlider
+                .set(this.mgr.control[this.checkedDancerId[0]][this.mgr.timeInd[this.checkedDancerId[0]]]["Status"][sliderInput.slider.id]);
         });
     }
 
     updateTime() {
-        this.time.children[0].value = this.mgr.time;
+        document.getElementsByClassName("time-input")[0].value = this.mgr.time;
     }
 
     updateTimeInd() {
         console.log("Update Time Ind");
-        this.timeEl.children[2].value = this.mgr.timeInd[this.checkedDancerId[0]];
+        document.getElementsByClassName("timeInd-input")[0].value = this.mgr.timeInd[this.checkedDancerId[0]];
     }
 
     updateMgrTimeInd(newtimeInd) {
@@ -74,46 +68,69 @@ class Editor {
         });
         return true;
     }
+
+    // -------------------------------------------------------------------------
+    //                       Set Component for Editor
+    // -------------------------------------------------------------------------
+    setSliderMode() {
+        if (this.mgr.mode !== "") {
+            this.sliders.map(sliderInput => {
+                sliderInput.slider.removeAttribute("disabled");
+                sliderInput.numInput.removeAttribute("disabled");
+            });
+        }
+        else {
+            this.sliders.map(sliderInput => {
+                sliderInput.slider.setAttribute("disabled", true);
+                sliderInput.numInput.setAttribute("disabled", true);
+            });
+        }
+    }
+
     // -------------------------------------------------------------------------
     //                       Add Component for Editor
     // -------------------------------------------------------------------------
 
     addTime() {
-        this.time = document.createElement("span");
-        this.time.classList.add("time");
-        const text = document.createTextNode("Time: ");
-        const timeInput = document.createElement("input");
-        timeInput.setAttribute("type", "number");
+        const timeInput = document.getElementsByClassName("time-input")[0];
         timeInput.classList.add("time-input");
         timeInput.value = this.mgr.time;
         timeInput.addEventListener('change', e => {
             this.mgr.changeTime(e.target.value);
         });
-        this.time.appendChild(text);
-        this.time.appendChild(timeInput);
-        this.timeEl.append(this.time);
     }
 
     addTimeInd(timeInd = 0) {
-        const leftBtn = document.createElement("button");
-        leftBtn.innerHTML = '<i class="fa fa-chevron-left fa-2x" aria-hidden="true"></i>';
-        leftBtn.classList.add('timeInd-switch-btn');
+        const leftBtn = document.getElementById("timeInd-left-btn");
         leftBtn.onclick = () => this.mgr.timeIndIncrement(-1);
-        const rightBtn = document.createElement("button");
-        rightBtn.innerHTML = '<i class="fa fa-chevron-right fa-2x" aria-hidden="true"></i>';
-        rightBtn.classList.add('timeInd-switch-btn');
+        const rightBtn = document.getElementById("timeInd-right-btn");
         rightBtn.onclick = () => this.mgr.timeIndIncrement(1);
-        const timeIndInput = document.createElement("input");
-        timeIndInput.setAttribute("type", "number");
-        timeIndInput.classList.add("timeInd-input");
+        const timeIndInput = document.getElementsByClassName("timeInd-input")[0];
         timeIndInput.value = timeInd;
         timeIndInput.addEventListener('change', (e) => {
             this.mgr.changeTimeInd(e.target.value);
         });
+    }
 
-        this.timeEl.appendChild(leftBtn);
-        this.timeEl.appendChild(timeIndInput);
-        this.timeEl.appendChild(rightBtn);
+    addEditBtn() {
+        const editBtn = document.getElementById("editbtn");
+        const addBtn = document.getElementById("addbtn");
+        const delBtn = document.getElementById("delbtn");
+
+        delBtn.onclick = () => this.mgr.delStatus();
+
+        editBtn.onclick = () => {
+            editBtn.classList.toggle("selected");
+            addBtn.classList.remove("selected");
+            this.mgr.setEditMode();
+            this.setSliderMode();
+        }
+        addBtn.onclick = () => {
+            addBtn.classList.toggle("selected");
+            editBtn.classList.remove("selected");
+            this.mgr.setAddMode();
+            this.setSliderMode();
+        }
     }
 
     addCheckBox(dancerID) {
@@ -132,7 +149,7 @@ class Editor {
         this.dancerCheckBox.push(checkBox);
         el.appendChild(checkBox);
         el.appendChild(text);
-        this.dancerCheckBoxli.appendChild(el);
+        document.getElementById("dancer-checkbox-list").appendChild(el);
     }
 
     addSlider(name, value) {
@@ -153,25 +170,28 @@ class Editor {
             connect: 'lower',
             animate: false,
         })
+        slider.setAttribute('disabled', true);
         // construct Input number
         let numInput = document.createElement("input");
         numInput.classList.add("light-input");
         numInput.setAttribute("type", "number");
         numInput.step = 0.1;
+        numInput.setAttribute('disabled', true);
         // handle change function
         slider.noUiSlider.on('update', (value) => {
             numInput.value = value;
+            this.mgr.updateControl(this.checkedDancerId, slider.id, value);
         });
         numInput.addEventListener('change', (e) => {
             slider.noUiSlider.set(e.target.value);
         });
         // append element
-        this.sliders.push(slider);
+        this.sliders.push({slider, numInput});
         lightInput.appendChild(slider);
         lightInput.appendChild(numInput);
         el.appendChild(nameText);
         el.appendChild(lightInput);
-        this.sliderli.appendChild(el);
+        document.getElementById("slider-list").appendChild(el);
     }
 }
 
