@@ -3,11 +3,9 @@ import { BlackPart, LightPart, LEDPart } from './part.js';
 import { BLPARTS, LIGHTPARTS, DANCERPOS } from '../constants';
 
 class Dancer {
-    constructor(id, timeline, app, loadTexture) {
+    constructor(id, app, loadTexture) {
         this.app = app;
-        this.timeline = timeline;
         this.id       = id;         // dancer id
-        // this.timeInd  = 0;          // dancer timeline index
         this.status   = {};         // dancer current status
         this.parts    = {};         // dancer body part
         
@@ -39,8 +37,8 @@ class Dancer {
         Object.keys(this.parts).map(key => this.parts[key].updateTexture(this.status[key]));
     }
 
-    update (timeInd) {
-        this.setStat(this.timeline[timeInd]["Status"]);
+    update (status) {
+        this.setStat(status);
         this.updateTexture();
     }
 }

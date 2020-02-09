@@ -30,17 +30,58 @@ class Manager {
     getTime() { return this.time; }
     getControl() { return this.control; }
 
-
-    getTimeInd(t) {
+    getTimeInd() {
         // binary search timeInd with this.time
-        let re = [];
-        for (let i = 0; i < DANCER_NUM; ++i) re.push(0);
-        return re;
+        for (let i = 0; i < this.timeInd.length; ++i) {
+            let l = 0, r = this.control[i].length - 1;
+            let m = Math.floor((l + r + 1) / 2);
+            while (l < r) {
+                if (this.control[i][m]["Start"] <= this.time) l = m;
+                else r = m - 1;
+                m = Math.floor((l + r + 1) / 2);
+            }
+            this.timeInd[i] = m;
+        }
+    }
+
+    changeTime(newTime) {
+        this.time = newTime;
+        this.getTimeInd();
+        for (let i = 0;i < this.timeInd.length; ++i) {
+            this.sim.update(i, this.timeInd[i]);
+        }
+        this.editor.update();
+    }
+
+    timeIndIncrement(num) {
+        for (let i = 0;i < this.timeInd.length; ++i) {
+            if (this.control[i][this.timeInd[i] + num]) {
+                this.timeInd[i] += num;
+                this.sim.update(i, this.timeInd[i]);
+            }
+        }
+        const newTime = this.control[this.editor.checkedDancerId[0]][this.timeInd[0]]["Start"]
+        this.time = newTime === undefined ? this.time : newTime;
+        this.editor.update();
+        console.log("TimeIndIncrement", this.timeInd);
+    }
+
+    changeTimeInd(val) {
+        for (let i = 0;i < this.timeInd.length; ++i) {
+            if (this.control[i][val]) {
+                this.timeInd[i] = val;
+                this.sim.update(i, this.timeInd[i]);
+            }
+        }
+        const newTime = this.control[this.editor.checkedDancerId[0]][this.timeInd[0]]["Start"]
+        this.time = newTime === undefined ? this.time : newTime;
+        this.editor.update();
+        console.log("ChangeTimeInd", val);
     }
 
     initial(t) {
         this.time = t;
-        this.timeInd = this.getTimeInd(t);
+        this.getTimeInd(t);
         for (let i = 0; i < DANCER_NUM; ++i) {
             this.sim.update(i, this.timeInd[i]);
         }
@@ -58,18 +99,19 @@ class Manager {
                         // Stop the interval
                         clearInterval(this.interval);
                         this.interval = null;
-                        this.time = 0;
-                        this.timeInd.fill(0);
+                        // this.time = 0;
+                        // this.timeInd.fill(0);
                         console.log("Stop exec");
                     }
                     else continue;
                 }
                 if (this.time >= this.control[i][this.timeInd[i] + 1]["Start"]) {
                     this.timeInd[i] += 1;
-                    this.sim.update(i, this.timeInd[i]);
                     this.editor.update();
+                    this.sim.update(i, this.timeInd[i]);
                 }
             }
+            this.editor.updateTime();
         }, 30);
     }
 }

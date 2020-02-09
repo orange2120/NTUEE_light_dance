@@ -28,14 +28,14 @@ document.getElementById('simulator').appendChild(app.view)
 
 // manager
 const mgr = new Manager();
+mgr.setControl(control);
 
 // simulate display
-const sim = new Simulator(app, control, load.Texture)
+const sim = new Simulator(mgr, app, control, load.Texture)
 
 // editor
-const editor = new Editor(mgr, control);
+const editor = new Editor(mgr);
 
-mgr.setControl(control);
 mgr.setSim(sim);
 mgr.setEditor(editor);
 mgr.exec(0);

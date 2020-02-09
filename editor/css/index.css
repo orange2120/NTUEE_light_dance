@@ -50,6 +50,17 @@ body {
 .time-el {
     /* margin: 5px; */
     display: flex;
+    align-items: center;
+}
+
+.time {
+    margin: 0 5px 0 0;
+    padding: 0 5px 0 0;
+}
+
+.time-input {
+    width: 50px;
+    height: 20px;
 }
 
 .timeInd-switch-btn {
@@ -61,6 +72,7 @@ body {
 }
 
 .timeInd-input {
-    margin: 5px 0;
+    /* margin: 5px 0; */
     width: 3em;
+    height:20px;
 }
