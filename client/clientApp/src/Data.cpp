@@ -29,20 +29,21 @@ inline void Person::set_execute(Execute e) {
 
 void Execute::print() const
 {
-    string led_name[NUM_OF_LED] = { "chest", "left_shoe", "right_shoe" };
+    // string led_name[NUM_OF_LED] = { "chest", "left_shoe", "right_shoe" };
+    string led_name[NUM_OF_LED] = { "LEDH" };
     string el_name[NUM_OF_EL] = { "A", "B", "C", "D", "E", "F" };
     
     cout << "\t" << "\"Start\": " << start_time << ",\n"
          << "\t" << "\"Status\": {" << endl;
     for(size_t i = 0; i < NUM_OF_LED; ++i) {
-        cout << "\t\t\"" << led_name[LED_parts[i]->idx] << "\": {\n"
+        cout << "\t\t\"" << "LEDH" << "\": {\n"
              << "\t\t\t\"path\": \"" << LED_parts[i]->path << "\",\n"
              << "\t\t\t\"alpha\": \"" << LED_parts[i]->alpha << "\n"
              << "\t\t},\n";
     }
 
     for(size_t i = 0; i < NUM_OF_EL; ++i) {
-        cout << "\t\t\"" << el_name[EL_parts[i].idx] << "\": " << EL_parts[i].get_brightness();
+        cout << "\t\t\"" << i << "\": " << EL_parts[i].get_brightness();
         if(i != EL_parts.size()-1) cout << ",";
         cout << "\n";
     }

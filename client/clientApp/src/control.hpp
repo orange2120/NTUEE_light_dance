@@ -16,7 +16,6 @@ extern uint16_t numLEDs[NUM_OF_LED];
 
 void ReadJson(json& data)
 {
-    
     for(int i = 0; i < PEOPLE_NUM; ++i) { // dimension of people
         people.push_back(Person());
         for(size_t j = 0; j < data[i].size(); ++j) { // dimension of execution
@@ -27,8 +26,9 @@ void ReadJson(json& data)
 
             // set LED part
             e.set_LED_part(data[i][j]["Status"]["LEDH"]["path"], data[i][j]["Status"]["LEDH"]["alpha"]);
-            e.set_LED_part(data[i][j]["Status"]["LEDH"]["path"], data[i][j]["Status"]["LEDH"]["alpha"]);
-            e.set_LED_part(data[i][j]["Status"]["LEDH"]["path"], data[i][j]["Status"]["LEDH"]["alpha"]);
+            // e.set_LED_part(data[i][j]["Status"]["LEDH"]["path"], data[i][j]["Status"]["LEDH"]["alpha"]);
+            // e.set_LED_part(data[i][j]["Status"]["LEDH"]["path"], data[i][j]["Status"]["LEDH"]["alpha"]);
+            
             // set EL part
             double a[NUM_OF_EL] = {
                 data[i][j]["Status"]["A"],
@@ -60,6 +60,8 @@ void sendSig(int id) {
     for(int i = 0; i < NUM_OF_EL; ++i) {
         double br = e.EL_parts[i].get_brightness()*4096;
         el.setEL(i, uint16_t(br));
+        cerr << "brightness alpha: " << e.EL_parts[i].get_brightness() << endl;
+        cerr << "brightness br: " << br << endl;
     }
     // send LED sig
     for(int i = 0; i < 1; ++i) {
@@ -104,6 +106,7 @@ void run(int id) {
             }
             else {
                 ++p.t_index;
+                cerr << "running" << endl;
                 sendSig(id);
             }
         }
