@@ -14,7 +14,7 @@ class Part {
         this.sprite.height = PARTARGS[name].height;
         this.sprite.position.set(PARTARGS[name].x, PARTARGS[name].y);
         this.sprite.zIndex = PARTARGS[name].zIndex;
-        console.log(this);
+        // console.log(this);
     }
 }
 
