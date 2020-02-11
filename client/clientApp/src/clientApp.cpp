@@ -18,7 +18,7 @@
 using namespace std;
 using json = nlohmann::json;
 
-uint16_t numLEDs[NUM_OF_LED] = { LEDS_0, LEDS_1, LEDS_2 };
+uint16_t numLEDs[NUM_OF_LED] = { LEDS_0 };
 
 vector<Person> people; // dancers
 
@@ -68,6 +68,9 @@ int main(int argc, char *argv[]) // arg[1] = person id, arg[2] = json_path
 
     printf("Dancer ID = %d\n", dancer_id);
 
+
+    // people[0].print();
+
     while(!end) {
         cin.clear();
         cin >> cmd;
@@ -79,6 +82,7 @@ int main(int argc, char *argv[]) // arg[1] = person id, arg[2] = json_path
             break;
         }
     }
+
     printf("Done!\n");
     
     return 0;
