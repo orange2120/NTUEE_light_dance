@@ -6,7 +6,7 @@
 
 using namespace std;
 
-#define TEST_TIMES 20
+#define TEST_TIMES 5
 #define TEST_DELAY 100000 // us 
 
 #define COLOR1 0xFFEE00
@@ -14,14 +14,21 @@ using namespace std;
 
 #define START_BYTE 0xFF
 #define STOP_BYTE  0xFF
-#define LED_ID 0x00
-#define NUM_LED 88
 #define DATA_OFFSET 4
+
+uint8_t LED_ID =  0x01;
+uint16_t NUM_LED = 254;
 
 void genColorSeq(char *, const uint16_t &, const uint8_t, const uint8_t, const uint8_t);
 
-int main()
+int main(int argc, char *argv[])
 {
+	if (argc != 3)
+	{
+		cerr << "Invalid parameter\n";
+		return -1;
+	}
+
 	if (!bcm2835_init())
 	{
 		printf("bcm2835_init failed. Are you running as root??\n");
@@ -32,6 +39,11 @@ int main()
 		printf("bcm2835_spi_begin failed. Are you running as root??\n");
 		return 1;
 	}
+
+	LED_ID = atoi(argv[1]);
+	NUM_LED = atoi(argv[2]);
+
+	printf("ID = %d, nLEDs = %d\n", LED_ID, NUM_LED);
 
 	uint16_t dataLen = 6 + 3 * NUM_LED;
 	char test_seq[dataLen + 1];
@@ -85,13 +97,13 @@ void genColorSeq(char *seq, const uint16_t &len, const uint8_t r, const uint8_t 
 	seq[3] = NUM_LED;
 	for (uint16_t i = 0 ; i < NUM_LED; ++i)
 	{
-		printf("[%3d] ", 3 * i + DATA_OFFSET);
+		// printf("[%3d] ", 3 * i + DATA_OFFSET);
 		
 		seq[3 * i + DATA_OFFSET] = r;
 		seq[3 * i + DATA_OFFSET + 1] = g;
 		seq[3 * i + DATA_OFFSET + 2] = b;
 
-		printf("%.2X-%.2X-%.2X\n", seq[3 * i + DATA_OFFSET], seq[3 * i + DATA_OFFSET + 1] , seq[3 * i + DATA_OFFSET + 2]);
+	// printf("%.2X-%.2X-%.2X\n", seq[3 * i + DATA_OFFSET], seq[3 * i + DATA_OFFSET + 1] , seq[3 * i + DATA_OFFSET + 2]);
 	}
 	seq[len - 2] = 0xFF;
 	seq[len - 1] = 0xFF;
