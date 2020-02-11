@@ -1,38 +1,32 @@
 import Dancer from './dancer'
-import { DANCER_NUM, FPS } from '../constants'
+import { DANCER_NUM } from '../constants'
 
 class Simulator {
-    constructor(app, control, loadTexture) {
+    constructor(mgr, app, loadTexture) {
         this.app = app;
-        this.control = control;
-        // set time and timeline array index
-        this.time = 0;
+        this.mgr = mgr;
+        // Set dancer
         this.dancers = [];
         for (let i = 0;i < DANCER_NUM; ++i) {
-            this.dancers.push(new Dancer(i, control[i], this.app, loadTexture));
+            this.dancers.push(new Dancer(i, this.app, loadTexture));
         }
     }
-
-    update() {
-        this.dancers.map(dancer => dancer.update(this.time));
+    updateEdit(checkedDancerId) {
+        if (this.mgr.newStatus.length === 0) console.error(`Error: [updateEdit]`);
+        checkedDancerId.map(id => {
+            this.dancers[id].update(this.mgr.newStatus[id]);
+        });
     }
 
-    setStat(t) {
-        this.dancers.map(dancer => dancer.setStat(t)); // set dancers' status
-        this.time = t;
+    update(dancerId, timeInd) {
+        this.dancers[dancerId].update(this.mgr.control[dancerId][timeInd]["Status"]);
     }
 
-    initial(t) {
-        this.dancers.map(dancer => dancer.initial(t));
-    }
-
-    exec(t) { // execute from time t
-        this.initial(t);
-        // for testing
-        this.interval = setInterval(() => {
-            this.time += FPS;
-            this.update();
-        }, 30);
+    updateAll() {
+        console.log("updatAll");
+        for (let i = 0;i < DANCER_NUM; ++i) {
+            this.update(i, this.mgr.timeInd[i]);
+        }
     }
 }
 
