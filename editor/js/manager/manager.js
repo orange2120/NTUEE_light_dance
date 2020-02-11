@@ -10,7 +10,13 @@ class Manager {
         this.editor = null;
         this.interval = null;
         this.mode = "";
+        this.newStatus = []; // new Status for edit
+        for (let i = 0;i < DANCER_NUM; ++i) this.newStatus.push({});
     }
+
+    // -------------------------------------------------------------------------
+    //                      Initial setup
+    // -------------------------------------------------------------------------
     setControl(control) {  // for global control data
         this.control = control;
         console.log('Manager set control', this.control);
@@ -29,29 +35,32 @@ class Manager {
         console.log(`Manager set time to ${this.time}`);
     }
     setEditMode() {
+        if (this.mode === "EDIT") {
+            this.clearStatus();
+        }
         this.mode = this.mode === "EDIT" ? "" : "EDIT";
         this.editor.update();
+        this.sim.updateAll();
         console.log("Set edit mode", this.mode);
     }
     setAddMode() {
+        if (this.mode === "ADD") {
+            this.clearStatus();
+        }
         this.mode = this.mode === "ADD" ? "" : "ADD";
         this.editor.update();
+        this.sim.updateAll();
         console.log("Set add mode", this.mode);
     }
-    delStatus() {
 
-    }
-
-    updateControl(checkedDancerId, name, value) {
-        // update control with this.timeInd, this.time
-        if (this.mode !== "") {
-            console.log("Update Control", checkedDancerId, name, value);
-        }
-    }
-
+    // -------------------------------------------------------------------------
+    //                              Utility
+    // -------------------------------------------------------------------------
+    
     getTime() { return this.time; }
     getControl() { return this.control; }
     getTimeInd() {
+        let re = [];
         // binary search timeInd with this.time
         for (let i = 0; i < this.timeInd.length; ++i) {
             let l = 0, r = this.control[i].length - 1;
@@ -61,20 +70,69 @@ class Manager {
                 else r = m - 1;
                 m = Math.floor((l + r + 1) / 2);
             }
-            this.timeInd[i] = m;
+            // this.timeInd[i] = m;
+            re.push(i);
+        }
+        return re;
+    }
+
+    // -------------------------------------------------------------------------
+    //                      Update this.control
+    // -------------------------------------------------------------------------
+
+    delStatus() {
+
+    }
+
+    saveStatus() {
+        
+    }
+
+    // -------------------------------------------------------------------------
+    //                      Update this.newControl(newStatus)
+    // -------------------------------------------------------------------------
+
+    updateControl(checkedDancerId, name, value) {
+        // update control with this.timeInd, this.time
+        if (this.mode !== "") {
+            checkedDancerId.map(id => {
+                this.newStatus[id] = Object.assign({}, this.control[id][this.timeInd[id]]["Status"], this.newStatus[id]);
+                this.newStatus[id][name] = Number(value);
+            });
+            this.sim.updateEdit(checkedDancerId);
+            console.log("Update Control", checkedDancerId, name, value, this.newStatus);
+        }
+        else {
+            console.error(`Error: [updateControl], mode: ${this.mode}`);
         }
     }
 
+    clearStatus() {
+        for (let i = 0;i < this.newStatus.length; ++i) this.newStatus[i] = {};
+    }
+
+    // -------------------------------------------------------------------------
+    //                      Update this.time
+    // -------------------------------------------------------------------------
+
     changeTime(newTime) {
         this.time = newTime;
-        this.getTimeInd();
+        this.timeInd = this.getTimeInd().slice();
         for (let i = 0;i < this.timeInd.length; ++i) {
             this.sim.update(i, this.timeInd[i]);
         }
         this.editor.update();
     }
 
+    // -------------------------------------------------------------------------
+    //                      Update this.timeInd
+    // -------------------------------------------------------------------------
+
     timeIndIncrement(num) {
+        if (this.mode !== "") {
+            console.log("Error: Can't change TimeInd at edit/add mode!!!");
+            return;
+        }
         for (let i = 0;i < this.timeInd.length; ++i) {
             if (this.control[i][this.timeInd[i] + num]) {
                 this.timeInd[i] += num;
@@ -88,6 +146,10 @@ class Manager {
     }
 
     changeTimeInd(val) {
+        if (this.mode !== "") {
+            console.log("Error: Can't change TimeInd at edit/add mode!!!");
+            return;
+        }
         for (let i = 0;i < this.timeInd.length; ++i) {
             if (this.control[i][val]) {
                 this.timeInd[i] = val;
@@ -100,9 +162,13 @@ class Manager {
         console.log("ChangeTimeInd", val);
     }
 
+    // -------------------------------------------------------------------------
+    //                      for running control
+    // -------------------------------------------------------------------------
+
     initial(t) {
         this.time = t;
-        this.getTimeInd(t);
+        this.timeInd = this.getTimeInd(t).slice();
         for (let i = 0; i < DANCER_NUM; ++i) {
             this.sim.update(i, this.timeInd[i]);
         }

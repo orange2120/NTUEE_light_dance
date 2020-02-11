@@ -33,7 +33,7 @@ class Dancer {
     }
 
     updateTexture() {
-        console.log("Update Texture");
+        // console.log("Update Texture");
         Object.keys(this.parts).map(key => this.parts[key].updateTexture(this.status[key]));
     }
 

@@ -50,6 +50,7 @@ body {
 .dancer-checkbox {
     font-size: large;
     margin: 0 0.3em 0 0;
+    transform: scale(1.5);
 }
 
 .time-el {
@@ -101,6 +102,11 @@ body {
 .delbtn {
     background-color: #bd4946;
     color: white;
+}
+
+.savebtn {
+    background-color: #58c775;
+    color:#f5fcf6;
 }
 
 .edit-btn.selected {
