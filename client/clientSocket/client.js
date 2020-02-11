@@ -12,6 +12,8 @@ const spawn =  require('child_process').spawn
 console.log("Scanning local network...")
 let scan_cmd = spawn('./scan.sh' ,[])
 
+let clientApp = spawn('sudo ../clientApp/clientApp' ,[1])
+
 scan_cmd.on("exit",function() {
   let arp_cmd = spawn('arp' ,['-a'])
   let buffer = ''
@@ -87,6 +89,12 @@ scan_cmd.on("exit",function() {
         }else if(msg.type === "upload" ){
           fs.writeFileSync('recieve.json', JSON.stringify(msg.data));
           console.log("Done")
+        }else if(msg.type === "play" ){
+          clientApp.stdin.write('run')
+          console.log("start playing")
+        }else if(msg.type === "abort" ){
+          clientApp.kill('SIGINT')
+          console.log("send SIGINT")
         }
       }
       
