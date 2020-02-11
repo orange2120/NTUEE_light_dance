@@ -30,7 +30,7 @@ void ReadJson(json& data)
             e.set_LED_part(data[i][j]["Status"]["LEDH"]["path"], data[i][j]["Status"]["LEDH"]["alpha"]);
             e.set_LED_part(data[i][j]["Status"]["LEDH"]["path"], data[i][j]["Status"]["LEDH"]["alpha"]);
             // set EL part
-            int a[NUM_OF_EL] = {
+            double a[NUM_OF_EL] = {
                 data[i][j]["Status"]["A"],
                 data[i][j]["Status"]["B"],
                 data[i][j]["Status"]["C"],
