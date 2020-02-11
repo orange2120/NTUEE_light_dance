@@ -29,7 +29,10 @@ int main(int argc, char *argv[]) // arg[1] = person id, arg[2] = json_path
     handler_int.sa_handler = sigint_handler;
     handler_usr1.sa_handler = sig_pause;
 
-    if (argc != 3)
+    string path = "./json/test1.json";
+
+    if (argc == 3) path = argv[2];
+    else if (argc != 2)
     {
         fprintf(stderr, "[ERROR] Invalid parameters!\nUsage: ./clientApp <dancer ID> <Input file path>\n");
         return -1;
@@ -55,7 +58,6 @@ int main(int argc, char *argv[]) // arg[1] = person id, arg[2] = json_path
     }
 
     int dancer_id = atoi(argv[1]);
-    string path = argv[2];
     string cmd;
     bool end = false;
     
@@ -66,11 +68,6 @@ int main(int argc, char *argv[]) // arg[1] = person id, arg[2] = json_path
     }
 
     printf("Dancer ID = %d\n", dancer_id);
-    // for(int i = 0; i < PEOPLE_NUM; ++i) {
-    //     cout << "dancer " << i << ": " << endl;
-    //     people[i].print();
-    //     cout << "==================================================" << endl;
-    // }
 
     while(!end) {
         cin.clear();

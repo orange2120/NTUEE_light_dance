@@ -26,21 +26,6 @@ class Execute;
 class EL_part;
 class LED_part;
 
-enum Part_EL {
-  head_el = 0,
-  left_arm_el = 1, 
-  right_arm_el = 2, 
-  breast_el = 3, 
-  left_leg_el = 4, 
-  right_leg_el = 5
-};
-
-enum Part_LED {
-  chest_led = 0,
-  rightleft_foot_led = 1,
-  left_foot_led = 2
-};
-
 class Person { // for every dancer
   public:
     Person():t_index(0) {}
@@ -77,15 +62,16 @@ class EL_part { // for each part of EL
     // Member function
     EL_part(const int& s){ 
       brightness = double(s); 
-      part = Part_EL(el_count); 
+      idx = el_count; 
       ++el_count; 
     }
     double get_brightness() const { return brightness; }
 
     // Data member
     static int el_count;
+    int idx;
+
   private:
-    Part_EL part;
     double brightness; // 0~1
 };
 
@@ -94,7 +80,7 @@ class LED_part { // for each part of LED
     friend class Person;
   public:
     // Member function
-    LED_part() { part = Part_LED(led_count); ++led_count; }
+    LED_part() { idx = led_count; ++led_count; }
     LED_part(const string&, const double&); 
     ~LED_part() {
       if(RGB_data != 0) {
@@ -109,9 +95,9 @@ class LED_part { // for each part of LED
 
     // Data member
     static int led_count;
+    int idx;
 
   private:
-    Part_LED part;
     string path;  // LED array path
     unsigned dataSize;
     double alpha; // for brightness

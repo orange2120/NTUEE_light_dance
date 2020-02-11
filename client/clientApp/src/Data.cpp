@@ -29,17 +29,20 @@ inline void Person::set_execute(Execute e) {
 
 void Execute::print() const
 {
+    string led_name[NUM_OF_LED] = { "chest", "left_shoe", "right_shoe" };
+    string el_name[NUM_OF_EL] = { "A", "B", "C", "D", "E", "F" };
+    
     cout << "\t" << "\"Start\": " << start_time << ",\n"
          << "\t" << "\"Status\": {" << endl;
-    for(size_t i = 0; i < LED_parts.size(); ++i) {
-        cout << "\t\t\"" << Part_EL(i) << "\": {\n"
+    for(size_t i = 0; i < NUM_OF_LED; ++i) {
+        cout << "\t\t\"" << led_name[LED_parts[i]->idx] << "\": {\n"
              << "\t\t\t\"path\": \"" << LED_parts[i]->path << "\",\n"
              << "\t\t\t\"alpha\": \"" << LED_parts[i]->alpha << "\n"
              << "\t\t},\n";
     }
 
-    for(size_t i = 0; i < EL_parts.size(); ++i) {
-        cout << "\t\t\"" << Part_LED(i) << "\": " << EL_parts[i].get_brightness();
+    for(size_t i = 0; i < NUM_OF_EL; ++i) {
+        cout << "\t\t\"" << el_name[EL_parts[i].idx] << "\": " << EL_parts[i].get_brightness();
         if(i != EL_parts.size()-1) cout << ",";
         cout << "\n";
     }
@@ -57,7 +60,7 @@ void Execute::set_EL_part(double a[NUM_OF_EL]) { // set every EL_parts for one t
 }
 
 LED_part::LED_part(const string& s, const double& d):path(s), alpha(d) {
-    part = Part_LED(led_count);
+    idx = led_count;
     ++led_count;
     ifstream infile(s);
     if(!infile.is_open()){
