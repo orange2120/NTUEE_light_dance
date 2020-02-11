@@ -130,6 +130,7 @@ class Editor {
         const editBtn = document.getElementById("editbtn");
         const addBtn = document.getElementById("addbtn");
         const delBtn = document.getElementById("delbtn");
+        const saveBtn = document.getElementById("savebtn");
 
         delBtn.onclick = () => this.mgr.delStatus();
 
@@ -144,6 +145,9 @@ class Editor {
             editBtn.classList.remove("selected");
             this.mgr.setAddMode();
             this.setSliderMode();
+        }
+        saveBtn.onclick = () => {
+            this.mgr.saveNewStatus();
         }
     }
 

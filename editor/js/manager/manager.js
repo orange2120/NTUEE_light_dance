@@ -79,13 +79,24 @@ class Manager {
     // -------------------------------------------------------------------------
     //                      Update this.control
     // -------------------------------------------------------------------------
+    saveNewStatus() {
+        if (this.mode === "EDIT") this.editStatus();
+        else if (this.mode === "ADD") this.addStatus();
+    }
 
     delStatus() {
 
     }
 
-    saveStatus() {
-        
+    editStatus() {
+        console.log("Saving newStatus [Edit]");
+        for (let i = 0;i < this.newStatus.length; ++i) {
+            Object.assign(this.control[i][this.timeInd[i]]["Status"], this.newStatus[i]);
+        }
+    }
+
+    addStatus() {
+        console.log("Saving newStatus [Add]");
     }
 
     // -------------------------------------------------------------------------
