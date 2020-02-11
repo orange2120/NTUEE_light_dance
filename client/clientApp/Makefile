@@ -1,41 +1,30 @@
 CXX = g++
-CFLAGS = -Wall -std=c++11
+CFLAGS = -Wall -std=c++11 -Wno-psabi
 OPTFLAGS = -g
 # OPTFLAGS = -O3
 
 SRC_DIR = src/
 INC_DIR = inc/
+BIN_DIR = bin/
+LIB_DIR = lib/
 
-# EXEC = clientApp
-BIN = bin/
+EXEC = clientApp
+BIN	= $(addprefix $(BIN_DIR), $(EXEC))
 INC = -I$(INC_DIR)
 SRC = $(wildcard $(SRC_DIR)*.cpp)
-OBJ = $(SRC:%.cpp=%.o) #$(patsubst %.c, %.o, $(SRC))
-LIB = -lbcm2835
-
-TARGET = clientApp
+OBJ = $(SRC:%.cpp=%.o)
+LIB = -L./$(LIB_DIR) -lbcm2835 -lpca9685
 
 .PHONY: all clean
 
-all: $(TARGET)
+all: $(BIN)
 
-$(TARGET): $(OBJ)
-	echo $(SRC)
-	$(CXX) $(CFLAGS) $(OPTFLAGS) $(LDFLAGS) $^ -o $(BIN)/$@
+$(BIN): $(OBJ)
+	$(CXX) $(CFLAGS) $(OPTFLAGS) $(LDFLAGS) $^ $(LIB) -o $(BIN)
 
 %.o : %.cpp
-	@$(ECHO) "> compiling: $<"
-	$(CXX) $(CFLAGS) $(INC) $(LIB) -c $< -o $@
-
-
-# EL.o: $(INC)/EL.h
-# 	$(CXX) $(CFLAGS) $(OPTFLAGS) $< -o $(SRC)/$@
-
-# LED_strip.o: $(INC)/LED_strip.h $(SRC)/LED_strip.cpp
-# 	$(CXX) $(CFLAGS) $(OPTFLAGS) $< -o $(SRC)/$@
-
-# Data.o: $(SRC)/
-# 	$(CXX) $(CFLAGS) &(OPTFLAGS) $< -o $(SRC)/$@
+	@echo ">> compiling: $<"
+	$(CXX) $(CFLAGS) $(INC) $(LIB) $(LIBDEP) -c $< -o $@
 
 clean:
-	rm -f $(TARGET) $(OBJ)
+	rm -f $(BIN) $(OBJ)
