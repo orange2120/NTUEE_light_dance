@@ -18,8 +18,7 @@
 using namespace std;
 using json = nlohmann::json;
 
-uint16_t numLEDs[NUM_OF_LED] = { LEDS_0, LEDS_1, LEDS_2,
-                                 LEDS_3, LEDS_4, LEDS_5 };
+uint16_t numLEDs[NUM_OF_LED] = { LEDS_0, LEDS_1, LEDS_2 };
 
 vector<Person> people; // dancers
 
