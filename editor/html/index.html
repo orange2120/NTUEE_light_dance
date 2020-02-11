@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>Light Dance Editor</title>
+        <script src="https://use.fontawesome.com/e99ac46207.js"></script>
     </head>
     <body>
         <h2>NTUEE Light Dance Editor</h3>
@@ -21,7 +22,30 @@
             </div>
             <div>
                 <h3>Editor</h3>
-                <div id="editor"></div>
+                <div id="editor">
+                    <div class="time-el">
+                        <span class="time">
+                            Time:
+                            <input class="time-input" type="number" />
+                        </span>
+                        <button id="timeInd-left-btn" class="timeInd-switch-btn">
+                            <i class="fa fa-chevron-left fa-2x" aria-hidden="true"></i>
+                        </button>
+                        <input class="timeInd-input" type="number" />
+                        <button id="timeInd-right-btn" class="timeInd-switch-btn">
+                            <i class="fa fa-chevron-right fa-2x" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <div class="checkbox-list" id="dancer-checkbox-list"></div>
+                    <hr>
+                    <div id="edit-btn-grp" class="edit-btn-grp">
+                        <button id="editbtn" class="edit-btn editbtn btn btn-outline-primary">EDIT</button>
+                        <button id="addbtn" class="edit-btn addbtn">ADD</button>
+                        <button id="savebtn" class="edit-btn savebtn">SAVE</button>
+                    </div>
+                    <div class="slider-list" id="slider-list"></div>
+                    <button id="delbtn" class="edit-btn delbtn">DEL</button>
+                </div>
             </div>
         </div>
     </body>

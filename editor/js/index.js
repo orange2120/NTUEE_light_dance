@@ -5,11 +5,13 @@ import ReactDOM from 'react-dom';
 import { DISPLAY_WIDTH, DISPLAY_HEIGHT } from './constants'
 
 import Simulator from './simulator/simulator.js'
-import Editor from './editor/editor.jsx'
+import Editor from './editor/editor.js'
+import Manager from './manager/manager.js'
+import '../css/slider.css'
 import '../css/index.css'
 // read data
 import load from '../../data/load.json'
-import control from '../../data/control_test2.json'
+import control from '../../data/control_test3.json'
 
 // timeline
 import Mytimeline from '../js/timeline/mytimeline.js'
@@ -29,16 +31,23 @@ const music = load.Music
 const app = new PIXI.Application({
     width: DISPLAY_WIDTH,
     height: DISPLAY_HEIGHT,
-    backgroundColor: 0x555555,
+    backgroundColor: 0x38393d,
 })
 document.getElementById('simulator').appendChild(app.view)
 
-// Testing 
-const testSprite = new PIXI.Sprite();
+// manager
+const mgr = new Manager();
+mgr.setControl(control);
 
-// simulate
-const sim = new Simulator(app, control, load.Texture)
-sim.exec(0)
+// simulate display
+const sim = new Simulator(mgr, app, control, load.Texture)
 
 // editor
-ReactDOM.render(<Editor />, document.querySelector("#editor"));
+const editor = new Editor(mgr);
+
+mgr.setSim(sim);
+mgr.setEditor(editor);
+// mgr.exec(0);
+
+// editor
+// ReactDOM.render(<Editor mgr={mgr} timeInd={mgr.timeInd} />, document.querySelector("#editor"));
