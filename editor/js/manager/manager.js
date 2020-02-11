@@ -71,7 +71,7 @@ class Manager {
                 m = Math.floor((l + r + 1) / 2);
             }
             // this.timeInd[i] = m;
-            re.push(i);
+            re.push(m);
         }
         return re;
     }
@@ -128,8 +128,9 @@ class Manager {
 
     changeTime(newTime) {
         this.time = newTime;
-        this.timeInd = this.getTimeInd().slice();
+        let re = this.getTimeInd();
         for (let i = 0;i < this.timeInd.length; ++i) {
+            this.timeInd[i] = re[i];
             this.sim.update(i, this.timeInd[i]);
         }
         this.editor.update();

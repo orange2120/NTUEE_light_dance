@@ -5,24 +5,30 @@
   Author       [  ]
   Copyright    [ Copyleft(c) , NTUEE, Taiwan ]
 ****************************************************************************/
+#include "LED_strip.h"
 
-LED_Strip::LED_Strip(const uint8_t &nStrips,const uint16_t *nLEDs) : _nStrip(nStrips)
+/*!
+  @brief constructor of LED strip, initialize SPI communication.
+  @param nStrips number of LED strips
+  @param nLEDs number of LEDs in each strip
+*/
+LED_Strip::LED_Strip(const uint8_t &nStrips, const uint16_t *nLEDs) : _nStrips(nStrips)
 {
-	_nLEDs = new uint8_t[nStrips];
-	for (uint8_t i = 0; i < nStrips; ++i)
-		_nLEDs[i] = nLEDs[i];
-
 	// SPI init
     if (!bcm2835_init())
 	{
 		printf("bcm2835_init failed. Are you running as root??\n");
-		return 1;
+		exit(-1);
 	}
 	if (!bcm2835_spi_begin())
 	{
 		printf("bcm2835_spi_begin failed. Are you running as root??\n");
-		return 1;
+		exit(-1);
 	}
+
+	_nLEDs = new uint16_t[nStrips];
+	for (uint8_t i = 0; i < nStrips; ++i)
+		_nLEDs[i] = nLEDs[i];
 
     bcm2835_spi_setBitOrder(BCM2835_SPI_BIT_ORDER_MSBFIRST);
 	bcm2835_spi_setDataMode(BCM2835_SPI_MODE0);
@@ -39,30 +45,41 @@ LED_Strip::~LED_Strip()
     delete _nLEDs;
 }
 
-// send strip pixel secquence
+/*!
+  @brief Send pixel secquence to LED strip via SPI.
+  @param id Destination strip ID
+  @param color pixel secquence to send
+
+  @note strip ID from 0 to nStrips - 1
+*/
 void LED_Strip::sendToStrip(const uint8_t &id, const char *color)
 {
 	uint16_t dataLen = 3 * _nLEDs[id] + 6; // data length = 3n + 6
-	char buf[len] = {0};
-	getSeq(id, buf, color);
-	bcm2835_spi_transfern(test_seq, dataLen);
-	// spi.send(dataLen, buf);
+	char buf[dataLen] = {0};
+	getSeq(id, dataLen, buf, color);
+	bcm2835_spi_transfern(buf, dataLen);
 }
 
 
-// get strip pixel secquence
+/*!
+  @brief 	   Convert pixel secquence to special dataframe for SPI communication.
+  @param id    Destination strip ID
+  @param len   Data length of pixel secquence
+  @param seq   Pixel secquence to send
+  @param color Output dataframe
+*/
 void LED_Strip::getSeq(const uint8_t &id, const uint16_t &len, char *seq,  const char *color)
 {
-	buf[0] = START_BYTE;
-	buf[1] = id;
-	buf[2] = _nLEDs[id] >> 8;
-	buf[3] = _nLEDs[id];
+	seq[0] = START_BYTE;
+	seq[1] = id;
+	seq[2] = _nLEDs[id] >> 8;
+	seq[3] = _nLEDs[id];
 	for (uint16_t i = 0 ; i < _nLEDs[id]; ++i)
 	{
-		buf[3 * i + DATA_OFFSET] = color[3 * i];
-		buf[3 * i + DATA_OFFSET + 1] = color[3 * i + 1];
-		buf[3 * i + DATA_OFFSET + 2] = color[3 * i];
+		seq[3 * i + DATA_OFFSET] = color[3 * i];
+		seq[3 * i + DATA_OFFSET + 1] = color[3 * i + 1];
+		seq[3 * i + DATA_OFFSET + 2] = color[3 * i];
 	}
-	buf[len - 2] = STOP_BYTE;
-	buf[len - 1] = STOP_BYTE;
+	seq[len - 2] = STOP_BYTE;
+	seq[len - 1] = STOP_BYTE;
 }
