@@ -36,12 +36,9 @@ enum Part_EL {
 };
 
 enum Part_LED {
-  head_led = 0,
-  left_arm_led = 1,
-  right_arm_led = 2,
-  breast_led = 3,
-  left_leg_led = 4,
-  right_leg_led = 5
+  chest_led = 0,
+  rightleft_foot_led = 1,
+  left_foot_led = 2
 };
 
 class Person { // for every dancer
@@ -62,7 +59,6 @@ class Execute { // for every execution
     Execute() {}
     ~Execute() {}
     void set_start_time(const double& d) { start_time = d; }
-    void set_end_time(const double& d) { end_time = d; }
     void set_LED_part(const string&, const double& ); // set each LED_part one by one 
     void set_EL_part(double[NUM_OF_EL]); // set every EL_parts for one time
     void print() const;
