@@ -27,6 +27,8 @@ void ReadJson(json& data)
 
             // set LED part
             e.set_LED_part(data[i][j]["Status"]["LEDH"]["path"], data[i][j]["Status"]["LEDH"]["alpha"]);
+            e.set_LED_part(data[i][j]["Status"]["LEDH"]["path"], data[i][j]["Status"]["LEDH"]["alpha"]);
+            e.set_LED_part(data[i][j]["Status"]["LEDH"]["path"], data[i][j]["Status"]["LEDH"]["alpha"]);
             // set EL part
             int a[NUM_OF_EL] = {
                 data[i][j]["Status"]["A"],
@@ -76,7 +78,7 @@ void turnOff()
         el.setEL(i, 0);
     }
     char* tmp = 0;
-    // send LED sig
+    // send LED sig FIXME:
     for(int i = 0; i < 1; ++i) {
         tmp = new char[numLEDs[i]];
         for(int j = 0; j < 3*numLEDs[i]; ++j) tmp[j] = 0;
@@ -91,15 +93,12 @@ void run(int id) {
     sendSig(id);
     bool off = false;
     while(!off) 
-    {
+    { 
         cout << "Time now: " << time << endl;
         auto start = high_resolution_clock::now();
-        if(time >= TOTAL_TIME) { // FIXME:
-            turnOff();
-            off = true;
-        }
-        else if(time >= p.time_line[p.t_index+1].start_time) {
-            if(p.t_index == p.time_line.size()-1){
+        if(time >= p.time_line[p.t_index+1].start_time) { 
+            if(p.t_index == p.time_line.size()-2) { // last one is a dummy execution
+                ++p.t_index;
                 turnOff();
                 off = true;
             }

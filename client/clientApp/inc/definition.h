@@ -13,7 +13,7 @@
 // #define _DEF_H_
 
 #define NUM_OF_EL  6 // number of EL strips
-#define NUM_OF_LED 6 // number of LED strips
+#define NUM_OF_LED 3 // number of LED strips
 #define PEOPLE_NUM 3 // number of dancer
 
 // Number of LEDs in strip
@@ -24,7 +24,6 @@
 #define LEDS_4 36
 #define LEDS_5 6
 
-#define TOTAL_TIME 8000
 
 
 // #endif // _DEF_H_
