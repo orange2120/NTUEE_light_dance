@@ -1,14 +1,20 @@
-import   './timeliner.js'
+import   './timeliner_v1.4.js'
 
 // todo: play flag move and scroll
 
 class Mytimeline {
-    constructor(callback_func) {
+    constructor(mgr) {
+        this.mgr = mgr;
         this.target = {
             currentTime: 0
         };
+        this.timeliner = new Timeliner(this.target, mgr);
+        this.timelineData = null;
+
+        // Expose API
+        this.setCurrentTime = this.timeliner.setCurrentTime.bind(this);
     }
-    createFromRaw(data,callback_func){
+    createFromRaw(data){
         this.target = {
             dancer_1: 0,
             dancer_2: 0,
@@ -23,32 +29,15 @@ class Mytimeline {
             pos_3: 0,
             currentTime: 0
         };
-        function callBack_updateTime(t)
-        {
-            // console.log(t);
-            // callback_func(_type,param)
-            callback_func("time_update",t)
-        }
         this.timelineData = JSON.parse(JSON.stringify(data));
-        this.timeliner = new Timeliner(this.target,callBack_updateTime);
         this.timeliner.load(this.timelineData)
     }
-    createFromData(data_control,data_load,callback_func){
+    createFromData(data_control,data_load){
         this.target = {
             currentTime: 0
         };
         let data = this.convertData(data_control,data_load,this.target)
-        function callBack_updateTime(t)
-        {
-            // this.target.currentTime = t
-            // console.log("target= ")
-            // console.log(this.target)
-            // console.log(t);
-            // callback_func(_type,param)
-            callback_func("time_update",t)
-        }
         this.timelineData = JSON.parse(JSON.stringify(data));
-        this.timeliner = new Timeliner(this.target,callBack_updateTime);
         this.timeliner.load(this.timelineData)
     }
     reload(data,ui_conserve = true){

@@ -6,6 +6,7 @@ import { DISPLAY_WIDTH, DISPLAY_HEIGHT } from './constants'
 
 import Simulator from './simulator/simulator.js'
 import Editor from './editor/editor.js'
+import Mytimeline from '../js/timeline/mytimeline.js'
 import Manager from './manager/manager.js'
 import '../css/slider.css'
 import '../css/index.css'
@@ -13,15 +14,6 @@ import '../css/index.css'
 import load from '../../data/load.json'
 import control from '../../data/control_test3.json'
 
-// timeline
-import Mytimeline from '../js/timeline/mytimeline.js'
-
-function cb(_type,param){
-
-}
-
-let mytimeline = new Mytimeline(cb)
-mytimeline.createFromData(control,load,cb);
 // // get LEDs
 // const LEDs = load.LED
 // add waveform
@@ -45,8 +37,13 @@ const sim = new Simulator(mgr, app, control, load.Texture)
 // editor
 const editor = new Editor(mgr);
 
+// timeliner
+const mytimeliner = new Mytimeline(mgr);
+mytimeliner.createFromData(control,load);
+
 mgr.setSim(sim);
 mgr.setEditor(editor);
+mgr.setTimerliner(mytimeliner);
 // mgr.exec(0);
 
 // editor

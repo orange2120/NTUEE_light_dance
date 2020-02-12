@@ -386,7 +386,7 @@ function Timeliner(target,callBackUpdateTime) {
 
 		if (start_play) start_play = performance.now() - value * 1000;
 		repaintAll();
-		// add_by_myself
+		// add by myself
 		// this.callback_timeUpdate();
 		// this.prototype.testfunc();
 		callBackUpdateTime(value);
@@ -435,7 +435,7 @@ function Timeliner(target,callBackUpdateTime) {
 			//add by myself
 			// console.log(data);
 			// if(t > data.get('ui:scrollTime').value )
-			data.setValue('ui:scrollTime',t  - data.get('ui:currentTime').value + data.get('ui:scrollTime').value);
+			// data.setValue('ui:scrollTime',t  - data.get('ui:currentTime').value + data.get('ui:scrollTime').value);
 			setCurrentTime(t);
 			
 
@@ -650,7 +650,7 @@ function Timeliner(target,callBackUpdateTime) {
 	var title_bar = document.createElement('span');
 	pane_title.appendChild(title_bar);
 
-	title_bar.innerHTML = 'Timeliner ' + package_json.version;
+	// title_bar.innerHTML = 'Timeliner ' + package_json.version;   ----- Don't need title -----
 	pane_title.appendChild(title_bar);
 
 	var top_right_bar = document.createElement('div');
@@ -658,7 +658,7 @@ function Timeliner(target,callBackUpdateTime) {
 		textAlign: 'right'
 	});
 
-	pane_title.appendChild(top_right_bar);
+	// pane_title.appendChild(top_right_bar);   ----- Don't need top_right_bar -----
 
 	// resize minimize
 	// var resize_small = new IconButton(10, 'resize_small', 'minimize', dispatcher);
@@ -733,8 +733,8 @@ function Timeliner(target,callBackUpdateTime) {
 	// bottom_right.appendChild(button_save);
 	// bottom_right.appendChild(button_open);
 
-	pane_status.appendChild(label_status);
-	pane_status.appendChild(bottom_right);
+	// pane_status.appendChild(label_status);		----- Don't need label_status -----
+	// pane_status.appendChild(bottom_right);		----- Don't need bottom_right -----
 
 
 	/**/
@@ -777,7 +777,7 @@ function Timeliner(target,callBackUpdateTime) {
 		}
 	});
 	style(trash.dom, button_styles, { marginRight: '2px' });
-	bottom_right.appendChild(trash.dom);
+	// bottom_right.appendChild(trash.dom);		----- Don't need trash.dom -----
 
 
 	// pane_status.appendChild(document.createTextNode(' | TODO <Dock Full | Dock Botton | Snap Window Edges | zoom in | zoom out | Settings | help>'));
@@ -825,6 +825,7 @@ function Timeliner(target,callBackUpdateTime) {
 
 	var scrollbar = new ScrollBar(200, 10);
 	div.appendChild(scrollbar.dom);
+	scrollbar.dom.id = "scrollbar";
 
 	// percentages
 	scrollbar.onScroll.do(function(type, scrollTo) {
@@ -1005,13 +1006,18 @@ function Timeliner(target,callBackUpdateTime) {
 		var mouseOnTitle = false;
 		var snapType;
 
-		pane_title.addEventListener('mouseover', function() {
-			mouseOnTitle = true;
-		});
+// -------------------------------------------------------------------------
+//                      Don't need
+// -------------------------------------------------------------------------
 
-		pane_title.addEventListener('mouseout', function() {
-			mouseOnTitle = false;
-		});
+		// pane_title.addEventListener('mouseover', function() {
+		// 	mouseOnTitle = true;
+		// });
+
+		// pane_title.addEventListener('mouseout', function() {
+		// 	mouseOnTitle = false;
+		// });
+// -------------------------------------------------------------------------
 
 		resize_full.onClick(function() {
 			// TOOD toggle back to restored size
@@ -2711,7 +2717,7 @@ function LayerView(layer, dispatcher) {
 
 	// Solo
 	var solo_toggle = new ToggleButton('S');
-	dom.appendChild(solo_toggle.dom);
+	// dom.appendChild(solo_toggle.dom);		----- Don't need solo -----
 
 	solo_toggle.onClick = function() {
 		dispatcher.fire('action:solo', layer, solo_toggle.pressed);
@@ -2719,7 +2725,7 @@ function LayerView(layer, dispatcher) {
 
 	// Mute
 	var mute_toggle = new ToggleButton('M');
-	dom.appendChild(mute_toggle.dom);
+	// dom.appendChild(mute_toggle.dom);		----- Don't need mute -----
 
 	mute_toggle.onClick = function() {
 		dispatcher.fire('action:mute', layer, mute_toggle.pressed);
@@ -2825,12 +2831,15 @@ function LayerCabinet(data, dispatcher) {
 	var layer_store = data.get('layers');
 
 	var div = document.createElement('div');
+	div.id = "laye-cabinet";
 
 	var top = document.createElement('div');
+	top.id = "top";
 	top.style.cssText = 'margin: 0px; top: 0; left: 0; height: ' + Settings.MARKER_TRACK_HEIGHT + 'px';
 	// top.style.textAlign = 'right';
 
 	var layer_scroll = document.createElement('div');
+	layer_scroll.id = "layer_scroll";
 	style(layer_scroll, {
 		position: 'absolute',
 		top: Settings.MARKER_TRACK_HEIGHT + 'px',
@@ -2885,6 +2894,7 @@ function LayerCabinet(data, dispatcher) {
 	});
 
 	var range = document.createElement('input');
+	range.id = "range";
 	range.type = "range";
 	range.value = 0;
 	range.min = -1;
@@ -2961,7 +2971,7 @@ function LayerCabinet(data, dispatcher) {
 		marginTop: '4px',
 		// borderBottom: '1px solid ' + Theme.b
 	});
-	top.appendChild(operations_div);
+	// top.appendChild(operations_div);			----- Don't need operations -----
 	// top.appendChild(document.createElement('br'));
 
 
@@ -3314,6 +3324,7 @@ function TimelinePanel(data, dispatcher) {
 
 	var dpr = window.devicePixelRatio;
 	var canvas = document.createElement('canvas');
+	canvas.id = "canvas";
 
 	var scrollTop = 0, scrollLeft = 0, SCROLL_HEIGHT;
 	var layers = data.get('layers').value;
@@ -3352,6 +3363,7 @@ function TimelinePanel(data, dispatcher) {
 	});
 
 	scroll_canvas.uses(new ScrollCanvas(dispatcher, data));
+	scroll_canvas.dom.id = "scroll_canvas";
 
 
 	div.appendChild(canvas);
