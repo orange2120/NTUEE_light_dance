@@ -1,6 +1,5 @@
 // settings
-
-const SERVER_MAC = "8c:85:90:d1:41:dc"
+const SERVER_MAC = "04:d9:f5:87:38:e2"
 const PORT =8081
 
 // client.js
@@ -12,7 +11,7 @@ const spawn =  require('child_process').spawn
 console.log("Scanning local network...")
 let scan_cmd = spawn('./scan.sh' ,[])
 
-//let clientApp = spawn('sudo ../clientApp/clientApp' ,[1])
+let clientApp = spawn('./clientApp' ,[1])
 
 scan_cmd.on("exit",function() {
   let arp_cmd = spawn('arp' ,['-a'])
@@ -90,10 +89,10 @@ scan_cmd.on("exit",function() {
           fs.writeFileSync('recieve.json', JSON.stringify(msg.data));
           console.log("Done")
         }else if(msg.type === "play" ){
-  //        clientApp.stdin.write('run')
+          clientApp.stdin.write('run')
           console.log("start playing")
         }else if(msg.type === "abort" ){
-  //        clientApp.kill('SIGINT')
+          clientApp.kill('SIGINT')
           console.log("send SIGINT")
         }
       }
