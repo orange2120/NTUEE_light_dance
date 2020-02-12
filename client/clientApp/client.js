@@ -105,7 +105,7 @@ scan_cmd.on("exit",function() {
           if(clientApp_cmd.killed){
             clientApp_cmd = spawn('./clientApp' ,[1])
           }
-          clientApp_cmd.stdin.write('run')
+          clientApp_cmd.stdin.write('run\n')
           console.log("start playing")
         }else if(msg.type === "abort" ){
           if(!clientApp_cmd.killed){
