@@ -11,11 +11,17 @@ const spawn =  require('child_process').spawn
 console.log("Scanning local network...")
 let scan_cmd = spawn('./scan.sh' ,[])
 
-let clientApp = spawn('./clientApp' ,[1])
+let clientApp_cmd = spawn('./clientApp' ,[1])
 
 scan_cmd.on("exit",function() {
   let arp_cmd = spawn('arp' ,['-a'])
   let buffer = ''
+  let buffer1 = ''
+
+  clientApp_cmd.stdout.on('data', function (data) {
+      buffer1 += data;
+      // 8c:85:90:d1:41:dc
+  });
 
   arp_cmd.stdout.on('data', function (data) {
       buffer += data;
@@ -24,6 +30,12 @@ scan_cmd.on("exit",function() {
 
   arp_cmd.on('close', function(code){
       // console.log('closed with code ' + code);
+
+  });
+
+  clientApp_cmd.on('close', function(code){
+    console.log("cmdd: ",buffer1)
+    // console.log('closed with code ' + code);
 
   });
 
@@ -89,10 +101,10 @@ scan_cmd.on("exit",function() {
           fs.writeFileSync('recieve.json', JSON.stringify(msg.data));
           console.log("Done")
         }else if(msg.type === "play" ){
-          clientApp.stdin.write('run')
+          clientApp_cmd.stdin.write('run')
           console.log("start playing")
         }else if(msg.type === "abort" ){
-          clientApp.kill('SIGINT')
+          clientApp_cmd.kill('SIGINT')
           console.log("send SIGINT")
         }
       }
