@@ -32,9 +32,10 @@ scan_cmd.on("exit",function() {
       // console.log('closed with code ' + code);
 
   });
-
+  
   clientApp_cmd.on('close', function(code){
     console.log("cmdd: ",buffer1)
+    buffer1=''
     // console.log('closed with code ' + code);
 
   });
@@ -101,10 +102,16 @@ scan_cmd.on("exit",function() {
           fs.writeFileSync('recieve.json', JSON.stringify(msg.data));
           console.log("Done")
         }else if(msg.type === "play" ){
+          if(clientApp_cmd.killed){
+            clientApp_cmd = spawn('./clientApp' ,[1])
+          }
           clientApp_cmd.stdin.write('run')
           console.log("start playing")
         }else if(msg.type === "abort" ){
-          clientApp_cmd.kill('SIGINT')
+          if(!clientApp_cmd.killed){
+            clientApp_cmd.kill('SIGINT')
+          }
+          
           console.log("send SIGINT")
         }
       }
