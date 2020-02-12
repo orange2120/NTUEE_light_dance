@@ -8,6 +8,7 @@ class Manager {
         this.control = null;
         this.sim = null;
         this.editor = null;
+        this.timeliner = null;
         this.interval = null;
         this.mode = "";
         this.newStatus = []; // new Status for edit
@@ -28,6 +29,10 @@ class Manager {
     setEditor(editor) {
         this.editor = editor;
         console.log('Manager set editor', editor);
+    }
+    setTimerliner(timeliner) {
+        this.timeliner = timeliner;
+        console.log('Manager set timeliner', timeliner);
     }
 
     setTime(t) {         // for global time
@@ -74,6 +79,13 @@ class Manager {
             re.push(m);
         }
         return re;
+    }
+    // -------------------------------------------------------------------------
+    //                              Call by timeliner
+    // -------------------------------------------------------------------------
+    getTimeFromTimeliner(t) {
+        // Call by this.timeliner
+        console.log("Get time from timerliner!!", t);
     }
 
     // -------------------------------------------------------------------------
@@ -134,6 +146,7 @@ class Manager {
             this.sim.update(i, this.timeInd[i]);
         }
         this.editor.update();
+        this.timeliner.setCurrentTime(Number.parseFloat(newTime));
     }
 
     // -------------------------------------------------------------------------
