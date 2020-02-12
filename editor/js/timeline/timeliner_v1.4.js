@@ -2277,6 +2277,7 @@ function Timeliner(target, Mgr) {				// ----- mgr is for outside manager -----
 	// k - keyframe
 
 	document.addEventListener('keydown', function(e) {
+		if (e.target.closest("input", "select", "button")) return;
 		var play = e.keyCode == 32; // space
 		var enter = e.keyCode == 13; // 
 		var undo = e.metaKey && e.keyCode == 91 && !e.shiftKey;
