@@ -47,6 +47,7 @@ const wavesurfer = new MyWaveSurfer(mgr, `../../music/${music}`);
 
 mgr.setSim(sim);
 mgr.setEditor(editor);
+mgr.setWaveSurfer(wavesurfer);
 // mgr.setTimerliner(mytimeliner);
 // mgr.exec(0);
 

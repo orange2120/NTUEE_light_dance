@@ -9,6 +9,7 @@ class Manager {
         this.sim = null;
         this.editor = null;
         this.timeliner = null;
+        this.wavesurfer = null;
         this.interval = null;
         this.mode = "";
         this.newStatus = []; // new Status for edit
@@ -33,6 +34,10 @@ class Manager {
     setTimerliner(timeliner) {
         this.timeliner = timeliner;
         console.log('Manager set timeliner', timeliner);
+    }
+    setWaveSurfer(wavesurfer) {
+        this.wavesurfer = wavesurfer;
+        console.log('Manager set wavesurfer', wavesurfer);
     }
 
     setTime(t) {         // for global time
@@ -101,18 +106,43 @@ class Manager {
     }
 
     delStatus() {
-
+        console.log("Deleting Status");
+        for (let i = 0; i < DANCER_NUM; ++i) {
+            if (this.timeInd[i] == 0) {
+                console.log("Can't delete Status 0!!");
+                continue;
+            }
+            this.control[i].splice(this.timeInd[i], 1);
+            this.timeInd[i] -= 1;
+        }
+        const newTime = this.control[this.editor.checkedDancerId[0]][this.timeInd[0]]["Start"]
+        this.time = newTime === undefined ? this.time : newTime;
+        this.sim.updateAll();
+        this.editor.update();
+        this.wavesurfer.update();
     }
 
     editStatus() {
         console.log("Saving newStatus [Edit]");
-        for (let i = 0;i < this.newStatus.length; ++i) {
+        for (let i = 0;i < DANCER_NUM; ++i) {
             Object.assign(this.control[i][this.timeInd[i]]["Status"], this.newStatus[i]);
         }
     }
 
     addStatus() {
-        console.log("Saving newStatus [Add]");
+        console.log("Saving newStatus [Add]", this.newStatus);
+        for (let i = 0;i < DANCER_NUM; ++i) {
+            let newControl = {};
+            newControl["Start"] = this.time;
+            newControl["Status"] = Object.assign({}, this.control[i][this.timeInd[i]]["Status"], this.newStatus[i]);
+            this.control[i].splice(this.timeInd[i] + 1, 0, newControl);
+            this.timeInd[i] += 1;
+        }
+        const newTime = this.control[this.editor.checkedDancerId[0]][this.timeInd[0]]["Start"]
+        this.time = newTime === undefined ? this.time : newTime;
+        this.sim.updateAll();
+        this.editor.update();
+        this.wavesurfer.update();
     }
 
     // -------------------------------------------------------------------------
@@ -143,6 +173,7 @@ class Manager {
     // -------------------------------------------------------------------------
 
     changeTime(newTime) {
+        console.log("changeTime", newTime);
         this.time = newTime;
         let re = this.getTimeInd();
         for (let i = 0;i < this.timeInd.length; ++i) {
@@ -150,7 +181,8 @@ class Manager {
             this.sim.update(i, this.timeInd[i]);
         }
         this.editor.update();
-        this.timeliner.setCurrentTime(Number.parseFloat(newTime) / 1000);
+        this.wavesurfer.update();
+        // this.timeliner.setCurrentTime(Number.parseFloat(newTime) / 1000);
     }
 
     // -------------------------------------------------------------------------
@@ -171,6 +203,7 @@ class Manager {
         const newTime = this.control[this.editor.checkedDancerId[0]][this.timeInd[0]]["Start"]
         this.time = newTime === undefined ? this.time : newTime;
         this.editor.update();
+        this.wavesurfer.update();
         console.log("TimeIndIncrement", this.timeInd);
     }
 
@@ -181,7 +214,7 @@ class Manager {
         }
         for (let i = 0;i < this.timeInd.length; ++i) {
             if (this.control[i][val]) {
-                this.timeInd[i] = val;
+                this.timeInd[i] = Number(val);
                 this.sim.update(i, this.timeInd[i]);
             }
         }
