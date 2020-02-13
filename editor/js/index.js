@@ -6,7 +6,8 @@ import { DISPLAY_WIDTH, DISPLAY_HEIGHT } from './constants'
 
 import Simulator from './simulator/simulator.js'
 import Editor from './editor/editor.js'
-import Mytimeline from '../js/timeline/mytimeline.js'
+import Mytimeline from './timeline/mytimeline.js'
+import MyWaveSurfer from './wavesurfer/wavesurfer.js';
 import Manager from './manager/manager.js'
 import '../css/slider.css'
 import '../css/index.css'
@@ -37,13 +38,16 @@ const sim = new Simulator(mgr, app, control, load.Texture)
 // editor
 const editor = new Editor(mgr);
 
+// wavesurfer
+const wavesurfer = new MyWaveSurfer(mgr, `../../music/${music}`);
+
 // timeliner
-const mytimeliner = new Mytimeline(mgr);
-mytimeliner.createFromData(control,load);
+// const mytimeliner = new Mytimeline(mgr);
+// mytimeliner.createFromData(control,load);
 
 mgr.setSim(sim);
 mgr.setEditor(editor);
-mgr.setTimerliner(mytimeliner);
+// mgr.setTimerliner(mytimeliner);
 // mgr.exec(0);
 
 // editor

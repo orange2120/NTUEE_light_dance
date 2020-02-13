@@ -12,7 +12,7 @@ class Mytimeline {
         this.timelineData = null;
 
         // Expose API
-        this.setCurrentTime = this.timeliner.setCurrentTime.bind(this);
+        this.setCurrentTime = this.timeliner.setCurrentTime;;
     }
     createFromRaw(data){
         this.target = {
@@ -38,6 +38,7 @@ class Mytimeline {
         };
         let data = this.convertData(data_control,data_load,this.target)
         this.timelineData = JSON.parse(JSON.stringify(data));
+        console.log(this.timelineData)
         this.timeliner.load(this.timelineData)
     }
     reload(data,ui_conserve = true){
@@ -49,7 +50,7 @@ class Mytimeline {
             this.timelineData = JSON.parse(JSON.stringify(data))
         }
         
-        // this.timeliner.loadJSONString(JSON.stringify(this.timelineData))
+        this.timeliner.loadJSONString(JSON.stringify(this.timelineData))
         this.timeliner.load(this.timelineData)
     }
     convertData(data_control,data_load,_tar){
@@ -57,7 +58,7 @@ class Mytimeline {
         let newa = data_control.map(timeline => { 
             return{ name : "dancer_",tmpValue : 3.500023, _color: "#6ee167",
             _value: 0.9955620977777778 ,values : timeline.map( entry => {
-                return {time : entry.Start, value: 0, _color : "#1b3e5c"};
+                return {time : Number.parseFloat(entry.Start) / 1000, value: 0, _color : "#1b3e5c"};
             })
         }; 
         })
@@ -71,8 +72,8 @@ class Mytimeline {
     gotoTime(t){
 
     }
-    KeyFrame(layer_index,time){
-        this.timeliner.addKeyFrame(layer_index,time,0)
+    addKeyFrame(layer_index,time){
+        this.timeliner.addKeyFrame(layer_index, time, 0)
     }
     getCurrentTime(){
         

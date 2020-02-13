@@ -1179,7 +1179,8 @@ time_scaled();
 // Timeline Panel
 /**************************/
 
-function TimelinePanel(data, dispatcher) {
+function TimelinePanel(data, dispatcher, Mgr) {
+	const mgr = Mgr;		// ----- save mgr from outside -----
 
 	var dpr = window.devicePixelRatio;
 	var canvas = document.createElement('canvas');
@@ -1574,7 +1575,11 @@ function TimelinePanel(data, dispatcher) {
 
 			console.log('drag start', tmp, tmp2);
 
-		 	if (typeof(tmp) !== 'number') dragObject = tmp;
+		 	if (typeof(tmp) !== 'number') {
+				 // Get index
+				 dragObject = tmp;
+				 mgr.getTimeIndFromTimeliner(tmp);  // ----- call mgr get time ind -----
+			 }
 		}
 
 		onPointerDrag(mx, my);
@@ -1726,7 +1731,7 @@ function Timeliner(target, Mgr) {				// ----- mgr is for outside manager -----
 
 	var dispatcher = new Dispatcher();
 
-	var timeline = new TimelinePanel(data, dispatcher);
+	var timeline = new TimelinePanel(data, dispatcher, mgr);
 	var layer_panel = new LayerCabinet(data, dispatcher);
 
 	var undo_manager = new UndoManager(dispatcher);
@@ -2277,7 +2282,7 @@ function Timeliner(target, Mgr) {				// ----- mgr is for outside manager -----
 	// k - keyframe
 
 	document.addEventListener('keydown', function(e) {
-		if (e.target.closest("input", "select", "button")) return;
+		if (e.target.closest("input", "select", "button")) return;		// ----- fix keydown event affect input -----
 		var play = e.keyCode == 32; // space
 		var enter = e.keyCode == 13; // 
 		var undo = e.metaKey && e.keyCode == 91 && !e.shiftKey;
@@ -2301,7 +2306,7 @@ function Timeliner(target, Mgr) {				// ----- mgr is for outside manager -----
 			// Esc = stop. FIXME: should rewind head to last played from or Last pointed from?
 			dispatcher.fire('controls.pause');
 		}
-		else console.log(e.keyCode);
+		// else console.log(e.keyCode);
 	});
 
 	var needsResize = true;
