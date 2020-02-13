@@ -33,7 +33,7 @@ class Editor {
     }
 
     updateSlider() {
-        console.log("updateSlider", this.mgr.mode);
+        // console.log("updateSlider", this.mgr.mode);
         if (this.mgr.mode === "") {
             this.sliders.map(sliderInput => {
                 const id = this.checkedDancerId[0]
@@ -50,12 +50,12 @@ class Editor {
     }
 
     updateTime() {
-        console.log("Update Time");
+        // console.log("Update Time");
         document.getElementsByClassName("time-input")[0].value = this.mgr.time;
     }
 
     updateTimeInd() {
-        console.log("Update Time Ind");
+        // console.log("Update Time Ind");
         document.getElementsByClassName("timeInd-input")[0].value = this.mgr.timeInd[this.checkedDancerId[0]];
     }
 

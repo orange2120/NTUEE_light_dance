@@ -2,7 +2,6 @@ import Wavesurfer from 'wavesurfer.js';
 import CursorPlugin from 'wavesurfer.js/dist/plugin/wavesurfer.cursor.js';
 import TimelinePlugin from 'wavesurfer.js/dist/plugin/wavesurfer.timeline.min.js';
 
-console.log(Wavesurfer)
 class MyWaveSurfer {
     constructor(mgr, music) {
         this.mgr = mgr;
@@ -31,10 +30,27 @@ class MyWaveSurfer {
         this.wavesurfer.on('ready', () => {
             this.ready = true;
         });
+        this.wavesurfer.on('audioprocess', () => this.audioProcess());
 
         // DOM Stuff
+        // play/pause
         document.getElementById("playPause-btn").onclick = () => this.playPause();
-        console.log(this);
+        this.addKeyEvent();
+        // stop
+        document.getElementById("stop-btn").onclick = () => this.wavesurfer.stop();
+        // zoom slider
+        const zoomSlider = document.getElementById("zoom-slider");
+        zoomSlider.min = 1;
+        zoomSlider.max = 120;
+        zoomSlider.value = 0;
+        zoomSlider.addEventListener('change', (e) => this.zoom(e.target.value));
+    }
+    addKeyEvent() {
+        document.addEventListener('keydown', (e) => {
+            if (e.target.closest("input select")) return;
+            const SPACE = e.keyCode == 32;
+            if (SPACE) this.playPause();
+        })
     }
     playPause() {
         if (!this.ready) {
@@ -42,6 +58,21 @@ class MyWaveSurfer {
             return;
         }
         this.wavesurfer.playPause();
+    }
+    audioProcess() {
+        // console.log("Audio Process ", this.wavesurfer.getCurrentTime());
+        const newTime = this.wavesurfer.getCurrentTime();
+        this.mgr.changeTime(Math.round(newTime * 1000));
+    }
+    zoom(val) {
+        console.log("Zooming", Number(val));
+        this.wavesurfer.zoom(Number(val));
+    }
+    update() {      // sync to mgr
+        if (this.wavesurfer.isPlaying()) return;
+        const duration = this.wavesurfer.getDuration();
+        console.log("Wavesurfer update", Number.parseFloat(this.mgr.time) / 1000);
+        this.wavesurfer.seekTo(Number.parseFloat(this.mgr.time) / 1000 / duration);
     }
 }
 
