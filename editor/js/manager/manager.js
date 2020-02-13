@@ -83,9 +83,13 @@ class Manager {
     // -------------------------------------------------------------------------
     //                              Call by timeliner
     // -------------------------------------------------------------------------
-    getTimeFromTimeliner(t) {
+    getTimeFromTimeliner(t) { 
         // Call by this.timeliner
-        console.log("Get time from timerliner!!", t);
+        console.log("Get time from timeliner!!", t * 1000);    // turn s to ms
+    }
+
+    getTimeIndFromTimeliner(obj) {
+        console.log("Get timeliner from timeliner!!", obj);
     }
 
     // -------------------------------------------------------------------------
@@ -146,7 +150,7 @@ class Manager {
             this.sim.update(i, this.timeInd[i]);
         }
         this.editor.update();
-        this.timeliner.setCurrentTime(Number.parseFloat(newTime));
+        this.timeliner.setCurrentTime(Number.parseFloat(newTime) / 1000);
     }
 
     // -------------------------------------------------------------------------
