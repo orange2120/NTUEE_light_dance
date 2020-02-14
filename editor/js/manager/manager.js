@@ -103,6 +103,7 @@ class Manager {
     saveNewStatus() {
         if (this.mode === "EDIT") this.editStatus();
         else if (this.mode === "ADD") this.addStatus();
+        window.localStorage.setItem('control', JSON.stringify(this.control));
     }
 
     delStatus() {
@@ -127,6 +128,8 @@ class Manager {
         for (let i = 0;i < DANCER_NUM; ++i) {
             Object.assign(this.control[i][this.timeInd[i]]["Status"], this.newStatus[i]);
         }
+        document.getElementById("editbtn").classList.remove('selected');
+        this.setEditMode();
     }
 
     addStatus() {
@@ -138,11 +141,11 @@ class Manager {
             this.control[i].splice(this.timeInd[i] + 1, 0, newControl);
             this.timeInd[i] += 1;
         }
-        const newTime = this.control[this.editor.checkedDancerId[0]][this.timeInd[0]]["Start"]
-        this.time = newTime === undefined ? this.time : newTime;
-        this.sim.updateAll();
-        this.editor.update();
-        this.wavesurfer.update();
+        console.log(this.mode)
+        // this.sim.updateAll();
+        // this.editor.update();
+        document.getElementById("addbtn").classList.remove('selected');
+        this.setAddMode();
     }
 
     // -------------------------------------------------------------------------
@@ -157,7 +160,7 @@ class Manager {
                 this.newStatus[id][name] = Number(value);
             });
             this.sim.updateEdit(checkedDancerId);
-            console.log("Update Control", checkedDancerId, name, value, this.newStatus);
+            // console.log("Update Control", checkedDancerId, name, value, this.newStatus);
         }
         else {
             console.error(`Error: [updateControl], mode: ${this.mode}`);
@@ -204,7 +207,7 @@ class Manager {
         this.time = newTime === undefined ? this.time : newTime;
         this.editor.update();
         this.wavesurfer.update();
-        console.log("TimeIndIncrement", this.timeInd);
+        // console.log("TimeIndIncrement", this.timeInd);
     }
 
     changeTimeInd(val) {
@@ -262,6 +265,31 @@ class Manager {
             }
             this.editor.updateTime();
         }, 30);
+    }
+    // -------------------------------------------------------------------------
+    //                      Download control
+    // -------------------------------------------------------------------------
+    upload(e) {
+        try {
+            let files = e.target.files;  
+            let fr = new FileReader(); 
+            fr.onload = evt => {
+                let re = JSON.parse(evt.target.result);
+                this.control = re;
+                console.log("upload new control", this.control);
+            };
+            fr.readAsText(files[0]);
+        }
+        catch (err) {
+            console.error(err);
+        }
+    }
+    download() {
+        console.log("Download file", this.control);
+        const downloadLink = document.getElementById('download-link');
+        let data = `text/json;charset=utf-8,` + encodeURIComponent(JSON.stringify(this.control));
+        downloadLink.href = `data:${data}`;
+        downloadLink.download = "control.json";
     }
 }
 
