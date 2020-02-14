@@ -19,6 +19,10 @@ class Editor {
         LIGHTPARTS.map((part) => {
             this.addSlider(part, this.mgr.control[this.checkedDancerId[0]][0]["Status"][part]);
         });
+        // add upload
+        this.addUpload();
+        // add download
+        this.addDownloadBtn();
         console.log('Editor ', this);
     }
 
@@ -30,6 +34,7 @@ class Editor {
         this.updateTime();
         this.updateTimeInd();
         this.updateSlider();
+        this.setSliderMode();
     }
 
     updateSlider() {
@@ -87,7 +92,6 @@ class Editor {
     //                       Set Component for Editor
     // -------------------------------------------------------------------------
     setSliderMode() {
-        console.log("Set slider mode");
         this.sliders.map(sliderInput => {
             if (this.mgr.mode !== "") {
                 sliderInput.slider.removeAttribute("disabled");
@@ -172,7 +176,7 @@ class Editor {
         document.getElementById("dancer-checkbox-list").appendChild(el);
     }
 
-    addSlider(name, value) {
+    addSlider(name, value = 0) {
         let el = document.createElement("div");
         let nameText = document.createTextNode(name);
         let lightInput = document.createElement("div");
@@ -212,6 +216,15 @@ class Editor {
         el.appendChild(nameText);
         el.appendChild(lightInput);
         document.getElementById("slider-list").appendChild(el);
+    }
+
+    addUpload() {
+        document.getElementById("upload-file").onchange = (e) => this.mgr.upload(e);
+    }
+
+    addDownloadBtn() {
+        // console.log("addDownloadBtn")
+        document.getElementById("download-link").onclick = (e) => this.mgr.download();
     }
 }
 

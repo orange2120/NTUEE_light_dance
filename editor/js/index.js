@@ -1,6 +1,4 @@
 import * as PIXI from 'pixi.js'
-import React from 'react';
-import ReactDOM from 'react-dom';
 // import Constant
 import { DISPLAY_WIDTH, DISPLAY_HEIGHT } from './constants'
 
@@ -12,8 +10,16 @@ import Manager from './manager/manager.js'
 import '../css/slider.css'
 import '../css/index.css'
 // read data
-import load from '../../data/load.json'
-import control from '../../data/control_test3.json'
+const load = require('../../data/load.json');
+let control = require(`../../data/${load.Control}`);
+// let control = null;
+// if (window.localStorage.getItem('control') === null) {
+    // control = require(`../../data/${load.Control}`);
+// }
+// else {
+    // control = JSON.parse(window.localStorage.getItem('control'));
+// }
+
 
 // // get LEDs
 // const LEDs = load.LED
