@@ -27,9 +27,8 @@ CRGB *strips[NUM_STRIPS];
 void setup()
 {
 for (uint8_t i = 0; i < NUM_STRIPS; ++i)
-    {
         strips[i] = new CRGB[NUM_LEDS[i]];
-    }
+
     FastLED.addLeds<LED_TYPE, LED_PIN_0, COLOR_ORDER>(strips[0], NUM_LEDS[0]);
     FastLED.addLeds<LED_TYPE, LED_PIN_1, COLOR_ORDER>(strips[1], NUM_LEDS[1]);
     FastLED.addLeds<LED_TYPE, LED_PIN_2, COLOR_ORDER>(strips[2], NUM_LEDS[2]);
@@ -86,5 +85,4 @@ void loop()
         delay(50);
     }
     delay(500);
-
 }

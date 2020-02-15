@@ -15,24 +15,25 @@
 #define COLOR_ORDER GRB
 #define LED_TYPE    WS2812
 
-#define BUF_SIZE    1024
+#define BUF_SIZE    270
 #define DATA_OFFSET 4
 #define START_BYTE  0xFF
 #define STOP_BYTE   0xFF
 
 const uint16_t NUM_LEDS[] = {88, 300, 36, 36};
-#define LED_PIN_0 PB0
-#define LED_PIN_1 PB1
-#define LED_PIN_2 PB2
-#define LED_PIN_2 PB3
+#define LED_PIN_0   PB0
+#define LED_PIN_1   PB1
+#define LED_PIN_2   PB2
+#define LED_PIN_3   PB3
 
 volatile uint16_t cnt = 0;
-volatile bool received;      // handle SPI received event flag
+volatile bool received(false);      // handle SPI received event flag
 
 CRGB *strips[NUM_STRIPS];
 
-byte buf[BUF_SIZE];
-byte txBuf[BUF_SIZE];
+byte buf[BUF_SIZE + 1];
+
+volatile bool dma_transfer_complete(false);
 
 /*
 void spiHandler()
@@ -103,89 +104,67 @@ void setupSPI()
     // Clear RX register in case we already received SPI data
     spi_rx_reg(SPI.dev());
 }
-/*
+
 void setupDMA()
 {
-      // SPI is on DMA1
-  dma_init(DMA1);
-  // Disable in case already enabled
-  spi_tx_dma_disable(SPI.dev());
-  spi_rx_dma_disable(SPI.dev());
-  // Disable in case it was already enabled
-  dma_disable(DMA1, DMA_CH2);
-  dma_disable(DMA1, DMA_CH3);
-  dma_detach_interrupt(DMA1, DMA_CH2);
-  // DMA tube configuration for SPI1 Rx
-  dma_tube_config rx_tube_cfg =
-      {
-       &SPI1->regs->DR, // Source of data
-       DMA_SIZE_8BITS, // Source transfer size
-       &rx_buffer, // Destination of data
-       DMA_SIZE_8BITS, // Destination transfer size
-       BUFFER_SIZE, // Number of data to transfer
-       // Flags: auto increment destination address, circular buffer, set tube full IRQ, very high priority
-       (DMA_CFG_DST_INC | DMA_CFG_CIRC | DMA_CFG_CMPLT_IE | DMA_CCR_PL_VERY_HIGH),
-       0, // Un-used
-       DMA_REQ_SRC_SPI1_RX, // Hardware DMA request source
-      };
-  // SPI1 Rx is channel 2
-  const int ret_rx(dma_tube_cfg(DMA1, DMA_CH2, &rx_tube_cfg));
-  if (ret_rx != DMA_TUBE_CFG_SUCCESS)
-  {
-    while (1)
+    // SPI is on DMA1
+    dma_init(DMA1);
+    // Disable in case already enabled
+    spi_rx_dma_disable(SPI.dev());
+    // Disable in case it was already enabled
+    dma_disable(DMA1, DMA_CH2);
+    dma_detach_interrupt(DMA1, DMA_CH2);
+    // DMA tube configuration for SPI1 Rx
+    dma_tube_config rx_tube_cfg =
     {
-#ifdef SERIAL_DEBUG
-      Serial.print("Rx DMA configuration error: ");
-      Serial.println(ret_rx, HEX);
-      Serial.println("Reset is needed!");
-#endif
-      delay(500);
-    }
-  }
-  // DMA tube configuration for SPI1 Tx
-  dma_tube_config tx_tube_cfg =
-      {
-       &tx_buffer, // Source of data
-       DMA_SIZE_8BITS, // Source transfer size
-       &SPI1->regs->DR, // Destination of data
-       DMA_SIZE_8BITS, // Destination transfer size
-       BUFFER_SIZE, // Number of data to transfer
-       // Flags: auto increment source address, circular buffer, set tube full IRQ, very high priority
-       (DMA_CFG_SRC_INC | DMA_CFG_CIRC | DMA_CFG_CMPLT_IE | DMA_CCR_PL_VERY_HIGH),
-       0, // Un-used
-       DMA_REQ_SRC_SPI1_TX, // Hardware DMA request source
-      };
-  // SPI1 Tx is channel 3
-  const int ret_tx(dma_tube_cfg(DMA1, DMA_CH3, &tx_tube_cfg));
-  if (ret_tx != DMA_TUBE_CFG_SUCCESS)
-  {
-    while (1)
+        &SPI1->regs->DR, // Source of data
+        DMA_SIZE_8BITS, // Source transfer size
+        &buf, // Destination of data
+        DMA_SIZE_8BITS, // Destination transfer size
+        BUF_SIZE, // Number of data to transfer
+        // Flags: auto increment destination address, circular buffer, set tube full IRQ, very high priority
+        (DMA_CFG_DST_INC | DMA_CFG_CIRC | DMA_CFG_CMPLT_IE | DMA_CCR_PL_VERY_HIGH),
+        0, // Un-used
+        DMA_REQ_SRC_SPI1_RX, // Hardware DMA request source
+    };
+    // SPI1 Rx is channel 2
+    const int ret_rx(dma_tube_cfg(DMA1, DMA_CH2, &rx_tube_cfg));
+    if (ret_rx != DMA_TUBE_CFG_SUCCESS)
     {
-#ifdef SERIAL_DEBUG
-      Serial.print("Tx DMA configuration error: ");
-      Serial.println(ret_tx, HEX);
-      Serial.println("Reset is needed!");
-#endif
-      delay(500);
+        while (1)
+        {
+    #ifdef DEBUG
+        Serial1.print("Rx DMA configuration error: ");
+        Serial1.println(ret_rx, HEX);
+        Serial1.println("Reset is needed!");
+    #endif
+        delay(500);
+        }
     }
-  }
+
   // Attach interrupt to catch end of DMA transfer
   dma_attach_interrupt(DMA1, DMA_CH2, rxDMAirq);
   // Enable DMA configurations
   dma_enable(DMA1, DMA_CH2); // Rx
-  dma_enable(DMA1, DMA_CH3); // Tx
-  // SPI DMA requests for Rx and Tx
+  // SPI DMA requests for Rx
   spi_rx_dma_enable(SPI.dev());
-  spi_tx_dma_enable(SPI.dev());
-#ifdef SERIAL_DEBUG
-  Serial.print("setupDMA | Rx count = ");
-  Serial.print((unsigned) dma_get_count(DMA1, DMA_CH2));
-  Serial.print(" | Tx DMA count = ");
-  Serial.println((unsigned) dma_get_count(DMA1, DMA_CH3));
+#ifdef DEBUG
+  Serial1.print("setupDMA | Rx count = ");
+  Serial1.print((unsigned) dma_get_count(DMA1, DMA_CH2));
 #endif
 
 }
-*/
+
+void rxDMAirq(void)
+{
+  if (dma_get_irq_cause(DMA1, DMA_CH2) == DMA_TRANSFER_COMPLETE)
+    dma_transfer_complete = true;
+}
+
+void spi_cs_detect()
+{
+
+}
 
 void setup()
 {
@@ -194,15 +173,15 @@ void setup()
 #endif
 
     for (uint8_t i = 0; i < NUM_STRIPS; ++i)
-    {
         strips[i] = new CRGB[NUM_LEDS[i]];
-    }
+
     FastLED.addLeds<LED_TYPE, LED_PIN_0, COLOR_ORDER>(strips[0], NUM_LEDS[0]);
     FastLED.addLeds<LED_TYPE, LED_PIN_1, COLOR_ORDER>(strips[1], NUM_LEDS[1]);
     FastLED.addLeds<LED_TYPE, LED_PIN_2, COLOR_ORDER>(strips[2], NUM_LEDS[2]);
     FastLED.addLeds<LED_TYPE, LED_PIN_3, COLOR_ORDER>(strips[3], NUM_LEDS[3]);
 
-    setupSPI();
+    // setupSPI();
+    setupDMA();
 }
 
 void loop()
@@ -213,5 +192,9 @@ void loop()
         // SPI.dmaTransferSet(NULL, buf);
         Serial1.println(buf[3], HEX);
         lasttime = now;
+        if (dma_transfer_complete)
+        {
+            Serial1.println("XFRD");
+        }
     }
 }
