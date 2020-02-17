@@ -70,6 +70,9 @@ class CmdServer
         // console.log(this)
         console.log('')
     }
+    getBoardsInfo(){
+        return this.wss.BOARDS
+    }
     terminateBoard(_id=[]){
         // if id=[] : only remove board that is not alive
         // console.log("[Server] kick boards")
@@ -148,7 +151,6 @@ class CmdServer
                     ws.macAddr = mac
                     console.log("[Server] ACKs sent")
 
-
                 });
 
 
@@ -164,8 +166,17 @@ class CmdServer
             console.log(`[Client] (${ws.borad_ID}) ${ws.ipAddr} ${ws.macAddr} leave`)
         })
     }
-    sendToBoards(){
-
+    sendToBoards(msg,targets){
+        this.wss.clients.forEach((client) => {
+            if(client.readyState === WebSocket.OPEN && client.borad_ID in targets) {
+                // let boardMsg = {
+                //     type: 'upload',
+                //     data: CONTROL[client.borad_ID] //boardData[client.boardId]
+                //     // wsdata: wsData[client.boardId]
+                // };
+                client.send(JSON.stringify(msg));
+            }
+        });
     }
     initInterval(){
         function noop() {}
@@ -192,9 +203,9 @@ class CmdServer
         return find_board
     }
 }
-// export default CmdServer
+export default CmdServer
 
-
+/*
 const CONFIG = require('./config.json')
 const CONTROL = require('../data/control_test2.json')
 
@@ -278,4 +289,4 @@ rl.on('line', function(line) {
 }).on('close',function(){
     process.exit(0);
 });
- 
+ */

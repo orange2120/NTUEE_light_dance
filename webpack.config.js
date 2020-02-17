@@ -2,10 +2,14 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
+const webpack = require('webpack')
+
 module.exports = {
-    entry: {
+    entry:// ['babel-polyfill','./editor/js/index.js']
+    {        
         index: './editor/js/index.js'
-    },
+    }
+    ,
     output: {
         filename: '[name].[hash].js',
         path: path.resolve(__dirname, 'editor/dist')
@@ -32,7 +36,9 @@ module.exports = {
     devServer: {
         stats: {
             children: false, // cleaner display on terminal
-            maxModules: 0 // cleaner display on terminal
+            maxModules: 0, // cleaner display on terminal
+            colors : true,
+            hot : true
         }
     },
     plugins: [
@@ -40,6 +46,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: 'editor/html/index.html'
-        })
+        }),
+        new webpack.HotModuleReplacementPlugin()
     ]
 }
