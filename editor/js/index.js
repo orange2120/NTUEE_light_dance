@@ -1,3 +1,4 @@
+require ('webpack-hot-middleware/client')
 import * as PIXI from 'pixi.js'
 // import Constant
 import { DISPLAY_WIDTH, DISPLAY_HEIGHT } from './constants'
@@ -7,6 +8,7 @@ import Editor from './editor/editor.js'
 import Mytimeline from './timeline/mytimeline.js'
 import MyWaveSurfer from './wavesurfer/wavesurfer.js';
 import Manager from './manager/manager.js'
+import Commandcenter from './commandcenter/commandcenter.js'
 import '../css/slider.css'
 import '../css/index.css'
 // read data
@@ -37,6 +39,10 @@ document.getElementById('simulator').appendChild(app.view)
 // manager
 const mgr = new Manager();
 mgr.setControl(control);
+
+// CommandCenter
+const cc = new Commandcenter(mgr)
+
 
 // simulate display
 const sim = new Simulator(mgr, app, control, load.Texture)
