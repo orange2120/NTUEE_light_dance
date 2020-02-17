@@ -1,3 +1,5 @@
+import tableDragger from 'table-dragger'
+
 const axios = require('axios').default;
 
 class Commandcenter{
@@ -5,6 +7,9 @@ class Commandcenter{
         this.mgr = mgr
         this.container = document.getElementById("conrtol_zone")
         this.status_zone = document.getElementById("status_zone")
+        // let el = document.getElementById('items');
+        
+        
         this.boards = [1,2,3]
         this.reloadBoardsStatus()
         document.getElementById("btn_test").onclick= function(){
@@ -28,17 +33,36 @@ class Commandcenter{
             console.log(response.data);
             console.log(this.status_zone);
             console.log(this.boards)
-            if(!this.arraysEqual(this.boards,response.data)){
+            if((this.boards,response.data)){
                 let t = document.createElement("table")
+                t.id="board_table"
+                let h = t.createTHead();
+                let row = h.insertRow(0);
+                let table_header=['ID','IP','MAC','Status','Select']
+                for (const y of table_header){
+                    let cell = row.insertCell(0);
+                    cell.innerHTML = y;
+                    cell.className="handle"
+                }
+                
+                // document.getElementById('board_table_body')
                 response.data.forEach((b)=>{
                     // console.log(b)
                     let r = t.insertRow()
                     let c = r.insertCell()
-                    c.innerHTML = "(" + b.id + ") " + b.mac + " " + b.status
+                    c.innerHTML = b.id 
+                    c = r.insertCell()
+                    c.innerHTML = b.ip
+                    c = r.insertCell()
+                    c.innerHTML = b.mac
+                    c = r.insertCell()
+                    c.innerHTML = b.status
+                    c = r.insertCell()
                 })
                 this.status_zone.innerHTML=""
                 this.status_zone.appendChild(t)
                 this.boards = response.data
+                tableDragger(document.getElementById('board_table'), { mode: "row", onlyBody: true });
             }
             
           } catch (error) {

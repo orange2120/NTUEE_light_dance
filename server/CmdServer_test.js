@@ -84,9 +84,15 @@ class CmdServer
                 
             }else if(client.readyState === WebSocket.OPEN &&  _id.includes(client.borad_ID)) {
                 
-                this.wss.BOARDS[client.borad_ID].status = "disconnect"
-                client.terminate()
-                console.log(`[Server] Kick Board(${client.borad_ID}) at ${client.ipAddr}`)
+                // this.sendToBoards("{}",[client.borad_ID])
+                client.send(JSON.stringify({
+                    type:"safe_kick"
+                }),()=>{
+                    this.wss.BOARDS[client.borad_ID].status = "disconnect"
+                    // client.terminate()
+                    console.log(`[Server] Kick Board(${client.borad_ID}) at ${client.ipAddr}`)
+                })
+                
             }
         });
         // console.log("[Server] done")
@@ -98,8 +104,14 @@ class CmdServer
         ws.ipAddr = ""
         ws.isAlive = true;
 
-        function heartbeat() {
+        ws.transmit_delay = -1
+
+        function heartbeat(x) {
             this.isAlive = true;
+            let obj = JSON.parse(String(x))
+            
+            console.log((Date.now() - obj.server_time)/2)
+            this.transmit_delay = (Date.now() - obj.server_time)/2
         }
         ws.on('pong', heartbeat);
         // console.log('jj')
@@ -179,7 +191,7 @@ class CmdServer
         });
     }
     initInterval(){
-        function noop() {}
+        // function noop() {}
         let self = this
         const interval = setInterval(function ping() {
             self.wss.clients.forEach(function each(ws) {
@@ -192,7 +204,13 @@ class CmdServer
               } 
               
               ws.isAlive = false;
-              ws.ping(noop);
+            //   send server time and connection delay time
+              ws.ping(JSON.stringify(
+                  {
+                      server_time : Date.now(),
+                      delay : ws.transmit_delay
+                  }),{},true);
+            //   ws.ping(noop);
             });
         }, this.config.settings.ping_interval);
     }
@@ -202,10 +220,60 @@ class CmdServer
         })
         return find_board
     }
-}
-export default CmdServer
 
-/*
+    play(cmd_start_time,params){
+        let msg={
+            type: "play",
+            data : {
+                start_at_server : cmd_start_time,
+                play_from_time : params.time
+            }
+        }
+        this.sendToBoards(msg,params.ids)
+    }
+    pause(cmd_start_time,params){
+        let msg={
+            type: "pause",
+            data : {
+                start_at_server : cmd_start_time
+            }
+        }
+        this.sendToBoards(JSON.stringify(msg),params.targets)
+    }
+    upload(cmd_start_time,params,control){
+        this.wss.clients.forEach((client) => {
+            if(client.readyState === WebSocket.OPEN && client.borad_ID in params.targets) {
+                let boardMsg = {
+                    type: 'upload',
+                    data: control[client.borad_ID] //boardData[client.boardId]
+                    // wsdata: wsData[client.boardId]
+                };
+                client.send(JSON.stringify(boardMsg));
+            }
+        });
+    }
+    rebootBoard(cmd_start_time,params){
+        let msg = {
+            type:"rebootBoard"
+        }
+        this.sendToBoards(msg,params.targets)
+    }
+    runTest(cmd_start_time,params){
+        let msg = {
+            type:"runTest"
+        }
+        this.sendToBoards(msg,params.targets)
+    }
+    reConnectClient(cmd_start_time,params){
+        let msg = {
+            type:"reConnectClient"
+        }
+        this.sendToBoards(msg,params.targets)
+    }
+}
+// export default CmdServer
+
+
 const CONFIG = require('./config.json')
 const CONTROL = require('../data/control_test2.json')
 
@@ -289,4 +357,4 @@ rl.on('line', function(line) {
 }).on('close',function(){
     process.exit(0);
 });
- */
+ 
