@@ -12,17 +12,17 @@ class Commandcenter{
         
         this.boards = [1,2,3]
         this.reloadBoardsStatus()
-        document.getElementById("btn_test").onclick= function(){
-            async function getUser() {
-                try {
-                  const response = await axios.get('/test?ID=12345');
-                  console.log(response);
-                } catch (error) {
-                  console.error(error);
-                }
-            }
-            getUser()
-        }
+        // document.getElementById("btn_test").onclick= function(){
+        //     async function getUser() {
+        //         try {
+        //           const response = await axios.get('/test?ID=12345');
+        //           console.log(response);
+        //         } catch (error) {
+        //           console.error(error);
+        //         }
+        //     }
+        //     getUser()
+        // }
     }
     
     async reloadBoardsStatus(){
