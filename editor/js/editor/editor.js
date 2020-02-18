@@ -223,7 +223,12 @@ class Editor {
     }
 
     addUpload() {
-        document.getElementById("upload-file").onchange = (e) => this.mgr.upload(e);
+        document.getElementById("upload-file").onchange = (e) => {
+            this.mgr.upload(e);
+            let filename = e.target.value.split("\\").pop()
+            document.querySelector('#upload-file').nextElementSibling.innerHTML = filename;
+
+        }
     }
 
     addDownloadBtn() {
