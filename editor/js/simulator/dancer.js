@@ -23,7 +23,7 @@ class Dancer {
         });
         // Calculate position and scale
         const ratio = this.container.width / this.container.height;
-        this.container.height = (DISPLAY_HEIGHT - 10) / 2;
+        this.container.height = (DISPLAY_HEIGHT * 0.95) / 2;
         this.container.width = this.container.height * ratio;
         this.container.sortableChildren = true;
 
