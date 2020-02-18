@@ -87,7 +87,7 @@ function main(){
           // sends out pings plus a conservative assumption of the latency.
           this.pingTimeout = setTimeout(() => {
             this.terminate();
-          }, 1000 + 1000);
+          }, 1000 + 3000);
         }
 
         let board_id=-1
