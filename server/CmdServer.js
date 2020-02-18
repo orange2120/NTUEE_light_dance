@@ -10,6 +10,7 @@ class CmdServer
     constructor(_port=8081,_config){
         
         this.wss = new WebSocket.Server({ port: _port })
+        
         this.loadConfig(_config)
         this.server_ip = this.getLocalIp()
         // this.BOARDS=[]
@@ -17,6 +18,9 @@ class CmdServer
         this.wss.on('connection', this.processConnection);
         
         this.initInterval()
+    }
+    startServer(){
+
     }
     loadConfig(_config){
         this.config = _config
