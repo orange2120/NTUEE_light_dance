@@ -10,6 +10,7 @@ class MyWaveSurfer {
             container: "#waveform",
             waveColor: '#5bc1f0',
             progressColor: '#1883b5',
+            height: screen.height * 0.08,
             plugins: [
                 CursorPlugin.create({
                     showTime: true,
@@ -40,7 +41,7 @@ class MyWaveSurfer {
         // zoom slider
         const zoomSlider = document.getElementById("zoom-slider");
         zoomSlider.min = 1;
-        zoomSlider.max = 120;
+        zoomSlider.max = 200;
         zoomSlider.value = 0;
         zoomSlider.addEventListener('change', (e) => this.zoom(e.target.value));
         // keyEvent

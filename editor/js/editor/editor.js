@@ -1,4 +1,4 @@
-import { LIGHTPARTS, DANCER_NUM } from '../constants';
+import { LIGHTPARTS, DANCER_NUM,  DISPLAY_HEIGHT} from '../constants';
 import * as noUiSlider from 'nouislider/distribute/nouislider.js';
 
 class Editor {
@@ -24,6 +24,10 @@ class Editor {
         // add download
         this.addDownloadBtn();
         console.log('Editor ', this);
+
+        // DOM stuff
+        this.el.style.height = `${DISPLAY_HEIGHT}px`;
+        this.el.style.overflow = "scroll";
     }
 
     // -------------------------------------------------------------------------

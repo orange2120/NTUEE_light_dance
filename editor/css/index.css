@@ -1,11 +1,27 @@
 body {
     font-family: sans-serif;
     background: #FFFFFF;
+    height: 100%;
+    margin: 5px;
 }
 .workplace {
     display: grid;
-    grid-template-columns: 1420px 300px;
+    grid-template-columns: 5fr 2fr 1fr;
+    height:100%;
 }
+
+#simulator {
+    margin-right: 3px;
+}
+
+#editor {
+    padding-left: 3px;
+    padding-right: 3px;
+    border-right: 1px solid gray;
+    border-left: 1px solid gray;
+    font-size: small;
+}
+
 
 .slider-list {
     margin: 10px 0px;
@@ -48,9 +64,9 @@ body {
 }
 
 .dancer-checkbox {
-    font-size: large;
+    /* font-size: large;
     margin: 0 0.3em 0 0;
-    transform: scale(1.5);
+    transform: scale(1.5); */
 }
 
 .time-el {
@@ -84,18 +100,18 @@ body {
 }
 
 .edit-btn-grp {
-    height: 40px;
+    height: 20px;
     display: flex;
     margin: 5px 0 5px 0;
 }
 
 .edit-btn {
     margin: 0px 5px;
-    height: 40px;
-    width: 60px;
-    border-radius: 5px;
+    /* height: 40px;
+    width: 60px; */
+    border-radius: 3px;
     cursor: pointer;
-    font-size: large;
+    /* font-size: large; */
     -webkit-appearance: none;
 }
 
@@ -120,4 +136,13 @@ body {
 
 #waveform {
     position: relative;
+}
+
+#presets-list {
+    padding-left: 3px;
+}
+
+.preset-li:hover {
+    background-color: #ededed;
+    transition: background-color .3s;
 }

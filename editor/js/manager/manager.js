@@ -17,7 +17,7 @@ class Manager {
     }
 
     // -------------------------------------------------------------------------
-    //                      Initial setup
+    //                             setup
     // -------------------------------------------------------------------------
     setControl(control) {  // for global control data
         this.control = control;
