@@ -18,7 +18,8 @@ import '../css/goldenlayout-dark-theme.css'
 let  layout_config = {
     content: [
     {
-        type: 'row',
+        type: 'column',
+        isClosable: false,
         content:[
             {
             type: 'column',
@@ -53,7 +54,9 @@ let  layout_config = {
         
         {
             type: 'component',
+            id:"id_command_Component",
             width : 25.644599303135884,
+            height : 20,
             title : 'Command',
             componentName: 'command_Component',
             componentState: { label: 'command_Component' }
@@ -70,7 +73,7 @@ myLayout.registerComponent( 'timeline_Component', function( container, component
 });
 
 myLayout.registerComponent( 'command_Component', function( container, componentState ){
-    container.getElement().html( '<div id="conrtol_zone"><div id="status_zone"></div><table id="board_table"><thead><tr><th class="handle">ID</th><th class="handle">IP</th><th class="handle">MAC</th><th class="handle">Status</th><th class="handle">Select</th></tr></thead><tbody id="board_table_body"><tr><td>id</td><td>ip1</td><td>mac1</td><td></td></tr><tr><td>id</td><td>ip2</td><td>mac2</td><td></td></tr><tr><td>id</td><td>ip3</td><td>mac3</td><td></td></tr></tbody></table> <button id="btn_test">test</button></div>' );
+    container.getElement().html( '<div id="conrtol_zone"><div id="status_zone"></div><button id="btn_test">test</button></div>' );
 });
 myLayout.registerComponent( 'display_Component', function( container, componentState ){
     container.getElement().html( '<div id="simulator"></div>' );
@@ -81,6 +84,55 @@ myLayout.registerComponent( 'editor_Component', function( container, componentSt
 
 myLayout.init();
 myLayout.on("initialised",()=>{
+    // console.log(myLayout)
+    document.onkeyup = function(e) {
+        if (e.ctrlKey && e.altKey && (e.which == 67 || e.which == 99)) {// e.ctrlKey && e.altKey && e.which == 87
+        //   alert("Ctrl + Alt + C shortcut combination was pressed");
+          if(myLayout.root.getItemsById("id_command_Component").length ==0)
+          {
+            // let newItemConfig = {
+            //     type: "stack",
+            //     width: 25.644599303135884,
+            //     height : 20,
+            //     content: [{
+            //         type: 'component',
+            //         width : 25.644599303135884,
+            //         height : 20,
+            //         title : 'Command',
+            //         id : "id_command_Component",
+            //         componentName: 'command_Component',
+            //         componentState: { label: 'command_Component' }
+            //     }]
+            // };
+
+            let newItemConfig = {
+                type: 'component',
+                width : 25.644599303135884,height : 20,
+                title : 'Command',
+                id : "id_command_Component",
+                componentName: 'command_Component',
+                componentState: { label: 'command_Component' }
+            }
+            console.log(myLayout.root.getItemsById("asd"))
+            myLayout.root.contentItems[ 0 ].addChild( newItemConfig);
+            
+          }else{
+            myLayout.root.getItemsById("id_command_Component")[0].remove()
+          }
+        //   console.log(myLayout.root)
+        //   let cco = myLayout.getComponent("command_Component")
+        
+        //   console.log(myLayout.root.contentItems)
+        //   myLayout.container
+          
+        //   console.log()
+        //   console.log(cco)
+        //   cco.hide();
+        }
+    };
+
+    
+    
     document.getElementById("btn_test").onclick= function(){
         console.log(myLayout.toConfig())
     }
