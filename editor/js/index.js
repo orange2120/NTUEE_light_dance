@@ -32,7 +32,6 @@ else {
 
 // // get LEDs
 // const LEDs = load.LED
-// add waveform
 const music = load.Music
 
 // add simulate page

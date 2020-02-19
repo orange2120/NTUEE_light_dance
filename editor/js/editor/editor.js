@@ -5,7 +5,7 @@ class Editor {
     constructor(mgr) {
         this.mgr = mgr;
         this.el = document.getElementById('editor');
-        this.checkedDancerId = [0];
+        this.checkedDancerId = 0;
         // add time and timeInd
         this.addTime();
         this.addTimeInd();
@@ -17,7 +17,7 @@ class Editor {
         // add light slider
         this.sliders = [];
         LIGHTPARTS.map((part) => {
-            this.addSlider(part, this.mgr.control[this.checkedDancerId[0]][0]["Status"][part]);
+            this.addSlider(part, this.mgr.control[this.checkedDancerId][0]["Status"][part]);
         });
         // add upload
         this.addUpload();
@@ -27,7 +27,6 @@ class Editor {
 
         // DOM stuff
         this.el.style.height = `${DISPLAY_HEIGHT}px`;
-        this.el.style.overflow = "scroll";
     }
 
     // -------------------------------------------------------------------------
@@ -45,7 +44,7 @@ class Editor {
         // console.log("updateSlider", this.mgr.mode);
         if (this.mgr.mode === "") {
             this.sliders.map(sliderInput => {
-                const id = this.checkedDancerId[0]
+                const id = this.checkedDancerId
                 sliderInput.slider.noUiSlider
                     .set(this.mgr.control[id][this.mgr.timeInd[id]]["Status"][sliderInput.slider.id]);
             });
@@ -53,7 +52,7 @@ class Editor {
         else {
             this.sliders.map(sliderInput => {
                 sliderInput.slider.noUiSlider
-                    .set(this.mgr.newStatus[this.checkedDancerId[0]][sliderInput.slider.id]);
+                    .set(this.mgr.newStatus[this.checkedDancerId][sliderInput.slider.id]);
             })
         }
     }
@@ -65,16 +64,16 @@ class Editor {
 
     updateTimeInd() {
         // console.log("Update Time Ind");
-        document.getElementsByClassName("timeInd-input")[0].value = this.mgr.timeInd[this.checkedDancerId[0]];
+        document.getElementsByClassName("timeInd-input")[0].value = this.mgr.timeInd[this.checkedDancerId];
     }
 
     updateMgrTimeInd(newtimeInd) {
-        this.mgr.updateTimeInd(this.checkedDancerId[0], newtimeInd);
+        this.mgr.updateTimeInd(this.checkedDancerId, newtimeInd);
     }
 
     updateDancerChecked(dancerId) {
         console.log("updateDancerChecked", dancerId);
-        this.checkedDancerId[0] = dancerId;
+        this.checkedDancerId = dancerId;
         this.updateSlider();
         // if (!this.checkedDancerId.includes(dancerId)) {
         //     this.checkedDancerId.unshift(dancerId);
@@ -167,7 +166,7 @@ class Editor {
         checkBox.name = "dancer-check-box"
         checkBox.value = dancerID;
         checkBox.classList.add("dancer-checkbox");
-        if (this.checkedDancerId.includes(dancerID)) checkBox.checked = true;
+        if (this.checkedDancerId === dancerID) checkBox.checked = true;
         checkBox.onclick = () => {
             console.log("Checkbox: ", checkBox.value);
             // if (!this.updateDancerChecked(Number(checkBox.value))) checkBox.checked = true;
@@ -208,7 +207,7 @@ class Editor {
         // handle change function
         slider.noUiSlider.on('update', (value) => {
             numInput.value = value;
-            if (this.mgr.mode !== "") this.mgr.updateControl(this.checkedDancerId, slider.id, value);
+            if (this.mgr.mode !== "") this.mgr.updateControl([this.checkedDancerId], slider.id, value);
         });
         numInput.addEventListener('change', (e) => {
             slider.noUiSlider.set(e.target.value);
