@@ -116,7 +116,7 @@ class Manager {
             this.control[i].splice(this.timeInd[i], 1);
             this.timeInd[i] -= 1;
         }
-        const newTime = this.control[this.editor.checkedDancerId[0]][this.timeInd[0]]["Start"]
+        const newTime = this.control[this.editor.checkedDancerId][this.timeInd[0]]["Start"]
         this.time = newTime === undefined ? this.time : newTime;
         this.sim.updateAll();
         this.editor.update();
@@ -215,7 +215,7 @@ class Manager {
                 this.sim.update(i, this.timeInd[i]);
             }
         }
-        const newTime = this.control[this.editor.checkedDancerId[0]][this.timeInd[0]]["Start"]
+        const newTime = this.control[this.editor.checkedDancerId][this.timeInd[0]]["Start"]
         this.time = newTime === undefined ? this.time : newTime;
         this.editor.update();
         this.wavesurfer.update();
@@ -233,7 +233,7 @@ class Manager {
                 this.sim.update(i, this.timeInd[i]);
             }
         }
-        const newTime = this.control[this.editor.checkedDancerId[0]][this.timeInd[0]]["Start"]
+        const newTime = this.control[this.editor.checkedDancerId][this.timeInd[0]]["Start"]
         this.time = newTime === undefined ? this.time : newTime;
         this.editor.update();
         console.log("ChangeTimeInd", val);

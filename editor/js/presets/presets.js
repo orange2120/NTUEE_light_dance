@@ -30,7 +30,7 @@ class Modal {
         });
         document.querySelector("#modal-display").appendChild(this.display.view);
         this.dancer = new Dancer(0, this.display, load.Texture);
-        this.dancer.setPos(1, height, width);
+        // this.dancer.setPos(1, height, width);
         // dancerSelect
         for (let i = 0;i < DANCER_NUM; ++i) this.addDancerOpt(i);
         // sliders
@@ -90,6 +90,10 @@ class Modal {
     // ---------- functions ----------
     open() {
         this.el.style.display = 'flex';
+        const height = document.querySelector('.modal-workplace').offsetHeight;
+        const width = document.querySelector('.modal-workplace').offsetWidth / 2;
+        this.display.renderer.resize(width, height);
+        this.dancer.setPos(1, height, width);
     }
     close() {
         this.el.style.display = 'none';
@@ -140,14 +144,17 @@ class Presets {
     }
     addPreset(preset) {
         const name = preset["Name"];
-        const status = preset["Status"];
         // const dancers = preset["dancers"];
-        console.log(name, status)
         // DOM stuff
         const li = document.createElement("div");
         li.classList.add("preset-li");
         li.id = name;
         li.innerText = name;
+        const trashIcon = document.createElement('i');
+        trashIcon.classList.add("fa", "fa-trash");
+        li.appendChild(trashIcon);
+        document.getElementById("presets-list").appendChild(li);
+        // Add click event
         li.ondblclick = e => {
             let preset = null;
             this.presets.map(pre => {
@@ -155,17 +162,27 @@ class Presets {
             });
             this.mgr.loadPreset(preset);
         }
-        document.getElementById("presets-list").appendChild(li);
+        trashIcon.onclick = () => this.delPreset(li.id);
     }
     createPreset(preset) {
         console.log(preset);
         if (preset["Name"] === "") return;
         this.presets.push(preset);
         this.addPreset(preset);
-        window.localStorage.setItem('presets', JSON.stringify(this.presets));
+        this.savePreset();
     }
     editPreset() {
 
+    }
+    delPreset(id) {
+        console.log("delPreset", id);
+        const ind = this.presets.findIndex(preset => preset["Name"] === id);
+        this.presets.splice(ind, 1);
+        document.querySelector("#presets-list").removeChild(document.querySelector(`#${id}`));
+        this.savePreset();
+    }
+    savePreset() {
+        window.localStorage.setItem('presets', JSON.stringify(this.presets));
     }
 
     // ---------- DOM event ----------
