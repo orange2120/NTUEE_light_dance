@@ -22,20 +22,25 @@ class Dancer {
             this.container.addChild(this.parts[key].sprite);
         });
         // Calculate position and scale
-        const ratio = this.container.width / this.container.height;
-        this.container.height = (DISPLAY_HEIGHT * 0.95) / 2;
-        this.container.width = this.container.height * ratio;
-        this.container.sortableChildren = true;
-
-        const half = DANCER_NUM / 2;
-        const wOffset = (DISPLAY_WIDTH - half * this.container.width) / (half + 1);
-        const y = (id >= half ? DISPLAY_HEIGHT / 2 : 0);
-        let _id = id % 4;
-        const x = (_id + 1) * wOffset + _id * this.container.width;
-        this.container.position.set(x, y);
+        this.setPos();
         app.stage.addChild(this.container);
 
         console.log("Dancer Constructed", this);
+    }
+
+    setPos(num = DANCER_NUM, height = DISPLAY_HEIGHT, width = DISPLAY_WIDTH) {
+        const ratio = this.container.width / this.container.height;
+        this.container.height = (height * 0.95);
+        if (num > 1) this.container.height = this.container.height / 2;
+        this.container.width = this.container.height * ratio;
+        this.container.sortableChildren = true;
+
+        const half = num > 1 ? num / 2 : num;
+        const wOffset = (width - half * this.container.width) / (half + 1);
+        const y = (this.id >= half ? height / 2 : 0);
+        let _id = this.id % half;
+        const x = (_id + 1) * wOffset + _id * this.container.width;
+        this.container.position.set(x, y);
     }
 
     setStat(status) {

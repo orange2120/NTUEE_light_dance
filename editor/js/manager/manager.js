@@ -152,6 +152,18 @@ class Manager {
     //                      Update this.newControl(newStatus)
     // -------------------------------------------------------------------------
 
+    loadPreset(preset) {
+        if (this.mode === "") return;
+        console.log("Mgr load preset", preset);
+        let shouldUpdateDancers = [...preset["Dancers"]];
+        let checkedDancerId = this.editor.checkedDancerId;
+        if (preset["Chosen_Dancer"] && !shouldUpdateDancers.includes(checkedDancerId))
+            shouldUpdateDancers.push(checkedDancerId);
+        Object.keys(preset["Status"]).map(key => {
+            this.updateControl(shouldUpdateDancers, key, preset["Status"][key]);
+        });
+    }
+
     updateControl(checkedDancerId, name, value) {
         // update control with this.timeInd, this.time
         if (this.mode !== "") {
@@ -160,7 +172,7 @@ class Manager {
                 this.newStatus[id][name] = Number(value);
             });
             this.sim.updateEdit(checkedDancerId);
-            // console.log("Update Control", checkedDancerId, name, value, this.newStatus);
+            console.log("Update Control", checkedDancerId, name, value, this.newStatus);
         }
         else {
             console.error(`Error: [updateControl], mode: ${this.mode}`);

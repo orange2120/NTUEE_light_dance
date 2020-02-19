@@ -3,9 +3,10 @@ body {
     background: #FFFFFF;
     margin: 0;
     padding: 0;
+    min-height: 100%;
 }
 
-.container {
+.my-container {
     padding: 0px 3px;
 }
 
@@ -13,7 +14,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 10%;
+    padding: 1% 10%;
     /* background-color: #24252A; */
     box-shadow: 0 4px 2px -2px rgba(36,37,42,.2);
     background: rgb(36,37,42);
@@ -34,6 +35,7 @@ header h2, header h3 {
 
 .nav_links {
     list-style: none;
+    margin: 0;
 }
 
 .nav_links li {
@@ -83,7 +85,7 @@ header h2, header h3 {
 
 .workplace {
     display: grid;
-    grid-template-columns: 5fr 2fr 1fr;
+    grid-template-columns: 7fr 3fr 2fr;
     height:100%;
 }
 
@@ -97,6 +99,7 @@ header h2, header h3 {
     border-right: 1px solid gray;
     border-left: 1px solid gray;
     font-size: small;
+    overflow-y: scroll;
 }
 
 
@@ -141,6 +144,7 @@ header h2, header h3 {
 }
 
 .dancer-checkbox {
+    margin-right: 3px;
     /* font-size: large;
     margin: 0 0.3em 0 0;
     transform: scale(1.5); */
@@ -159,7 +163,7 @@ header h2, header h3 {
 
 .time-input {
     width: 100px;
-    height: 20px;
+    height: 30px;
 }
 
 .timeInd-switch-btn {
@@ -168,12 +172,13 @@ header h2, header h3 {
     border-radius: 5px;
     color: #46474a;
     margin: 5px 3px;
+    height: 30px;
 }
 
 .timeInd-input {
     /* margin: 5px 0; */
     width: 3em;
-    height:20px;
+    height: 30px;
 }
 
 .edit-btn-grp {
@@ -215,11 +220,126 @@ header h2, header h3 {
     position: relative;
 }
 
-#presets-list {
+#presets {
     padding-left: 3px;
+    position: relative;
+}
+
+#presets .title {
+    border-bottom: 1px solid gray;
+}
+
+#presets .addbtn {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    cursor: pointer;
+}
+
+#presets-list {
+    
+}
+
+.preset-li {
+    padding: 5px 3px;
 }
 
 .preset-li:hover {
     background-color: #ededed;
     transition: background-color .3s;
+}
+
+.bg-modal {
+    width: 100%;
+    height: 100vh;
+    min-height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    /* display: none; */
+}
+
+.my-modal-content {
+    width: 800px;
+    max-width: 100%;
+    height: 600px;
+    max-height: 100%;
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    position: relative;
+}
+
+.modal-props {
+    height: 40px;
+    display: flex;
+}
+
+.modal-name {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.modal-name input {
+    font-size: 16px;
+    padding: .375rem .75rem;
+    border: 1px solid gray;
+    border-radius: .25rem;
+}
+
+.modal-select-dancer {
+    margin-left: 10px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.modal-select-dancer button {
+    border: 1px solid gray;
+}
+
+.modal-select-dancer input {
+    font-size: 16px;
+    padding: 5px 0px;
+}
+
+.modal-scrollable {
+    height: 100%;
+}
+
+.modal-workplace {
+    margin-top: 10px;
+    height: 520px;
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */
+}
+
+.modal-editor {
+    width: 400px;
+    height: 100%;
+    overflow-y: scroll;
+    display: flex;
+    justify-content: center;
+    /* padding-left: 40px; */
+}
+
+.modal-save-btn {
+    position: absolute;
+    top: 0;
+    right: 50px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 0;
+    right: 14px;
+    font-size: 30px;
+    cursor: pointer;
 }
