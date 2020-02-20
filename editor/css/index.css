@@ -122,3 +122,10 @@ body {
 #waveform {
     position: relative;
 }
+
+.class_connected{
+    color: greenyellow;
+}
+.class_disconnect{
+    color: red;
+}

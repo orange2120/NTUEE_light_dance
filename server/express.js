@@ -3,6 +3,9 @@ import express from "express"
 import path from "path"
 
 import CmdServer from './CmdServer.js'
+
+import CONTROL from '../data/control_test3.json'
+
 const fs = require('fs')
 
 
@@ -54,29 +57,39 @@ server.get('/api/getCurrentInfo', function(req, res) {
     // res.send('hello world');
 });
 
-server.post('/api/play', function(req, res) {
+server.get('/api/play', function(req, res) {
+    cmds.play(0,{targets:req.query.ids.map((x)=>{ return Number(x)})})
+    console.log("[Server] play to ",req.query.ids)
+    res.send('ok');
+});
+
+server.get('/api/pause', function(req, res) {
+    cmds.pause(0,{targets:req.query.ids.map((x)=>{ return Number(x)})})
+    console.log("[Server] pause to ",req.query.ids)
+    res.send('ok');
+});
+
+server.get('/api/stop', function(req, res) {
     res.send('hello world');
 });
 
-server.post('/api/pause', function(req, res) {
-    res.send('hello world');
+server.get('/api/upload', function(req, res) {
+    cmds.upload(0,{targets:req.query.ids.map((x)=>{ return Number(x)})},CONTROL)
+    console.log("[Server] upload to ",req.query.ids)
+    res.send('ok');
 });
 
-server.post('/api/stop', function(req, res) {
-    res.send('hello world');
+server.get('/api/reconnect', function(req, res) {
+    cmds.reConnectClient(0,{targets:req.query.ids.map((x)=>{ return Number(x)})})
+    console.log("[Server] reconnect ",req.query.ids)
+    res.send('ok');
+    
 });
 
-server.post('/api/upload', function(req, res) {
-    res.send('hello world');
-});
-
-server.post('/api/reconnect', function(req, res) {
-    res.send('hello world');
-});
-
-server.post('/api/kick', function(req, res) {
-    req.params['id']
-    res.send('hello world');
+server.get('/api/kick', function(req, res) {
+    cmds.terminateBoard(req.query.ids.map((x)=>{ return Number(x)}))
+    console.log("[Server] kick ",req.query.ids)
+    res.send('ok');
 });
 
 server.get('/api/config/clear', function(req, res) {
@@ -99,7 +112,10 @@ server.get('/api/config/addBoard', function(req, res) {
     }
     
 });
-
+server.get('/api/config/alert', function(req, res) {
+    // req.query.mac
+    res.send("OK")
+});
 server.get('/api/config/save', function(req, res) {
     writeConfigFile()
     res.send("OK")

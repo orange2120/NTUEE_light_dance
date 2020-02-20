@@ -1,1 +1,1 @@
-{"boards":[{"ip":"192.168.1.15","mac":"dc:a6:32:37:f9:f9","status":"connected","id":0}],"settings":{"ping_interval":1000}}
+{"boards":[{"ip":"192.168.1.7","mac":"b8:27:eb:34:3f:e6","status":"disconnect","id":0},{"ip":"10.129.173.122","mac":"8c:85:90:d1:41:dc","status":"connected","id":1}],"settings":{"ping_interval":1000}}
