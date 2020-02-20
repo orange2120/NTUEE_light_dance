@@ -27,6 +27,7 @@ let  layout_config = {
                 {
                     type: 'component',
                     height : 20,
+                    isClosable : false,
                     componentName: 'timeline_Component',
                     title : 'Timeline',
                     componentState: { label: 'timeline_Component' }
@@ -38,6 +39,7 @@ let  layout_config = {
                             type: 'component',
                             componentName: 'display_Component',
                             title : 'Simulator',
+                            isClosable : false,
                             componentState: { label: 'display_Component' }
                         },
                         {
@@ -45,6 +47,7 @@ let  layout_config = {
                             width : 24.978317432784035,
                             componentName: 'editor_Component',
                             title : 'editor',
+                            isClosable : false,
                             componentState: { label: 'editor_Component' }
                         }
                     ]
@@ -73,7 +76,8 @@ myLayout.registerComponent( 'timeline_Component', function( container, component
 });
 
 myLayout.registerComponent( 'command_Component', function( container, componentState ){
-    container.getElement().html( '<div id="conrtol_zone"><div id="status_zone"></div><button id="btn_test">test</button></div>' );
+    container.getElement().html( '<div id="commandComponent_zone"></div>' );
+
 });
 myLayout.registerComponent( 'display_Component', function( container, componentState ){
     container.getElement().html( '<div id="simulator"></div>' );
@@ -83,7 +87,64 @@ myLayout.registerComponent( 'editor_Component', function( container, componentSt
 });
 
 myLayout.init();
+
+// manager
+const mgr = new Manager();
+
+ // CommandCenter
+const cc = new Commandcenter(mgr)
+
+// myLayout.on( 'tabCreated', function( tab ){
+//     console.log("tabCreated")
+//     console.log(tab)
+//     // if(tab.contentItem.componentName === "command_Component"){
+//     //     tab.contentItem
+//     //     cc.test()
+//     // }
+//     tab
+// 		.closeElement
+// 		.off( 'click' ) //unbind the current click handler
+// 		.click(function(){
+// 			//add your own
+			
+//             tab.contentItem.remove();
+            
+// 		});
+// })
+
+// myLayout.on( 'itemCreated', function( item ){
+//     console.log("itemCreated")
+//     console.log(item)
+//     // if(tab.contentItem.componentName === "command_Component"){
+//     //     tab.contentItem
+//     //     cc.test()
+//     // }
+// })
+
+// myLayout.on( 'componentCreated', function( c ){
+    
+//     console.log("componentCreated")
+//     console.log(c)
+//     if(c.componentName === "command_Component"){
+//         // cc.test()
+//     }
+// })
+
+
+
 myLayout.on("initialised",()=>{
+    cc.init()
+    
+    // myLayout.root.contentItems[ 0 ].on("componentCreated",()=>{
+    //     console.log("componentCreated")
+    //     cc.renderPannel()
+    // })
+    myLayout.root.contentItems[ 0 ].on("itemDestroyed",(item)=>{
+        console.log("itemDestroyed")
+        if(item.origin.isComponent && item.origin.componentName==="command_Component"){
+            cc.hide()
+        }
+    })
     // console.log(myLayout)
     document.onkeyup = function(e) {
         if (e.ctrlKey && e.altKey && (e.which == 67 || e.which == 99)) {// e.ctrlKey && e.altKey && e.which == 87
@@ -114,28 +175,20 @@ myLayout.on("initialised",()=>{
                 componentState: { label: 'command_Component' }
             }
             console.log(myLayout.root.getItemsById("asd"))
-            myLayout.root.contentItems[ 0 ].addChild( newItemConfig);
             
+            myLayout.root.contentItems[ 0 ].addChild( newItemConfig);
+            cc.show()
           }else{
             myLayout.root.getItemsById("id_command_Component")[0].remove()
+            cc.hide()
           }
-        //   console.log(myLayout.root)
-        //   let cco = myLayout.getComponent("command_Component")
         
-        //   console.log(myLayout.root.contentItems)
-        //   myLayout.container
-          
-        //   console.log()
-        //   console.log(cco)
-        //   cco.hide();
         }
     };
 
     
     
-    document.getElementById("btn_test").onclick= function(){
-        console.log(myLayout.toConfig())
-    }
+    
     console.log("finish init")
 
     // read data
@@ -164,11 +217,10 @@ myLayout.on("initialised",()=>{
     document.getElementById('simulator').appendChild(app.view)
     
     // manager
-    const mgr = new Manager();
+    // const mgr = new Manager();
     mgr.setControl(control);
     
-    // CommandCenter
-    const cc = new Commandcenter(mgr)
+   
     
     
     // simulate display

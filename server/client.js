@@ -86,7 +86,9 @@ function main(){
           // Delay should be equal to the interval at which your server
           // sends out pings plus a conservative assumption of the latency.
           this.pingTimeout = setTimeout(() => {
+
             this.terminate();
+            console.log("too long")
           }, 1000 + 3000);
         }
 
