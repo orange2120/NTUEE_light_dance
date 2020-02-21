@@ -41,6 +41,12 @@ Each dancer is a client device. Receive commands from the server.
 $ npm run editor:dev 
 ```
 
+> usage for develop (frontend and backend):
+
+```bash
+$ npm run dev
+```
+
 ## Directory structure
 
 ```
