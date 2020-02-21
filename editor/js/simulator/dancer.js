@@ -18,6 +18,7 @@ class Dancer {
 
         // PIXI Rendering
         this.container = new PIXI.Container();
+        this.container.sortableChildren = true;
         Object.keys(this.parts).map(key => {
             this.container.addChild(this.parts[key].sprite);
         });
@@ -33,7 +34,6 @@ class Dancer {
         this.container.height = (height * 0.95);
         if (num > 1) this.container.height = this.container.height / 2;
         this.container.width = this.container.height * ratio;
-        this.container.sortableChildren = true;
 
         const half = num > 1 ? num / 2 : num;
         const wOffset = (width - half * this.container.width) / (half + 1);
