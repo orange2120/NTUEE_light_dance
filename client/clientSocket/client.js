@@ -2,7 +2,7 @@
 
 const SERVER_MAC = "8c:85:90:d1:41:dc"
 const PORT =8081
-
+const PATH_clientApp ="./clientApp_sim"
 // client.js
 const fs = require('fs')
 const WebSocket = require('ws')
@@ -23,7 +23,7 @@ function main(){
     if (clientApp!="" && !clientApp.killed){
       clientApp.kill()
     }
-    clientApp = spawn('./clientApp_sim' ,[1])
+    clientApp = spawn(PATH_clientApp ,[1])
   }
   spawnClientApp()
 
@@ -116,6 +116,15 @@ function main(){
           }else if(msg.type === "upload" ){
             fs.writeFileSync('recieve.json', JSON.stringify(msg.data));
             console.log("Done")
+          }else if(msg.type === "play" ){
+            console.log(`Play from ${msg.data.play_from_time}`)
+            clientApp.stdin.write('run '+ String(msg.data.play_from_time))
+            console.log('Done')
+          }else if(msg.type === "pause" ){
+            console.log(`Pause from Server`)
+            clientApp.kill("SIGUSR1") //pause
+            // fs.writeFileSync('recieve.json', JSON.stringify(msg.data));
+            console.log("Done")
           }else if(msg.type === "safe_kick" ){
             console.log("Safe Kick By Server")
             need_reconnect = false
@@ -133,25 +142,14 @@ function main(){
               console.log("Restart Client Socket By Server")
               connection.close()
             }else if(msg.data.restart_target === "clientApp"){
+
               spawnClientApp()
             }else{
               console.log(`Unknown restart target ${msg.data.restart_target}`)
             }
-            // fs.writeFileSync('recieve.json', JSON.stringify(msg.data));
+            
             console.log("Done")            
           }
-<<<<<<< HEAD
-=======
-        }else if(msg.type === "upload" ){
-          fs.writeFileSync('recieve.json', JSON.stringify(msg.data));
-          console.log("Done")
-        }else if(msg.type === "play" ){
-          clientApp.stdin.write('run')
-          console.log("start playing")
-        }else if(msg.type === "abort" ){
-          clientApp.kill('SIGINT')
-          console.log("send SIGINT")
->>>>>>> origin/master
         }
         
         connection.onclose = (e)=>{
