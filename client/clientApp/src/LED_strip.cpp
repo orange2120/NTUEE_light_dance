@@ -78,8 +78,8 @@ void LED_Strip::getSeq(const uint8_t &id, const uint16_t &len, char *seq,  const
 	{
 		seq[3 * i + DATA_OFFSET] = color[3 * i];
 		seq[3 * i + DATA_OFFSET + 1] = color[3 * i + 1];
-		seq[3 * i + DATA_OFFSET + 2] = color[3 * i];
+		seq[3 * i + DATA_OFFSET + 2] = color[3 * i + 2];
 	}
-	seq[len - 2] = STOP_BYTE;
-	seq[len - 1] = STOP_BYTE;
+	seq[len - 2] = STOP_BYTE_0;
+	seq[len - 1] = STOP_BYTE_1;
 }

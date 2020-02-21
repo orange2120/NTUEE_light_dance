@@ -11,6 +11,7 @@
 #include <fstream>
 #include <vector>
 #include <signal.h>
+#include <string>
 
 #include "control.hpp"
 #include "definition.h"
@@ -18,9 +19,8 @@
 using namespace std;
 using json = nlohmann::json;
 
-uint16_t numLEDs[NUM_OF_LED] = { LEDS_0, LEDS_1, LEDS_2 };
-
 vector<Person> people; // dancers
+int dancer_id = 0;
 
 int main(int argc, char *argv[]) // arg[1] = person id, arg[2] = json_path
 {
@@ -28,7 +28,7 @@ int main(int argc, char *argv[]) // arg[1] = person id, arg[2] = json_path
     handler_int.sa_handler = sigint_handler;
     handler_usr1.sa_handler = sig_pause;
 
-    string path = "./json/test1.json";
+    string path = "./json/test2.json";
 
     if (argc == 3) path = argv[2];
     else if (argc != 2)
@@ -56,7 +56,7 @@ int main(int argc, char *argv[]) // arg[1] = person id, arg[2] = json_path
         return -1;
     }
 
-    int dancer_id = atoi(argv[1]);
+    dancer_id = atoi(argv[1]);
     string cmd;
     bool end = false;
     
@@ -68,6 +68,9 @@ int main(int argc, char *argv[]) // arg[1] = person id, arg[2] = json_path
 
     printf("Dancer ID = %d\n", dancer_id);
 
+
+    // people[0].print();
+
     while(!end) {
         cin.clear();
         cin >> cmd;
@@ -76,9 +79,9 @@ int main(int argc, char *argv[]) // arg[1] = person id, arg[2] = json_path
         {
             printf("Start!\n");
             run(dancer_id);
-            break;
         }
     }
+
     printf("Done!\n");
     
     return 0;

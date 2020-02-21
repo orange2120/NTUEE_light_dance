@@ -1,19 +1,19 @@
 /****************************************************************************
-  FileName     [ SPIWS2812.ino ]
+  FileName     [ SPIWS2812_FastLED.ino ]
   PackageName  [ Arduino ]
-  Synopsis     [ SPI to WS2812 LED light strip Arduino program using Adafruit NeoPixel library]
+  Synopsis     [ SPI to WS2812 LED light strip Arduino program using FastLED library ]
   Author       [  ]
   Copyright    [ Copyleft(c) , NTUEE, Taiwan ]
 ****************************************************************************/
 
 #include <SPI.h>
-#include "Adafruit_NeoPixel.h"
+#include <FastLED.h>
 
 // #define DEBUG
 
-#define NUM_STRIPS  2
-#define COLOR_ORDER NEO_GRB
-#define DATA_RATE   NEO_KHZ800
+#define NUM_STRIPS  4
+#define COLOR_ORDER GRB
+#define LED_TYPE    WS2812
 
 #define BUF_SIZE    1024
 #define DATA_OFFSET 4
@@ -23,6 +23,10 @@
 
 const uint16_t NUM_LEDS[] = {88, 300, 36, 36};
 const uint8_t LED_PIN[]  = {8, 6, 7, 5};
+#define LED_PIN_0   8
+#define LED_PIN_1   6
+#define LED_PIN_2   7
+#define LED_PIN_3   5
 
 volatile uint16_t cnt = 0;
 volatile bool received;      // handle SPI received event flag
@@ -31,40 +35,38 @@ volatile byte lastData;      // last received data
 
 byte buf[BUF_SIZE];
 
-Adafruit_NeoPixel strips[NUM_STRIPS];
+CRGB *strips[NUM_STRIPS];
+CRGB strip_0[88];
+CRGB strip_1[300];
+CRGB strip_2[36];
+CRGB strip_3[36];
 
 void setup()
 {
 #ifdef DEBUG
     Serial.begin(115200);
 #endif
-    strips[0] = Adafruit_NeoPixel(NUM_LEDS[0], LED_PIN[0], COLOR_ORDER + DATA_RATE);
-    strips[1] = Adafruit_NeoPixel(NUM_LEDS[1], LED_PIN[1], COLOR_ORDER + DATA_RATE);
-    strips[2] = Adafruit_NeoPixel(NUM_LEDS[2], LED_PIN[2], COLOR_ORDER + DATA_RATE);
-    strips[3] = Adafruit_NeoPixel(NUM_LEDS[3], LED_PIN[3], COLOR_ORDER + DATA_RATE);
+    strips[0] = strip_0;
+    strips[1] = strip_1;
+    strips[2] = strip_2;
+    strips[3] = strip_3;
 
+    FastLED.addLeds<LED_TYPE, LED_PIN_0, COLOR_ORDER>(strips[0], NUM_LEDS[0]);
+    FastLED.addLeds<LED_TYPE, LED_PIN_1, COLOR_ORDER>(strips[1], NUM_LEDS[1]);
+    FastLED.addLeds<LED_TYPE, LED_PIN_2, COLOR_ORDER>(strips[2], NUM_LEDS[2]);
+    FastLED.addLeds<LED_TYPE, LED_PIN_3, COLOR_ORDER>(strips[3], NUM_LEDS[3]);
+
+    // reset all strips
     for (uint8_t i = 0; i < NUM_STRIPS; ++i)
     {
-        strips[i].begin();
-        strips[i].show();
+        for (uint16_t j = 0; j < NUM_LEDS[i]; ++j)
+        {
+            strips[i][j].setRGB(0, 0, 0);
+        }
     }
+    FastLED.show();
 
-/*
-    for (uint8_t i = 0; i < NUM_STRIPS; ++i)
-    {
-        
-        strips[i] = Adafruit_NeoPixel(NUM_LEDS[i], LED_PIN[i], COLOR_ORDER + DATA_RATE);
-        strips[i].begin();
-        strips[i].show();
-        // Serial.println(NUM_STRIPS);
-        // Serial.println(i);
-        // Serial.println(i < NUM_STRIPS);
-    }
-    */
-
-    // pinMode(SS,INPUT);
     SPCR |= _BV(SPE); // Turn on SPI in Slave Mode
-    SPCR |= _BV(SPIE); // get ready for an interrupt 
     received = false;
     SPI.attachInterrupt();    // Interuupt ON is set for SPI commnucation
 
@@ -123,7 +125,7 @@ void sendToStrip()
 
     for (uint16_t i = 0; i < numLED; ++i) // send pixel data to LED
     {
-        strips[ID].setPixelColor(i, buf[3 * i + DATA_OFFSET], buf[3 * i + DATA_OFFSET + 1], buf[3 * i + DATA_OFFSET + 2]);
+        strips[ID][i].setRGB(buf[3 * i + DATA_OFFSET], buf[3 * i + DATA_OFFSET + 1], buf[3 * i + DATA_OFFSET + 2]);
     }
-    strips[ID].show(); // render
+    FastLED.show(); // render
 }
