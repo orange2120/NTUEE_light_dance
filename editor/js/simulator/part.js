@@ -4,7 +4,6 @@ import { PARTARGS } from '../constants';
 
 class Part {
     constructor(dancer, name, app, textures) {
-        console.log(name)
         this.dancer = dancer;
         this.dancerID = dancer.id;
         this.name = name;
