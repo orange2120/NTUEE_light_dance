@@ -11,6 +11,7 @@
 #include <fstream>
 #include <vector>
 #include <signal.h>
+#include <string>
 
 #include "control.hpp"
 #include "definition.h"
@@ -77,7 +78,6 @@ int main(int argc, char *argv[]) // arg[1] = person id, arg[2] = json_path
         {
             printf("Start!\n");
             run(dancer_id);
-            break;
         }
     }
 

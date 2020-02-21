@@ -35,10 +35,10 @@
                 "R_PANTS2": 1,
                 "L_PANTS1": 1,
                 "L_PANTS2": 1,
-                "R_SHOES1": 1,
-                "R_SHOES2": 1,
-                "L_SHOES1": 1,
-                "L_SHOES2": 1
+                "R_SHOE1": 1,
+                "R_SHOE2": 1,
+                "L_SHOE1": 1,
+                "L_SHOE2": 1
             }
         },
         {
@@ -46,7 +46,7 @@
             "Status": {
                 "CHEST": {
                     "path": "./json/chest.json",
-                    "alpha": 0
+                    "alpha": 1
                 },
                 "R_SHOE": {
                     "path": "./json/r_shoe.json",
@@ -76,10 +76,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 1,
                 "L_PANTS2": 0,
-                "R_SHOES1": 1,
-                "R_SHOES2": 0,
-                "L_SHOES1": 1,
-                "L_SHOES2": 0
+                "R_SHOE1": 1,
+                "R_SHOE2": 0,
+                "L_SHOE1": 1,
+                "L_SHOE2": 0
             }
         },
         {
@@ -117,10 +117,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 1,
                 "L_PANTS2": 0,
-                "R_SHOES1": 1,
-                "R_SHOES2": 0,
-                "L_SHOES1": 1,
-                "L_SHOES2": 0
+                "R_SHOE1": 1,
+                "R_SHOE2": 0,
+                "L_SHOE1": 1,
+                "L_SHOE2": 0
             }
         },
         {
@@ -128,7 +128,7 @@
             "Status": {
                 "CHEST": {
                     "path": "./json/chest.json",
-                    "alpha": 0
+                    "alpha": 1
                 },
                 "R_SHOE": {
                     "path": "./json/r_shoe.json",
@@ -158,10 +158,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -169,7 +169,7 @@
             "Status": {
                 "CHEST": {
                     "path": "./json/chest.json",
-                    "alpha": 0
+                    "alpha": 1
                 },
                 "R_SHOE": {
                     "path": "./json/r_shoe.json",
@@ -199,10 +199,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -240,10 +240,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -281,10 +281,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -292,7 +292,7 @@
             "Status": {
                 "CHEST": {
                     "path": "./json/chest.json",
-                    "alpha": 0
+                    "alpha": 1
                 },
                 "R_SHOE": {
                     "path": "./json/r_shoe.json",
@@ -322,10 +322,10 @@
                 "R_PANTS2": 1,
                 "L_PANTS1": 1,
                 "L_PANTS2": 1,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -333,7 +333,7 @@
             "Status": {
                 "CHEST": {
                     "path": "./json/chest.json",
-                    "alpha": 0
+                    "alpha": 1
                 },
                 "R_SHOE": {
                     "path": "./json/r_shoe.json",
@@ -363,10 +363,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 1,
-                "R_SHOES2": 1,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 1,
+                "R_SHOE2": 1,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -404,10 +404,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 1,
-                "L_SHOES2": 1
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 1,
+                "L_SHOE2": 1
             }
         },
         {
@@ -425,30 +425,30 @@
                     "path": "./json/l_shoe.json",
                     "alpha": 1
                 },
-                "HAT1": 0,
-                "HAT2": 0,
-                "FACE1": 0,
-                "FACE2": 0,
-                "R_COAT1": 0,
-                "R_COAT2": 0,
-                "L_COAT1": 0,
-                "L_COAT2": 0,
-                "INNER1": 0,
-                "INNER2": 0,
-                "R_ARM1": 0,
-                "R_ARM2": 0,
-                "R_HAND": 0,
-                "L_ARM1": 0,
-                "L_ARM2": 0,
-                "L_HAND": 0,
-                "R_PANTS1": 0,
-                "R_PANTS2": 0,
-                "L_PANTS1": 0,
-                "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "HAT1": 0.8,
+                "HAT2": 0.8,
+                "FACE1": 0.8,
+                "FACE2": 0.8,
+                "R_COAT1": 0.8,
+                "R_COAT2": 0.8,
+                "L_COAT1": 0.8,
+                "L_COAT2": 0.8,
+                "INNER1": 0.8,
+                "INNER2": 0.8,
+                "R_ARM1": 0.8,
+                "R_ARM2": 0.8,
+                "R_HAND": 0.8,
+                "L_ARM1": 0.8,
+                "L_ARM2": 0.8,
+                "L_HAND": 0.8,
+                "R_PANTS1": 0.8,
+                "R_PANTS2": 0.8,
+                "L_PANTS1": 0.8,
+                "L_PANTS2": 0.8,
+                "R_SHOE1": 0.8,
+                "R_SHOE2": 0.8,
+                "L_SHOE1": 0.8,
+                "L_SHOE2": 0.8
             }
         },
         {
@@ -486,10 +486,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 1,
-                "L_SHOES2": 1
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         }
     ],
@@ -529,10 +529,10 @@
                 "R_PANTS2": 1,
                 "L_PANTS1": 1,
                 "L_PANTS2": 1,
-                "R_SHOES1": 1,
-                "R_SHOES2": 1,
-                "L_SHOES1": 1,
-                "L_SHOES2": 1
+                "R_SHOE1": 1,
+                "R_SHOE2": 1,
+                "L_SHOE1": 1,
+                "L_SHOE2": 1
             }
         },
         {
@@ -570,10 +570,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 1,
                 "L_PANTS2": 0,
-                "R_SHOES1": 1,
-                "R_SHOES2": 0,
-                "L_SHOES1": 1,
-                "L_SHOES2": 0
+                "R_SHOE1": 1,
+                "R_SHOE2": 0,
+                "L_SHOE1": 1,
+                "L_SHOE2": 0
             }
         },
         {
@@ -611,10 +611,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 1,
                 "L_PANTS2": 0,
-                "R_SHOES1": 1,
-                "R_SHOES2": 0,
-                "L_SHOES1": 1,
-                "L_SHOES2": 0
+                "R_SHOE1": 1,
+                "R_SHOE2": 0,
+                "L_SHOE1": 1,
+                "L_SHOE2": 0
             }
         },
         {
@@ -652,10 +652,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -693,10 +693,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -734,10 +734,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -775,10 +775,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -816,10 +816,10 @@
                 "R_PANTS2": 1,
                 "L_PANTS1": 1,
                 "L_PANTS2": 1,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -857,10 +857,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 1,
-                "R_SHOES2": 1,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 1,
+                "R_SHOE2": 1,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -898,10 +898,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 1,
-                "L_SHOES2": 1
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 1,
+                "L_SHOE2": 1
             }
         },
         {
@@ -939,10 +939,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -980,10 +980,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 1,
-                "L_SHOES2": 1
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 1,
+                "L_SHOE2": 1
             }
         }
     ],
@@ -1023,10 +1023,10 @@
                 "R_PANTS2": 1,
                 "L_PANTS1": 1,
                 "L_PANTS2": 1,
-                "R_SHOES1": 1,
-                "R_SHOES2": 1,
-                "L_SHOES1": 1,
-                "L_SHOES2": 1
+                "R_SHOE1": 1,
+                "R_SHOE2": 1,
+                "L_SHOE1": 1,
+                "L_SHOE2": 1
             }
         },
         {
@@ -1064,10 +1064,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 1,
                 "L_PANTS2": 0,
-                "R_SHOES1": 1,
-                "R_SHOES2": 0,
-                "L_SHOES1": 1,
-                "L_SHOES2": 0
+                "R_SHOE1": 1,
+                "R_SHOE2": 0,
+                "L_SHOE1": 1,
+                "L_SHOE2": 0
             }
         },
         {
@@ -1105,10 +1105,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 1,
                 "L_PANTS2": 0,
-                "R_SHOES1": 1,
-                "R_SHOES2": 0,
-                "L_SHOES1": 1,
-                "L_SHOES2": 0
+                "R_SHOE1": 1,
+                "R_SHOE2": 0,
+                "L_SHOE1": 1,
+                "L_SHOE2": 0
             }
         },
         {
@@ -1146,10 +1146,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -1187,10 +1187,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -1228,10 +1228,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -1269,10 +1269,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -1310,10 +1310,10 @@
                 "R_PANTS2": 1,
                 "L_PANTS1": 1,
                 "L_PANTS2": 1,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -1351,10 +1351,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 1,
-                "R_SHOES2": 1,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 1,
+                "R_SHOE2": 1,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -1392,10 +1392,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 1,
-                "L_SHOES2": 1
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 1,
+                "L_SHOE2": 1
             }
         },
         {
@@ -1433,10 +1433,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -1474,10 +1474,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 1,
-                "L_SHOES2": 1
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 1,
+                "L_SHOE2": 1
             }
         }
     ],
@@ -1517,10 +1517,10 @@
                 "R_PANTS2": 1,
                 "L_PANTS1": 1,
                 "L_PANTS2": 1,
-                "R_SHOES1": 1,
-                "R_SHOES2": 1,
-                "L_SHOES1": 1,
-                "L_SHOES2": 1
+                "R_SHOE1": 1,
+                "R_SHOE2": 1,
+                "L_SHOE1": 1,
+                "L_SHOE2": 1
             }
         },
         {
@@ -1558,10 +1558,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 1,
                 "L_PANTS2": 0,
-                "R_SHOES1": 1,
-                "R_SHOES2": 0,
-                "L_SHOES1": 1,
-                "L_SHOES2": 0
+                "R_SHOE1": 1,
+                "R_SHOE2": 0,
+                "L_SHOE1": 1,
+                "L_SHOE2": 0
             }
         },
         {
@@ -1599,10 +1599,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 1,
                 "L_PANTS2": 0,
-                "R_SHOES1": 1,
-                "R_SHOES2": 0,
-                "L_SHOES1": 1,
-                "L_SHOES2": 0
+                "R_SHOE1": 1,
+                "R_SHOE2": 0,
+                "L_SHOE1": 1,
+                "L_SHOE2": 0
             }
         },
         {
@@ -1640,10 +1640,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -1681,10 +1681,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -1722,10 +1722,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -1763,10 +1763,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -1804,10 +1804,10 @@
                 "R_PANTS2": 1,
                 "L_PANTS1": 1,
                 "L_PANTS2": 1,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -1845,10 +1845,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 1,
-                "R_SHOES2": 1,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 1,
+                "R_SHOE2": 1,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -1886,10 +1886,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 1,
-                "L_SHOES2": 1
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 1,
+                "L_SHOE2": 1
             }
         },
         {
@@ -1927,10 +1927,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -1968,10 +1968,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 1,
-                "L_SHOES2": 1
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 1,
+                "L_SHOE2": 1
             }
         }
     ],
@@ -2011,10 +2011,10 @@
                 "R_PANTS2": 1,
                 "L_PANTS1": 1,
                 "L_PANTS2": 1,
-                "R_SHOES1": 1,
-                "R_SHOES2": 1,
-                "L_SHOES1": 1,
-                "L_SHOES2": 1
+                "R_SHOE1": 1,
+                "R_SHOE2": 1,
+                "L_SHOE1": 1,
+                "L_SHOE2": 1
             }
         },
         {
@@ -2052,10 +2052,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 1,
                 "L_PANTS2": 0,
-                "R_SHOES1": 1,
-                "R_SHOES2": 0,
-                "L_SHOES1": 1,
-                "L_SHOES2": 0
+                "R_SHOE1": 1,
+                "R_SHOE2": 0,
+                "L_SHOE1": 1,
+                "L_SHOE2": 0
             }
         },
         {
@@ -2093,10 +2093,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 1,
                 "L_PANTS2": 0,
-                "R_SHOES1": 1,
-                "R_SHOES2": 0,
-                "L_SHOES1": 1,
-                "L_SHOES2": 0
+                "R_SHOE1": 1,
+                "R_SHOE2": 0,
+                "L_SHOE1": 1,
+                "L_SHOE2": 0
             }
         },
         {
@@ -2134,10 +2134,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -2175,10 +2175,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -2216,10 +2216,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -2257,10 +2257,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -2298,10 +2298,10 @@
                 "R_PANTS2": 1,
                 "L_PANTS1": 1,
                 "L_PANTS2": 1,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -2339,10 +2339,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 1,
-                "R_SHOES2": 1,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 1,
+                "R_SHOE2": 1,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -2380,10 +2380,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 1,
-                "L_SHOES2": 1
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 1,
+                "L_SHOE2": 1
             }
         },
         {
@@ -2421,10 +2421,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -2462,10 +2462,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 1,
-                "L_SHOES2": 1
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 1,
+                "L_SHOE2": 1
             }
         }
     ],
@@ -2505,10 +2505,10 @@
                 "R_PANTS2": 1,
                 "L_PANTS1": 1,
                 "L_PANTS2": 1,
-                "R_SHOES1": 1,
-                "R_SHOES2": 1,
-                "L_SHOES1": 1,
-                "L_SHOES2": 1
+                "R_SHOE1": 1,
+                "R_SHOE2": 1,
+                "L_SHOE1": 1,
+                "L_SHOE2": 1
             }
         },
         {
@@ -2546,10 +2546,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 1,
                 "L_PANTS2": 0,
-                "R_SHOES1": 1,
-                "R_SHOES2": 0,
-                "L_SHOES1": 1,
-                "L_SHOES2": 0
+                "R_SHOE1": 1,
+                "R_SHOE2": 0,
+                "L_SHOE1": 1,
+                "L_SHOE2": 0
             }
         },
         {
@@ -2587,10 +2587,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 1,
                 "L_PANTS2": 0,
-                "R_SHOES1": 1,
-                "R_SHOES2": 0,
-                "L_SHOES1": 1,
-                "L_SHOES2": 0
+                "R_SHOE1": 1,
+                "R_SHOE2": 0,
+                "L_SHOE1": 1,
+                "L_SHOE2": 0
             }
         },
         {
@@ -2628,10 +2628,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -2669,10 +2669,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -2710,10 +2710,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -2751,10 +2751,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -2792,10 +2792,10 @@
                 "R_PANTS2": 1,
                 "L_PANTS1": 1,
                 "L_PANTS2": 1,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -2833,10 +2833,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 1,
-                "R_SHOES2": 1,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 1,
+                "R_SHOE2": 1,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -2874,10 +2874,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 1,
-                "L_SHOES2": 1
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 1,
+                "L_SHOE2": 1
             }
         },
         {
@@ -2915,10 +2915,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -2956,10 +2956,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 1,
-                "L_SHOES2": 1
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 1,
+                "L_SHOE2": 1
             }
         }
     ],
@@ -2999,10 +2999,10 @@
                 "R_PANTS2": 1,
                 "L_PANTS1": 1,
                 "L_PANTS2": 1,
-                "R_SHOES1": 1,
-                "R_SHOES2": 1,
-                "L_SHOES1": 1,
-                "L_SHOES2": 1
+                "R_SHOE1": 1,
+                "R_SHOE2": 1,
+                "L_SHOE1": 1,
+                "L_SHOE2": 1
             }
         },
         {
@@ -3040,10 +3040,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 1,
                 "L_PANTS2": 0,
-                "R_SHOES1": 1,
-                "R_SHOES2": 0,
-                "L_SHOES1": 1,
-                "L_SHOES2": 0
+                "R_SHOE1": 1,
+                "R_SHOE2": 0,
+                "L_SHOE1": 1,
+                "L_SHOE2": 0
             }
         },
         {
@@ -3081,10 +3081,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 1,
                 "L_PANTS2": 0,
-                "R_SHOES1": 1,
-                "R_SHOES2": 0,
-                "L_SHOES1": 1,
-                "L_SHOES2": 0
+                "R_SHOE1": 1,
+                "R_SHOE2": 0,
+                "L_SHOE1": 1,
+                "L_SHOE2": 0
             }
         },
         {
@@ -3122,10 +3122,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -3163,10 +3163,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -3204,10 +3204,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -3245,10 +3245,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -3286,10 +3286,10 @@
                 "R_PANTS2": 1,
                 "L_PANTS1": 1,
                 "L_PANTS2": 1,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -3327,10 +3327,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 1,
-                "R_SHOES2": 1,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 1,
+                "R_SHOE2": 1,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -3368,10 +3368,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 1,
-                "L_SHOES2": 1
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 1,
+                "L_SHOE2": 1
             }
         },
         {
@@ -3409,10 +3409,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -3450,10 +3450,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 1,
-                "L_SHOES2": 1
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 1,
+                "L_SHOE2": 1
             }
         }
     ],
@@ -3493,10 +3493,10 @@
                 "R_PANTS2": 1,
                 "L_PANTS1": 1,
                 "L_PANTS2": 1,
-                "R_SHOES1": 1,
-                "R_SHOES2": 1,
-                "L_SHOES1": 1,
-                "L_SHOES2": 1
+                "R_SHOE1": 1,
+                "R_SHOE2": 1,
+                "L_SHOE1": 1,
+                "L_SHOE2": 1
             }
         },
         {
@@ -3534,10 +3534,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 1,
                 "L_PANTS2": 0,
-                "R_SHOES1": 1,
-                "R_SHOES2": 0,
-                "L_SHOES1": 1,
-                "L_SHOES2": 0
+                "R_SHOE1": 1,
+                "R_SHOE2": 0,
+                "L_SHOE1": 1,
+                "L_SHOE2": 0
             }
         },
         {
@@ -3575,10 +3575,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 1,
                 "L_PANTS2": 0,
-                "R_SHOES1": 1,
-                "R_SHOES2": 0,
-                "L_SHOES1": 1,
-                "L_SHOES2": 0
+                "R_SHOE1": 1,
+                "R_SHOE2": 0,
+                "L_SHOE1": 1,
+                "L_SHOE2": 0
             }
         },
         {
@@ -3616,10 +3616,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -3657,10 +3657,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -3698,10 +3698,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -3739,10 +3739,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -3780,10 +3780,10 @@
                 "R_PANTS2": 1,
                 "L_PANTS1": 1,
                 "L_PANTS2": 1,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -3821,10 +3821,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 1,
-                "R_SHOES2": 1,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 1,
+                "R_SHOE2": 1,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -3862,10 +3862,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 1,
-                "L_SHOES2": 1
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 1,
+                "L_SHOE2": 1
             }
         },
         {
@@ -3903,10 +3903,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 0,
-                "L_SHOES2": 0
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 0,
+                "L_SHOE2": 0
             }
         },
         {
@@ -3944,10 +3944,10 @@
                 "R_PANTS2": 0,
                 "L_PANTS1": 0,
                 "L_PANTS2": 0,
-                "R_SHOES1": 0,
-                "R_SHOES2": 0,
-                "L_SHOES1": 1,
-                "L_SHOES2": 1
+                "R_SHOE1": 0,
+                "R_SHOE2": 0,
+                "L_SHOE1": 1,
+                "L_SHOE2": 1
             }
         }
     ]
