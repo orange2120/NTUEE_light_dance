@@ -52,7 +52,7 @@ class MyWaveSurfer {
     }
     addKeyEvent() {
         document.addEventListener('keydown', (e) => {
-            if (e.target.closest("input select")) return;
+            if (e.target.closest("input, select, button")) return;
             const SPACE = e.keyCode == 32;
             if (SPACE) this.playPause();
         })

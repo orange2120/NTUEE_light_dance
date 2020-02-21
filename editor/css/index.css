@@ -99,7 +99,7 @@ header h2, header h3 {
     border-right: 1px solid gray;
     border-left: 1px solid gray;
     font-size: small;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 
@@ -223,6 +223,7 @@ header h2, header h3 {
 #presets {
     padding-left: 3px;
     position: relative;
+    overflow-y: auto;
 }
 
 #presets .title {
@@ -248,6 +249,7 @@ header h2, header h3 {
 }
 .preset-li i {
     cursor: pointer;
+    padding-left: 5px;
 }
 
 .preset-li:hover {
