@@ -1,14 +1,14 @@
 import * as PIXI from 'pixi.js';
 import Dancer from '../simulator/dancer.js';
-import { LIGHTPARTS, DANCER_NUM } from '../constants';
+import { LIGHTPARTS, DANCER_NUM, DISPLAY_HEIGHT } from '../constants';
 import * as noUiSlider from 'nouislider/distribute/nouislider.js';
+import shortid from 'shortid';
 
 const load = require('../../../data/load.json');
 
 class Modal {
     constructor() {
         this.el = document.querySelector('.bg-modal');
-        this.mode = "";
         this.display = null;
         this.dancer = null;
         this.sliders = [];
@@ -16,7 +16,6 @@ class Modal {
         this.init();
     }
     initProps() {
-        this.mode = "";
         LIGHTPARTS.map((part) => this.status[part] = 0);
     }
     init() {
@@ -98,11 +97,17 @@ class Modal {
     close() {
         this.el.style.display = 'none';
     }
-    setAddMode() {
-        this.mode = "ADD";
-    }
-    setEditMode() {
-        this.mode = "EDIT";
+    set(preset) {
+        const { Name, id, Chosen_Dancer, Dancers, Status } = preset;
+        console.log(Name, id, Chosen_Dancer, Dancers, Status);
+        document.querySelector('.modal-name-input').value = Name;
+        let selectedDancers = [...Dancers];   
+        if (Chosen_Dancer) selectedDancers.unshift("Chosen_Dancer");
+        $('select[name=modal-select-dancer]').val(selectedDancers);
+        $('.selectpicker').selectpicker('refresh');
+        this.sliders.map(sliderInput => {
+            sliderInput.slider.noUiSlider.set(Status[sliderInput.slider.id]);
+        })
     }
     clear() {
         this.initProps();
@@ -121,7 +126,7 @@ class Modal {
         re["Chosen_Dancer"] = false;
         re["Dancers"] = [];
         selectedDancers.map(val => {
-            if (val === "Chosen Dancer") re["Chosen_Dancer"] = true;
+            if (val === "Chosen_Dancer") re["Chosen_Dancer"] = true;
             else re["Dancers"].push(Number(val));
         })
         re["Status"] = {};
@@ -134,11 +139,14 @@ class Modal {
 
 class Presets {
     constructor(mgr, load = []) {
+        this.mode = "";
+        this.presetId = "";
         this.mgr = mgr;
         this.presets = load;
         this.modal = new Modal();
         // DOM Stuff
         this.el = document.getElementById('presets');
+        this.el.style.height = `${DISPLAY_HEIGHT}px`;
         this.presets.map(preset => this.addPreset(preset));
         this.addClickEvent();
     }
@@ -148,35 +156,58 @@ class Presets {
         // DOM stuff
         const li = document.createElement("div");
         li.classList.add("preset-li");
-        li.id = name;
+        li.id = preset["id"];
         li.innerText = name;
+        const presetIcons = document.createElement('div');
+        const editIcon = document.createElement('i');
+        editIcon.classList.add("fa", "fa-pencil");
         const trashIcon = document.createElement('i');
         trashIcon.classList.add("fa", "fa-trash");
-        li.appendChild(trashIcon);
+        presetIcons.appendChild(editIcon);
+        presetIcons.appendChild(trashIcon);
+        li.appendChild(presetIcons);
         document.getElementById("presets-list").appendChild(li);
         // Add click event
         li.ondblclick = e => {
             let preset = null;
             this.presets.map(pre => {
-                if (pre["Name"] === e.target.id) { preset = pre; }
+                if (pre["id"] === e.target.id) { preset = pre; }
             });
             this.mgr.loadPreset(preset);
         }
+        editIcon.onclick = () => {
+            this.mode = "EDIT";
+            this.presetId = li.id;
+            this.modal.set(preset);
+            this.modal.open();
+        };
         trashIcon.onclick = () => this.delPreset(li.id);
     }
+    refreshPresets() {
+        $('.preset-li').remove();
+        this.presets.map(preset => this.addPreset(preset));
+    }
+
     createPreset(preset) {
-        console.log(preset);
         if (preset["Name"] === "") return;
+        preset["id"] = shortid.generate();
+        console.log(preset);
         this.presets.push(preset);
         this.addPreset(preset);
         this.savePreset();
     }
-    editPreset() {
-
+    editPreset(preset) {
+        console.log("editPreset", preset);
+        const ind = this.presets.findIndex(pre => pre["id"] === this.presetId);
+        // const preset = presets[ind];
+        Object.assign(this.presets[ind], preset);
+        console.log("editFinish", this.presets[ind])
+        this.refreshPresets();
+        this.savePreset();
     }
     delPreset(id) {
         console.log("delPreset", id);
-        const ind = this.presets.findIndex(preset => preset["Name"] === id);
+        const ind = this.presets.findIndex(preset => preset["id"] === id);
         this.presets.splice(ind, 1);
         document.querySelector("#presets-list").removeChild(document.querySelector(`#${id}`));
         this.savePreset();
@@ -188,21 +219,25 @@ class Presets {
     // ---------- DOM event ----------
     addClickEvent() {
         document.querySelector("#presets .addbtn").onclick = () => {
-            this.modal.setAddMode();
+            // this.modal.setAddMode();
+            this.mode = "ADD";
             this.modal.open();
         }
         document.querySelector(".bg-modal .modal-close-btn").onclick = () => {
+            this.mode = "";
             this.modal.close();
             this.modal.clear();
         }
         document.querySelector(".bg-modal .modal-save-btn").onclick = () => {
             this.modal.close();
-            if (this.modal.mode === "ADD") {
+            if (this.mode === "ADD") {
                 this.createPreset(this.modal.getProps());
             }
-            else {
-                this.editPreset();
+            else if (this.mode === "EDIT") {
+                this.editPreset(this.modal.getProps());
+                this.presetId = "";
             }
+            this.mode = "";
             this.modal.clear();
         }
     }
