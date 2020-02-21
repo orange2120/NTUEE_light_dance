@@ -9,7 +9,8 @@ $ make
 ## Usage
 
 ```bash
-$ sudo ./clientApp <dancer ID> <Input file path>
+$ sudo ./clientApp <dancer ID> [Input file path]
+(default file：./json/test2.json)
 ```
 **Note:** must be run with `sudo` permission.  
 

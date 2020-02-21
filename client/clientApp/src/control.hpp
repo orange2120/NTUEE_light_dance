@@ -13,6 +13,8 @@ using json = nlohmann::json;
 
 extern vector<Person> people;
 extern uint16_t numLEDs[NUM_OF_LED];
+extern string ELs[NUM_OF_EL];
+extern string LEDs[NUM_OF_LED];
 
 void ReadJson(json& data)
 {
@@ -25,19 +27,13 @@ void ReadJson(json& data)
             e.set_start_time(data[i][j]["Start"]);
 
             // set LED part
-            e.set_LED_part(data[i][j]["Status"]["LEDH"]["path"], data[i][j]["Status"]["LEDH"]["alpha"]);
-            // e.set_LED_part(data[i][j]["Status"]["LEDH"]["path"], data[i][j]["Status"]["LEDH"]["alpha"]);
-            // e.set_LED_part(data[i][j]["Status"]["LEDH"]["path"], data[i][j]["Status"]["LEDH"]["alpha"]);
+            for(int i = 0; i < NUM_OF_LED; ++i)
+                e.set_LED_part(data[i][j]["Status"][LEDs[i]]["path"], data[i][j]["Status"][LEDs[i]]["alpha"]);
             
             // set EL part
-            double a[NUM_OF_EL] = {
-                data[i][j]["Status"]["A"],
-                data[i][j]["Status"]["B"],
-                data[i][j]["Status"]["C"],
-                data[i][j]["Status"]["D"],
-                data[i][j]["Status"]["E"],
-                data[i][j]["Status"]["F"]
-            };
+            double a[NUM_OF_EL];
+            for(int i = 0; i < NUM_OF_EL; ++i) 
+                a[i] = data[i][j]["Status"][ELs[i]];
             e.set_EL_part(a);
         }
     }

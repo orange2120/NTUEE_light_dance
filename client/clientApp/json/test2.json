@@ -3,297 +3,493 @@
         {
             "Start": 0,
             "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
                 "HAT1": 1,
                 "HAT2": 1,
                 "FACE1": 1,
                 "FACE2": 1,
-                "FACE3": 1,
-                "COAT1": 1,
-                "COAT2": 1,
+                "R_COAT1": 1,
+                "R_COAT2": 1,
+                "L_COAT1": 1,
+                "L_COAT2": 1,
                 "INNER1": 1,
                 "INNER2": 1,
-                "COLLAR": 1,
-                "WRIST": 1,
-                "HAND": 1,
-                "PANTS1": 1,
-                "PANTS2": 1,
-                "SHOES1": 1,
-                "SHOES2": 1
+                "R_ARM1": 1,
+                "R_ARM2": 1,
+                "R_HAND": 1,
+                "L_ARM1": 1,
+                "L_ARM2": 1,
+                "L_HAND": 1,
+                "R_PANTS1": 1,
+                "R_PANTS2": 1,
+                "L_PANTS1": 1,
+                "L_PANTS2": 1,
+                "R_SHOES1": 1,
+                "R_SHOES2": 1,
+                "L_SHOES1": 1,
+                "L_SHOES2": 1
             }
         },
         {
             "Start": 500,
             "Status": {
-                "HAT1": 0,
-                "HAT2": 1,
-                "FACE1": 0,
-                "FACE2": 1,
-                "FACE3": 0,
-                "COAT1": 1,
-                "COAT2": 0,
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 0
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 0
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 0
+                },
+                "HAT1": 1,
+                "HAT2": 0,
+                "FACE1": 1,
+                "FACE2": 0,
+                "R_COAT1": 1,
+                "R_COAT2": 0,
+                "L_COAT1": 1,
+                "L_COAT2": 0,
                 "INNER1": 1,
                 "INNER2": 0,
-                "COLLAR": 1,
-                "WRIST": 0,
-                "HAND": 1,
-                "PANTS1": 0,
-                "PANTS2": 1,
-                "SHOES1": 0,
-                "SHOES2": 1
+                "R_ARM1": 1,
+                "R_ARM2": 0,
+                "R_HAND": 1,
+                "L_ARM1": 0,
+                "L_ARM2": 1,
+                "L_HAND": 0,
+                "R_PANTS1": 1,
+                "R_PANTS2": 0,
+                "L_PANTS1": 1,
+                "L_PANTS2": 0,
+                "R_SHOES1": 1,
+                "R_SHOES2": 0,
+                "L_SHOES1": 1,
+                "L_SHOES2": 0
             }
         },
         {
             "Start": 1000,
             "Status": {
-                "HAT1": 1,
-                "HAT2": 0,
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 0,
+                "HAT2": 1,
                 "FACE1": 1,
                 "FACE2": 0,
-                "FACE3": 1,
-                "COAT1": 0,
-                "COAT2": 1,
-                "INNER1": 0,
-                "INNER2": 1,
-                "COLLAR": 0,
-                "WRIST": 1,
-                "HAND": 0,
-                "PANTS1": 1,
-                "PANTS2": 0,
-                "SHOES1": 1,
-                "SHOES2": 0
+                "R_COAT1": 1,
+                "R_COAT2": 0,
+                "L_COAT1": 1,
+                "L_COAT2": 0,
+                "INNER1": 1,
+                "INNER2": 0,
+                "R_ARM1": 1,
+                "R_ARM2": 0,
+                "R_HAND": 1,
+                "L_ARM1": 0,
+                "L_ARM2": 1,
+                "L_HAND": 0,
+                "R_PANTS1": 1,
+                "R_PANTS2": 0,
+                "L_PANTS1": 1,
+                "L_PANTS2": 0,
+                "R_SHOES1": 1,
+                "R_SHOES2": 0,
+                "L_SHOES1": 1,
+                "L_SHOES2": 0
             }
         },
         {
             "Start": 1100,
             "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 0
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 0
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 0
+                },
                 "HAT1": 1,
                 "HAT2": 1,
-                "FACE1": 0,
-                "FACE2": 0,
-                "FACE3": 0,
-                "COAT1": 0,
-                "COAT2": 0,
-                "INNER1": 0,
-                "INNER2": 0,
-                "COLLAR": 0,
-                "WRIST": 0,
-                "HAND": 0,
-                "PANTS1": 0,
-                "PANTS2": 0,
-                "SHOES1": 0,
-                "SHOES2": 0
+                "FACE1":0,
+                "FACE2":0,
+                "R_COAT1":0,
+                "R_COAT2":0,
+                "L_COAT1":0,
+                "L_COAT2":0,
+                "INNER1":0,
+                "INNER2":0,
+                "R_ARM1":0,
+                "R_ARM2":0,
+                "R_HAND":0,
+                "L_ARM1":0,
+                "L_ARM2":0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
             }
         },
         {
             "Start": 1200,
             "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 0
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 0
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 0
+                },
                 "HAT1": 0,
                 "HAT2": 0,
                 "FACE1": 1,
                 "FACE2": 1,
-                "FACE3": 1,
-                "COAT1": 0,
-                "COAT2": 0,
+                "R_COAT1": 1,
+                "R_COAT2": 1,
+                "L_COAT1": 1,
+                "L_COAT2": 0,
                 "INNER1": 0,
                 "INNER2": 0,
-                "COLLAR": 0,
-                "WRIST": 0,
-                "HAND": 0,
-                "PANTS1": 0,
-                "PANTS2": 0,
-                "SHOES1": 0,
-                "SHOES2": 0
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
             }
         },
         {
             "Start": 1300,
             "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
                 "HAT1": 0,
                 "HAT2": 0,
                 "FACE1": 0,
                 "FACE2": 0,
-                "FACE3": 0,
-                "COAT1": 1,
-                "COAT2": 1,
-                "INNER1": 0,
-                "INNER2": 0,
-                "COLLAR": 0,
-                "WRIST": 0,
-                "HAND": 0,
-                "PANTS1": 0,
-                "PANTS2": 0,
-                "SHOES1": 0,
-                "SHOES2": 0
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 1,
+                "INNER1": 1,
+                "INNER2": 1,
+                "R_ARM1": 1,
+                "R_ARM2": 1,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
             }
         },
         {
             "Start": 1400,
             "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
                 "HAT1": 0,
                 "HAT2": 0,
                 "FACE1": 0,
                 "FACE2": 0,
-                "FACE3": 0,
-                "COAT1": 0,
-                "COAT2": 0,
-                "INNER1": 1,
-                "INNER2": 1,
-                "COLLAR": 1,
-                "WRIST": 0,
-                "HAND": 0,
-                "PANTS1": 0,
-                "PANTS2": 0,
-                "SHOES1": 0,
-                "SHOES2": 0
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 1,
+                "L_ARM1": 1,
+                "L_ARM2": 1,
+                "L_HAND": 1,
+                "R_PANTS1": 1,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
             }
         },
         {
             "Start": 1500,
             "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 0
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 0
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 0
+                },
                 "HAT1": 0,
                 "HAT2": 0,
                 "FACE1": 0,
                 "FACE2": 0,
-                "FACE3": 0,
-                "COAT1": 0,
-                "COAT2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
                 "INNER1": 0,
                 "INNER2": 0,
-                "COLLAR": 0,
-                "WRIST": 1,
-                "HAND": 1,
-                "PANTS1": 0,
-                "PANTS2": 0,
-                "SHOES1": 0,
-                "SHOES2": 0
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 1,
+                "L_PANTS1": 1,
+                "L_PANTS2": 1,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
             }
         },
         {
             "Start": 1600,
             "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 0
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 0
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 0
+                },
                 "HAT1": 0,
                 "HAT2": 0,
                 "FACE1": 0,
                 "FACE2": 0,
-                "FACE3": 0,
-                "COAT1": 0,
-                "COAT2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
                 "INNER1": 0,
                 "INNER2": 0,
-                "COLLAR": 0,
-                "WRIST": 0,
-                "HAND": 0,
-                "PANTS1": 1,
-                "PANTS2": 1,
-                "SHOES1": 0,
-                "SHOES2": 0
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 1,
+                "R_SHOES2": 1,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
             }
         },
         {
             "Start": 1700,
             "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
                 "HAT1": 0,
                 "HAT2": 0,
                 "FACE1": 0,
                 "FACE2": 0,
-                "FACE3": 0,
-                "COAT1": 0,
-                "COAT2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
                 "INNER1": 0,
                 "INNER2": 0,
-                "COLLAR": 0,
-                "WRIST": 0,
-                "HAND": 0,
-                "PANTS1": 0,
-                "PANTS2": 0,
-                "SHOES1": 1,
-                "SHOES2": 1
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 1,
+                "L_SHOES2": 1
             }
         },
         {
             "Start": 1800,
             "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
                 "HAT1": 0,
                 "HAT2": 0,
                 "FACE1": 0,
                 "FACE2": 0,
-                "FACE3": 0,
-                "COAT1": 0,
-                "COAT2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
                 "INNER1": 0,
                 "INNER2": 0,
-                "COLLAR": 0,
-                "WRIST": 0,
-                "HAND": 0,
-                "PANTS1": 0,
-                "PANTS2": 0,
-                "SHOES1": 0,
-                "SHOES2": 0
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
             }
         },
         {
             "Start": 2000,
             "Status": {
-                "HAT1": 1,
-                "HAT2": 1,
-                "FACE1": 1,
-                "FACE2": 1,
-                "FACE3": 1,
-                "COAT1": 1,
-                "COAT2": 1,
-                "INNER1": 1,
-                "INNER2": 1,
-                "COLLAR": 1,
-                "WRIST": 1,
-                "HAND": 1,
-                "PANTS1": 1,
-                "PANTS2": 1,
-                "SHOES1": 1,
-                "SHOES2": 1
-            }
-        }
-    ],
-    [
-        {
-            "Start": 0,
-            "Status": {
-                "HAT1": 1,
-                "HAT2": 1,
-                "FACE1": 1,
-                "FACE2": 1,
-                "FACE3": 1,
-                "COAT1": 1,
-                "COAT2": 1,
-                "INNER1": 1,
-                "INNER2": 1,
-                "COLLAR": 1,
-                "WRIST": 1,
-                "HAND": 1,
-                "PANTS1": 1,
-                "PANTS2": 1,
-                "SHOES1": 1,
-                "SHOES2": 1
-            }
-        },
-        {
-            "Start": 100,
-            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
                 "HAT1": 0,
                 "HAT2": 0,
                 "FACE1": 0,
                 "FACE2": 0,
-                "FACE3": 0,
-                "COAT1": 0,
-                "COAT2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
                 "INNER1": 0,
                 "INNER2": 0,
-                "COLLAR": 0,
-                "WRIST": 0,
-                "HAND": 0,
-                "PANTS1": 0,
-                "PANTS2": 0,
-                "SHOES1": 0,
-                "SHOES2": 0
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 1,
+                "L_SHOES2": 1
             }
         }
     ],
@@ -301,389 +497,3457 @@
         {
             "Start": 0,
             "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
                 "HAT1": 1,
                 "HAT2": 1,
                 "FACE1": 1,
                 "FACE2": 1,
-                "FACE3": 1,
-                "COAT1": 1,
-                "COAT2": 1,
+                "R_COAT1": 1,
+                "R_COAT2": 1,
+                "L_COAT1": 1,
+                "L_COAT2": 1,
                 "INNER1": 1,
                 "INNER2": 1,
-                "COLLAR": 1,
-                "WRIST": 1,
-                "HAND": 1,
-                "PANTS1": 1,
-                "PANTS2": 1,
-                "SHOES1": 1,
-                "SHOES2": 1
-            }
-        },
-        {
-            "Start": 200,
-            "Status": {
-                "HAT1": 0,
-                "HAT2": 0,
-                "FACE1": 0,
-                "FACE2": 0,
-                "FACE3": 0,
-                "COAT1": 0,
-                "COAT2": 0,
-                "INNER1": 0,
-                "INNER2": 0,
-                "COLLAR": 0,
-                "WRIST": 0,
-                "HAND": 0,
-                "PANTS1": 0,
-                "PANTS2": 0,
-                "SHOES1": 0,
-                "SHOES2": 0
-            }
-        }
-    ],
-    [
-        {
-            "Start": 0,
-            "Status": {
-                "HAT1": 1,
-                "HAT2": 1,
-                "FACE1": 1,
-                "FACE2": 1,
-                "FACE3": 1,
-                "COAT1": 1,
-                "COAT2": 1,
-                "INNER1": 1,
-                "INNER2": 1,
-                "COLLAR": 1,
-                "WRIST": 1,
-                "HAND": 1,
-                "PANTS1": 1,
-                "PANTS2": 1,
-                "SHOES1": 1,
-                "SHOES2": 1
-            }
-        },
-        {
-            "Start": 300,
-            "Status": {
-                "HAT1": 0,
-                "HAT2": 0,
-                "FACE1": 0,
-                "FACE2": 0,
-                "FACE3": 0,
-                "COAT1": 0,
-                "COAT2": 0,
-                "INNER1": 0,
-                "INNER2": 0,
-                "COLLAR": 0,
-                "WRIST": 0,
-                "HAND": 0,
-                "PANTS1": 0,
-                "PANTS2": 0,
-                "SHOES1": 0,
-                "SHOES2": 0
-            }
-        }
-    ],
-    [
-        {
-            "Start": 0,
-            "Status": {
-                "HAT1": 1,
-                "HAT2": 1,
-                "FACE1": 1,
-                "FACE2": 1,
-                "FACE3": 1,
-                "COAT1": 1,
-                "COAT2": 1,
-                "INNER1": 1,
-                "INNER2": 1,
-                "COLLAR": 1,
-                "WRIST": 1,
-                "HAND": 1,
-                "PANTS1": 1,
-                "PANTS2": 1,
-                "SHOES1": 1,
-                "SHOES2": 1
-            }
-        },
-        {
-            "Start": 400,
-            "Status": {
-                "HAT1": 0,
-                "HAT2": 0,
-                "FACE1": 0,
-                "FACE2": 0,
-                "FACE3": 0,
-                "COAT1": 0,
-                "COAT2": 0,
-                "INNER1": 0,
-                "INNER2": 0,
-                "COLLAR": 0,
-                "WRIST": 0,
-                "HAND": 0,
-                "PANTS1": 0,
-                "PANTS2": 0,
-                "SHOES1": 0,
-                "SHOES2": 0
-            }
-        }
-    ],
-    [
-        {
-            "Start": 0,
-            "Status": {
-                "HAT1": 1,
-                "HAT2": 1,
-                "FACE1": 1,
-                "FACE2": 1,
-                "FACE3": 1,
-                "COAT1": 1,
-                "COAT2": 1,
-                "INNER1": 1,
-                "INNER2": 1,
-                "COLLAR": 1,
-                "WRIST": 1,
-                "HAND": 1,
-                "PANTS1": 1,
-                "PANTS2": 1,
-                "SHOES1": 1,
-                "SHOES2": 1
+                "R_ARM1": 1,
+                "R_ARM2": 1,
+                "R_HAND": 1,
+                "L_ARM1": 1,
+                "L_ARM2": 1,
+                "L_HAND": 1,
+                "R_PANTS1": 1,
+                "R_PANTS2": 1,
+                "L_PANTS1": 1,
+                "L_PANTS2": 1,
+                "R_SHOES1": 1,
+                "R_SHOES2": 1,
+                "L_SHOES1": 1,
+                "L_SHOES2": 1
             }
         },
         {
             "Start": 500,
             "Status": {
-                "HAT1": 0,
-                "HAT2": 0,
-                "FACE1": 0,
-                "FACE2": 0,
-                "FACE3": 0,
-                "COAT1": 0,
-                "COAT2": 0,
-                "INNER1": 0,
-                "INNER2": 0,
-                "COLLAR": 0,
-                "WRIST": 0,
-                "HAND": 0,
-                "PANTS1": 0,
-                "PANTS2": 0,
-                "SHOES1": 0,
-                "SHOES2": 0
-            }
-        }
-    ],
-    [
-        {
-            "Start": 0,
-            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 0
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 0
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 0
+                },
                 "HAT1": 1,
-                "HAT2": 1,
-                "FACE1": 1,
-                "FACE2": 1,
-                "FACE3": 1,
-                "COAT1": 1,
-                "COAT2": 1,
-                "INNER1": 1,
-                "INNER2": 1,
-                "COLLAR": 1,
-                "WRIST": 1,
-                "HAND": 1,
-                "PANTS1": 1,
-                "PANTS2": 1,
-                "SHOES1": 1,
-                "SHOES2": 1
-            }
-        },
-        {
-            "Start": 600,
-            "Status": {
-                "HAT1": 0,
                 "HAT2": 0,
-                "FACE1": 0,
-                "FACE2": 0,
-                "FACE3": 0,
-                "COAT1": 0,
-                "COAT2": 0,
-                "INNER1": 0,
-                "INNER2": 0,
-                "COLLAR": 0,
-                "WRIST": 0,
-                "HAND": 0,
-                "PANTS1": 0,
-                "PANTS2": 0,
-                "SHOES1": 0,
-                "SHOES2": 0
-            }
-        }
-    ],
-    [
-        {
-            "Start": 0,
-            "Status": {
-                "HAT1": 1,
-                "HAT2": 1,
                 "FACE1": 1,
-                "FACE2": 1,
-                "FACE3": 1,
-                "COAT1": 1,
-                "COAT2": 1,
-                "INNER1": 1,
-                "INNER2": 1,
-                "COLLAR": 1,
-                "WRIST": 1,
-                "HAND": 1,
-                "PANTS1": 1,
-                "PANTS2": 1,
-                "SHOES1": 1,
-                "SHOES2": 1
-            }
-        },
-        {
-            "Start": 700,
-            "Status": {
-                "HAT1": 0,
-                "HAT2": 0,
-                "FACE1": 0,
                 "FACE2": 0,
-                "FACE3": 0,
-                "COAT1": 0,
-                "COAT2": 0,
-                "INNER1": 0,
-                "INNER2": 0,
-                "COLLAR": 0,
-                "WRIST": 0,
-                "HAND": 0,
-                "PANTS1": 0,
-                "PANTS2": 0,
-                "SHOES1": 0,
-                "SHOES2": 0
-            }
-        },
-        {
-            "Start": 750,
-            "Status": {
-                "HAT1": 1,
-                "HAT2": 1,
-                "FACE1": 1,
-                "FACE2": 1,
-                "FACE3": 1,
-                "COAT1": 1,
-                "COAT2": 1,
+                "R_COAT1": 1,
+                "R_COAT2": 0,
+                "L_COAT1": 1,
+                "L_COAT2": 0,
                 "INNER1": 1,
-                "INNER2": 1,
-                "COLLAR": 1,
-                "WRIST": 1,
-                "HAND": 1,
-                "PANTS1": 1,
-                "PANTS2": 1,
-                "SHOES1": 1,
-                "SHOES2": 1
-            }
-        },
-        {
-            "Start": 800,
-            "Status": {
-                "HAT1": 0.8,
-                "HAT2": 0.8,
-                "FACE1": 0.8,
-                "FACE2": 0.8,
-                "FACE3": 0.8,
-                "COAT1": 0.8,
-                "COAT2": 0.8,
-                "INNER1": 0.8,
-                "INNER2": 0.8,
-                "COLLAR": 0.8,
-                "WRIST": 0.8,
-                "HAND": 0.8,
-                "PANTS1": 0.8,
-                "PANTS2": 0.8,
-                "SHOES1": 0.8,
-                "SHOES2": 0.8
-            }
-        },
-        {
-            "Start": 850,
-            "Status": {
-                "HAT1": 0.6,
-                "HAT2": 0.6,
-                "FACE1": 0.6,
-                "FACE2": 0.6,
-                "FACE3": 0.6,
-                "COAT1": 0.6,
-                "COAT2": 0.6,
-                "INNER1": 0.6,
-                "INNER2": 0.6,
-                "COLLAR": 0.6,
-                "WRIST": 0.6,
-                "HAND": 0.6,
-                "PANTS1": 0.6,
-                "PANTS2": 0.6,
-                "SHOES1": 0.6,
-                "SHOES2": 0.6
-            }
-        },
-        {
-            "Start": 900,
-            "Status": {
-                "HAT1": 0.4,
-                "HAT2": 0.4,
-                "FACE1": 0.4,
-                "FACE2": 0.4,
-                "FACE3": 0.4,
-                "COAT1": 0.4,
-                "COAT2": 0.4,
-                "INNER1": 0.4,
-                "INNER2": 0.4,
-                "COLLAR": 0.4,
-                "WRIST": 0.4,
-                "HAND": 0.4,
-                "PANTS1": 0.4,
-                "PANTS2": 0.4,
-                "SHOES1": 0.4,
-                "SHOES2": 0.4
-            }
-        },
-        {
-            "Start": 950,
-            "Status": {
-                "HAT1": 0.2,
-                "HAT2": 0.2,
-                "FACE1": 0.2,
-                "FACE2": 0.2,
-                "FACE3": 0.2,
-                "COAT1": 0.2,
-                "COAT2": 0.2,
-                "INNER1": 0.2,
-                "INNER2": 0.2,
-                "COLLAR": 0.2,
-                "WRIST": 0.2,
-                "HAND": 0.2,
-                "PANTS1": 0.2,
-                "PANTS2": 0.2,
-                "SHOES1": 0.2,
-                "SHOES2": 0.2
+                "INNER2": 0,
+                "R_ARM1": 1,
+                "R_ARM2": 0,
+                "R_HAND": 1,
+                "L_ARM1": 0,
+                "L_ARM2": 1,
+                "L_HAND": 0,
+                "R_PANTS1": 1,
+                "R_PANTS2": 0,
+                "L_PANTS1": 1,
+                "L_PANTS2": 0,
+                "R_SHOES1": 1,
+                "R_SHOES2": 0,
+                "L_SHOES1": 1,
+                "L_SHOES2": 0
             }
         },
         {
             "Start": 1000,
             "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 0,
+                "HAT2": 1,
+                "FACE1": 1,
+                "FACE2": 0,
+                "R_COAT1": 1,
+                "R_COAT2": 0,
+                "L_COAT1": 1,
+                "L_COAT2": 0,
+                "INNER1": 1,
+                "INNER2": 0,
+                "R_ARM1": 1,
+                "R_ARM2": 0,
+                "R_HAND": 1,
+                "L_ARM1": 0,
+                "L_ARM2": 1,
+                "L_HAND": 0,
+                "R_PANTS1": 1,
+                "R_PANTS2": 0,
+                "L_PANTS1": 1,
+                "L_PANTS2": 0,
+                "R_SHOES1": 1,
+                "R_SHOES2": 0,
+                "L_SHOES1": 1,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1100,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 0
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 0
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 0
+                },
+                "HAT1": 1,
+                "HAT2": 1,
+                "FACE1":0,
+                "FACE2":0,
+                "R_COAT1":0,
+                "R_COAT2":0,
+                "L_COAT1":0,
+                "L_COAT2":0,
+                "INNER1":0,
+                "INNER2":0,
+                "R_ARM1":0,
+                "R_ARM2":0,
+                "R_HAND":0,
+                "L_ARM1":0,
+                "L_ARM2":0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1200,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 0
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 0
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 0
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 1,
+                "FACE2": 1,
+                "R_COAT1": 1,
+                "R_COAT2": 1,
+                "L_COAT1": 1,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1300,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
                 "HAT1": 0,
                 "HAT2": 0,
                 "FACE1": 0,
                 "FACE2": 0,
-                "FACE3": 0,
-                "COAT1": 0,
-                "COAT2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 1,
+                "INNER1": 1,
+                "INNER2": 1,
+                "R_ARM1": 1,
+                "R_ARM2": 1,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1400,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
                 "INNER1": 0,
                 "INNER2": 0,
-                "COLLAR": 0,
-                "WRIST": 0,
-                "HAND": 0,
-                "PANTS1": 0,
-                "PANTS2": 0,
-                "SHOES1": 0,
-                "SHOES2": 0
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 1,
+                "L_ARM1": 1,
+                "L_ARM2": 1,
+                "L_HAND": 1,
+                "R_PANTS1": 1,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1500,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 0
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 0
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 0
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 1,
+                "L_PANTS1": 1,
+                "L_PANTS2": 1,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1600,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 0
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 0
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 0
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 1,
+                "R_SHOES2": 1,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1700,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 1,
+                "L_SHOES2": 1
+            }
+        },
+        {
+            "Start": 1800,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 2000,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 1,
+                "L_SHOES2": 1
+            }
+        }
+    ],
+    [
+        {
+            "Start": 0,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 1,
+                "HAT2": 1,
+                "FACE1": 1,
+                "FACE2": 1,
+                "R_COAT1": 1,
+                "R_COAT2": 1,
+                "L_COAT1": 1,
+                "L_COAT2": 1,
+                "INNER1": 1,
+                "INNER2": 1,
+                "R_ARM1": 1,
+                "R_ARM2": 1,
+                "R_HAND": 1,
+                "L_ARM1": 1,
+                "L_ARM2": 1,
+                "L_HAND": 1,
+                "R_PANTS1": 1,
+                "R_PANTS2": 1,
+                "L_PANTS1": 1,
+                "L_PANTS2": 1,
+                "R_SHOES1": 1,
+                "R_SHOES2": 1,
+                "L_SHOES1": 1,
+                "L_SHOES2": 1
+            }
+        },
+        {
+            "Start": 500,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 0
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 0
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 0
+                },
+                "HAT1": 1,
+                "HAT2": 0,
+                "FACE1": 1,
+                "FACE2": 0,
+                "R_COAT1": 1,
+                "R_COAT2": 0,
+                "L_COAT1": 1,
+                "L_COAT2": 0,
+                "INNER1": 1,
+                "INNER2": 0,
+                "R_ARM1": 1,
+                "R_ARM2": 0,
+                "R_HAND": 1,
+                "L_ARM1": 0,
+                "L_ARM2": 1,
+                "L_HAND": 0,
+                "R_PANTS1": 1,
+                "R_PANTS2": 0,
+                "L_PANTS1": 1,
+                "L_PANTS2": 0,
+                "R_SHOES1": 1,
+                "R_SHOES2": 0,
+                "L_SHOES1": 1,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1000,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 0,
+                "HAT2": 1,
+                "FACE1": 1,
+                "FACE2": 0,
+                "R_COAT1": 1,
+                "R_COAT2": 0,
+                "L_COAT1": 1,
+                "L_COAT2": 0,
+                "INNER1": 1,
+                "INNER2": 0,
+                "R_ARM1": 1,
+                "R_ARM2": 0,
+                "R_HAND": 1,
+                "L_ARM1": 0,
+                "L_ARM2": 1,
+                "L_HAND": 0,
+                "R_PANTS1": 1,
+                "R_PANTS2": 0,
+                "L_PANTS1": 1,
+                "L_PANTS2": 0,
+                "R_SHOES1": 1,
+                "R_SHOES2": 0,
+                "L_SHOES1": 1,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1100,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 0
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 0
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 0
+                },
+                "HAT1": 1,
+                "HAT2": 1,
+                "FACE1":0,
+                "FACE2":0,
+                "R_COAT1":0,
+                "R_COAT2":0,
+                "L_COAT1":0,
+                "L_COAT2":0,
+                "INNER1":0,
+                "INNER2":0,
+                "R_ARM1":0,
+                "R_ARM2":0,
+                "R_HAND":0,
+                "L_ARM1":0,
+                "L_ARM2":0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1200,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 0
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 0
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 0
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 1,
+                "FACE2": 1,
+                "R_COAT1": 1,
+                "R_COAT2": 1,
+                "L_COAT1": 1,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1300,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 1,
+                "INNER1": 1,
+                "INNER2": 1,
+                "R_ARM1": 1,
+                "R_ARM2": 1,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1400,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 1,
+                "L_ARM1": 1,
+                "L_ARM2": 1,
+                "L_HAND": 1,
+                "R_PANTS1": 1,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1500,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 0
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 0
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 0
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 1,
+                "L_PANTS1": 1,
+                "L_PANTS2": 1,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1600,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 0
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 0
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 0
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 1,
+                "R_SHOES2": 1,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1700,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 1,
+                "L_SHOES2": 1
+            }
+        },
+        {
+            "Start": 1800,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 2000,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 1,
+                "L_SHOES2": 1
+            }
+        }
+    ],
+    [
+        {
+            "Start": 0,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 1,
+                "HAT2": 1,
+                "FACE1": 1,
+                "FACE2": 1,
+                "R_COAT1": 1,
+                "R_COAT2": 1,
+                "L_COAT1": 1,
+                "L_COAT2": 1,
+                "INNER1": 1,
+                "INNER2": 1,
+                "R_ARM1": 1,
+                "R_ARM2": 1,
+                "R_HAND": 1,
+                "L_ARM1": 1,
+                "L_ARM2": 1,
+                "L_HAND": 1,
+                "R_PANTS1": 1,
+                "R_PANTS2": 1,
+                "L_PANTS1": 1,
+                "L_PANTS2": 1,
+                "R_SHOES1": 1,
+                "R_SHOES2": 1,
+                "L_SHOES1": 1,
+                "L_SHOES2": 1
+            }
+        },
+        {
+            "Start": 500,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 0
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 0
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 0
+                },
+                "HAT1": 1,
+                "HAT2": 0,
+                "FACE1": 1,
+                "FACE2": 0,
+                "R_COAT1": 1,
+                "R_COAT2": 0,
+                "L_COAT1": 1,
+                "L_COAT2": 0,
+                "INNER1": 1,
+                "INNER2": 0,
+                "R_ARM1": 1,
+                "R_ARM2": 0,
+                "R_HAND": 1,
+                "L_ARM1": 0,
+                "L_ARM2": 1,
+                "L_HAND": 0,
+                "R_PANTS1": 1,
+                "R_PANTS2": 0,
+                "L_PANTS1": 1,
+                "L_PANTS2": 0,
+                "R_SHOES1": 1,
+                "R_SHOES2": 0,
+                "L_SHOES1": 1,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1000,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 0,
+                "HAT2": 1,
+                "FACE1": 1,
+                "FACE2": 0,
+                "R_COAT1": 1,
+                "R_COAT2": 0,
+                "L_COAT1": 1,
+                "L_COAT2": 0,
+                "INNER1": 1,
+                "INNER2": 0,
+                "R_ARM1": 1,
+                "R_ARM2": 0,
+                "R_HAND": 1,
+                "L_ARM1": 0,
+                "L_ARM2": 1,
+                "L_HAND": 0,
+                "R_PANTS1": 1,
+                "R_PANTS2": 0,
+                "L_PANTS1": 1,
+                "L_PANTS2": 0,
+                "R_SHOES1": 1,
+                "R_SHOES2": 0,
+                "L_SHOES1": 1,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1100,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 0
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 0
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 0
+                },
+                "HAT1": 1,
+                "HAT2": 1,
+                "FACE1":0,
+                "FACE2":0,
+                "R_COAT1":0,
+                "R_COAT2":0,
+                "L_COAT1":0,
+                "L_COAT2":0,
+                "INNER1":0,
+                "INNER2":0,
+                "R_ARM1":0,
+                "R_ARM2":0,
+                "R_HAND":0,
+                "L_ARM1":0,
+                "L_ARM2":0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1200,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 0
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 0
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 0
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 1,
+                "FACE2": 1,
+                "R_COAT1": 1,
+                "R_COAT2": 1,
+                "L_COAT1": 1,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1300,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 1,
+                "INNER1": 1,
+                "INNER2": 1,
+                "R_ARM1": 1,
+                "R_ARM2": 1,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1400,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 1,
+                "L_ARM1": 1,
+                "L_ARM2": 1,
+                "L_HAND": 1,
+                "R_PANTS1": 1,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1500,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 0
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 0
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 0
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 1,
+                "L_PANTS1": 1,
+                "L_PANTS2": 1,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1600,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 0
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 0
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 0
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 1,
+                "R_SHOES2": 1,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1700,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 1,
+                "L_SHOES2": 1
+            }
+        },
+        {
+            "Start": 1800,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 2000,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 1,
+                "L_SHOES2": 1
+            }
+        }
+    ],
+    [
+        {
+            "Start": 0,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 1,
+                "HAT2": 1,
+                "FACE1": 1,
+                "FACE2": 1,
+                "R_COAT1": 1,
+                "R_COAT2": 1,
+                "L_COAT1": 1,
+                "L_COAT2": 1,
+                "INNER1": 1,
+                "INNER2": 1,
+                "R_ARM1": 1,
+                "R_ARM2": 1,
+                "R_HAND": 1,
+                "L_ARM1": 1,
+                "L_ARM2": 1,
+                "L_HAND": 1,
+                "R_PANTS1": 1,
+                "R_PANTS2": 1,
+                "L_PANTS1": 1,
+                "L_PANTS2": 1,
+                "R_SHOES1": 1,
+                "R_SHOES2": 1,
+                "L_SHOES1": 1,
+                "L_SHOES2": 1
+            }
+        },
+        {
+            "Start": 500,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 0
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 0
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 0
+                },
+                "HAT1": 1,
+                "HAT2": 0,
+                "FACE1": 1,
+                "FACE2": 0,
+                "R_COAT1": 1,
+                "R_COAT2": 0,
+                "L_COAT1": 1,
+                "L_COAT2": 0,
+                "INNER1": 1,
+                "INNER2": 0,
+                "R_ARM1": 1,
+                "R_ARM2": 0,
+                "R_HAND": 1,
+                "L_ARM1": 0,
+                "L_ARM2": 1,
+                "L_HAND": 0,
+                "R_PANTS1": 1,
+                "R_PANTS2": 0,
+                "L_PANTS1": 1,
+                "L_PANTS2": 0,
+                "R_SHOES1": 1,
+                "R_SHOES2": 0,
+                "L_SHOES1": 1,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1000,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 0,
+                "HAT2": 1,
+                "FACE1": 1,
+                "FACE2": 0,
+                "R_COAT1": 1,
+                "R_COAT2": 0,
+                "L_COAT1": 1,
+                "L_COAT2": 0,
+                "INNER1": 1,
+                "INNER2": 0,
+                "R_ARM1": 1,
+                "R_ARM2": 0,
+                "R_HAND": 1,
+                "L_ARM1": 0,
+                "L_ARM2": 1,
+                "L_HAND": 0,
+                "R_PANTS1": 1,
+                "R_PANTS2": 0,
+                "L_PANTS1": 1,
+                "L_PANTS2": 0,
+                "R_SHOES1": 1,
+                "R_SHOES2": 0,
+                "L_SHOES1": 1,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1100,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 0
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 0
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 0
+                },
+                "HAT1": 1,
+                "HAT2": 1,
+                "FACE1":0,
+                "FACE2":0,
+                "R_COAT1":0,
+                "R_COAT2":0,
+                "L_COAT1":0,
+                "L_COAT2":0,
+                "INNER1":0,
+                "INNER2":0,
+                "R_ARM1":0,
+                "R_ARM2":0,
+                "R_HAND":0,
+                "L_ARM1":0,
+                "L_ARM2":0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1200,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 0
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 0
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 0
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 1,
+                "FACE2": 1,
+                "R_COAT1": 1,
+                "R_COAT2": 1,
+                "L_COAT1": 1,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1300,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 1,
+                "INNER1": 1,
+                "INNER2": 1,
+                "R_ARM1": 1,
+                "R_ARM2": 1,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1400,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 1,
+                "L_ARM1": 1,
+                "L_ARM2": 1,
+                "L_HAND": 1,
+                "R_PANTS1": 1,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1500,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 0
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 0
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 0
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 1,
+                "L_PANTS1": 1,
+                "L_PANTS2": 1,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1600,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 0
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 0
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 0
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 1,
+                "R_SHOES2": 1,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1700,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 1,
+                "L_SHOES2": 1
+            }
+        },
+        {
+            "Start": 1800,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 2000,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 1,
+                "L_SHOES2": 1
+            }
+        }
+    ],
+    [
+        {
+            "Start": 0,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 1,
+                "HAT2": 1,
+                "FACE1": 1,
+                "FACE2": 1,
+                "R_COAT1": 1,
+                "R_COAT2": 1,
+                "L_COAT1": 1,
+                "L_COAT2": 1,
+                "INNER1": 1,
+                "INNER2": 1,
+                "R_ARM1": 1,
+                "R_ARM2": 1,
+                "R_HAND": 1,
+                "L_ARM1": 1,
+                "L_ARM2": 1,
+                "L_HAND": 1,
+                "R_PANTS1": 1,
+                "R_PANTS2": 1,
+                "L_PANTS1": 1,
+                "L_PANTS2": 1,
+                "R_SHOES1": 1,
+                "R_SHOES2": 1,
+                "L_SHOES1": 1,
+                "L_SHOES2": 1
+            }
+        },
+        {
+            "Start": 500,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 0
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 0
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 0
+                },
+                "HAT1": 1,
+                "HAT2": 0,
+                "FACE1": 1,
+                "FACE2": 0,
+                "R_COAT1": 1,
+                "R_COAT2": 0,
+                "L_COAT1": 1,
+                "L_COAT2": 0,
+                "INNER1": 1,
+                "INNER2": 0,
+                "R_ARM1": 1,
+                "R_ARM2": 0,
+                "R_HAND": 1,
+                "L_ARM1": 0,
+                "L_ARM2": 1,
+                "L_HAND": 0,
+                "R_PANTS1": 1,
+                "R_PANTS2": 0,
+                "L_PANTS1": 1,
+                "L_PANTS2": 0,
+                "R_SHOES1": 1,
+                "R_SHOES2": 0,
+                "L_SHOES1": 1,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1000,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 0,
+                "HAT2": 1,
+                "FACE1": 1,
+                "FACE2": 0,
+                "R_COAT1": 1,
+                "R_COAT2": 0,
+                "L_COAT1": 1,
+                "L_COAT2": 0,
+                "INNER1": 1,
+                "INNER2": 0,
+                "R_ARM1": 1,
+                "R_ARM2": 0,
+                "R_HAND": 1,
+                "L_ARM1": 0,
+                "L_ARM2": 1,
+                "L_HAND": 0,
+                "R_PANTS1": 1,
+                "R_PANTS2": 0,
+                "L_PANTS1": 1,
+                "L_PANTS2": 0,
+                "R_SHOES1": 1,
+                "R_SHOES2": 0,
+                "L_SHOES1": 1,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1100,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 0
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 0
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 0
+                },
+                "HAT1": 1,
+                "HAT2": 1,
+                "FACE1":0,
+                "FACE2":0,
+                "R_COAT1":0,
+                "R_COAT2":0,
+                "L_COAT1":0,
+                "L_COAT2":0,
+                "INNER1":0,
+                "INNER2":0,
+                "R_ARM1":0,
+                "R_ARM2":0,
+                "R_HAND":0,
+                "L_ARM1":0,
+                "L_ARM2":0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1200,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 0
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 0
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 0
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 1,
+                "FACE2": 1,
+                "R_COAT1": 1,
+                "R_COAT2": 1,
+                "L_COAT1": 1,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1300,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 1,
+                "INNER1": 1,
+                "INNER2": 1,
+                "R_ARM1": 1,
+                "R_ARM2": 1,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1400,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 1,
+                "L_ARM1": 1,
+                "L_ARM2": 1,
+                "L_HAND": 1,
+                "R_PANTS1": 1,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1500,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 0
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 0
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 0
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 1,
+                "L_PANTS1": 1,
+                "L_PANTS2": 1,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1600,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 0
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 0
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 0
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 1,
+                "R_SHOES2": 1,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1700,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 1,
+                "L_SHOES2": 1
+            }
+        },
+        {
+            "Start": 1800,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 2000,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 1,
+                "L_SHOES2": 1
+            }
+        }
+    ],
+    [
+        {
+            "Start": 0,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 1,
+                "HAT2": 1,
+                "FACE1": 1,
+                "FACE2": 1,
+                "R_COAT1": 1,
+                "R_COAT2": 1,
+                "L_COAT1": 1,
+                "L_COAT2": 1,
+                "INNER1": 1,
+                "INNER2": 1,
+                "R_ARM1": 1,
+                "R_ARM2": 1,
+                "R_HAND": 1,
+                "L_ARM1": 1,
+                "L_ARM2": 1,
+                "L_HAND": 1,
+                "R_PANTS1": 1,
+                "R_PANTS2": 1,
+                "L_PANTS1": 1,
+                "L_PANTS2": 1,
+                "R_SHOES1": 1,
+                "R_SHOES2": 1,
+                "L_SHOES1": 1,
+                "L_SHOES2": 1
+            }
+        },
+        {
+            "Start": 500,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 0
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 0
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 0
+                },
+                "HAT1": 1,
+                "HAT2": 0,
+                "FACE1": 1,
+                "FACE2": 0,
+                "R_COAT1": 1,
+                "R_COAT2": 0,
+                "L_COAT1": 1,
+                "L_COAT2": 0,
+                "INNER1": 1,
+                "INNER2": 0,
+                "R_ARM1": 1,
+                "R_ARM2": 0,
+                "R_HAND": 1,
+                "L_ARM1": 0,
+                "L_ARM2": 1,
+                "L_HAND": 0,
+                "R_PANTS1": 1,
+                "R_PANTS2": 0,
+                "L_PANTS1": 1,
+                "L_PANTS2": 0,
+                "R_SHOES1": 1,
+                "R_SHOES2": 0,
+                "L_SHOES1": 1,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1000,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 0,
+                "HAT2": 1,
+                "FACE1": 1,
+                "FACE2": 0,
+                "R_COAT1": 1,
+                "R_COAT2": 0,
+                "L_COAT1": 1,
+                "L_COAT2": 0,
+                "INNER1": 1,
+                "INNER2": 0,
+                "R_ARM1": 1,
+                "R_ARM2": 0,
+                "R_HAND": 1,
+                "L_ARM1": 0,
+                "L_ARM2": 1,
+                "L_HAND": 0,
+                "R_PANTS1": 1,
+                "R_PANTS2": 0,
+                "L_PANTS1": 1,
+                "L_PANTS2": 0,
+                "R_SHOES1": 1,
+                "R_SHOES2": 0,
+                "L_SHOES1": 1,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1100,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 0
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 0
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 0
+                },
+                "HAT1": 1,
+                "HAT2": 1,
+                "FACE1":0,
+                "FACE2":0,
+                "R_COAT1":0,
+                "R_COAT2":0,
+                "L_COAT1":0,
+                "L_COAT2":0,
+                "INNER1":0,
+                "INNER2":0,
+                "R_ARM1":0,
+                "R_ARM2":0,
+                "R_HAND":0,
+                "L_ARM1":0,
+                "L_ARM2":0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1200,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 0
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 0
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 0
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 1,
+                "FACE2": 1,
+                "R_COAT1": 1,
+                "R_COAT2": 1,
+                "L_COAT1": 1,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1300,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 1,
+                "INNER1": 1,
+                "INNER2": 1,
+                "R_ARM1": 1,
+                "R_ARM2": 1,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1400,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 1,
+                "L_ARM1": 1,
+                "L_ARM2": 1,
+                "L_HAND": 1,
+                "R_PANTS1": 1,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1500,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 0
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 0
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 0
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 1,
+                "L_PANTS1": 1,
+                "L_PANTS2": 1,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1600,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 0
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 0
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 0
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 1,
+                "R_SHOES2": 1,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1700,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 1,
+                "L_SHOES2": 1
+            }
+        },
+        {
+            "Start": 1800,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 2000,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 1,
+                "L_SHOES2": 1
+            }
+        }
+    ],
+    [
+        {
+            "Start": 0,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 1,
+                "HAT2": 1,
+                "FACE1": 1,
+                "FACE2": 1,
+                "R_COAT1": 1,
+                "R_COAT2": 1,
+                "L_COAT1": 1,
+                "L_COAT2": 1,
+                "INNER1": 1,
+                "INNER2": 1,
+                "R_ARM1": 1,
+                "R_ARM2": 1,
+                "R_HAND": 1,
+                "L_ARM1": 1,
+                "L_ARM2": 1,
+                "L_HAND": 1,
+                "R_PANTS1": 1,
+                "R_PANTS2": 1,
+                "L_PANTS1": 1,
+                "L_PANTS2": 1,
+                "R_SHOES1": 1,
+                "R_SHOES2": 1,
+                "L_SHOES1": 1,
+                "L_SHOES2": 1
+            }
+        },
+        {
+            "Start": 500,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 0
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 0
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 0
+                },
+                "HAT1": 1,
+                "HAT2": 0,
+                "FACE1": 1,
+                "FACE2": 0,
+                "R_COAT1": 1,
+                "R_COAT2": 0,
+                "L_COAT1": 1,
+                "L_COAT2": 0,
+                "INNER1": 1,
+                "INNER2": 0,
+                "R_ARM1": 1,
+                "R_ARM2": 0,
+                "R_HAND": 1,
+                "L_ARM1": 0,
+                "L_ARM2": 1,
+                "L_HAND": 0,
+                "R_PANTS1": 1,
+                "R_PANTS2": 0,
+                "L_PANTS1": 1,
+                "L_PANTS2": 0,
+                "R_SHOES1": 1,
+                "R_SHOES2": 0,
+                "L_SHOES1": 1,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1000,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 0,
+                "HAT2": 1,
+                "FACE1": 1,
+                "FACE2": 0,
+                "R_COAT1": 1,
+                "R_COAT2": 0,
+                "L_COAT1": 1,
+                "L_COAT2": 0,
+                "INNER1": 1,
+                "INNER2": 0,
+                "R_ARM1": 1,
+                "R_ARM2": 0,
+                "R_HAND": 1,
+                "L_ARM1": 0,
+                "L_ARM2": 1,
+                "L_HAND": 0,
+                "R_PANTS1": 1,
+                "R_PANTS2": 0,
+                "L_PANTS1": 1,
+                "L_PANTS2": 0,
+                "R_SHOES1": 1,
+                "R_SHOES2": 0,
+                "L_SHOES1": 1,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1100,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 0
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 0
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 0
+                },
+                "HAT1": 1,
+                "HAT2": 1,
+                "FACE1":0,
+                "FACE2":0,
+                "R_COAT1":0,
+                "R_COAT2":0,
+                "L_COAT1":0,
+                "L_COAT2":0,
+                "INNER1":0,
+                "INNER2":0,
+                "R_ARM1":0,
+                "R_ARM2":0,
+                "R_HAND":0,
+                "L_ARM1":0,
+                "L_ARM2":0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1200,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 0
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 0
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 0
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 1,
+                "FACE2": 1,
+                "R_COAT1": 1,
+                "R_COAT2": 1,
+                "L_COAT1": 1,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1300,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 1,
+                "INNER1": 1,
+                "INNER2": 1,
+                "R_ARM1": 1,
+                "R_ARM2": 1,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1400,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 1,
+                "L_ARM1": 1,
+                "L_ARM2": 1,
+                "L_HAND": 1,
+                "R_PANTS1": 1,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1500,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 0
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 0
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 0
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 1,
+                "L_PANTS1": 1,
+                "L_PANTS2": 1,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1600,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 0
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 0
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 0
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 1,
+                "R_SHOES2": 1,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 1700,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 1,
+                "L_SHOES2": 1
+            }
+        },
+        {
+            "Start": 1800,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 2000,
+            "Status": {
+                "CHEST": {
+                    "path": "./json/chest.json",
+                    "alpha": 1
+                },
+                "R_SHOE": {
+                    "path": "./json/r_shoe.json",
+                    "alpha": 1
+                },
+                "L_SHOE": {
+                    "path": "./json/l_shoe.json",
+                    "alpha": 1
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 1,
+                "L_SHOES2": 1
             }
         }
     ]
