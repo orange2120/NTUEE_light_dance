@@ -286,7 +286,7 @@ class CmdServer
             type: "play",
             data : {
                 start_at_server : cmd_start_time,
-                play_from_time : params.time
+                play_from_time : 0//params.time
             }
         }
         this.sendToBoards(msg,params.targets)
