@@ -6,7 +6,7 @@
 
 using namespace std;
 
-#define TEST_TIMES 5
+#define TEST_TIMES 2
 #define TEST_DELAY 500000 // us 
 
 #define COLOR1 0xFFEE00
@@ -61,24 +61,25 @@ int main(int argc, char *argv[])
 	for (int i = 0; i < TEST_TIMES; ++i)
 	{
 		printf("Send color 1..\n");
-		genColorSeq(test_seq, dataLen, 0x04, 0x04, 0x04); 		
+		genColorSeq(test_seq, dataLen, 0x16, 0x16, 0x16); 		
 		bcm2835_spi_transfern(test_seq, dataLen);
 		usleep(TEST_DELAY);
-	
+/*
 		printf("Send color 2...\n");
-		genColorSeq(test_seq, dataLen, 0x04, 0x00, 0x00);
+		genColorSeq(test_seq, dataLen, 0x00, 0xFF, 0x00);
 		bcm2835_spi_transfern(test_seq, dataLen);
 		usleep(TEST_DELAY);
 		
 		printf("Send color 3...\n");
-		genColorSeq(test_seq, dataLen, 0x00, 0x00, 0x04);
+		genColorSeq(test_seq, dataLen, 0x00, 0x00, 0x16);
 		bcm2835_spi_transfern(test_seq, dataLen);
 		usleep(TEST_DELAY);
 
-		//printf("Send color 4...\n");
-		//genColorSeq(test_seq, dataLen, 0x00, 0xFF, 0xFF);
-		//bcm2835_spi_transfern(test_seq, dataLen);
-		//usleep(TEST_DELAY);
+		printf("Send color 4...\n");
+		genColorSeq(test_seq, dataLen, 0x00, 0x16, 0x00);
+		bcm2835_spi_transfern(test_seq, dataLen);
+		usleep(TEST_DELAY);
+*/
 	}
 
 

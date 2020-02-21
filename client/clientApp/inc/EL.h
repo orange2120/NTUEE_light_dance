@@ -16,14 +16,14 @@
 class EL
 {
   public:
-    EL(const uint8_t nEL) : _nEL(nEL) {
+    EL(const uint8_t nEL, const uint8_t addr = 0x40) : _nEL(nEL) {
 
       if (bcm2835_init() != 1) {
         fprintf(stderr, "bcm2835_init() failed\n");
         exit(-1);
       }
 
-      pca = new PCA9685;
+      pca = new PCA9685(addr);
       
       _dutyCycle = new uint16_t[nEL];
     };
