@@ -18,8 +18,6 @@
 using namespace std;
 using json = nlohmann::json;
 
-uint16_t numLEDs[NUM_OF_LED] = { LEDS_0 };
-
 vector<Person> people; // dancers
 
 int main(int argc, char *argv[]) // arg[1] = person id, arg[2] = json_path
@@ -28,7 +26,7 @@ int main(int argc, char *argv[]) // arg[1] = person id, arg[2] = json_path
     handler_int.sa_handler = sigint_handler;
     handler_usr1.sa_handler = sig_pause;
 
-    string path = "./json/test1.json";
+    string path = "./json/test2.json";
 
     if (argc == 3) path = argv[2];
     else if (argc != 2)
