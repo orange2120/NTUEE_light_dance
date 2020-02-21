@@ -60,7 +60,7 @@ class EL_part { // for each part of EL
     friend class Person;
   public:
     // Member function
-    EL_part(const int& s){ 
+    EL_part(const double& s){ 
       brightness = double(s); 
       idx = el_count; 
       ++el_count; 

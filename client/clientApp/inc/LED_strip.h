@@ -16,7 +16,8 @@
 
 #define DATA_OFFSET   4     // real data after start bytes
 #define START_BYTE    0xFF
-#define STOP_BYTE     0xFF  // stop signal
+#define STOP_BYTE_0   0x55  // stop signal 0
+#define STOP_BYTE_1   0xFF  // stop signal 1
 
 #define SPI_CLOCK_DIV BCM2835_SPI_CLOCK_DIVIDER_256 // div by 256 = ~1MHz 
 

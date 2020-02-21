@@ -410,6 +410,34 @@ rl.on('line', function(line) {
         console.log("upload (id list) : upload data to board(s)")
         console.log("kick (id list) : kick board\n")
     }
+    else if(line[0].toLowerCase()=="play")
+    {
+        s.wss.clients.forEach((client) => {
+            if(client.readyState === WebSocket.OPEN && client.borad_ID > -1) {
+                let boardMsg = {
+                    type: 'play'
+                    // data: CONTROL[client.borad_ID] //boardData[client.boardId]
+                    // wsdata: wsData[client.boardId]
+                };
+                client.send(JSON.stringify(boardMsg));
+            }
+        });
+        console.log("[Server] Done")
+    }
+    else if(line[0].toLowerCase()=="abort")
+    {
+        s.wss.clients.forEach((client) => {
+            if(client.readyState === WebSocket.OPEN && client.borad_ID > -1) {
+                let boardMsg = {
+                    type: 'abort'
+                    // data: CONTROL[client.borad_ID] //boardData[client.boardId]
+                    // wsdata: wsData[client.boardId]
+                };
+                client.send(JSON.stringify(boardMsg));
+            }
+        });
+        console.log("[Server] Done")
+    }
     else if(line[0]!="")
     {
         console.log(`Command not found ${line[0]}`)

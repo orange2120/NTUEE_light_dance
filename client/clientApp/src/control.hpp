@@ -7,37 +7,41 @@
 #include "time.h"
 #include <unistd.h>
 #include <chrono>
+#include <string>
 
 using namespace chrono;
 using json = nlohmann::json;
 
 extern vector<Person> people;
-extern uint16_t numLEDs[NUM_OF_LED];
+extern const uint16_t numLEDs[NUM_OF_LED];
+extern const string ELs[NUM_OF_EL];
+extern const string LEDs[NUM_OF_LED];
+extern int dancer_id;
+
+EL el1(16, 0x40), el2(8, 0x41);
+LED_Strip leds(NUM_OF_LED, numLEDs);
 
 void ReadJson(json& data)
 {
-    
     for(int i = 0; i < PEOPLE_NUM; ++i) { // dimension of people
         people.push_back(Person());
         for(size_t j = 0; j < data[i].size(); ++j) { // dimension of execution
+            cerr << "[Reading] Person " << i << " executions " << j << "..." << endl;
             people[i].time_line.push_back(Execute());
             Execute& e = people[i].time_line[j];
 
             e.set_start_time(data[i][j]["Start"]);
 
+            cerr << "[Reading] LEDs..." << endl;
             // set LED part
-            e.set_LED_part(data[i][j]["Status"]["LEDH"]["path"], data[i][j]["Status"]["LEDH"]["alpha"]);
-            e.set_LED_part(data[i][j]["Status"]["LEDH"]["path"], data[i][j]["Status"]["LEDH"]["alpha"]);
-            e.set_LED_part(data[i][j]["Status"]["LEDH"]["path"], data[i][j]["Status"]["LEDH"]["alpha"]);
+            for(int k = 0; k < NUM_OF_LED; ++k)
+                e.set_LED_part(data[i][j]["Status"][LEDs[k]]["path"], data[i][j]["Status"][LEDs[k]]["alpha"]);
+            
             // set EL part
-            double a[NUM_OF_EL] = {
-                data[i][j]["Status"]["A"],
-                data[i][j]["Status"]["B"],
-                data[i][j]["Status"]["C"],
-                data[i][j]["Status"]["D"],
-                data[i][j]["Status"]["E"],
-                data[i][j]["Status"]["F"]
-            };
+            cerr << "[Reading] ELs..." << endl;
+            double a[NUM_OF_EL];
+            for(int k = 0; k < NUM_OF_EL; ++k)
+                a[k] = data[i][j]["Status"][ELs[k]];
             e.set_EL_part(a);
         }
     }
@@ -53,43 +57,42 @@ bool init(const string& path) {
 }
 
 void sendSig(int id) {
-    EL el(NUM_OF_EL);
-    LED_Strip leds(NUM_OF_LED, numLEDs);
     Execute &e = people[id].time_line[people[id].t_index];
     // send EL sig FIXME:
     for(int i = 0; i < NUM_OF_EL; ++i) {
-        double br = e.EL_parts[i].get_brightness()*4096;
-        el.setEL(i, uint16_t(br));
+        double br = e.EL_parts[i].get_brightness()*4095;
+        if(i < 16) el1.setEL(i, uint16_t(br));
+        else el2.setEL(i%16, uint16_t(br));
+        cerr << "br:  " << uint16_t(br) << endl;
     }
     // send LED sig
-    for(int i = 0; i < 1; ++i) {
+    for(int i = 0; i < NUM_OF_LED; ++i) {
         leds.sendToStrip(i, e.LED_parts[i]->get_data());
     }
 }
 
 void turnOff()
 {
-    EL el(NUM_OF_EL);
-    
-    LED_Strip leds(NUM_OF_LED, numLEDs);
-    // Execute &e = people[id].time_line[people[id].t_index];
-    // send EL sig FIXME:
+    // send EL sig 
     for(int i = 0; i < NUM_OF_EL; ++i) {
-        el.setEL(i, 0);
+        if(i < 16)  el1.setEL(i, 0);
+        else el2.setEL(i%16, 0);
     }
     char* tmp = 0;
-    // send LED sig FIXME:
+    // send LED sig 
     for(int i = 0; i < 1; ++i) {
         tmp = new char[numLEDs[i]];
         for(int j = 0; j < 3*numLEDs[i]; ++j) tmp[j] = 0;
         leds.sendToStrip(i, tmp);
     }
+    delete[] tmp;
 }
 
 void run(int id) {
     double time = 0; // ms
     Person &p = people[id];
-    cout << "here" << endl;
+    p.t_index = 0;
+    cerr << "start" << endl;
     sendSig(id);
     bool off = false;
     while(!off) 
@@ -98,7 +101,7 @@ void run(int id) {
         auto start = high_resolution_clock::now();
         if(time >= p.time_line[p.t_index+1].start_time) { 
             if(p.t_index == p.time_line.size()-2) { // last one is a dummy execution
-                ++p.t_index;
+                p.t_index = 0;
                 turnOff();
                 off = true;
             }
@@ -113,6 +116,7 @@ void run(int id) {
         else cerr << "sending time exceeds 30ms!!" << endl;
         time += 30;
     }
+    p.t_index = 0;
     
 }
 
@@ -132,6 +136,19 @@ void sigint_handler(int sig)
 void sig_pause(int sig)
 {
     printf("Pause!\n");
+    turnOff();
+    bool end = false;
+    string cmd;
+    while(!end) {
+        cin.clear();
+        cin >> cmd;
+        cout << ">> "  << cmd << endl;
+        if(cmd == "run") 
+        {
+            printf("Start!\n");
+            run(dancer_id);
+        }
+    }
     // printf("Enter any to continue:\n");
     // cin.get();
 }

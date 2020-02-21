@@ -140,6 +140,18 @@ function main(){
             // fs.writeFileSync('recieve.json', JSON.stringify(msg.data));
             console.log("Done")            
           }
+<<<<<<< HEAD
+=======
+        }else if(msg.type === "upload" ){
+          fs.writeFileSync('recieve.json', JSON.stringify(msg.data));
+          console.log("Done")
+        }else if(msg.type === "play" ){
+          clientApp.stdin.write('run')
+          console.log("start playing")
+        }else if(msg.type === "abort" ){
+          clientApp.kill('SIGINT')
+          console.log("send SIGINT")
+>>>>>>> origin/master
         }
         
         connection.onclose = (e)=>{
