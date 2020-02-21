@@ -1,0 +1,135 @@
+body {
+    font-family: sans-serif;
+    background: #FFFFFF;
+    color: white;
+}
+body .lm_content{
+    overflow: scroll;
+  }
+
+.workplace {
+    display: grid;
+    grid-template-columns: 1420px 300px;
+}
+
+.slider-list {
+    margin: 10px 0px;
+}
+
+.light-input-block {
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    margin: 3px 0;
+}
+
+.light-input {
+    width: 40px;
+}
+
+.noUi-target {
+    height: 10px;
+    width: 180px;
+    margin: 0 20px 0 0;
+}
+
+.noUi-handle {
+    height: 20px;
+    width: 20px;
+    border-radius: 8px;
+    cursor: grab;
+}
+
+.noUi-connect {
+    background: #5c8de0;
+}
+
+.checkbox-list {
+    display: flex;
+}
+
+.dancer-checkbox-text {
+    margin: 0px 0.5em 0.5em 0px;
+}
+
+.dancer-checkbox {
+    font-size: large;
+    margin: 0 0.3em 0 0;
+    transform: scale(1.5);
+}
+
+.time-el {
+    /* margin: 5px; */
+    display: flex;
+    align-items: center;
+}
+
+.time {
+    margin: 0 5px 0 0;
+    padding: 0 5px 0 0;
+}
+
+.time-input {
+    width: 100px;
+    height: 20px;
+}
+
+.timeInd-switch-btn {
+    cursor: pointer;
+    -webkit-appearance: none;
+    border-radius: 5px;
+    color: #46474a;
+    margin: 5px 3px;
+}
+
+.timeInd-input {
+    /* margin: 5px 0; */
+    width: 3em;
+    height:20px;
+}
+
+.edit-btn-grp {
+    height: 40px;
+    display: flex;
+    margin: 5px 0 5px 0;
+}
+
+.edit-btn {
+    margin: 0px 5px;
+    height: 40px;
+    width: 60px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: large;
+    -webkit-appearance: none;
+}
+
+.delbtn {
+    background-color: #bd4946;
+    color: white;
+}
+
+.savebtn {
+    background-color: #58c775;
+    color:#f5fcf6;
+}
+
+.edit-btn.selected {
+    background-color: #498df2;
+    color: white;
+}
+
+#audio {
+    border-top: 1px solid grey
+}
+
+#waveform {
+    position: relative;
+}
+
+.class_connected{
+    color: greenyellow;
+}
+.class_disconnect{
+    color: red;
+}

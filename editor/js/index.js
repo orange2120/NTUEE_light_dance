@@ -1,4 +1,8 @@
+// require ('webpack-hot-middleware/client')
+import * as GoldenLayout from 'golden-layout'
 import * as PIXI from 'pixi.js'
+import '../css/goldenlayout-base.css'
+import '../css/goldenlayout-dark-theme.css'
 import '../css/slider.css'
 import '../css/index.css'
 // import Constant
@@ -10,63 +14,197 @@ import Mytimeline from './timeline/mytimeline.js'
 import MyWaveSurfer from './wavesurfer/wavesurfer.js';
 import Manager from './manager/manager.js'
 import Presets from './presets/presets.js'
-// read data
-const load = require('../../data/load.json');
-// let control = require(`../../data/${load.Control}`);
-let control = null;
-if (window.localStorage.getItem('control') === null) {
-    control = require(`../../data/${load.Control}`);
-}
-else {
-    control = JSON.parse(window.localStorage.getItem('control'));
-}
+import Commandcenter from './commandcenter/commandcenter.js'
 
-let presets_load = null;
-if (window.localStorage.getItem('presets') === null) {
-    presets_load = require(`../../data/presets/${load.Presets}`);
-}
-else {
-    presets_load = JSON.parse(window.localStorage.getItem('presets'));
-}
+const layout_config = {
+    content: [
+    {
+        type: 'column',
+        isClosable: false,
+        content:[
+            {
+            type: 'column',
+            content:[
+                {
+                    type: 'component',
+                    height : 20,
+                    isClosable : false,
+                    componentName: 'timeline_Component',
+                    title : 'Timeline',
+                    componentState: { label: 'timeline_Component' }
+                },
+                {
+                    type: 'row',
+                    content:[
+                        {
+                            type: 'component',
+                            componentName: 'display_Component',
+                            title : 'Simulator',
+                            isClosable : false,
+                            componentState: { label: 'display_Component' }
+                        },
+                        {
+                            type: 'component',
+                            width : 24.978317432784035,
+                            componentName: 'editor_Component',
+                            title : 'editor',
+                            isClosable : false,
+                            componentState: { label: 'editor_Component' }
+                        },
+                        {
+                            type: 'component',
+                            width : 18,
+                            componentName: 'presets_Component',
+                            title : 'Presets',
+                            isClosable : false,
+                            componentState: { label: 'presets_Component' }
+                        }
+                    ]
+                }
+            ]
+        },
+        
+        {
+            type: 'component',
+            id:"id_command_Component",
+            width : 25.644599303135884,
+            height : 20,
+            title : 'Command',
+            componentName: 'command_Component',
+            componentState: { label: 'command_Component' }
+        }
+        ]
+    }
+]
+};
+
+const myLayout = new GoldenLayout( layout_config );
+
+myLayout.registerComponent( 'timeline_Component', function( container, componentState ){
+    container.getElement().html('<div id="audio"><div id="operators"> <button id="playPause-btn">Play/Pause</button> <button id="stop-btn">Stop</button> <input type="range" id="zoom-slider" /></div><div id="waveform"></div><div id="wave-timeline"></div></div>');
+});
+
+myLayout.registerComponent( 'command_Component', function( container, componentState ){
+    container.getElement().html( '<div id="commandComponent_zone"></div>' );
+
+});
+myLayout.registerComponent( 'display_Component', function( container, componentState ){
+    container.getElement().html('<div id="simulator"></div>');
+});
+myLayout.registerComponent( 'editor_Component', function( container, componentState ){
+    container.getElement().html('<div id="editor"><div class="time-el"> <span class="time"> Time: <input class="time-input" type="number" /> </span> <button id="timeInd-left-btn" class="timeInd-switch-btn"> <i class="fa fa-chevron-left fa-2x" aria-hidden="true"></i> </button> <input class="timeInd-input" type="number" /> <button id="timeInd-right-btn" class="timeInd-switch-btn"> <i class="fa fa-chevron-right fa-2x" aria-hidden="true"></i> </button></div><div class="checkbox-list" id="dancer-checkbox-list"></div><hr><div id="edit-btn-grp" class="edit-btn-grp"> <button id="editbtn" class="edit-btn editbtn">EDIT</button> <button id="addbtn" class="edit-btn addbtn">ADD</button> <button id="savebtn" class="edit-btn savebtn">SAVE</button></div><div class="slider-list" id="slider-list"></div> <button id="delbtn" class="edit-btn delbtn">DEL</button></div>');
+});
+
+myLayout.registerComponent( 'presets_Component', function( container, componentState ){
+    container.getElement().html('<div id="presets"><div class="title"> <span>Presets:</span> <span class="addbtn">+</span></div><div id="presets-list"></div></div>');
+});
+
+myLayout.init();
 
 
-// // get LEDs
-// const LEDs = load.LED
-const music = load.Music
+myLayout.on("initialised",() => {    
+    myLayout.root.contentItems[ 0 ].on("itemDestroyed",(item)=>{
+        console.log("itemDestroyed")
+        if(item.origin.isComponent && item.origin.componentName === "command_Component"){
+            cc.hide()
+        }
+    })
+    // console.log(myLayout)
+    document.onkeyup = function(e) {
+        if (e.ctrlKey && e.altKey && (e.which == 67 || e.which == 99)) {// e.ctrlKey && e.altKey && e.which == 87
+        //   alert("Ctrl + Alt + C shortcut combination was pressed");
+          if (myLayout.root.getItemsById("id_command_Component").length == 0) {
+            let newItemConfig = {
+                type: 'component',
+                width : 25.644599303135884,height : 20,
+                title : 'Command',
+                id : "id_command_Component",
+                componentName: 'command_Component',
+                componentState: { label: 'command_Component' }
+            }
+            console.log(myLayout.root.getItemsById("asd"))
+            
+            myLayout.root.contentItems[0].addChild(newItemConfig);
+            cc.show()
+          }
+          else {
+            myLayout.root.getItemsById("id_command_Component")[0].remove()
+            cc.hide()
+          }
+        
+        }
+    };
 
-// add simulate page
-const app = new PIXI.Application({
-    width: DISPLAY_WIDTH,
-    height: DISPLAY_HEIGHT,
-    backgroundColor: 0x38393d,
+    console.log("finish init")
+
+    // read data
+    const load = require('../../data/load.json');
+    // let control = require(`../../data/${load.Control}`);
+    let control = null;
+    if (window.localStorage.getItem('control') === null) {
+        control = require(`../../data/${load.Control}`);
+    }
+    else {
+        control = JSON.parse(window.localStorage.getItem('control'));
+    }
+
+    let presets_load = null;
+    if (window.localStorage.getItem('presets') === null) {
+        presets_load = require(`../../data/presets/${load.Presets}`);
+    }
+    else {
+        presets_load = JSON.parse(window.localStorage.getItem('presets'));
+    }
+
+    // get LEDs
+    // const LEDs = load.LED
+
+    // get Music
+    const music = load.Music
+
+    // add simulate page
+    const app = new PIXI.Application({
+        width: DISPLAY_WIDTH,
+        height: DISPLAY_HEIGHT,
+        backgroundColor: 0x38393d,
+    })
+    document.getElementById('simulator').appendChild(app.view)
+    
+    // manager
+    const mgr = new Manager();
+    mgr.setControl(control);
+
+    // simulate display
+    const sim = new Simulator(mgr, app, control, load.Texture)
+    
+    // editor
+    const editor = new Editor(mgr);
+    
+    // wavesurfer
+    const wavesurfer = new MyWaveSurfer(mgr, `../../music/${music}`);
+    
+    // presets
+    const presets = new Presets(mgr, presets_load);
+
+    // timeline
+    // const mytimeliner = new Mytimeline(mgr);
+    // mytimeliner.createFromData(control,load);
+    
+    mgr.setSim(sim);
+    mgr.setEditor(editor);
+    mgr.setWaveSurfer(wavesurfer);
+    // mgr.setTimerliner(mytimeliner);
+    // mgr.exec(0);
+    // timeliner
+
+    // CommandCenter
+    const cc = new Commandcenter(mgr)
+    cc.init()
+
+    // DOM stuff
+    document.querySelector('body').style.overflow = 'auto';
 })
-document.getElementById('simulator').appendChild(app.view)
 
-// manager
-const mgr = new Manager();
-mgr.setControl(control);
 
-// simulate display
-const sim = new Simulator(mgr, app, control, load.Texture)
 
-// editor
-const editor = new Editor(mgr);
 
-// wavesurfer
-const wavesurfer = new MyWaveSurfer(mgr, `../../music/${music}`);
-
-// presets
-const presets = new Presets(mgr, presets_load);
-
-// timeliner
-// const mytimeliner = new Mytimeline(mgr);
-// mytimeliner.createFromData(control,load);
-
-mgr.setSim(sim);
-mgr.setEditor(editor);
-mgr.setWaveSurfer(wavesurfer);
-// mgr.setTimerliner(mytimeliner);
-// mgr.exec(0);
-
-// editor
-// ReactDOM.render(<Editor mgr={mgr} timeInd={mgr.timeInd} />, document.querySelector("#editor"));

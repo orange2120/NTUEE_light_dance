@@ -1,5 +1,5 @@
 export const DANCER_NUM = 8
-export const DISPLAY_WIDTH = document.getElementById('simulator').offsetWidth
+export const DISPLAY_WIDTH = 800
 export const DISPLAY_HEIGHT = DISPLAY_WIDTH * 3 / 4
 export const FPS = 30
 // Set All Dancer position
