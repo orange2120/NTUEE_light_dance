@@ -1,10 +1,6 @@
 // require ('webpack-hot-middleware/client')
 import * as GoldenLayout from 'golden-layout'
 import * as PIXI from 'pixi.js'
-import '../css/goldenlayout-base.css'
-import '../css/goldenlayout-dark-theme.css'
-import '../css/slider.css'
-import '../css/index.css'
 // import Constant
 import { DISPLAY_WIDTH, DISPLAY_HEIGHT } from './constants'
 
@@ -15,6 +11,10 @@ import MyWaveSurfer from './wavesurfer/wavesurfer.js';
 import Manager from './manager/manager.js'
 import Presets from './presets/presets.js'
 import Commandcenter from './commandcenter/commandcenter.js'
+import '../css/goldenlayout-base.css'
+import '../css/goldenlayout-dark-theme.css'
+import '../css/slider.css'
+import '../css/index.css'
 
 const layout_config = {
     content: [
