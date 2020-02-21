@@ -73,16 +73,22 @@ void turnOff()
 {
     // send EL sig 
     for(int i = 0; i < NUM_OF_EL; ++i) {
+        cerr << "2" << endl;
         if(i < 16)  el1.setEL(i, 0);
         else el2.setEL(i%16, 0);
+        cerr << "2.5" << endl;
     }
     char* tmp = 0;
     // send LED sig 
     for(int i = 0; i < 1; ++i) {
+        cerr << "3" << endl;
         tmp = new char[numLEDs[i]];
+        cerr << "3.25" << endl;
         for(int j = 0; j < 3*numLEDs[i]; ++j) tmp[j] = 0;
+        cerr << "3.5" << endl;
         leds.sendToStrip(i, tmp);
     }
+    delete[] tmp;
 }
 
 void run(int id) {
@@ -99,7 +105,9 @@ void run(int id) {
         if(time >= p.time_line[p.t_index+1].start_time) { 
             if(p.t_index == p.time_line.size()-2) { // last one is a dummy execution
                 p.t_index = 0;
+                cerr << "1" << endl;
                 turnOff();
+                cerr << "1.5" << endl;
                 off = true;
             }
             else {
