@@ -20,6 +20,7 @@ using namespace std;
 using json = nlohmann::json;
 
 vector<Person> people; // dancers
+int dancer_id = 0;
 
 int main(int argc, char *argv[]) // arg[1] = person id, arg[2] = json_path
 {
@@ -55,7 +56,7 @@ int main(int argc, char *argv[]) // arg[1] = person id, arg[2] = json_path
         return -1;
     }
 
-    int dancer_id = atoi(argv[1]);
+    dancer_id = atoi(argv[1]);
     string cmd;
     bool end = false;
     

@@ -16,6 +16,7 @@ extern vector<Person> people;
 extern const uint16_t numLEDs[NUM_OF_LED];
 extern const string ELs[NUM_OF_EL];
 extern const string LEDs[NUM_OF_LED];
+extern int dancer_id;
 
 EL el1(16, 0x40), el2(8, 0x41);
 LED_Strip leds(NUM_OF_LED, numLEDs);
@@ -141,6 +142,18 @@ void sigint_handler(int sig)
 void sig_pause(int sig)
 {
     printf("Pause!\n");
+    bool end = false;
+    string cmd;
+    while(!end) {
+        cin.clear();
+        cin >> cmd;
+        cout << ">> "  << cmd << endl;
+        if(cmd == "run") 
+        {
+            printf("Start!\n");
+            run(dancer_id);
+        }
+    }
     // printf("Enter any to continue:\n");
     // cin.get();
 }
