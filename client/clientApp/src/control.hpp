@@ -60,9 +60,10 @@ void sendSig(int id) {
     Execute &e = people[id].time_line[people[id].t_index];
     // send EL sig FIXME:
     for(int i = 0; i < NUM_OF_EL; ++i) {
-        double br = e.EL_parts[i].get_brightness()*4096;
+        double br = e.EL_parts[i].get_brightness()*4095;
         if(i < 16) el1.setEL(i, uint16_t(br));
         else el2.setEL(i%16, uint16_t(br));
+        cerr << "br:  " << uint16_t(br) << endl;
     }
     // send LED sig
     for(int i = 0; i < NUM_OF_LED; ++i) {
@@ -74,19 +75,14 @@ void turnOff()
 {
     // send EL sig 
     for(int i = 0; i < NUM_OF_EL; ++i) {
-        cerr << "2" << endl;
         if(i < 16)  el1.setEL(i, 0);
         else el2.setEL(i%16, 0);
-        cerr << "2.5" << endl;
     }
     char* tmp = 0;
     // send LED sig 
     for(int i = 0; i < 1; ++i) {
-        cerr << "3" << endl;
         tmp = new char[numLEDs[i]];
-        cerr << "3.25" << endl;
         for(int j = 0; j < 3*numLEDs[i]; ++j) tmp[j] = 0;
-        cerr << "3.5" << endl;
         leds.sendToStrip(i, tmp);
     }
     delete[] tmp;
@@ -106,9 +102,7 @@ void run(int id) {
         if(time >= p.time_line[p.t_index+1].start_time) { 
             if(p.t_index == p.time_line.size()-2) { // last one is a dummy execution
                 p.t_index = 0;
-                cerr << "1" << endl;
                 turnOff();
-                cerr << "1.5" << endl;
                 off = true;
             }
             else {
@@ -142,6 +136,7 @@ void sigint_handler(int sig)
 void sig_pause(int sig)
 {
     printf("Pause!\n");
+    turnOff();
     bool end = false;
     string cmd;
     while(!end) {

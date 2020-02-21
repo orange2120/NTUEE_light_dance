@@ -452,7 +452,7 @@
             }
         },
         {
-            "Start": 2000,
+            "Start": 4000,
             "Status": {
                 "CHEST": {
                     "path": "./json/chest.json",
