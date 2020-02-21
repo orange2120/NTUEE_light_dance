@@ -26,7 +26,7 @@ class Editor {
         console.log('Editor ', this);
 
         // DOM stuff
-        this.el.style.height = `${DISPLAY_HEIGHT}px`;
+        // this.el.style.height = `${DISPLAY_HEIGHT}px`;
     }
 
     // -------------------------------------------------------------------------

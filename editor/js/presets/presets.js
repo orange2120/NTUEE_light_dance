@@ -146,7 +146,7 @@ class Presets {
         this.modal = new Modal();
         // DOM Stuff
         this.el = document.getElementById('presets');
-        this.el.style.height = `${DISPLAY_HEIGHT}px`;
+        // this.el.style.height = `${DISPLAY_HEIGHT}px`;
         this.presets.map(preset => this.addPreset(preset));
         this.addClickEvent();
     }
