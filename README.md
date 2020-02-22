@@ -35,11 +35,37 @@ Control dancers via a Wi-Fi router.
 Each dancer is a client device. Receive commands from the server.
 
 ### Editor
-> usage for develop:
+> usage for develop front-end:
 
 ```bash
 $ npm run editor:dev 
 ```
+
+> usage for editor
+
+1. install node
+
+2. install packages
+```bash
+$ npm install
+```
+
+3. install webpack globally
+```bash
+npm install webpack -g
+```
+
+4. build
+```bash
+npm run editor:dev
+```
+
+5. run
+```bash
+npm start
+# editor will run at localhost:8080
+```
+
 
 ## Directory structure
 
