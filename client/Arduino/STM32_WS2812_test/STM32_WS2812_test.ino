@@ -61,7 +61,11 @@ void loop()
     {
         for (int j = 0; j < NUM_LEDS[LED_ID]; ++j)
         {
-            strips[LED_ID][j] = CRGB(i, 0, 0);
+            strips[LED_ID][j] = CRGB(i, 0, 0);for (int j = 0; j < NUM_LEDS[LED_ID]; ++j)
+    {
+        strips[LED_ID][j] = CRGB(255, 255, 255);
+    }
+    FastLED.show();
         }
         FastLED.show();
         delay(50);
@@ -74,15 +78,30 @@ void loop()
         }
         FastLED.show();
         delay(50);
+    }for (int j = 0; j < NUM_LEDS[LED_ID]; ++j)for (int j = 0; j < NUM_LEDS[LED_ID]; ++j)
+    {
+        strips[LED_ID][j] = CRGB(255, 255, 255);
     }
+    FastLED.show();
+    {
+        strips[LED_ID][j] = CRGB(255, 255, 255);
+    }
+    FastLED.show();
     for (int i = 0; i < 255; ++i)
     {
         for (int j = 0; j < NUM_LEDS[LED_ID]; ++j)
         {
             strips[LED_ID][j] = CRGB(0, 0, i);
         }
+    }
         FastLED.show();
         delay(50);
     }
     delay(500);
+    for (int j = 0; j < NUM_LEDS[LED_ID]; ++j)
+    {
+        strips[LED_ID][j] = CRGB(255, 255, 255);
+    }
+    FastLED.show();
+    delay(5000);
 }
