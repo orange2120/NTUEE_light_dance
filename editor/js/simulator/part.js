@@ -4,7 +4,6 @@ import { PARTARGS } from '../constants';
 
 class Part {
     constructor(dancer, name, app, textures) {
-        console.log(name)
         this.dancer = dancer;
         this.dancerID = dancer.id;
         this.name = name;
@@ -22,7 +21,7 @@ class Part {
 class BlackPart extends Part {
     constructor(dancer, name, app) {
         super(dancer, name, app, [name]);
-        this.textures[this.paths[0]] = PIXI.Texture.from(`../../asset/BlackPart/${this.paths[0]}.svg`);
+        this.textures[this.paths[0]] = PIXI.Texture.from(`./asset/BlackPart/${this.paths[0]}.svg`);
         this.sprite.texture = this.textures[this.paths[0]];
     }
 
@@ -36,7 +35,7 @@ class BlackPart extends Part {
 class LightPart extends Part {
     constructor(dancer, name, app) {
         super(dancer, name, app, [name]);
-        this.textures[this.paths[0]] = PIXI.Texture.from(`../../asset/Part/${this.paths[0]}.svg`)
+        this.textures[this.paths[0]] = PIXI.Texture.from(`./asset/Part/${this.paths[0]}.svg`)
         this.sprite.interactive = true;
         this.sprite.buttonMode = true;
         this.sprite.on('click', () => {

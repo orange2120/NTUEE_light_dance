@@ -20,7 +20,7 @@ const webpackDevMiddleware = require('webpack-dev-middleware')(
 const webpackHotMiddleware  = require('webpack-hot-middleware')(
     compiler
 )
-const staticMiddleware = express.static("server_static_src")
+const staticMiddleware = express.static("editor/dist")
 const server = express()
 const PORT = 8080
 
@@ -42,6 +42,10 @@ function writeConfigFile(p=CONFIG_PATH){
 }
 readConfigFile()
 let cmds = new CmdServer(8081,CONFIG)
+
+server.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../editor/dist', 'index.html'));
+})
 
 server.get('/test', function(req, res) {
     res.send('hello world');

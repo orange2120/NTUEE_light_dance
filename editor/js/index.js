@@ -1,84 +1,30 @@
 // require ('webpack-hot-middleware/client')
-import * as GoldenLayout from 'golden-layout'
-import * as PIXI from 'pixi.js'
-// import Constant
-import { DISPLAY_WIDTH, DISPLAY_HEIGHT } from './constants'
+import * as GoldenLayout from 'golden-layout';
+import * as PIXI from 'pixi.js';
+// import Constant;
+import { DISPLAY_WIDTH, DISPLAY_HEIGHT } from './constants';
 
-import Simulator from './simulator/simulator.js'
-import Editor from './editor/editor.js'
-import Mytimeline from './timeline/mytimeline.js'
+import Simulator from './simulator/simulator.js';
+import Editor from './editor/editor.js';
+import Mytimeline from './timeline/mytimeline.js';
 import MyWaveSurfer from './wavesurfer/wavesurfer.js';
-import Manager from './manager/manager.js'
-import Presets from './presets/presets.js'
-import Commandcenter from './commandcenter/commandcenter.js'
-import '../css/goldenlayout-base.css'
-import '../css/goldenlayout-dark-theme.css'
-import '../css/slider.css'
-import '../css/index.css'
+import Manager from './manager/manager.js';
+import Presets from './presets/presets.js';
+import Commandcenter from './commandcenter/commandcenter.js';
+import Layout_Config from './golden_layer/layout_config.js';
+import '../css/goldenlayout-base.css';
+import '../css/goldenlayout-dark-theme.css';
+import '../css/slider.css';
+import '../css/index.css';
 
-const layout_config = {
-    content: [
-    {
-        type: 'column',
-        isClosable: false,
-        content:[
-            {
-            type: 'column',
-            content:[
-                {
-                    type: 'component',
-                    height : 20,
-                    isClosable : false,
-                    componentName: 'timeline_Component',
-                    title : 'Timeline',
-                    componentState: { label: 'timeline_Component' }
-                },
-                {
-                    type: 'row',
-                    content:[
-                        {
-                            type: 'component',
-                            componentName: 'display_Component',
-                            title : 'Simulator',
-                            isClosable : false,
-                            componentState: { label: 'display_Component' }
-                        },
-                        {
-                            type: 'component',
-                            width : 24.978317432784035,
-                            componentName: 'editor_Component',
-                            title : 'editor',
-                            isClosable : false,
-                            componentState: { label: 'editor_Component' }
-                        },
-                        {
-                            type: 'component',
-                            width : 18,
-                            componentName: 'presets_Component',
-                            title : 'Presets',
-                            isClosable : false,
-                            componentState: { label: 'presets_Component' }
-                        }
-                    ]
-                }
-            ]
-        },
-        
-        {
-            type: 'component',
-            id:"id_command_Component",
-            width : 25.644599303135884,
-            height : 20,
-            title : 'Command',
-            componentName: 'command_Component',
-            componentState: { label: 'command_Component' }
-        }
-        ]
-    }
-]
-};
 
-const myLayout = new GoldenLayout( layout_config );
+function importAllAsset(r) {
+    r.keys().forEach(r);
+}
+importAllAsset(require.context('../../asset', true, /\.(png|svg|jpg|gif)$/));
+importAllAsset(require.context('../../music', true, /\.(ogg|mp3|wav|mpe?g)$/i));
+
+const myLayout = new GoldenLayout( Layout_Config );
 
 myLayout.registerComponent( 'timeline_Component', function( container, componentState ){
     container.getElement().html('<div id="audio"><div id="operators"> <button id="playPause-btn">Play/Pause</button> <button id="stop-btn">Stop</button> <input type="range" id="zoom-slider" /></div><div id="waveform"></div><div id="wave-timeline"></div></div>');
@@ -159,9 +105,6 @@ myLayout.on("initialised",() => {
     // get LEDs
     // const LEDs = load.LED
 
-    // get Music
-    const music = load.Music
-
     // add simulate page
     const app = new PIXI.Application({
         width: DISPLAY_WIDTH,
@@ -181,7 +124,7 @@ myLayout.on("initialised",() => {
     const editor = new Editor(mgr);
     
     // wavesurfer
-    const wavesurfer = new MyWaveSurfer(mgr, `../../music/${music}`);
+    const wavesurfer = new MyWaveSurfer(mgr, load.Music);
     
     // presets
     const presets = new Presets(mgr, presets_load);
@@ -204,7 +147,3 @@ myLayout.on("initialised",() => {
     // DOM stuff
     document.querySelector('body').style.overflow = 'auto';
 })
-
-
-
-
