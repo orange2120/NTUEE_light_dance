@@ -12,7 +12,7 @@ module.exports = {
     }
     ,
     output: {
-        filename: '[name].[hash].js',
+        filename: '[name].js',
         path: path.resolve(__dirname, 'editor/dist')
     },
     module: {
@@ -30,6 +30,24 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: [MiniCssExtractPlugin.loader, 'css-loader']
+            },
+            {
+                test: /\.(png|svg|jpg|gif)$/,
+                use: {
+                    loader: 'file-loader',
+                    options: {
+                        name: '[path][name].[ext]'
+                    }
+                },
+            },
+            {
+                test: /\.(ogg|mp3|wav|mpe?g)$/i,
+			    use: {
+                    loader: 'file-loader',
+                    options: {
+                        name: '[path][name].[ext]'
+                    }
+                }
             }
         ]
     },

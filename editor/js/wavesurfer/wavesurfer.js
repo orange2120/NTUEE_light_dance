@@ -27,7 +27,7 @@ class MyWaveSurfer {
                 })
             ]
         });
-        this.wavesurfer.load(music);
+        this.wavesurfer.load(`./music/${music}`);
         this.wavesurfer.on('ready', () => {
             this.ready = true;
         });
