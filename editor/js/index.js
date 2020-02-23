@@ -12,22 +12,11 @@ import Manager from './manager/manager.js';
 import Presets from './presets/presets.js';
 import Commandcenter from './commandcenter/commandcenter.js';
 import Layout_Config from './golden_layer/layout_config.js';
-<<<<<<< HEAD
-=======
-import '@fortawesome/fontawesome-free/js/fontawesome'
-import '@fortawesome/fontawesome-free/js/solid'
-import '@fortawesome/fontawesome-free/js/regular'
-import '@fortawesome/fontawesome-free/js/brands'
->>>>>>> editor
 import '../css/goldenlayout-base.css';
 import '../css/goldenlayout-dark-theme.css';
 import '../css/slider.css';
 import '../css/index.css';
 
-<<<<<<< HEAD
-
-=======
->>>>>>> editor
 function importAllAsset(r) {
     r.keys().forEach(r);
 }
