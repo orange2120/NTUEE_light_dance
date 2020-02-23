@@ -160,9 +160,9 @@ class Presets {
         li.innerText = name;
         const presetIcons = document.createElement('div');
         const editIcon = document.createElement('i');
-        editIcon.classList.add("fa", "fa-pencil");
+        editIcon.classList.add("fas", "fa-edit");
         const trashIcon = document.createElement('i');
-        trashIcon.classList.add("fa", "fa-trash");
+        trashIcon.classList.add("fas", "fa-trash");
         presetIcons.appendChild(editIcon);
         presetIcons.appendChild(trashIcon);
         li.appendChild(presetIcons);
