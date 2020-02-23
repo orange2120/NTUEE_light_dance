@@ -24,7 +24,7 @@ function importAllAsset(r) {
 importAllAsset(require.context('../../asset', true, /\.(png|svg|jpg|gif)$/));
 importAllAsset(require.context('../../music', true, /\.(ogg|mp3|wav|mpe?g)$/i));
 
-const myLayout = new GoldenLayout( Layout_Config );
+const myLayout = new GoldenLayout( Layout_Config, $('.my-container') );
 
 myLayout.registerComponent( 'timeline_Component', function( container, componentState ){
     container.getElement().html('<div id="audio"><div id="operators"> <button id="playPause-btn">Play/Pause</button> <button id="stop-btn">Stop</button> <input type="range" id="zoom-slider" /></div><div id="waveform"></div><div id="wave-timeline"></div></div>');
@@ -38,11 +38,11 @@ myLayout.registerComponent( 'display_Component', function( container, componentS
     container.getElement().html('<div id="simulator"></div>');
 });
 myLayout.registerComponent( 'editor_Component', function( container, componentState ){
-    container.getElement().html('<div id="editor"><div class="time-el"> <span class="time"> Time: <input class="time-input" type="number" /> </span> <button id="timeInd-left-btn" class="timeInd-switch-btn"> <i class="fa fa-chevron-left fa-2x" aria-hidden="true"></i> </button> <input class="timeInd-input" type="number" /> <button id="timeInd-right-btn" class="timeInd-switch-btn"> <i class="fa fa-chevron-right fa-2x" aria-hidden="true"></i> </button></div><div class="checkbox-list" id="dancer-checkbox-list"></div><hr><div id="edit-btn-grp" class="edit-btn-grp"> <button id="editbtn" class="edit-btn editbtn">EDIT</button> <button id="addbtn" class="edit-btn addbtn">ADD</button> <button id="savebtn" class="edit-btn savebtn">SAVE</button></div><div class="slider-list" id="slider-list"></div> <button id="delbtn" class="edit-btn delbtn">DEL</button></div>');
+    container.getElement().html('<div id="editor"><div class="time-el"> <span class="time"> Time: <input class="time-input" type="number" /> </span> <button id="timeInd-left-btn" class="timeInd-switch-btn"> <i class="fa fa-chevron-left fa-2x" aria-hidden="true"></i> </button> <input class="timeInd-input" type="number" /> <button id="timeInd-right-btn" class="timeInd-switch-btn"> <i class="fa fa-chevron-right fa-2x" aria-hidden="true"></i> </button></div><div class="checkbox-list" id="dancer-checkbox-list"></div><div id="edit-btn-grp" class="edit-btn-grp"> <button id="editbtn" class="edit-btn editbtn">EDIT</button> <button id="addbtn" class="edit-btn addbtn">ADD</button> <button id="savebtn" class="edit-btn savebtn">SAVE</button></div><div class="slider-list" id="slider-list"></div> <button id="delbtn" class="edit-btn delbtn">DEL</button></div>');
 });
 
 myLayout.registerComponent( 'presets_Component', function( container, componentState ){
-    container.getElement().html('<div id="presets"><div class="title"> <span>Presets:</span> <span class="addbtn">+</span></div><div id="presets-list"></div></div>');
+    container.getElement().html('<div id="presets"><div class="title"> <span>Presets:</span> <span class="presets-addbtn">+</span></div><div id="presets-list"></div></div>');
 });
 
 myLayout.init();

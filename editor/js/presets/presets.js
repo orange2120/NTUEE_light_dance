@@ -218,7 +218,7 @@ class Presets {
 
     // ---------- DOM event ----------
     addClickEvent() {
-        document.querySelector("#presets .addbtn").onclick = () => {
+        document.querySelector(".presets-addbtn").onclick = () => {
             // this.modal.setAddMode();
             this.mode = "ADD";
             this.modal.open();
