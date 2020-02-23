@@ -1,6 +1,6 @@
 body {
     font-family: sans-serif;
-    background: #FFFFFF;
+    background: #121212;
     margin: 0;
     padding: 0;
     min-height: 100%;
@@ -9,9 +9,9 @@ body {
 }
 
 .my-container {
-    padding: 0px 3px;
-    /* height: 100%;
-    min-height: 100%; */
+    /* padding: 0px 3px; */
+    height: 100%;
+    min-height: 100%;
 }
 
 header {
@@ -23,12 +23,14 @@ header {
     box-shadow: 0 4px 2px -2px rgba(36,37,42,.2);
     background: rgb(36,37,42);
     /* background: linear-gradient(0deg, rgba(36,37,42,1) 0%, rgba(60,60,60,1) 100%); */
+    overflow: hidden;
 }
 
 header h2, header h3 {
     /* font-size: 1rem; */
     font-weight: 500;
     color: #edf0f1;
+    margin: 0;
 }
 
 .nav_links li, .nav_links button, .nav_links a, .nav_links label {
@@ -36,6 +38,7 @@ header h2, header h3 {
     font-size: 16px;
     color: #edf0f1;
     text-decoration: none;
+    margin: 0;
 }
 
 .nav_links {
@@ -90,7 +93,7 @@ header h2, header h3 {
 
 body .lm_content {
     overflow: scroll;
-    color: white;
+    color: #eaedf1;
 }
 
 .workplace {
@@ -125,24 +128,33 @@ body .lm_content {
 }
 
 .light-input {
-    width: 40px;
+    width: 60px;
 }
 
 .noUi-target {
-    height: 10px;
+    height: 8px;
     width: 180px;
     margin: 0 20px 0 0;
+    background-color: rgba(75, 75, 75, 0.5);
+    border: 1px solid rgb(95, 95, 95);
+    border-radius: 3px;
 }
 
 .noUi-handle {
-    height: 20px;
-    width: 20px;
-    border-radius: 8px;
+    height: 18px;
+    width: 18px;
+    border-radius: 6px;
     cursor: grab;
+    background-color: rgba(75, 75, 75, 1);
+    border: 1px solid rgb(100, 100, 100);
 }
 
 .noUi-connect {
-    background: #5c8de0;
+    background: rgba(100, 100, 100, 0.7);
+}
+
+[disabled] .noUi-connect {
+    background: rgba(150, 150, 150, 0.7);
 }
 
 .checkbox-list {
@@ -192,7 +204,6 @@ body .lm_content {
 }
 
 .edit-btn-grp {
-    height: 20px;
     display: flex;
     margin: 5px 0 5px 0;
 }
@@ -205,21 +216,42 @@ body .lm_content {
     cursor: pointer;
     /* font-size: large; */
     -webkit-appearance: none;
+    border-radius: 5px;
+    padding: 15px 4%;
+    text-align: center;
+    line-height: 5px;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+
+}
+
+.editbtn, .addbtn {
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid #5aa1c2;
+    color: #5aa1c2;
+}
+
+.editbtn::hover, .addbtn:hover {
+    background-color: rgba(90,161,194, 1);
+    color: #eaedf1;
 }
 
 .delbtn {
-    background-color: #bd4946;
-    color: white;
+    background-color: rgb(184,76,75, 0);
+    border: 1px solid rgb(184,76,75);
+    color: rgb(184,76,75);
 }
 
 .savebtn {
-    background-color: #58c775;
-    color:#f5fcf6;
+    background-color: rgb(52,166,155, 0);
+    border: 1px solid rgb(52,166,155);
+    color:rgb(52,166,155);
 }
 
 .edit-btn.selected {
-    background-color: #498df2;
-    color: white;
+    background-color: #5aa1c2;
+    color: #eaedf1;
 }
 
 #audio {
@@ -240,7 +272,7 @@ body .lm_content {
     border-bottom: 1px solid gray;
 }
 
-#presets .addbtn {
+.presets-addbtn {
     position: absolute;
     right: 10px;
     top: 0;
@@ -263,7 +295,7 @@ body .lm_content {
 }
 
 .preset-li:hover {
-    background-color: #ededed;
+    background-color: rgba(100, 100, 100, 0.5);
     transition: background-color .2s;
 }
 
@@ -286,10 +318,12 @@ body .lm_content {
     max-width: 100%;
     height: 600px;
     max-height: 100%;
-    background-color: white;
+    background-color: #212121;
+    color: #eaedf1;
     border-radius: 8px;
     padding: 20px;
     position: relative;
+    border: 1px gray solid;
 }
 
 .modal-props {
@@ -372,4 +406,22 @@ body .lm_content {
 
 .lm_goldenlayout {
     background-color: #121212;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    /* border-left: 1px solid gray;
+    border-right: 1px solid gray; */
+    background-color: #212121;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(75,75,75, 0.5);
+}
+
+::-webkit-scrollbar-corner {
+    background-color: #212121;
 }
