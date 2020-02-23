@@ -188,7 +188,7 @@ class Manager {
     // -------------------------------------------------------------------------
 
     changeTime(newTime) {
-        console.log("changeTime", newTime);
+        // console.log("changeTime", newTime);
         this.time = newTime;
         let re = this.getTimeInd();
         for (let i = 0;i < this.timeInd.length; ++i) {
