@@ -53,25 +53,25 @@ myLayout.init();
 
 myLayout.on("initialised",() => {    
     myLayout.root.contentItems[ 0 ].on("itemDestroyed",(item)=>{
-        console.log("itemDestroyed")
+        // console.log("itemDestroyed")
         if(item.origin.isComponent && item.origin.componentName === "command_Component"){
             cc.hide()
         }
     })
-    // console.log(myLayout)
+    
     document.onkeyup = function(e) {
         if (e.ctrlKey && e.altKey && (e.which == 67 || e.which == 99)) {// e.ctrlKey && e.altKey && e.which == 87
         //   alert("Ctrl + Alt + C shortcut combination was pressed");
           if (myLayout.root.getItemsById("id_command_Component").length == 0) {
             let newItemConfig = {
                 type: 'component',
-                width : 25.644599303135884,height : 20,
+                width : 25.644599303135884,height : 40,
                 title : 'Command',
                 id : "id_command_Component",
                 componentName: 'command_Component',
                 componentState: { label: 'command_Component' }
             }
-            console.log(myLayout.root.getItemsById("asd"))
+            // console.log(myLayout.root.getItemsById("asd"))
             
             myLayout.root.contentItems[0].addChild(newItemConfig);
             cc.show()
