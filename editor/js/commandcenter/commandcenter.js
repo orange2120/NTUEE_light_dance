@@ -1,4 +1,4 @@
-import tableDragger from 'table-dragger'
+// import tableDragger from 'table-dragger'
 
 const axios = require('axios').default;
 
@@ -17,41 +17,41 @@ class Commandcenter {
         this.visible = true
         this.smartRenderLayout()
         this.enableUpdateBoard()
-        if(this.allowEditConfig){
+        if (this.allowEditConfig) {
             this.enableEditConfig()
             document.getElementById("chbx_allow_scan").checked = true
-        }else{
+        } else {
             this.disableEditConfig()
             document.getElementById("chbx_allow_scan").checked = false
         }
     }
-    enableEditConfig(){
+    enableEditConfig() {
         // if(!this.allowEditConfig){
-            this.allowEditConfig = true
-            if (document.getElementById("config_zone") != undefined) {
-                document.getElementById("config_zone").style.visibility = "visible"
-                document.getElementById("boards_control_zone").style.pointerEvents = "none"
-                document.getElementById("boards_control_zone").style.opacity = "0.4"
-                
-            }
+        this.allowEditConfig = true
+        if (document.getElementById("config_zone") != undefined) {
+            document.getElementById("config_zone").style.visibility = "visible"
+            document.getElementById("boards_control_zone").style.pointerEvents = "none"
+            document.getElementById("boards_control_zone").style.opacity = "0.4"
+
+        }
         // }
     }
-    disableEditConfig(){
+    disableEditConfig() {
         // if(this.allowEditConfig){
-            this.allowEditConfig = false
-            if (document.getElementById("config_zone") != undefined) {
-                document.getElementById("config_zone").style.visibility = "hidden"
-                document.getElementById("boards_control_zone").style.pointerEvents = "all"
-                document.getElementById("boards_control_zone").style.opacity = "1"
-                
-            }
+        this.allowEditConfig = false
+        if (document.getElementById("config_zone") != undefined) {
+            document.getElementById("config_zone").style.visibility = "hidden"
+            document.getElementById("boards_control_zone").style.pointerEvents = "all"
+            document.getElementById("boards_control_zone").style.opacity = "1"
+
+        }
         // }
     }
     enableUpdateBoard() {
         if (this.allowUpdateBoard == false) {
             this.allowUpdateBoard = true
             this.setReloadInterval = setInterval(this.reloadBoardsStatus, 3000);
-            
+
 
 
         }
@@ -195,7 +195,7 @@ class Commandcenter {
         clearInterval(this.smartRenderInterval)
 
         if (!this.renderLayout() && this.visible) {
-                this.smartRenderInterval = setInterval(this.smartRenderLayout, 3000);
+            this.smartRenderInterval = setInterval(this.smartRenderLayout, 3000);
         }
 
     }
@@ -244,12 +244,12 @@ class Commandcenter {
             }
             lbl.appendChild(allow_scan)
             lbl.appendChild(ckmk)
-            
+
             // let allow_scan_title = document.createElement("label")
             // allow_scan_title.innerText = "Edit Boards Configuration"
 
             let boards_control_zone = document.createElement("div")
-            boards_control_zone.id="boards_control_zone"
+            boards_control_zone.id = "boards_control_zone"
             let btn_upload = document.createElement("button")
             btn_upload.innerText = "Upload"
             btn_upload.id = "btn_upload"
@@ -346,7 +346,7 @@ class Commandcenter {
                 console.log(id_arr)
             }
 
-           
+
             boards_control_zone.appendChild(btn_upload)
             boards_control_zone.appendChild(btn_reconnect)
             boards_control_zone.appendChild(btn_kick)
@@ -358,7 +358,7 @@ class Commandcenter {
             // conrtol_zone.appendChild(allow_scan_title)
             conrtol_zone.appendChild(lbl)
             conrtol_zone.appendChild(boards_control_zone)
-           
+
             el.appendChild(conrtol_zone)
         }
 
@@ -369,7 +369,7 @@ class Commandcenter {
             let status_zone = document.createElement("div")
             let status_zone_title = document.createElement("h6")
             status_zone.id = "status_zone"
-            status_zone.className="left_panel"
+            status_zone.className = "left_panel"
             status_zone_title.innerText = "Boards in Config"
             status_zone.appendChild(status_zone_title)
 
@@ -381,7 +381,7 @@ class Commandcenter {
             let table_header = ['ID', 'IP', 'MAC', 'Status', 'Select']
             for (const y of table_header) {
                 let cell = board_table_h_row.insertCell();
-                
+
                 if (y === "Select") {
                     let lbl = document.createElement("label")
                     lbl.innerText = "Select All"
@@ -406,7 +406,7 @@ class Commandcenter {
                     lbl.append(cbx)
                     lbl.append(ckmk)
                     cell.appendChild(lbl)
-                }else{
+                } else {
                     cell.innerHTML = y;
                 }
                 // cell.className = "handle"
@@ -416,14 +416,14 @@ class Commandcenter {
             panel.appendChild(status_zone)
         }
 
-        
+
 
 
         //config zone
         {
             let config_zone = document.createElement("div")
             config_zone.id = "config_zone"
-            config_zone.className="right_panel"
+            config_zone.className = "right_panel"
             let waitlist_zone = document.createElement("div")
             let waitlist_zone_title = document.createElement("h6")
             waitlist_zone_title.innerText = "Boards Not Registered"
@@ -441,8 +441,8 @@ class Commandcenter {
                     let cell = row.insertCell();
                     cell.innerHTML = y;
                     // cell.className = "handle"
-                    if(y==='Select'){
-                        cell.className="btn_control"
+                    if (y === 'Select') {
+                        cell.className = "btn_control"
                     }
                 }
             }
