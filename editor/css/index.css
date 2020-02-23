@@ -41,6 +41,7 @@ header {
     background: rgb(36,37,42);
     /* background: linear-gradient(0deg, rgba(36,37,42,1) 0%, rgba(60,60,60,1) 100%); */
     overflow: hidden;
+    margin-bottom: 5px;
 }
 
 header h2, header h3 {
@@ -126,11 +127,11 @@ body .lm_content {
 
 #editor {
     padding: 6px 6px 0px 6px;
-    padding-left: 6px;
+    padding-left: 10px;
     padding-right: 6px;
     /* border-right: 1px solid gray;
     border-left: 1px solid gray; */
-    /* font-size: small; */
+    font-size: small;
     overflow-y: auto;
 }
 
@@ -243,7 +244,7 @@ body .lm_content {
     /* font-size: large; */
     -webkit-appearance: none;
     border-radius: 5px;
-    padding: 15px 4%;
+    padding: 10px 2%;
     text-align: center;
     line-height: 5px;
     /* display: flex;
@@ -326,7 +327,7 @@ body .lm_content {
     justify-content: space-between;
     align-items: center;
 }
-.preset-li i {
+.preset-li svg {
     cursor: pointer;
     padding-left: 6px;
 }
