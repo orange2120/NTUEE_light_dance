@@ -8,6 +8,23 @@ body {
     height: 100vh;
 }
 
+input[type="number"] {
+    border-radius: 3px;
+    border: 1px solid rgb(95, 95, 95);
+    color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(80, 80, 80, 0.8);
+    text-align: center;
+}
+
+button {
+    border-radius: 3px;
+    border: 1px solid rgb(95, 95, 95);
+    color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(80, 80, 80, 0.8);
+    text-align: center;
+    margin: 3px;
+}
+
 .my-container {
     /* padding: 0px 3px; */
     height: 100%;
@@ -103,15 +120,17 @@ body .lm_content {
 }
 
 #simulator {
+    padding: 6px 6px 0px 6px;
     margin-right: 3px;
 }
 
 #editor {
-    padding-left: 3px;
-    padding-right: 3px;
+    padding: 6px 6px 0px 6px;
+    padding-left: 6px;
+    padding-right: 6px;
     /* border-right: 1px solid gray;
     border-left: 1px solid gray; */
-    font-size: small;
+    /* font-size: small; */
     overflow-y: auto;
 }
 
@@ -170,6 +189,9 @@ body .lm_content {
     /* font-size: large;
     margin: 0 0.3em 0 0;
     transform: scale(1.5); */
+    border: 1px solid rgb(95, 95, 95);
+    color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(100, 100, 100, 0.8);
 }
 
 .time-el {
@@ -191,10 +213,14 @@ body .lm_content {
 .timeInd-switch-btn {
     cursor: pointer;
     -webkit-appearance: none;
-    border-radius: 5px;
-    color: #46474a;
+    border-radius: 3px;
+    color: rgba(200, 200, 200, 1);
+    background-color: rgba(100, 100, 100, 0.8);
+    border: 1px solid rgb(95, 95, 95);
+    text-align: center;
     margin: 5px 3px;
     height: 30px;
+    /* font-size: small; */
 }
 
 .timeInd-input {
@@ -255,15 +281,26 @@ body .lm_content {
 }
 
 #audio {
-    border-top: 1px solid grey
+    /* border-top: 1px solid grey */
 }
 
 #waveform {
     position: relative;
+    margin-top: 3px;
+}
+
+#audio #operators {
+    text-align: center;
+    margin-top: 3px;
+    border-bottom: 1px gray dashed;
+}
+
+#audio #operators svg {
+    margin: 0px 3px 0px 3px;
 }
 
 #presets {
-    padding-left: 3px;
+    padding: 6px 6px 0px 6px;
     position: relative;
     overflow-y: auto;
 }
@@ -275,7 +312,7 @@ body .lm_content {
 .presets-addbtn {
     position: absolute;
     right: 10px;
-    top: 0;
+    top: 6px;
     cursor: pointer;
 }
 
@@ -291,7 +328,7 @@ body .lm_content {
 }
 .preset-li i {
     cursor: pointer;
-    padding-left: 5px;
+    padding-left: 6px;
 }
 
 .preset-li:hover {
