@@ -1,6 +1,6 @@
 import * as PIXI from 'pixi.js';
 import Dancer from '../simulator/dancer.js';
-import { LIGHTPARTS, DANCER_NUM, DISPLAY_HEIGHT } from '../constants';
+import { LIGHTPARTS, DANCER_NUM } from '../constants';
 import * as noUiSlider from 'nouislider/distribute/nouislider.js';
 import shortid from 'shortid';
 
@@ -146,7 +146,6 @@ class Presets {
         this.modal = new Modal();
         // DOM Stuff
         this.el = document.getElementById('presets');
-        // this.el.style.height = `${DISPLAY_HEIGHT}px`;
         this.presets.map(preset => this.addPreset(preset));
         this.addClickEvent();
     }
@@ -159,10 +158,13 @@ class Presets {
         li.id = preset["id"];
         li.innerText = name;
         const presetIcons = document.createElement('div');
-        const editIcon = document.createElement('i');
-        editIcon.classList.add("fas", "fa-edit");
-        const trashIcon = document.createElement('i');
-        trashIcon.classList.add("fas", "fa-trash");
+        const editIcon = document.createElement('div');
+        editIcon.innerHTML = '<i class="fas fa-edit"></i>';
+        // editIcon.classList.add("fas", "fa-edit");
+        const trashIcon = document.createElement('div');
+        trashIcon.innerHTML = '<i class="fas fa-trash"></i>';
+        // trashIcon.classList.add("fas", "fa-trash");
+        presetIcons.style.display = "flex";
         presetIcons.appendChild(editIcon);
         presetIcons.appendChild(trashIcon);
         li.appendChild(presetIcons);
@@ -176,6 +178,7 @@ class Presets {
             this.mgr.loadPreset(preset);
         }
         editIcon.onclick = () => {
+            console.log("Edit icon")
             this.mode = "EDIT";
             this.presetId = li.id;
             this.modal.set(preset);

@@ -21,7 +21,6 @@ import '../css/goldenlayout-dark-theme.css';
 import '../css/slider.css';
 import '../css/index.css';
 
-
 function importAllAsset(r) {
     r.keys().forEach(r);
 }
