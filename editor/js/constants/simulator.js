@@ -1,6 +1,4 @@
-import { groupD8 } from "pixi.js"
-
-export const DANCER_NUM = 8
+export const DANCER_NUM = 2
 export const DISPLAY_WIDTH = 900
 export const DISPLAY_HEIGHT = DISPLAY_WIDTH * 3 / 4
 export const FPS = 30
@@ -46,6 +44,7 @@ export const LIGHTPARTS = [
     "L_ARM1", "L_ARM2", "R_ARM1", "R_ARM2", "L_HAND", "R_HAND", "L_PANTS1", "L_PANTS2", "R_PANTS1",
     "R_PANTS2", "L_SHOES1", "L_SHOES2", "R_SHOES1", "R_SHOES2"
 ];
+export const LEDPARTS = ["LED_CHEST", "LED_R_SHOE", "LED_L_SHOE"];
 
 // Setting for Dancer 0
 export const PARTARGS = {
@@ -265,6 +264,28 @@ export const PARTARGS = {
         height: 34.176,
         x: -82 + 293.729,
         y: -41 + 642.109
+    },
+    "LED_CHEST": {
+        zIndex: 3,
+        width: 92.682,
+        height: 217.681,
+        x: -82 + 199.965,
+        y: -41 + 239.832  
+    },
+    "LED_L_SHOE": {
+        zIndex: 10,
+        width: 92.609,
+        height: 7.967,
+        x: -82 + 121.879,
+        y: -41 + 685.524
+    },
+    "LED_R_SHOE": {
+        zIndex: 10,
+        width: 92.609,
+        height: 7.967,
+        x: -82 + 282.043,
+        y: -41 + 685.524
     }
+
 }
 
