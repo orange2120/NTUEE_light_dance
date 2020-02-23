@@ -1,6 +1,6 @@
 import * as PIXI from 'pixi.js';
 import { BlackPart, LightPart, LEDPart } from './part.js';
-import { BLPARTS, LIGHTPARTS, DANCERPOS, DISPLAY_HEIGHT, DISPLAY_WIDTH, DANCER_NUM } from '../constants';
+import { BLPARTS, LIGHTPARTS, LEDPARTS ,DANCERPOS, DISPLAY_HEIGHT, DISPLAY_WIDTH, DANCER_NUM } from '../constants';
 
 class Dancer {
     constructor(id, app, loadTexture) {
@@ -14,6 +14,7 @@ class Dancer {
         // LightPart
         LIGHTPARTS.map(lipart => this.parts[lipart] = new LightPart(this, lipart, this.app));
         // LEDPART
+        LEDPARTS.map(ledpart => this.parts[ledpart] = new LEDPart(this, ledpart, this.app, loadTexture));
         // this.parts["LEDH"] = new LEDPart(this, this.app, loadTexture["LEDH"]);    // LED Head
 
         // PIXI Rendering
@@ -49,7 +50,10 @@ class Dancer {
 
     updateTexture() {
         // console.log("Update Texture");
-        Object.keys(this.parts).map(key => this.parts[key].updateTexture(this.status[key]));
+        Object.keys(this.parts).map(key => {
+            console.log(this.status)
+            this.parts[key].updateTexture(this.status[key])
+        });
     }
 
     update (status) {

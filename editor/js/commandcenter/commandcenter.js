@@ -6,7 +6,7 @@ class Commandcenter{
     constructor(mgr){
         this.mgr = mgr
         this.visible = true
-        this.allowScanNewBoard = false
+        this.allowScanNewBoard = true
     }
     hide(){
         this.visible = false
@@ -20,7 +20,7 @@ class Commandcenter{
         
     }
     enableScanBoard(){
-        if(this.allowScanNewBoard == false)
+        if(this.allowScanNewBoard === false)
         {
             this.allowScanNewBoard = true
             this.setReloadInterval = setInterval(this.reloadBoardsStatus, 3000);
@@ -33,7 +33,7 @@ class Commandcenter{
         
     }
     disableScanBoard(){
-        if(this.allowScanNewBoard ==true){
+        if(this.allowScanNewBoard === true){
             this.allowScanNewBoard = false
             clearInterval(this.setReloadInterval);
             if(document.getElementById("config_zone") != undefined){
@@ -242,9 +242,9 @@ class Commandcenter{
             allow_scan.type="checkbox"
             allow_scan.id="chbx_allow_scan"
             let self = this
-            allow_scan.checked=true
+            allow_scan.checked=false
             allow_scan.onchange= function(){
-                if(this.checked==true){
+                if(this.checked===true){
                     self.enableScanBoard()
                 }else{
                     self.disableScanBoard()

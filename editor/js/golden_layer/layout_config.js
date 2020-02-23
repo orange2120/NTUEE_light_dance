@@ -1,4 +1,10 @@
 const Layout_Config = {
+    settings:{
+        popoutWholeStack: false,
+        showPopoutIcon: false,
+        showMaximiseIcon: false,
+        showCloseIcon: false
+    },
     content: [
     {
         type: 'column',
@@ -10,7 +16,7 @@ const Layout_Config = {
                 {
                     type: 'component',
                     height : 20,
-                    isClosable : false,
+                    isClosable : true,
                     componentName: 'timeline_Component',
                     title : 'Timeline',
                     componentState: { label: 'timeline_Component' }
@@ -22,7 +28,7 @@ const Layout_Config = {
                             type: 'component',
                             componentName: 'display_Component',
                             title : 'Simulator',
-                            isClosable : false,
+                            isClosable : true,
                             componentState: { label: 'display_Component' }
                         },
                         {
@@ -30,7 +36,7 @@ const Layout_Config = {
                             width : 24.978317432784035,
                             componentName: 'editor_Component',
                             title : 'editor',
-                            isClosable : false,
+                            isClosable : true,
                             componentState: { label: 'editor_Component' }
                         },
                         {
@@ -38,7 +44,7 @@ const Layout_Config = {
                             width : 18,
                             componentName: 'presets_Component',
                             title : 'Presets',
-                            isClosable : false,
+                            isClosable : true,
                             componentState: { label: 'presets_Component' }
                         }
                     ]
