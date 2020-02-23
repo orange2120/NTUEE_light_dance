@@ -463,3 +463,110 @@ body .lm_content {
 ::-webkit-scrollbar-corner {
     background-color: #212121;
 }
+
+/* The container */
+.cbx_container {
+    display: block;
+    position: relative;
+    padding: 0px;
+    padding-left: 30px;
+    margin: 0px;
+    font-size: 16px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .cbx_container input {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .cbx_container .checkmark {
+    position: absolute;
+    top: 2px;
+    left: 10px;
+    height: 16px;
+    width: 16px;
+    background-color: #eee;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .cbx_container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .cbx_container input:checked ~ .checkmark {
+    background-color: #2196F3;
+  }
+
+  /* When the checkbox is disabled, add a grey background */
+  .cbx_container input:disabled ~ .checkmark {
+    background-color: rgb(170, 182, 192);
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .cbx_container .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .cbx_container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .cbx_container .checkmark:after {
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  #commandComponent_zone{ 
+    margin: 10px;
+  }
+ 
+  #commandComponent_zone table th, td{
+      padding: 4px;
+      text-align: center;
+      width: 136px;
+  }
+
+  #commandComponent_zone #config_zone table .btn_control{
+    width: 272px;
+}
+
+  #commandComponent_zone .panel_container{
+    display: table;
+    clear: both;
+  }
+  #commandComponent_zone .panel_container .left_panel{
+    width: 60%;
+    float: left;
+  }
+
+  #commandComponent_zone .panel_container .right_panel{
+    width: 40%;
+    float: left;
+    border-left: solid;
+    border-color: #848484;
+    padding-left: 5px;
+  }
+
+  
+
+
