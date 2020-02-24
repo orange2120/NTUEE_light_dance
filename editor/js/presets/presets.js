@@ -1,24 +1,28 @@
 import * as PIXI from 'pixi.js';
 import Dancer from '../simulator/dancer.js';
-import { LIGHTPARTS, DANCER_NUM } from '../constants';
+import { LIGHTPARTS, LEDPARTS, DANCER_NUM } from '../constants';
 import * as noUiSlider from 'nouislider/distribute/nouislider.js';
 import shortid from 'shortid';
 
 const load = require('../../../data/load.json');
 
 class Modal {
-    constructor() {
+    constructor(loadTexture) {
         this.el = document.querySelector('.bg-modal');
         this.display = null;
         this.dancer = null;
         this.sliders = [];
+        this.LEDsliders = [];
         this.status = {};
+        this.loadTexture = loadTexture;
         this.init();
     }
     initProps() {
         LIGHTPARTS.map((part) => this.status[part] = 0);
+        LEDPARTS.map(part => this.status[part] = {name: "", alpha: 0});
     }
     init() {
+        this.initProps();
         // pre-display
         const height = document.querySelector('.modal-workplace').offsetHeight;
         const width = document.querySelector('.modal-workplace').offsetWidth / 2;
@@ -34,7 +38,9 @@ class Modal {
         for (let i = 0;i < DANCER_NUM; ++i) this.addDancerOpt(i);
         // sliders
         LIGHTPARTS.map((part) => this.addSlider(part));
-        this.initProps();
+        LEDPARTS.map(part => {
+            this.addLEDInput(part, this.status[part]);
+        });
     }
 
     // ---------- DOM Stuff ----------
@@ -72,7 +78,7 @@ class Modal {
         // handle change function
         slider.noUiSlider.on('update', (value) => {
             numInput.value = value;
-            this.status[slider.id] = value;
+            this.status[slider.id] = Number(value);
             this.updateDisplay();
         });
         numInput.addEventListener('change', (e) => {
@@ -86,6 +92,73 @@ class Modal {
         el.appendChild(lightInput);
         document.querySelector(".modal-slider-list").appendChild(el);
     }
+    addLEDInput(part, {name, alpha}) {
+        // console.log("AddLEDInput:", part, name, alpha, this.loadTexture[part]);
+        // let textureName = name;
+        const options = this.loadTexture[part];
+        
+        let el = document.createElement("div");
+        let nameText = document.createTextNode(part);
+        let lightInput = document.createElement("div");
+        lightInput.classList.add("light-input-block");
+        let slider = document.createElement("div");
+        slider.id = part;
+        slider.classList.add("light-slider");
+        noUiSlider.create(slider, {
+            start: alpha,
+            range: {
+                'max': 1,
+                'min': 0
+            },
+            step: 0.1,
+            connect: 'lower',
+            animate: false,
+        })
+        // construct Input number
+        let numInput = document.createElement("input");
+        numInput.classList.add("light-input");
+        numInput.setAttribute("type", "number");
+        numInput.step = 0.1;
+        // handle change function
+        slider.noUiSlider.on('update', (value) => {
+            numInput.value = value;
+            this.status[slider.id]["alpha"] = Number(value);
+            this.updateDisplay();
+        });
+        numInput.addEventListener('change', (e) => {
+            slider.noUiSlider.set(e.target.value);
+        });
+
+        // add LED texture selector
+        const selector = document.createElement('select');
+        selector.classList.add("selectpicker", "LED-select");
+        selector.id = `${part}-selector`;
+        // selector.setAttribute("data-style","bg-white");
+        options.map(opt => {
+            let optEl = document.createElement("option");
+            optEl.innerHTML = opt;
+            optEl.value = opt;
+            selector.appendChild(optEl);
+        });
+        selector.value = name;
+        $('.selectpicker').selectpicker('refresh');
+        // handle LED change function
+        selector.onchange = (e) => {
+            this.status[slider.id]["name"] = e.target.value;
+            this.updateDisplay();
+        }
+
+        this.LEDsliders.push({slider, numInput, selector});
+        // append element
+        lightInput.appendChild(slider);
+        lightInput.appendChild(numInput);
+        // lightInput.appendChild(selector);
+        el.appendChild(nameText);
+        el.appendChild(lightInput);
+        el.appendChild(selector);
+        document.querySelector(".modal-slider-list").appendChild(el);
+    }
+
     // ---------- functions ----------
     open() {
         this.el.style.display = 'flex';
@@ -104,14 +177,24 @@ class Modal {
         let selectedDancers = [...Dancers];   
         if (Chosen_Dancer) selectedDancers.unshift("Chosen_Dancer");
         $('select[name=modal-select-dancer]').val(selectedDancers);
-        $('.selectpicker').selectpicker('refresh');
         this.sliders.map(sliderInput => {
             sliderInput.slider.noUiSlider.set(Status[sliderInput.slider.id]);
         })
+        this.LEDsliders.map(LEDInput => {
+            LEDInput.slider.noUiSlider.set(Status[LEDInput.slider.id]["alpha"]);
+            LEDInput.selector.value = Status[LEDInput.slider.id]["name"];
+            this.status[LEDInput.slider.id] = {"name": Status[LEDInput.slider.id]["name"], "alpha": Status[LEDInput.slider.id]["alpha"]};
+        })
+        $('.selectpicker').selectpicker('refresh');
+        this.updateDisplay();
     }
     clear() {
         this.initProps();
         this.sliders.map(slider => slider.slider.noUiSlider.set(0));
+        this.LEDsliders.map(LEDInput => {
+            LEDInput.slider.noUiSlider.set(0);
+            LEDInput.selector.value = "";
+        });
         document.querySelector('.modal-name-input').value = "";
         $('select[name=modal-select-dancer]').val([]);
         $('.selectpicker').selectpicker('refresh');
@@ -122,7 +205,7 @@ class Modal {
     getProps() {
         let re = {};
         re["Name"] = document.querySelector('.modal-name-input').value;
-        const selectedDancers = $('.selectpicker').val();
+        const selectedDancers = $('.selectpicker[name=modal-select-dancer]').val();
         re["Chosen_Dancer"] = false;
         re["Dancers"] = [];
         selectedDancers.map(val => {
@@ -133,17 +216,20 @@ class Modal {
         this.sliders.map(sliderInput => {
             re["Status"][sliderInput.slider.id] = Number(sliderInput.slider.noUiSlider.get());
         });
+        this.LEDsliders.map(LEDInput => {
+            re["Status"][LEDInput.slider.id] = {"name": LEDInput.selector.value, "alpha": Number(LEDInput.slider.noUiSlider.get())};
+        });
         return re;
     }
 }
 
 class Presets {
-    constructor(mgr, load = []) {
+    constructor(mgr, load, loadTexture) {
         this.mode = "";
         this.presetId = "";
         this.mgr = mgr;
         this.presets = load;
-        this.modal = new Modal();
+        this.modal = new Modal(loadTexture);
         // DOM Stuff
         this.el = document.getElementById('presets');
         this.presets.map(preset => this.addPreset(preset));

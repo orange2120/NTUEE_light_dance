@@ -45,13 +45,13 @@ class Dancer {
     }
 
     setStat(status) {
+        // console.log("Dancer setStat", status);
         this.status = Object.assign({}, status);
     }
 
     updateTexture() {
         // console.log("Update Texture");
         Object.keys(this.parts).map(key => {
-            console.log(this.status)
             this.parts[key].updateTexture(this.status[key])
         });
     }

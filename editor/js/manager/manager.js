@@ -47,18 +47,28 @@ class Manager {
     setEditMode() {
         if (this.mode === "EDIT") {
             this.clearStatus();
+            this.mode = "";
         }
-        this.mode = this.mode === "EDIT" ? "" : "EDIT";
-        this.editor.update();
+        else {
+            this.mode = "EDIT";
+            this.initNewStatus();
+        }
+        // this.editor.update();
+        this.editor.setSliderMode();
         this.sim.updateAll();
         console.log("Set edit mode", this.mode);
     }
     setAddMode() {
         if (this.mode === "ADD") {
             this.clearStatus();
+            this.mode = "";
         }
-        this.mode = this.mode === "ADD" ? "" : "ADD";
-        this.editor.update();
+        else {
+            this.mode = "ADD";
+            this.initNewStatus();
+        }
+        // this.editor.update();
+        this.editor.setSliderMode();
         this.sim.updateAll();
         console.log("Set add mode", this.mode);
     }
@@ -160,22 +170,52 @@ class Manager {
         if (preset["Chosen_Dancer"] && !shouldUpdateDancers.includes(checkedDancerId))
             shouldUpdateDancers.push(checkedDancerId);
         Object.keys(preset["Status"]).map(key => {
-            this.updateControl(shouldUpdateDancers, key, preset["Status"][key]);
+            shouldUpdateDancers.map(id => {
+                this.updateControl(id, key, preset["Status"][key]);
+            });
         });
+    }
+
+    initNewStatus() {
+        for (let i = 0;i < DANCER_NUM; ++i) {
+            this.newStatus[i] = JSON.parse(JSON.stringify(this.control[i][this.timeInd[i]]["Status"]));
+        }
+        console.log("initNewStatus", this.newStatus)
     }
 
     updateControl(checkedDancerId, name, value) {
         // update control with this.timeInd, this.time
         if (this.mode !== "") {
-            checkedDancerId.map(id => {
-                this.newStatus[id] = Object.assign({}, this.control[id][this.timeInd[id]]["Status"], this.newStatus[id]);
-                this.newStatus[id][name] = Number(value);
-            });
+            // console.log("Update Control", checkedDancerId, name, value, this.newStatus);
+            const id = checkedDancerId;
+            this.newStatus[id][name] = value;
             this.sim.updateEdit(checkedDancerId);
-            console.log("Update Control", checkedDancerId, name, value, this.newStatus);
         }
         else {
             console.error(`Error: [updateControl], mode: ${this.mode}`);
+        }
+    }
+    updateLEDControlAlpha(checkedDancerId, part, alpha) {
+        if (this.mode !== "") {
+            const id = checkedDancerId;
+            this.newStatus[id][part]["alpha"] = alpha;
+            this.sim.updateEdit(checkedDancerId);
+            // console.log("Update LED Control Alpha", checkedDancerId, part, alpha, this.newStatus);
+        }
+        else {
+            console.error(`Error: [updateLEDControl], mode: ${this.mode}`);
+        }
+    }
+    updateLEDControlTexture(checkedDancerId, part, textureName) {
+        // update control with this.timeInd, this.time
+        if (this.mode !== "") {
+            const id = checkedDancerId;
+            this.newStatus[id][part]["name"] = textureName;
+            this.sim.updateEdit(checkedDancerId);
+            // console.log("Update LED Control TextureName", checkedDancerId, part, textureName, this.newStatus);
+        }
+        else {
+            console.error(`Error: [updateLEDControl], mode: ${this.mode}`);
         }
     }
 
