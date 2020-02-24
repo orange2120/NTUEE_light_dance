@@ -26,8 +26,8 @@
 #define PERIOD 30 // 30ms
 
 // Json file's path
-const string DIR = "./json/";
-const string FILENAME = "test2.json";
+const std::string DIR = "./json/";
+const std::string FILENAME = "test2.json";
 
 // EL parts' name
 const std::string ELs[NUM_OF_EL] = {
@@ -41,7 +41,7 @@ const std::string ELs[NUM_OF_EL] = {
 
 // LED parts' name
 const std::string LEDs[NUM_OF_LED] = {
-  "CHEST", "R_SHOE", "L_SHOE"
+  "LED_CHEST", "LED_R_SHOE", "LED_L_SHOE"
 };
 
 const uint16_t numLEDs[NUM_OF_LED] = { LEDS_0, LEDS_1, LEDS_2 };

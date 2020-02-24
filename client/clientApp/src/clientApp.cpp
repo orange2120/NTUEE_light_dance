@@ -76,11 +76,12 @@ int main(int argc, char *argv[]) // arg[1] = person id
     size_t pos;
     int time = 0; // begin time
     bool end = false;
-    cout << "Usage:" << endl << ">> run [time]" << endl;
+    cout << "Usage:\"run [time]\"" << endl;
     while(!end) {
+        cmd = ""; tok = ""; time = 0; pos = 0;
         cin.clear();
         cout << ">> ";
-        getline(cin, cmd);
+        getline(cin, cmd); cmd.append(" ");
         pos = myStrGetTok(cmd, tok, pos);
         if(pos == string::npos) continue;
         else if(tok != "run") {
@@ -96,9 +97,7 @@ int main(int argc, char *argv[]) // arg[1] = person id
                 continue;
             }
         }
-
         run(dancer_id, time);
-
     }
 
     printf("Exiting...\n");
