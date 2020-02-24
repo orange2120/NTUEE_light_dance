@@ -3,16 +3,16 @@
         {
             "Start": 0,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 1,
@@ -44,16 +44,16 @@
         {
             "Start": 500,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 0
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 0
                 },
                 "HAT1": 1,
@@ -85,16 +85,16 @@
         {
             "Start": 1000,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -126,16 +126,16 @@
         {
             "Start": 1100,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 0
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 0
                 },
                 "HAT1": 1,
@@ -167,16 +167,16 @@
         {
             "Start": 1200,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 0
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 0
                 },
                 "HAT1": 0,
@@ -208,16 +208,16 @@
         {
             "Start": 1300,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -249,16 +249,16 @@
         {
             "Start": 1400,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -290,16 +290,16 @@
         {
             "Start": 1500,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 0
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 0
                 },
                 "HAT1": 0,
@@ -331,16 +331,16 @@
         {
             "Start": 1600,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest1",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 0
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 0
                 },
                 "HAT1": 0,
@@ -372,16 +372,16 @@
         {
             "Start": 1700,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest1",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -413,16 +413,16 @@
         {
             "Start": 1800,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest1",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0.8,
@@ -454,16 +454,98 @@
         {
             "Start": 4000,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest1",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
+                    "alpha": 1
+                },
+                "HAT1": 0.8,
+                "HAT2": 0.8,
+                "FACE1": 0.8,
+                "FACE2": 0.8,
+                "R_COAT1": 0.8,
+                "R_COAT2": 0.8,
+                "L_COAT1": 0.8,
+                "L_COAT2": 0.8,
+                "INNER1": 0.8,
+                "INNER2": 0.8,
+                "R_ARM1": 0.8,
+                "R_ARM2": 0.8,
+                "R_HAND": 0.8,
+                "L_ARM1": 0.8,
+                "L_ARM2": 0.8,
+                "L_HAND": 0.8,
+                "R_PANTS1": 0.8,
+                "R_PANTS2": 0.8,
+                "L_PANTS1": 0.8,
+                "L_PANTS2": 0.8,
+                "R_SHOE1": 0.8,
+                "R_SHOE2": 0.8,
+                "L_SHOE1": 0.8,
+                "L_SHOE2": 0.8
+            }
+        },
+        {
+            "Start": 7000,
+            "Status": {
+                "LED_CHEST": {
+                    "name": "chest2",
+                    "alpha": 1
+                },
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
+                    "alpha": 1
+                },
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
+                    "alpha": 1
+                },
+                "HAT1": 0.8,
+                "HAT2": 0.8,
+                "FACE1": 0.8,
+                "FACE2": 0.8,
+                "R_COAT1": 0.8,
+                "R_COAT2": 0.8,
+                "L_COAT1": 0.8,
+                "L_COAT2": 0.8,
+                "INNER1": 0.8,
+                "INNER2": 0.8,
+                "R_ARM1": 0.8,
+                "R_ARM2": 0.8,
+                "R_HAND": 0.8,
+                "L_ARM1": 0.8,
+                "L_ARM2": 0.8,
+                "L_HAND": 0.8,
+                "R_PANTS1": 0.8,
+                "R_PANTS2": 0.8,
+                "L_PANTS1": 0.8,
+                "L_PANTS2": 0.8,
+                "R_SHOE1": 0.8,
+                "R_SHOE2": 0.8,
+                "L_SHOE1": 0.8,
+                "L_SHOE2": 0.8
+            }
+        },
+        {
+            "Start": 10000,
+            "Status": {
+                "LED_CHEST": {
+                    "name": "chest2",
+                    "alpha": 1
+                },
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
+                    "alpha": 1
+                },
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -497,16 +579,16 @@
         {
             "Start": 0,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 1,
@@ -538,16 +620,16 @@
         {
             "Start": 500,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 0
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 0
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 0
                 },
                 "HAT1": 1,
@@ -579,16 +661,16 @@
         {
             "Start": 1000,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -620,16 +702,16 @@
         {
             "Start": 1100,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 0
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 0
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 0
                 },
                 "HAT1": 1,
@@ -661,16 +743,16 @@
         {
             "Start": 1200,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 0
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 0
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 0
                 },
                 "HAT1": 0,
@@ -702,16 +784,16 @@
         {
             "Start": 1300,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -743,16 +825,16 @@
         {
             "Start": 1400,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -784,16 +866,16 @@
         {
             "Start": 1500,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 0
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 0
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 0
                 },
                 "HAT1": 0,
@@ -825,16 +907,16 @@
         {
             "Start": 1600,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 0
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 0
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 0
                 },
                 "HAT1": 0,
@@ -866,16 +948,16 @@
         {
             "Start": 1700,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -907,16 +989,16 @@
         {
             "Start": 1800,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -948,16 +1030,16 @@
         {
             "Start": 2000,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -991,16 +1073,16 @@
         {
             "Start": 0,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 1,
@@ -1032,16 +1114,16 @@
         {
             "Start": 500,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 0
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 0
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 0
                 },
                 "HAT1": 1,
@@ -1073,16 +1155,16 @@
         {
             "Start": 1000,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -1114,16 +1196,16 @@
         {
             "Start": 1100,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 0
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 0
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 0
                 },
                 "HAT1": 1,
@@ -1155,16 +1237,16 @@
         {
             "Start": 1200,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 0
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 0
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 0
                 },
                 "HAT1": 0,
@@ -1196,16 +1278,16 @@
         {
             "Start": 1300,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -1237,16 +1319,16 @@
         {
             "Start": 1400,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -1278,16 +1360,16 @@
         {
             "Start": 1500,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 0
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 0
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 0
                 },
                 "HAT1": 0,
@@ -1319,16 +1401,16 @@
         {
             "Start": 1600,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 0
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 0
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 0
                 },
                 "HAT1": 0,
@@ -1360,16 +1442,16 @@
         {
             "Start": 1700,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -1401,16 +1483,16 @@
         {
             "Start": 1800,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -1442,16 +1524,16 @@
         {
             "Start": 2000,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -1485,16 +1567,16 @@
         {
             "Start": 0,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 1,
@@ -1526,16 +1608,16 @@
         {
             "Start": 500,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 0
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 0
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 0
                 },
                 "HAT1": 1,
@@ -1567,16 +1649,16 @@
         {
             "Start": 1000,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -1608,16 +1690,16 @@
         {
             "Start": 1100,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 0
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 0
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 0
                 },
                 "HAT1": 1,
@@ -1649,16 +1731,16 @@
         {
             "Start": 1200,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 0
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 0
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 0
                 },
                 "HAT1": 0,
@@ -1690,16 +1772,16 @@
         {
             "Start": 1300,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -1731,16 +1813,16 @@
         {
             "Start": 1400,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -1772,16 +1854,16 @@
         {
             "Start": 1500,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 0
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 0
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 0
                 },
                 "HAT1": 0,
@@ -1813,16 +1895,16 @@
         {
             "Start": 1600,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 0
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 0
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 0
                 },
                 "HAT1": 0,
@@ -1854,16 +1936,16 @@
         {
             "Start": 1700,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -1895,16 +1977,16 @@
         {
             "Start": 1800,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -1936,16 +2018,16 @@
         {
             "Start": 2000,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -1979,16 +2061,16 @@
         {
             "Start": 0,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 1,
@@ -2020,16 +2102,16 @@
         {
             "Start": 500,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 0
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 0
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 0
                 },
                 "HAT1": 1,
@@ -2061,16 +2143,16 @@
         {
             "Start": 1000,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -2102,16 +2184,16 @@
         {
             "Start": 1100,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 0
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 0
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 0
                 },
                 "HAT1": 1,
@@ -2143,16 +2225,16 @@
         {
             "Start": 1200,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 0
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 0
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 0
                 },
                 "HAT1": 0,
@@ -2184,16 +2266,16 @@
         {
             "Start": 1300,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -2225,16 +2307,16 @@
         {
             "Start": 1400,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -2266,16 +2348,16 @@
         {
             "Start": 1500,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 0
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 0
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 0
                 },
                 "HAT1": 0,
@@ -2307,16 +2389,16 @@
         {
             "Start": 1600,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 0
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 0
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 0
                 },
                 "HAT1": 0,
@@ -2348,16 +2430,16 @@
         {
             "Start": 1700,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -2389,16 +2471,16 @@
         {
             "Start": 1800,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -2430,16 +2512,16 @@
         {
             "Start": 2000,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -2473,16 +2555,16 @@
         {
             "Start": 0,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 1,
@@ -2514,16 +2596,16 @@
         {
             "Start": 500,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 0
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 0
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 0
                 },
                 "HAT1": 1,
@@ -2555,16 +2637,16 @@
         {
             "Start": 1000,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -2596,16 +2678,16 @@
         {
             "Start": 1100,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 0
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 0
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 0
                 },
                 "HAT1": 1,
@@ -2637,16 +2719,16 @@
         {
             "Start": 1200,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 0
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 0
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 0
                 },
                 "HAT1": 0,
@@ -2678,16 +2760,16 @@
         {
             "Start": 1300,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -2719,16 +2801,16 @@
         {
             "Start": 1400,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -2760,16 +2842,16 @@
         {
             "Start": 1500,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 0
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 0
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 0
                 },
                 "HAT1": 0,
@@ -2801,16 +2883,16 @@
         {
             "Start": 1600,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 0
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 0
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 0
                 },
                 "HAT1": 0,
@@ -2842,16 +2924,16 @@
         {
             "Start": 1700,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -2883,16 +2965,16 @@
         {
             "Start": 1800,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -2924,16 +3006,16 @@
         {
             "Start": 2000,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -2967,16 +3049,16 @@
         {
             "Start": 0,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 1,
@@ -3008,16 +3090,16 @@
         {
             "Start": 500,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 0
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 0
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 0
                 },
                 "HAT1": 1,
@@ -3049,16 +3131,16 @@
         {
             "Start": 1000,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -3090,16 +3172,16 @@
         {
             "Start": 1100,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 0
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 0
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 0
                 },
                 "HAT1": 1,
@@ -3131,16 +3213,16 @@
         {
             "Start": 1200,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 0
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 0
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 0
                 },
                 "HAT1": 0,
@@ -3172,16 +3254,16 @@
         {
             "Start": 1300,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -3213,16 +3295,16 @@
         {
             "Start": 1400,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -3254,16 +3336,16 @@
         {
             "Start": 1500,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 0
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 0
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 0
                 },
                 "HAT1": 0,
@@ -3295,16 +3377,16 @@
         {
             "Start": 1600,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 0
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 0
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 0
                 },
                 "HAT1": 0,
@@ -3336,16 +3418,16 @@
         {
             "Start": 1700,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -3377,16 +3459,16 @@
         {
             "Start": 1800,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -3418,16 +3500,16 @@
         {
             "Start": 2000,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -3461,16 +3543,16 @@
         {
             "Start": 0,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 1,
@@ -3502,16 +3584,16 @@
         {
             "Start": 500,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 0
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 0
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 0
                 },
                 "HAT1": 1,
@@ -3543,16 +3625,16 @@
         {
             "Start": 1000,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -3584,16 +3666,16 @@
         {
             "Start": 1100,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 0
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 0
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 0
                 },
                 "HAT1": 1,
@@ -3625,16 +3707,16 @@
         {
             "Start": 1200,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 0
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 0
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 0
                 },
                 "HAT1": 0,
@@ -3666,16 +3748,16 @@
         {
             "Start": 1300,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -3707,16 +3789,16 @@
         {
             "Start": 1400,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -3748,16 +3830,16 @@
         {
             "Start": 1500,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 0
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 0
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 0
                 },
                 "HAT1": 0,
@@ -3789,16 +3871,16 @@
         {
             "Start": 1600,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 0
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 0
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 0
                 },
                 "HAT1": 0,
@@ -3830,16 +3912,16 @@
         {
             "Start": 1700,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -3871,16 +3953,16 @@
         {
             "Start": 1800,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,
@@ -3912,16 +3994,16 @@
         {
             "Start": 2000,
             "Status": {
-                "CHEST": {
-                    "path": "./json/chest.json",
+                "LED_CHEST": {
+                    "name": "chest",
                     "alpha": 1
                 },
-                "R_SHOE": {
-                    "path": "./json/r_shoe.json",
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
                     "alpha": 1
                 },
-                "L_SHOE": {
-                    "path": "./json/l_shoe.json",
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
                     "alpha": 1
                 },
                 "HAT1": 0,

@@ -23,7 +23,7 @@ LED_Strip leds(NUM_OF_LED, numLEDs);
 
 void ReadJson(json& data)
 {
-    cerr << "[Reading Json file...]" << endl;
+    cerr << "[Reading] Json file..." << endl;
     for(int i = 0; i < PEOPLE_NUM; ++i) { // dimension of people
         people.push_back(Person());
         for(size_t j = 0; j < data[i].size(); ++j) { // dimension of execution
@@ -34,7 +34,7 @@ void ReadJson(json& data)
 
             // set LED part
             for(int k = 0; k < NUM_OF_LED; ++k)
-                e.set_LED_part(data[i][j]["Status"][LEDs[k]]["path"], data[i][j]["Status"][LEDs[k]]["alpha"]);
+                e.set_LED_part(data[i][j]["Status"][LEDs[k]]["name"], data[i][j]["Status"][LEDs[k]]["alpha"]);
             
             // set EL part
             double a[NUM_OF_EL];
@@ -57,13 +57,11 @@ bool init(const string& path) {
 
 void sendSig(int id) {
     Execute &e = people[id].time_line[people[id].t_index];
-
-    // send EL sig FIXME:
+    // send EL sig 
     for(int i = 0; i < NUM_OF_EL; ++i) {
         double br = e.EL_parts[i].get_brightness()*4095;
         if(i < 16) el1.setEL(i, uint16_t(br));
         else el2.setEL(i%16, uint16_t(br));
-        // cerr << "br:  " << uint16_t(br) << endl;
     }
     // send LED sig
     for(int i = 0; i < NUM_OF_LED; ++i) {
@@ -92,28 +90,30 @@ void run(int id, int time) {
     // time (ms)
     Person &p = people[id];
     p.t_index = 0;
-
     if(time < 0) {
         cerr << "[ERROR] Input Time Should Bigger Than 0 !!" << endl;
         return;
     }
+    if(time > p.time_line[p.time_line.size()-2].start_time) {
+        cerr << "[ERROR] Input Time Exceed Total Time!!" << endl;
+        return;
+    }
     for(size_t i = 0; i < p.time_line.size(); ++i) {
-        if(time >= p.time_line[i].start_time) {
+        if(time < p.time_line[i].start_time) {
             p.t_index = i;
-            break;
+            continue;
         }
-        else if(i == p.time_line.size()-2) {
-            cerr << "[ERROR] Input Time Exceed Total Time!!" << endl;
-            return;
-        }
+        else break;
     }
 
     cerr << "Dancer "<< id << " Starting From " << time << "..." << endl;
+    turnOff();
     sendSig(id);
     bool off = false;
+    cerr << "Time now: ";
     while(!off) 
     {   
-        cerr << "Time now: " << time;
+        cerr << time;
         auto start = high_resolution_clock::now();
         if(time >= p.time_line[p.t_index+1].start_time) { 
             if(p.t_index == p.time_line.size()-2) { // last one is a dummy execution
@@ -198,11 +198,11 @@ void sig_pause(int sig)
     size_t pos;
     int time = 0; // begin time
     bool end = false;
-    cout << "Usage:" << endl << ">> run [time]" << endl;
     while(!end) {
+        cmd = ""; tok = ""; time = 0; pos = 0;
         cin.clear();
         cout << ">> ";
-        getline(cin, cmd);
+        getline(cin, cmd); cmd.append(" ");
         pos = myStrGetTok(cmd, tok, pos);
         if(pos == string::npos) continue;
         else if(tok != "run") {
