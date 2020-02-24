@@ -1,11 +1,11 @@
-import { LIGHTPARTS, DANCER_NUM } from '../constants';
+import { LIGHTPARTS, DANCER_NUM,  DISPLAY_HEIGHT} from '../constants';
 import * as noUiSlider from 'nouislider/distribute/nouislider.js';
 
 class Editor {
     constructor(mgr) {
         this.mgr = mgr;
         this.el = document.getElementById('editor');
-        this.checkedDancerId = [0];
+        this.checkedDancerId = 0;
         // add time and timeInd
         this.addTime();
         this.addTimeInd();
@@ -17,9 +17,16 @@ class Editor {
         // add light slider
         this.sliders = [];
         LIGHTPARTS.map((part) => {
-            this.addSlider(part, this.mgr.control[this.checkedDancerId[0]][0]["Status"][part]);
+            this.addSlider(part, this.mgr.control[this.checkedDancerId][0]["Status"][part]);
         });
+        // add upload
+        this.addUpload();
+        // add download
+        this.addDownloadBtn();
         console.log('Editor ', this);
+
+        // DOM stuff
+        // this.el.style.height = `${DISPLAY_HEIGHT}px`;
     }
 
     // -------------------------------------------------------------------------
@@ -30,13 +37,14 @@ class Editor {
         this.updateTime();
         this.updateTimeInd();
         this.updateSlider();
+        this.setSliderMode();
     }
 
     updateSlider() {
-        console.log("updateSlider", this.mgr.mode);
+        // console.log("updateSlider", this.mgr.mode);
         if (this.mgr.mode === "") {
             this.sliders.map(sliderInput => {
-                const id = this.checkedDancerId[0]
+                const id = this.checkedDancerId
                 sliderInput.slider.noUiSlider
                     .set(this.mgr.control[id][this.mgr.timeInd[id]]["Status"][sliderInput.slider.id]);
             });
@@ -44,28 +52,28 @@ class Editor {
         else {
             this.sliders.map(sliderInput => {
                 sliderInput.slider.noUiSlider
-                    .set(this.mgr.newStatus[this.checkedDancerId[0]][sliderInput.slider.id]);
+                    .set(this.mgr.newStatus[this.checkedDancerId][sliderInput.slider.id]);
             })
         }
     }
 
     updateTime() {
-        console.log("Update Time");
+        // console.log("Update Time");
         document.getElementsByClassName("time-input")[0].value = this.mgr.time;
     }
 
     updateTimeInd() {
-        console.log("Update Time Ind");
-        document.getElementsByClassName("timeInd-input")[0].value = this.mgr.timeInd[this.checkedDancerId[0]];
+        // console.log("Update Time Ind");
+        document.getElementsByClassName("timeInd-input")[0].value = this.mgr.timeInd[this.checkedDancerId];
     }
 
     updateMgrTimeInd(newtimeInd) {
-        this.mgr.updateTimeInd(this.checkedDancerId[0], newtimeInd);
+        this.mgr.updateTimeInd(this.checkedDancerId, newtimeInd);
     }
 
     updateDancerChecked(dancerId) {
         console.log("updateDancerChecked", dancerId);
-        this.checkedDancerId[0] = dancerId;
+        this.checkedDancerId = dancerId;
         this.updateSlider();
         // if (!this.checkedDancerId.includes(dancerId)) {
         //     this.checkedDancerId.unshift(dancerId);
@@ -87,7 +95,6 @@ class Editor {
     //                       Set Component for Editor
     // -------------------------------------------------------------------------
     setSliderMode() {
-        console.log("Set slider mode");
         this.sliders.map(sliderInput => {
             if (this.mgr.mode !== "") {
                 sliderInput.slider.removeAttribute("disabled");
@@ -159,7 +166,7 @@ class Editor {
         checkBox.name = "dancer-check-box"
         checkBox.value = dancerID;
         checkBox.classList.add("dancer-checkbox");
-        if (this.checkedDancerId.includes(dancerID)) checkBox.checked = true;
+        if (this.checkedDancerId === dancerID) checkBox.checked = true;
         checkBox.onclick = () => {
             console.log("Checkbox: ", checkBox.value);
             // if (!this.updateDancerChecked(Number(checkBox.value))) checkBox.checked = true;
@@ -172,7 +179,7 @@ class Editor {
         document.getElementById("dancer-checkbox-list").appendChild(el);
     }
 
-    addSlider(name, value) {
+    addSlider(name, value = 0) {
         let el = document.createElement("div");
         let nameText = document.createTextNode(name);
         let lightInput = document.createElement("div");
@@ -200,7 +207,7 @@ class Editor {
         // handle change function
         slider.noUiSlider.on('update', (value) => {
             numInput.value = value;
-            if (this.mgr.mode !== "") this.mgr.updateControl(this.checkedDancerId, slider.id, value);
+            if (this.mgr.mode !== "") this.mgr.updateControl([this.checkedDancerId], slider.id, value);
         });
         numInput.addEventListener('change', (e) => {
             slider.noUiSlider.set(e.target.value);
@@ -212,6 +219,20 @@ class Editor {
         el.appendChild(nameText);
         el.appendChild(lightInput);
         document.getElementById("slider-list").appendChild(el);
+    }
+
+    addUpload() {
+        document.getElementById("upload-file").onchange = (e) => {
+            this.mgr.upload(e);
+            let filename = e.target.value.split("\\").pop()
+            document.querySelector('#upload-file').nextElementSibling.innerHTML = filename;
+
+        }
+    }
+
+    addDownloadBtn() {
+        // console.log("addDownloadBtn")
+        document.getElementById("download-link").onclick = (e) => this.mgr.download();
     }
 }
 

@@ -8,6 +8,8 @@ class Manager {
         this.control = null;
         this.sim = null;
         this.editor = null;
+        this.timeliner = null;
+        this.wavesurfer = null;
         this.interval = null;
         this.mode = "";
         this.newStatus = []; // new Status for edit
@@ -15,7 +17,7 @@ class Manager {
     }
 
     // -------------------------------------------------------------------------
-    //                      Initial setup
+    //                             setup
     // -------------------------------------------------------------------------
     setControl(control) {  // for global control data
         this.control = control;
@@ -28,6 +30,14 @@ class Manager {
     setEditor(editor) {
         this.editor = editor;
         console.log('Manager set editor', editor);
+    }
+    setTimerliner(timeliner) {
+        this.timeliner = timeliner;
+        console.log('Manager set timeliner', timeliner);
+    }
+    setWaveSurfer(wavesurfer) {
+        this.wavesurfer = wavesurfer;
+        console.log('Manager set wavesurfer', wavesurfer);
     }
 
     setTime(t) {         // for global time
@@ -75,6 +85,17 @@ class Manager {
         }
         return re;
     }
+    // -------------------------------------------------------------------------
+    //                              Call by timeliner
+    // -------------------------------------------------------------------------
+    getTimeFromTimeliner(t) { 
+        // Call by this.timeliner
+        console.log("Get time from timeliner!!", t * 1000);    // turn s to ms
+    }
+
+    getTimeIndFromTimeliner(obj) {
+        console.log("Get timeliner from timeliner!!", obj);
+    }
 
     // -------------------------------------------------------------------------
     //                      Update this.control
@@ -82,26 +103,66 @@ class Manager {
     saveNewStatus() {
         if (this.mode === "EDIT") this.editStatus();
         else if (this.mode === "ADD") this.addStatus();
+        window.localStorage.setItem('control', JSON.stringify(this.control));
     }
 
     delStatus() {
-
+        console.log("Deleting Status");
+        for (let i = 0; i < DANCER_NUM; ++i) {
+            if (this.timeInd[i] == 0) {
+                console.log("Can't delete Status 0!!");
+                continue;
+            }
+            this.control[i].splice(this.timeInd[i], 1);
+            this.timeInd[i] -= 1;
+        }
+        const newTime = this.control[this.editor.checkedDancerId][this.timeInd[0]]["Start"]
+        this.time = newTime === undefined ? this.time : newTime;
+        this.sim.updateAll();
+        this.editor.update();
+        this.wavesurfer.update();
     }
 
     editStatus() {
         console.log("Saving newStatus [Edit]");
-        for (let i = 0;i < this.newStatus.length; ++i) {
+        for (let i = 0;i < DANCER_NUM; ++i) {
             Object.assign(this.control[i][this.timeInd[i]]["Status"], this.newStatus[i]);
         }
+        document.getElementById("editbtn").classList.remove('selected');
+        this.setEditMode();
     }
 
     addStatus() {
-        console.log("Saving newStatus [Add]");
+        console.log("Saving newStatus [Add]", this.newStatus);
+        for (let i = 0;i < DANCER_NUM; ++i) {
+            let newControl = {};
+            newControl["Start"] = this.time;
+            newControl["Status"] = Object.assign({}, this.control[i][this.timeInd[i]]["Status"], this.newStatus[i]);
+            this.control[i].splice(this.timeInd[i] + 1, 0, newControl);
+            this.timeInd[i] += 1;
+        }
+        console.log(this.mode)
+        // this.sim.updateAll();
+        // this.editor.update();
+        document.getElementById("addbtn").classList.remove('selected');
+        this.setAddMode();
     }
 
     // -------------------------------------------------------------------------
     //                      Update this.newControl(newStatus)
     // -------------------------------------------------------------------------
+
+    loadPreset(preset) {
+        if (this.mode === "") return;
+        console.log("Mgr load preset", preset);
+        let shouldUpdateDancers = [...preset["Dancers"]];
+        let checkedDancerId = this.editor.checkedDancerId;
+        if (preset["Chosen_Dancer"] && !shouldUpdateDancers.includes(checkedDancerId))
+            shouldUpdateDancers.push(checkedDancerId);
+        Object.keys(preset["Status"]).map(key => {
+            this.updateControl(shouldUpdateDancers, key, preset["Status"][key]);
+        });
+    }
 
     updateControl(checkedDancerId, name, value) {
         // update control with this.timeInd, this.time
@@ -127,6 +188,7 @@ class Manager {
     // -------------------------------------------------------------------------
 
     changeTime(newTime) {
+        console.log("changeTime", newTime);
         this.time = newTime;
         let re = this.getTimeInd();
         for (let i = 0;i < this.timeInd.length; ++i) {
@@ -134,6 +196,8 @@ class Manager {
             this.sim.update(i, this.timeInd[i]);
         }
         this.editor.update();
+        this.wavesurfer.update();
+        // this.timeliner.setCurrentTime(Number.parseFloat(newTime) / 1000);
     }
 
     // -------------------------------------------------------------------------
@@ -151,10 +215,11 @@ class Manager {
                 this.sim.update(i, this.timeInd[i]);
             }
         }
-        const newTime = this.control[this.editor.checkedDancerId[0]][this.timeInd[0]]["Start"]
+        const newTime = this.control[this.editor.checkedDancerId][this.timeInd[0]]["Start"]
         this.time = newTime === undefined ? this.time : newTime;
         this.editor.update();
-        console.log("TimeIndIncrement", this.timeInd);
+        this.wavesurfer.update();
+        // console.log("TimeIndIncrement", this.timeInd);
     }
 
     changeTimeInd(val) {
@@ -164,11 +229,11 @@ class Manager {
         }
         for (let i = 0;i < this.timeInd.length; ++i) {
             if (this.control[i][val]) {
-                this.timeInd[i] = val;
+                this.timeInd[i] = Number(val);
                 this.sim.update(i, this.timeInd[i]);
             }
         }
-        const newTime = this.control[this.editor.checkedDancerId[0]][this.timeInd[0]]["Start"]
+        const newTime = this.control[this.editor.checkedDancerId][this.timeInd[0]]["Start"]
         this.time = newTime === undefined ? this.time : newTime;
         this.editor.update();
         console.log("ChangeTimeInd", val);
@@ -212,6 +277,31 @@ class Manager {
             }
             this.editor.updateTime();
         }, 30);
+    }
+    // -------------------------------------------------------------------------
+    //                      Download control
+    // -------------------------------------------------------------------------
+    upload(e) {
+        try {
+            let files = e.target.files;  
+            let fr = new FileReader(); 
+            fr.onload = evt => {
+                let re = JSON.parse(evt.target.result);
+                this.control = re;
+                console.log("upload new control", this.control);
+            };
+            fr.readAsText(files[0]);
+        }
+        catch (err) {
+            console.error(err);
+        }
+    }
+    download() {
+        console.log("Download file", this.control);
+        const downloadLink = document.getElementById('download-link');
+        let data = `text/json;charset=utf-8,` + encodeURIComponent(JSON.stringify(this.control));
+        downloadLink.href = `data:${data}`;
+        downloadLink.download = "control.json";
     }
 }
 

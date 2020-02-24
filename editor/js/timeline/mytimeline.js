@@ -1,14 +1,20 @@
-import   './timeliner.js'
+import   './timeliner_v1.4.js'
 
 // todo: play flag move and scroll
 
 class Mytimeline {
-    constructor(callback_func) {
+    constructor(mgr) {
+        this.mgr = mgr;
         this.target = {
             currentTime: 0
         };
+        this.timeliner = new Timeliner(this.target, mgr);
+        this.timelineData = null;
+
+        // Expose API
+        this.setCurrentTime = this.timeliner.setCurrentTime;;
     }
-    createFromRaw(data,callback_func){
+    createFromRaw(data){
         this.target = {
             dancer_1: 0,
             dancer_2: 0,
@@ -23,32 +29,16 @@ class Mytimeline {
             pos_3: 0,
             currentTime: 0
         };
-        function callBack_updateTime(t)
-        {
-            // console.log(t);
-            // callback_func(_type,param)
-            callback_func("time_update",t)
-        }
         this.timelineData = JSON.parse(JSON.stringify(data));
-        this.timeliner = new Timeliner(this.target,callBack_updateTime);
         this.timeliner.load(this.timelineData)
     }
-    createFromData(data_control,data_load,callback_func){
+    createFromData(data_control,data_load){
         this.target = {
             currentTime: 0
         };
         let data = this.convertData(data_control,data_load,this.target)
-        function callBack_updateTime(t)
-        {
-            // this.target.currentTime = t
-            // console.log("target= ")
-            // console.log(this.target)
-            // console.log(t);
-            // callback_func(_type,param)
-            callback_func("time_update",t)
-        }
         this.timelineData = JSON.parse(JSON.stringify(data));
-        this.timeliner = new Timeliner(this.target,callBack_updateTime);
+        console.log(this.timelineData)
         this.timeliner.load(this.timelineData)
     }
     reload(data,ui_conserve = true){
@@ -60,7 +50,7 @@ class Mytimeline {
             this.timelineData = JSON.parse(JSON.stringify(data))
         }
         
-        // this.timeliner.loadJSONString(JSON.stringify(this.timelineData))
+        this.timeliner.loadJSONString(JSON.stringify(this.timelineData))
         this.timeliner.load(this.timelineData)
     }
     convertData(data_control,data_load,_tar){
@@ -68,7 +58,7 @@ class Mytimeline {
         let newa = data_control.map(timeline => { 
             return{ name : "dancer_",tmpValue : 3.500023, _color: "#6ee167",
             _value: 0.9955620977777778 ,values : timeline.map( entry => {
-                return {time : entry.Start, value: 0, _color : "#1b3e5c"};
+                return {time : Number.parseFloat(entry.Start) / 1000, value: 0, _color : "#1b3e5c"};
             })
         }; 
         })
@@ -82,8 +72,8 @@ class Mytimeline {
     gotoTime(t){
 
     }
-    KeyFrame(layer_index,time){
-        this.timeliner.addKeyFrame(layer_index,time,0)
+    addKeyFrame(layer_index,time){
+        this.timeliner.addKeyFrame(layer_index, time, 0)
     }
     getCurrentTime(){
         

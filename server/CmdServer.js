@@ -10,6 +10,8 @@ class CmdServer
     constructor(_port=8081,_config){
         
         this.wss = new WebSocket.Server({ port: _port })
+        // this.wss.waitingList = []
+        this.config = -1
         this.loadConfig(_config)
         this.server_ip = this.getLocalIp()
         // this.BOARDS=[]
@@ -18,7 +20,26 @@ class CmdServer
         
         this.initInterval()
     }
+    startServer(){
+
+    }
     loadConfig(_config){
+        if(this.config !=-1){
+            this.wss.clients.forEach((client) => {
+            
+                if(client.readyState === WebSocket.OPEN) {
+                    
+                    // this.sendToBoards("{}",[client.board_ID])
+                    
+                    console.log(`[Server] Kick Board(${client.board_ID}) at ${client.ipAddr} for reload config`)
+                    client.terminate()
+                        // console.log(`[Server] Kick Board(${client.board_ID}) at ${client.ipAddr}`)
+                    
+                    
+                }
+            });
+        }
+
         this.config = _config
         this.wss.BOARDS = this.config.boards.map(obj => { 
             obj.status = "disconnect"
@@ -29,6 +50,8 @@ class CmdServer
         {
             this.wss.BOARDS[i].id=i;
         }
+        
+
     }
     getLocalIp(){
         let ifaces = os.networkInterfaces();
@@ -70,20 +93,45 @@ class CmdServer
         // console.log(this)
         console.log('')
     }
+    getBoardsInfo(){
+        return this.wss.BOARDS
+    }
+    getCurrentInfo(){
+        let ret = {
+            boards : this.wss.BOARDS,
+            waitingList : []
+        }
+        // console.log(this.wss.clients)
+        this.wss.clients.forEach((client)=>{
+            if (client.board_ID==-1) {
+                ret.waitingList.push({ mac: client.macAddr , ip: client.ipAddr })
+            }
+        })
+        return ret
+            
+        
+    }
     terminateBoard(_id=[]){
         // if id=[] : only remove board that is not alive
         // console.log("[Server] kick boards")
         this.wss.clients.forEach((client) => {
-            if(client.isAlive == false){
-                client.terminate()
-                this.wss.BOARDS[client.borad_ID].status = "disconnect"
-                console.log(`[Server] Board remove upexpectedly (${client.borad_ID}) at ${client.ipAddr}`)
+            // if(client.isAlive == false){
+            //     client.terminate()
+            //     this.wss.BOARDS[client.board_ID].status = "disconnect"
+            //     console.log(`[Server] Board remove upexpectedly (${client.board_ID}) at ${client.ipAddr}`)
                 
-            }else if(client.readyState === WebSocket.OPEN &&  _id.includes(client.borad_ID)) {
+            // }else 
+            if(client.readyState === WebSocket.OPEN &&  _id.includes(client.board_ID)) {
                 
-                this.wss.BOARDS[client.borad_ID].status = "disconnect"
-                client.terminate()
-                console.log(`[Server] Kick Board(${client.borad_ID}) at ${client.ipAddr}`)
+                // this.sendToBoards("{}",[client.board_ID])
+                client.send(JSON.stringify({
+                    type:"safe_kick"
+                }),()=>{
+                    // this.wss.BOARDS[client.board_ID].status = "disconnect"
+                    // client.terminate()
+                    console.log(`[Server] Kick Board(${client.board_ID}) at ${client.ipAddr}`)
+                })
+                
             }
         });
         // console.log("[Server] done")
@@ -91,17 +139,25 @@ class CmdServer
     }
     processConnection(ws, req)
     {
-        ws.borad_ID = -1
+        ws.board_ID = -1
         ws.ipAddr = ""
         ws.isAlive = true;
 
-        function heartbeat() {
+        ws.transmit_delay = -1
+
+        function heartbeat(x) {
             this.isAlive = true;
+            let obj = JSON.parse(String(x))
+            
+            // console.log((Date.now() - obj.server_time)/2)
+            this.transmit_delay = (Date.now() - obj.server_time)/2
         }
         ws.on('pong', heartbeat);
         // console.log('jj')
         // console.log(this)
         const ip = req.connection.remoteAddress.split(":")[3];
+        ws.ipAddr = ip
+        ws.macAddr = -1
         let server_self = this
         ws.on('message', message => {
             let response_msg ={
@@ -119,12 +175,19 @@ class CmdServer
                 libarp.getMAC(ip, function(err, mac) {
                     // assert.ok(!err);
                     // assert.ok(mac != null);
+                    let regex = /^((([a-fA-F0-9][a-fA-F0-9]+[-]){5}|([a-fA-F0-9][a-fA-F0-9]+[:]){5})([a-fA-F0-9][a-fA-F0-9])$)|(^([a-fA-F0-9][a-fA-F0-9][a-fA-F0-9][a-fA-F0-9]+[.]){2}([a-fA-F0-9][a-fA-F0-9][a-fA-F0-9][a-fA-F0-9]))$/ 
                     if(mac == null)
                     {
+                        
                         console.log(`[Server] Cannot find corressponding Mac Address of ${ip}`)
                         ws.terminate()
                         return
+                    }else if(regex.test(mac) == false){
+                        console.log(`[Server] Cannot find corressponding Mac Address of ${ip}`)
+                        // ws.terminate()
+                        return
                     }
+                    ws.macAddr = mac
                     console.log(`[Server] Client Mac:${mac}`);
 
                     let find_board =  self.BOARDS.filter(obj => {
@@ -134,7 +197,7 @@ class CmdServer
                     if(find_board.length===0){
                         // the board's ip is not regestered
                         console.log(`[Server] Board(${mac}) not registered`)
-                        ws.terminate()
+                        // ws.terminate()
                         return
                     }
                     console.log(`[Server] Adding Board: ip = ${ip} mac = ${mac} id = ${find_board[0].id}`);
@@ -143,11 +206,10 @@ class CmdServer
                     ws.send(JSON.stringify(response_msg))
                     find_board[0].status = "connected"
                     find_board[0].ip = ip
-                    ws.borad_ID = find_board[0].id
+                    ws.board_ID = find_board[0].id
                     ws.ipAddr = ip
                     ws.macAddr = mac
                     console.log("[Server] ACKs sent")
-
 
                 });
 
@@ -157,31 +219,58 @@ class CmdServer
         });
         // ws.send('Hello! Message From Server!!')
         ws.on('close',function s(){
-            if(ws.borad_ID!=-1)
+            if(ws.board_ID!=-1)
             {
-                server_self.BOARDS[ws.borad_ID].status = "disconnect"
+                // console.log(server_self.BOARDS[ws.board_ID])
+                if(server_self.BOARDS[ws.board_ID]!= undefined){
+                    server_self.BOARDS[ws.board_ID].status = "disconnect"
+                }
+                
             }
-            console.log(`[Client] (${ws.borad_ID}) ${ws.ipAddr} ${ws.macAddr} leave`)
+            console.log(`[Client] (${ws.board_ID}) ${ws.ipAddr} ${ws.macAddr} leave`)
         })
     }
-    sendToBoards(){
-
+    sendToBoards(msg,targets){
+        this.wss.clients.forEach((client) => {
+            if(client.readyState === WebSocket.OPEN && targets.includes(client.board_ID)) {
+                // let boardMsg = {
+                //     type: 'upload',
+                //     data: CONTROL[client.board_ID] //boardData[client.boardId]
+                //     // wsdata: wsData[client.boardId]
+                // };
+                client.send(JSON.stringify(msg));
+            }
+        });
     }
     initInterval(){
-        function noop() {}
+        // function noop() {}
         let self = this
         const interval = setInterval(function ping() {
-            self.wss.clients.forEach(function each(ws) {
+            self.wss.clients.forEach(function each(client) {
                 // checking board if still connected
-                // console.log("checking id=" + String(ws.borad_ID))
-              if (ws.isAlive === false)
+                // console.log("checking id=" + String(ws.board_ID))
+              if (client.isAlive === false)
               {
-                self.terminateBoard()
+                // self.terminateBoard()
+                client.terminate()
+                if(client.board_ID!=-1)
+                {
+                    // self.wss.BOARDS[client.board_ID].status = "disconnect"
+                    console.log(`[Server] Board(registered) remove upexpectedly (${client.board_ID}) at ${client.ipAddr}`)
+                }else{
+                    console.log(`[Server] Board(Not registered) remove upexpectedly at ${client.ipAddr}`)
+                }
                 return //ws.terminate();
               } 
               
-              ws.isAlive = false;
-              ws.ping(noop);
+              client.isAlive = false;
+            //   send server time and connection delay time
+            client.ping(JSON.stringify(
+                  {
+                      server_time : Date.now(),
+                      delay : client.transmit_delay
+                  }),{},true);
+            //   ws.ping(noop);
             });
         }, this.config.settings.ping_interval);
     }
@@ -191,10 +280,61 @@ class CmdServer
         })
         return find_board
     }
+
+    play(cmd_start_time,params){
+        let msg={
+            type: "play",
+            data : {
+                start_at_server : cmd_start_time,
+                play_from_time : params.time
+            }
+        }
+        this.sendToBoards(msg,params.targets)
+    }
+    pause(cmd_start_time,params){
+        let msg={
+            type: "pause",
+            data : {
+                start_at_server : cmd_start_time
+            }
+        }
+        this.sendToBoards(msg,params.targets)
+    }
+    upload(cmd_start_time,params,control){
+        this.wss.clients.forEach((client) => { 
+            if(client.readyState === WebSocket.OPEN && params.targets.includes(client.board_ID)) {
+                console.log("upload",client.board_ID)
+                let boardMsg = {
+                    type: 'upload',
+                    data: control[client.board_ID] //boardData[client.boardId]
+                    // wsdata: wsData[client.boardId]
+                };
+                client.send(JSON.stringify(boardMsg));
+            }
+        });
+    }
+    rebootBoard(cmd_start_time,params){
+        let msg = {
+            type:"rebootBoard"
+        }
+        this.sendToBoards(msg,params.targets)
+    }
+    runTest(cmd_start_time,params){
+        let msg = {
+            type:"runTest"
+        }
+        this.sendToBoards(msg,params.targets)
+    }
+    reConnectClient(cmd_start_time,params){
+        let msg = {
+            type:"reConnectClient"
+        }
+        this.sendToBoards(msg,params.targets)
+    }
 }
-// export default CmdServer
+export default CmdServer
 
-
+/*
 const CONFIG = require('./config.json')
 const CONTROL = require('../data/control_test2.json')
 
@@ -253,10 +393,10 @@ rl.on('line', function(line) {
     else if(line[0].toLowerCase()=="upload"){
         console.log("[Server] upload all boards")
         s.wss.clients.forEach((client) => {
-            if(client.readyState === WebSocket.OPEN && client.borad_ID > -1) {
+            if(client.readyState === WebSocket.OPEN && client.board_ID > -1) {
                 let boardMsg = {
                     type: 'upload',
-                    data: CONTROL[client.borad_ID] //boardData[client.boardId]
+                    data: CONTROL[client.board_ID] //boardData[client.boardId]
                     // wsdata: wsData[client.boardId]
                 };
                 client.send(JSON.stringify(boardMsg));
@@ -306,4 +446,4 @@ rl.on('line', function(line) {
 }).on('close',function(){
     process.exit(0);
 });
- 
+ */
