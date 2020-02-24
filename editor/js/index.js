@@ -124,13 +124,13 @@ myLayout.on("initialised",() => {
     const sim = new Simulator(mgr, app, load.Texture)
     
     // editor
-    const editor = new Editor(mgr);
+    const editor = new Editor(mgr, load.Texture);
     
     // wavesurfer
     const wavesurfer = new MyWaveSurfer(mgr, load.Music);
     
     // presets
-    const presets = new Presets(mgr, presets_load);
+    const presets = new Presets(mgr, presets_load, load.Texture);
 
     // timeline
     // const mytimeliner = new Mytimeline(mgr);
