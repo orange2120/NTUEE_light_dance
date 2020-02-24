@@ -11,6 +11,7 @@
 #include <fstream>
 #include <vector>
 #include <signal.h>
+#include <string>
 
 #include "control.hpp"
 #include "definition.h"
@@ -18,20 +19,23 @@
 using namespace std;
 using json = nlohmann::json;
 
+extern const string DIR;
+extern const string FILENAME;
 vector<Person> people; // dancers
+int dancer_id = 0;
 
-int main(int argc, char *argv[]) // arg[1] = person id, arg[2] = json_path
+int main(int argc, char *argv[]) // arg[1] = person id
 {
     struct sigaction handler_int, handler_usr1;
     handler_int.sa_handler = sigint_handler;
     handler_usr1.sa_handler = sig_pause;
 
-    string path = "./json/test2.json";
-
-    if (argc == 3) path = argv[2];
-    else if (argc != 2)
+    if (argc == 2) {
+        dancer_id = atoi(argv[1]);
+    }
+    else if (argc > 2)
     {
-        fprintf(stderr, "[ERROR] Invalid parameters!\nUsage: ./clientApp <dancer ID> <Input file path>\n");
+        fprintf(stderr, "[ERROR] Invalid parameters!\nUsage: ./clientApp [dancer ID] \n");
         return -1;
     }
 
@@ -54,34 +58,50 @@ int main(int argc, char *argv[]) // arg[1] = person id, arg[2] = json_path
         return -1;
     }
 
-    int dancer_id = atoi(argv[1]);
-    string cmd;
-    bool end = false;
-    
+    string path = DIR;
+    path.append(FILENAME);
+
     if (!init(path))
     {
         cerr << "[ERROR] Init failed\n";
         return -1;
     }
-
+    
     printf("Dancer ID = %d\n", dancer_id);
 
 
     // people[0].print();
 
+    string cmd, tok;
+    size_t pos;
+    int time = 0; // begin time
+    bool end = false;
+    cout << "Usage:" << endl << ">> run [time]" << endl;
     while(!end) {
         cin.clear();
-        cin >> cmd;
-        cout << ">> "  << cmd << endl;
-        if(cmd == "run") 
-        {
-            printf("Start!\n");
-            run(dancer_id);
-            break;
+        cout << ">> ";
+        getline(cin, cmd);
+        pos = myStrGetTok(cmd, tok, pos);
+        if(pos == string::npos) continue;
+        else if(tok != "run") {
+            cerr << "[ERROR] No existing command " << tok << endl;
+            continue;
         }
+        else {
+            if(myStrGetTok(cmd, tok, pos) == string::npos) { // default begin time = 0
+                time = 0;
+            }
+            else if (!myStr2Int(tok, time)) {
+                cerr << "[ERROR] Format Error, "  << tok << " Is Not a Number!!"<< endl;
+                continue;
+            }
+        }
+
+        run(dancer_id, time);
+
     }
 
-    printf("Done!\n");
+    printf("Exiting...\n");
     
     return 0;
 }

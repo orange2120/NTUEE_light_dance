@@ -11,7 +11,7 @@
 
 // #define DEBUG
 
-#define NUM_STRIPS  2
+#define NUM_STRIPS  4
 #define COLOR_ORDER NEO_GRB
 #define DATA_RATE   NEO_KHZ800
 
@@ -21,8 +21,8 @@
 #define STOP_BYTE_1 0x55
 #define STOP_BYTE_2 0xFF
 
-const uint16_t NUM_LEDS[] = {88, 300, 36, 36};
-const uint8_t LED_PIN[]  = {8, 6, 7, 5};
+const uint16_t NUM_LEDS[] = {300, 40, 40, 88};
+const uint8_t LED_PIN[]  = {5, 6, 7, 8};
 
 volatile uint16_t cnt = 0;
 volatile bool received;      // handle SPI received event flag
@@ -49,18 +49,12 @@ void setup()
         strips[i].show();
     }
 
-/*
     for (uint8_t i = 0; i < NUM_STRIPS; ++i)
     {
-        
-        strips[i] = Adafruit_NeoPixel(NUM_LEDS[i], LED_PIN[i], COLOR_ORDER + DATA_RATE);
-        strips[i].begin();
+        for (uint16_t j = 0; j < NUM_LEDS[i]; ++j)
+            strips[i].setPixelColor(j, 0, 0, 0);
         strips[i].show();
-        // Serial.println(NUM_STRIPS);
-        // Serial.println(i);
-        // Serial.println(i < NUM_STRIPS);
     }
-    */
 
     // pinMode(SS,INPUT);
     SPCR |= _BV(SPE); // Turn on SPI in Slave Mode

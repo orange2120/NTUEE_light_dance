@@ -1,6 +1,6 @@
 import * as PIXI from 'pixi.js';
 import { BlackPart, LightPart, LEDPart } from './part.js';
-import { BLPARTS, LIGHTPARTS, DANCERPOS } from '../constants';
+import { BLPARTS, LIGHTPARTS, DANCERPOS, DISPLAY_HEIGHT, DISPLAY_WIDTH, DANCER_NUM } from '../constants';
 
 class Dancer {
     constructor(id, app, loadTexture) {
@@ -18,14 +18,29 @@ class Dancer {
 
         // PIXI Rendering
         this.container = new PIXI.Container();
+        this.container.sortableChildren = true;
         Object.keys(this.parts).map(key => {
             this.container.addChild(this.parts[key].sprite);
         });
-        this.container.position.set(DANCERPOS[id].x, DANCERPOS[id].y);
-        this.container.sortableChildren = true;
+        // Calculate position and scale
+        this.setPos();
         app.stage.addChild(this.container);
 
         console.log("Dancer Constructed", this);
+    }
+
+    setPos(num = DANCER_NUM, height = DISPLAY_HEIGHT, width = DISPLAY_WIDTH) {
+        const ratio = this.container.width / this.container.height;
+        this.container.height = (height * 0.95);
+        if (num > 1) this.container.height = this.container.height / 2;
+        this.container.width = this.container.height * ratio;
+
+        const half = num > 1 ? num / 2 : num;
+        const wOffset = (width - half * this.container.width) / (half + 1);
+        const y = (this.id >= half ? height / 2 : 0);
+        let _id = this.id % half;
+        const x = (_id + 1) * wOffset + _id * this.container.width;
+        this.container.position.set(x, y);
     }
 
     setStat(status) {

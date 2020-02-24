@@ -8,8 +8,13 @@
 
 #include "Data.h"
 #include "definition.h"
+#include <string>
 
 using json = nlohmann::json;
+
+extern const string ELs[NUM_OF_EL];
+extern const string LEDs[NUM_OF_LED];
+extern const string DIR;
 
 int EL_part::el_count = 0;
 int LED_part::led_count = 0;
@@ -29,21 +34,18 @@ inline void Person::set_execute(Execute e) {
 
 void Execute::print() const
 {
-    // string led_name[NUM_OF_LED] = { "chest", "left_shoe", "right_shoe" };
-    string led_name[NUM_OF_LED] = { "LEDH" };
-    string el_name[NUM_OF_EL] = { "A", "B", "C", "D", "E", "F" };
-    
+
     cout << "\t" << "\"Start\": " << start_time << ",\n"
          << "\t" << "\"Status\": {" << endl;
     for(size_t i = 0; i < NUM_OF_LED; ++i) {
-        cout << "\t\t\"" << "LEDH" << "\": {\n"
+        cout << "\t\t\"" << LEDs[i] << "\": {\n"
              << "\t\t\t\"path\": \"" << LED_parts[i]->path << "\",\n"
              << "\t\t\t\"alpha\": \"" << LED_parts[i]->alpha << "\n"
              << "\t\t},\n";
     }
 
     for(size_t i = 0; i < NUM_OF_EL; ++i) {
-        cout << "\t\t\"" << i << "\": " << EL_parts[i].get_brightness();
+        cout << "\t\t\"" << ELs[i] << "\": " << EL_parts[i].get_brightness();
         if(i != EL_parts.size()-1) cout << ",";
         cout << "\n";
     }
@@ -60,10 +62,13 @@ void Execute::set_EL_part(double a[NUM_OF_EL]) { // set every EL_parts for one t
     }
 }
 
-LED_part::LED_part(const string& s, const double& d):path(s), alpha(d) {
+LED_part::LED_part(const string& s, const double& d):alpha(d) {
     idx = led_count;
     ++led_count;
-    ifstream infile(s);
+    path = DIR;
+    path.append(s); path.append(".json");
+    ifstream infile(path);
+    cerr << "[Reading] led rgb..." << endl;
     if(!infile.is_open()){
         cerr << "[Error] Can't open file \"" << s << "\"." << endl;
         dataSize = 0;

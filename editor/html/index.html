@@ -2,51 +2,110 @@
 <html>
     <head>
         <title>Light Dance Editor</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <script src="https://use.fontawesome.com/e99ac46207.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/css/bootstrap-select.min.css">
     </head>
     <body>
-        <h2>NTUEE Light Dance Editor</h3>
-        <div id="timeline_zone">
-            <button id="aa">asdf</button>
-            <button id="btn_reload">reload</button>
-            <p>To put timeline</p>
-        </div>
-        <div id="audio">
-            <p>To put audio waveform</p>
-            <div id="waveform"></div>
-        </div>
-        <div class="workplace">
-            <div>
-                <h3>Simulator</h3>
-                <div id="simulator"></div>
+        <header class="my-header">
+            <h2>NTUEE LightDance Editor</h2>
+            <ul class="nav_links">
+                <li>
+                    <input type="file" name="upload-file" id="upload-file" class="upload_file" />
+                    <label for="upload-file">Upload Control</label>
+                </li>
+                <li><a id="download-link"><button id="downloadbtn" class="download-btn">Download Control</button></a></li>
+            </ul>
+        </header>
+        <div class="my-container">
+            <div id="conrtol_zone"></div>
+            <div id="timeline_component">
+                <!-- <div id="audio">
+                    <div id="operators">
+                        <button id="playPause-btn">Play/Pause</button>
+                        <button id="stop-btn">Stop</button>
+                        <input type="range" id="zoom-slider" />
+                    </div>
+                    <div id="waveform"></div>
+                    <div id="wave-timeline"></div>
+                </div> -->
             </div>
-            <div>
-                <h3>Editor</h3>
-                <div id="editor">
-                    <div class="time-el">
-                        <span class="time">
-                            Time:
-                            <input class="time-input" type="number" />
-                        </span>
-                        <button id="timeInd-left-btn" class="timeInd-switch-btn">
-                            <i class="fa fa-chevron-left fa-2x" aria-hidden="true"></i>
-                        </button>
-                        <input class="timeInd-input" type="number" />
-                        <button id="timeInd-right-btn" class="timeInd-switch-btn">
-                            <i class="fa fa-chevron-right fa-2x" aria-hidden="true"></i>
-                        </button>
+            <div class="workplace" id="workplace">
+                <div id="display_component">
+                    <!-- <div id="simulator"></div> -->
+                </div>
+                <div id="editor_component">
+                    <!-- <div id="editor">
+                        <div class="time-el">
+                            <span class="time">
+                                Time:
+                                <input class="time-input" type="number" />
+                            </span>
+                            <button id="timeInd-left-btn" class="timeInd-switch-btn">
+                                <i class="fa fa-chevron-left fa-2x" aria-hidden="true"></i>
+                            </button>
+                            <input class="timeInd-input" type="number" />
+                            <button id="timeInd-right-btn" class="timeInd-switch-btn">
+                                <i class="fa fa-chevron-right fa-2x" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <div class="checkbox-list" id="dancer-checkbox-list"></div>
+                        <hr>
+                        <div id="edit-btn-grp" class="edit-btn-grp">
+                            <button id="editbtn" class="edit-btn editbtn">EDIT</button>
+                            <button id="addbtn" class="edit-btn addbtn">ADD</button>
+                            <button id="savebtn" class="edit-btn savebtn">SAVE</button>
+                        </div>
+                        <div class="slider-list" id="slider-list"></div>
+                        <button id="delbtn" class="edit-btn delbtn">DEL</button>
+                        
                     </div>
-                    <div class="checkbox-list" id="dancer-checkbox-list"></div>
-                    <hr>
-                    <div id="edit-btn-grp" class="edit-btn-grp">
-                        <button id="editbtn" class="edit-btn editbtn btn btn-outline-primary">EDIT</button>
-                        <button id="addbtn" class="edit-btn addbtn">ADD</button>
-                        <button id="savebtn" class="edit-btn savebtn">SAVE</button>
-                    </div>
-                    <div class="slider-list" id="slider-list"></div>
-                    <button id="delbtn" class="edit-btn delbtn">DEL</button>
+                    <div id="presets">
+                        <div class="title">
+                            <span>Presets:</span>
+                            <span class="addbtn">+</span>
+                        </div>
+                        <div id="presets-list"></div>
+                    </div> -->
                 </div>
             </div>
         </div>
+        <!-- Modal Section -->
+        <div class="bg-modal">
+            <div class="my-modal-content">
+                <div class="modal-scrollable">
+                    <div class="modal-props">
+                        <div class="modal-name">
+                            Name:
+                            <input class="modal-name-input" type="text" placeholder="Input New Name" />
+                        </div>
+                        <div class="modal-select-dancer">
+                            Dancers:
+                            <select multiple data-style="bg-white" class="selectpicker w-100 " name="modal-select-dancer">
+                                <optgroup>
+                                    <option>Chosen_Dancer</option>
+                                </optgroup>
+                                <optgroup class="optgrp-2"></optgroup>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-save-btn"><i class="fa fa-check" aria-hidden="true"></i></div> 
+                    <div class="modal-close-btn"><i class="fa fa-times" aria-hidden="true"></i></div>
+                    <div class="modal-workplace">
+                        <div id="modal-display"></div>
+                        <div class="modal-editor">
+                            <div class="checkbox-list" id="modal-checkbox-list"></div>
+                            <div class="modal-slider-list"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.9/dist/js/bootstrap-select.min.js"></script>
     </body>
 </html>

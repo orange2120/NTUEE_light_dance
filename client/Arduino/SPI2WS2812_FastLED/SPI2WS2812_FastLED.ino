@@ -21,12 +21,11 @@
 #define STOP_BYTE_1 0x55
 #define STOP_BYTE_2 0xFF
 
-const uint16_t NUM_LEDS[] = {88, 300, 36, 36};
-const uint8_t LED_PIN[]  = {8, 6, 7, 5};
-#define LED_PIN_0   8
+const uint16_t NUM_LEDS[] = {300, 40, 40, 88};
+#define LED_PIN_0   5
 #define LED_PIN_1   6
 #define LED_PIN_2   7
-#define LED_PIN_3   5
+#define LED_PIN_3   8
 
 volatile uint16_t cnt = 0;
 volatile bool received;      // handle SPI received event flag
@@ -36,10 +35,10 @@ volatile byte lastData;      // last received data
 byte buf[BUF_SIZE];
 
 CRGB *strips[NUM_STRIPS];
-CRGB strip_0[88];
-CRGB strip_1[300];
-CRGB strip_2[36];
-CRGB strip_3[36];
+CRGB strip_0[300];
+CRGB strip_1[40];
+CRGB strip_2[40];
+CRGB strip_3[88];
 
 void setup()
 {
