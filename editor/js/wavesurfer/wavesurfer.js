@@ -10,11 +10,13 @@ class MyWaveSurfer {
             container: "#waveform",
             waveColor: '#5bc1f0',
             progressColor: '#1883b5',
+            cursorColor: '#edf0f1',
             height: screen.height * 0.08,
             plugins: [
                 CursorPlugin.create({
                     showTime: true,
                     opacity: 1,
+                    color: '#edf0f1',
                     customShowTimeStyle: {
                         'background-color': '#000',
                         color: '#fff',
@@ -23,7 +25,12 @@ class MyWaveSurfer {
                     }
                 }),
                 TimelinePlugin.create({
-                    container: "#wave-timeline"
+                    container: "#wave-timeline",
+                    unlabeledNotchColor: "white",
+                    primaryColor: "white",
+                    secondaryColor: "white",
+                    primaryFontColor: "white",
+                    secondaryFontColor: "white"
                 })
             ]
         });
