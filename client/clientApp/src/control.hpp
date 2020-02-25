@@ -23,28 +23,27 @@ LED_Strip leds(NUM_OF_LED, numLEDs);
 
 void ReadJson(json& data)
 {
+    cerr << "[Reading] Json file..." << endl;
     for(int i = 0; i < PEOPLE_NUM; ++i) { // dimension of people
         people.push_back(Person());
         for(size_t j = 0; j < data[i].size(); ++j) { // dimension of execution
-            cerr << "[Reading] Person " << i << " executions " << j << "..." << endl;
             people[i].time_line.push_back(Execute());
             Execute& e = people[i].time_line[j];
 
             e.set_start_time(data[i][j]["Start"]);
 
-            cerr << "[Reading] LEDs..." << endl;
             // set LED part
             for(int k = 0; k < NUM_OF_LED; ++k)
-                e.set_LED_part(data[i][j]["Status"][LEDs[k]]["path"], data[i][j]["Status"][LEDs[k]]["alpha"]);
+                e.set_LED_part(data[i][j]["Status"][LEDs[k]]["name"], data[i][j]["Status"][LEDs[k]]["alpha"]);
             
             // set EL part
-            cerr << "[Reading] ELs..." << endl;
             double a[NUM_OF_EL];
             for(int k = 0; k < NUM_OF_EL; ++k)
                 a[k] = data[i][j]["Status"][ELs[k]];
             e.set_EL_part(a);
         }
     }
+    cerr << "[Done!!]" << endl;
 }
 
 bool init(const string& path) {
@@ -58,12 +57,11 @@ bool init(const string& path) {
 
 void sendSig(int id) {
     Execute &e = people[id].time_line[people[id].t_index];
-    // send EL sig FIXME:
+    // send EL sig 
     for(int i = 0; i < NUM_OF_EL; ++i) {
         double br = e.EL_parts[i].get_brightness()*4095;
         if(i < 16) el1.setEL(i, uint16_t(br));
         else el2.setEL(i%16, uint16_t(br));
-        cerr << "br:  " << uint16_t(br) << endl;
     }
     // send LED sig
     for(int i = 0; i < NUM_OF_LED; ++i) {
@@ -75,8 +73,8 @@ void turnOff()
 {
     // send EL sig 
     for(int i = 0; i < NUM_OF_EL; ++i) {
-        if(i < 16)  el1.setEL(i, 0);
-        else el2.setEL(i%16, 0);
+        if(i < 16)  el1.setEL(i, uint16_t(0));
+        else el2.setEL(i%16, uint16_t(0));
     }
     char* tmp = 0;
     // send LED sig 
@@ -88,16 +86,34 @@ void turnOff()
     delete[] tmp;
 }
 
-void run(int id) {
-    double time = 0; // ms
+void run(int id, int time) {
+    // time (ms)
     Person &p = people[id];
     p.t_index = 0;
-    cerr << "start" << endl;
+    if(time < 0) {
+        cerr << "[ERROR] Input Time Should Bigger Than 0 !!" << endl;
+        return;
+    }
+    if(time > p.time_line[p.time_line.size()-2].start_time) {
+        cerr << "[ERROR] Input Time Exceed Total Time!!" << endl;
+        return;
+    }
+    for(size_t i = 0; i < p.time_line.size(); ++i) {
+        if(time < p.time_line[i].start_time) {
+            p.t_index = i;
+            continue;
+        }
+        else break;
+    }
+
+    cerr << "Dancer "<< id << " Starting From " << time << "..." << endl;
+    turnOff();
     sendSig(id);
     bool off = false;
+    cerr << "Time now: ";
     while(!off) 
-    { 
-        cout << "Time now: " << time << endl;
+    {   
+        cerr << time;
         auto start = high_resolution_clock::now();
         if(time >= p.time_line[p.t_index+1].start_time) { 
             if(p.t_index == p.time_line.size()-2) { // last one is a dummy execution
@@ -112,15 +128,55 @@ void run(int id) {
         }
         auto end = high_resolution_clock::now();
         auto duration = duration_cast<microseconds>(end-start); // transmission time
-        if(double(duration.count()) < 30000) usleep(30000-double(duration.count())); // delay until 30ms
-        else cerr << "sending time exceeds 30ms!!" << endl;
-        time += 30;
+        if(double(duration.count()) < PERIOD*1000) usleep(PERIOD*1000-double(duration.count())); // delay until 30000 us (30 ms)
+        else {
+            for(int i = 0; i < to_string(time).length()+10; ++i) cerr << '\b';
+            cerr << "[ERROR] Sending Time Exceeds " << PERIOD << "ms!!" << endl;
+            return;
+        }
+        for(int i = 0; i < to_string(time).length(); ++i) cerr << '\b';
+        time += PERIOD;
     }
     p.t_index = 0;
-    
+    for(size_t i = 0; i < 10; ++i) cerr << '\b';
+    cerr << "[End of Signal...]" << endl;
 }
 
+// Parse the string "str" for the token "tok", beginning at position "pos",
+// with delimiter "del". The leading "del" will be skipped.
+// Return "string::npos" if not found. Return the past to the end of "tok"
+// (i.e. "del" or string::npos) if found.
 
+size_t myStrGetTok(const string& str, string& tok, size_t pos = 0,
+            const char del = ' ')
+{
+   size_t begin = str.find_first_not_of(del, pos);
+   if (begin == string::npos) { tok = ""; return begin; }
+   size_t end = str.find_first_of(del, begin);
+   tok = str.substr(begin, end - begin);
+   return end;
+}
+
+// Convert string "str" to integer "num". Return false if str does not appear
+// to be a number
+bool myStr2Int(const string& str, int& num)
+{
+   num = 0;
+   size_t i = 0;
+   int sign = 1;
+   if (str[0] == '-') { sign = -1; i = 1; }
+   bool valid = false;
+   for (; i < str.size(); ++i) {
+      if (isdigit(str[i])) {
+         num *= 10;
+         num += int(str[i] - '0');
+         valid = true;
+      }
+      else return false;
+   }
+   num *= sign;
+   return valid;
+}
 
 // system call handler
 void sigint_handler(int sig)
@@ -137,18 +193,31 @@ void sig_pause(int sig)
 {
     printf("Pause!\n");
     turnOff();
+    
+    string cmd, tok;
+    size_t pos;
+    int time = 0; // begin time
     bool end = false;
-    string cmd;
     while(!end) {
+        cmd = ""; tok = ""; time = 0; pos = 0;
         cin.clear();
-        cin >> cmd;
-        cout << ">> "  << cmd << endl;
-        if(cmd == "run") 
-        {
-            printf("Start!\n");
-            run(dancer_id);
+        cout << ">> ";
+        getline(cin, cmd); cmd.append(" ");
+        pos = myStrGetTok(cmd, tok, pos);
+        if(pos == string::npos) continue;
+        else if(tok != "run") {
+            cerr << "[ERROR] No existing command " << tok << endl;
+            continue;
         }
+        else {
+            if(myStrGetTok(cmd, tok, pos) == string::npos) { // default begin time = 0
+                time = 0;
+            }
+            else if (!myStr2Int(tok, time)) {
+                cerr << "[ERROR] Format Error, "  << tok << " Is Not a Number!!"<< endl;
+                continue;
+            }
+        }
+        run(dancer_id, time);
     }
-    // printf("Enter any to continue:\n");
-    // cin.get();
 }

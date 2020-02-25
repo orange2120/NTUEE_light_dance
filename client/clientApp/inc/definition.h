@@ -22,6 +22,14 @@
 #define LEDS_1 40
 #define LEDS_2 40
 
+// refresh_cicle
+#define PERIOD 30 // 30ms
+
+// Json file's path
+const std::string DIR = "./json/";
+const std::string FILENAME = "test2.json";
+
+// EL parts' name
 const std::string ELs[NUM_OF_EL] = {
   "HAT1", "HAT2", "FACE1", "FACE2", 
   "R_COAT1", "R_COAT2", "L_COAT1", "L_COAT2",
@@ -31,8 +39,9 @@ const std::string ELs[NUM_OF_EL] = {
   "R_SHOE1", "R_SHOE2", "L_SHOE1", "L_SHOE2"
 };
 
+// LED parts' name
 const std::string LEDs[NUM_OF_LED] = {
-  "CHEST", "R_SHOE", "L_SHOE"
+  "LED_CHEST", "LED_R_SHOE", "LED_L_SHOE"
 };
 
 const uint16_t numLEDs[NUM_OF_LED] = { LEDS_0, LEDS_1, LEDS_2 };
