@@ -40,7 +40,7 @@ export const DANCERPOS = [
 // All Parts
 export const BLPARTS = ["BLHAT", "BLFACE", "BLCOAT", "BLHAND", "BLINNER", "BLPANTS", "BLSHOES"];
 export const LIGHTPARTS = [
-    "HAT1", "HAT2", "FACE1", "INNER1", "INNER2", "L_COAT1", "L_COAT2", "R_COAT1", "R_COAT2",
+    "HAT1", "HAT2", "FACE1", "FACE2", "INNER1", "INNER2", "L_COAT1", "L_COAT2", "R_COAT1", "R_COAT2",
     "L_ARM1", "L_ARM2", "R_ARM1", "R_ARM2", "L_HAND", "R_HAND", "L_PANTS1", "L_PANTS2", "R_PANTS1",
     "R_PANTS2", "L_SHOES1", "R_SHOES1"
 ];
@@ -117,6 +117,13 @@ export const PARTARGS = {
         height: 119.19,
         x: -82 + 201.374,
         y: -41 + 115.57
+    },
+    "FACE2": {
+        zIndex: 5,
+        width: 67.836,
+        height: 109.536,
+        x: -82 + 212.331,
+        y: -41 + 119.42
     },
     "L_COAT1": {
         zIndex: 10,
