@@ -6,57 +6,8 @@
 
 // import CONTROL from '../data/control_test3.json'
 
-// temp
-const CONTROL=[
-    [{"Start": 0,
-    "Status": {
-        "HAT1": 0, "HAT2": 0, "FACE1": 0, "FACE2": 0, "INNER1": 0, "INNER2": 0, "L_COAT1": 0, "L_COAT2": 0, "R_COAT1": 0, "R_COAT2": 0,
-    "L_ARM1": 0, "L_ARM2": 0, "R_ARM1": 0, "R_ARM2": 0, "L_HAND": 0, "R_HAND": 0, "L_PANTS1": 0, "L_PANTS2": 0, "R_PANTS1": 0,
-    "R_PANTS2": 0, "L_SHOES1": 0, "L_SHOES2": 0, "R_SHOES1": 0, "R_SHOES2": 0        
-    }}],
-    [{"Start": 0,
-    "Status": {
-        "HAT1": 0, "HAT2": 0, "FACE1": 0, "FACE2": 0, "INNER1": 0, "INNER2": 0, "L_COAT1": 0, "L_COAT2": 0, "R_COAT1": 0, "R_COAT2": 0,
-    "L_ARM1": 0, "L_ARM2": 0, "R_ARM1": 0, "R_ARM2": 0, "L_HAND": 0, "R_HAND": 0, "L_PANTS1": 0, "L_PANTS2": 0, "R_PANTS1": 0,
-    "R_PANTS2": 0, "L_SHOES1": 0, "L_SHOES2": 0, "R_SHOES1": 0, "R_SHOES2": 0        
-    }}],
-    [{"Start": 0,
-    "Status": {
-        "HAT1": 0, "HAT2": 0, "FACE1": 0, "FACE2": 0, "INNER1": 0, "INNER2": 0, "L_COAT1": 0, "L_COAT2": 0, "R_COAT1": 0, "R_COAT2": 0,
-    "L_ARM1": 0, "L_ARM2": 0, "R_ARM1": 0, "R_ARM2": 0, "L_HAND": 0, "R_HAND": 0, "L_PANTS1": 0, "L_PANTS2": 0, "R_PANTS1": 0,
-    "R_PANTS2": 0, "L_SHOES1": 0, "L_SHOES2": 0, "R_SHOES1": 0, "R_SHOES2": 0        
-    }}],
-    [{"Start": 0,
-    "Status": {
-        "HAT1": 0, "HAT2": 0, "FACE1": 0, "FACE2": 0, "INNER1": 0, "INNER2": 0, "L_COAT1": 0, "L_COAT2": 0, "R_COAT1": 0, "R_COAT2": 0,
-    "L_ARM1": 0, "L_ARM2": 0, "R_ARM1": 0, "R_ARM2": 0, "L_HAND": 0, "R_HAND": 0, "L_PANTS1": 0, "L_PANTS2": 0, "R_PANTS1": 0,
-    "R_PANTS2": 0, "L_SHOES1": 0, "L_SHOES2": 0, "R_SHOES1": 0, "R_SHOES2": 0        
-    }}],
-    [{"Start": 0,
-    "Status": {
-        "HAT1": 0, "HAT2": 0, "FACE1": 0, "FACE2": 0, "INNER1": 0, "INNER2": 0, "L_COAT1": 0, "L_COAT2": 0, "R_COAT1": 0, "R_COAT2": 0,
-    "L_ARM1": 0, "L_ARM2": 0, "R_ARM1": 0, "R_ARM2": 0, "L_HAND": 0, "R_HAND": 0, "L_PANTS1": 0, "L_PANTS2": 0, "R_PANTS1": 0,
-    "R_PANTS2": 0, "L_SHOES1": 0, "L_SHOES2": 0, "R_SHOES1": 0, "R_SHOES2": 0        
-    }}],
-    [{"Start": 0,
-    "Status": {
-        "HAT1": 0, "HAT2": 0, "FACE1": 0, "FACE2": 0, "INNER1": 0, "INNER2": 0, "L_COAT1": 0, "L_COAT2": 0, "R_COAT1": 0, "R_COAT2": 0,
-    "L_ARM1": 0, "L_ARM2": 0, "R_ARM1": 0, "R_ARM2": 0, "L_HAND": 0, "R_HAND": 0, "L_PANTS1": 0, "L_PANTS2": 0, "R_PANTS1": 0,
-    "R_PANTS2": 0, "L_SHOES1": 0, "L_SHOES2": 0, "R_SHOES1": 0, "R_SHOES2": 0        
-    }}],
-    [{"Start": 0,
-    "Status": {
-        "HAT1": 0, "HAT2": 0, "FACE1": 0, "FACE2": 0, "INNER1": 0, "INNER2": 0, "L_COAT1": 0, "L_COAT2": 0, "R_COAT1": 0, "R_COAT2": 0,
-    "L_ARM1": 0, "L_ARM2": 0, "R_ARM1": 0, "R_ARM2": 0, "L_HAND": 0, "R_HAND": 0, "L_PANTS1": 0, "L_PANTS2": 0, "R_PANTS1": 0,
-    "R_PANTS2": 0, "L_SHOES1": 0, "L_SHOES2": 0, "R_SHOES1": 0, "R_SHOES2": 0        
-    }}],
-    [{"Start": 0,
-    "Status": {
-        "HAT1": 0, "HAT2": 0, "FACE1": 0, "FACE2": 0, "INNER1": 0, "INNER2": 0, "L_COAT1": 0, "L_COAT2": 0, "R_COAT1": 0, "R_COAT2": 0,
-    "L_ARM1": 0, "L_ARM2": 0, "R_ARM1": 0, "R_ARM2": 0, "L_HAND": 0, "R_HAND": 0, "L_PANTS1": 0, "L_PANTS2": 0, "R_PANTS1": 0,
-    "R_PANTS2": 0, "L_SHOES1": 0, "L_SHOES2": 0, "R_SHOES1": 0, "R_SHOES2": 0        
-    }}]
-]
+
+
 
 
 const CmdServer = require('./CmdServer')
@@ -82,9 +33,12 @@ const staticMiddleware = express.static("editor/dist")
 const server = express()
 const PORT = 8080
 
+let CONTROL= []
+
 // server.use(webpackDevMiddleware)
 // server.use(webpackHotMiddleware)
 server.use(staticMiddleware)
+server.use(express.json())
 
 server.listen(PORT,()=>{
     console.log(`Server listening on port ${PORT}`)
@@ -119,15 +73,15 @@ server.get('/api/getCurrentInfo', function(req, res) {
     // res.send('hello world');
 });
 
-server.get('/api/play', function(req, res) {
-    cmds.play(0,{targets:req.query.ids.map((x)=>{ return Number(x)})})
-    console.log("[Server] play to ",req.query.ids)
+server.post('/api/play', function(req, res) {
+    cmds.play(0,{targets:req.body.params.ids})
+    console.log("[Server] play to ",req.body.params.ids)
     res.send('ok');
 });
 
-server.get('/api/pause', function(req, res) {
-    cmds.pause(0,{targets:req.query.ids.map((x)=>{ return Number(x)})})
-    console.log("[Server] pause to ",req.query.ids)
+server.post('/api/pause', function(req, res) {
+    cmds.pause(0,{targets:req.body.params.ids})
+    console.log("[Server] pause to ",req.body.params.ids)
     res.send('ok');
 });
 
@@ -141,16 +95,27 @@ server.get('/api/upload', function(req, res) {
     res.send('ok');
 });
 
-server.get('/api/reconnect', function(req, res) {
-    cmds.reConnectClient(0,{targets:req.query.ids.map((x)=>{ return Number(x)})})
-    console.log("[Server] reconnect ",req.query.ids)
+server.post('/api/upload', function(req, res) {
+    
+    cmds.upload(0,{
+        targets : req.body.params.ids
+    },req.body.params.control)
+    console.log("[Server] upload new control to ",req.body.params.ids)
+    res.send('ok');
+});
+
+
+server.post('/api/reconnect', function(req, res) {
+    // cmds.reConnectClient(0,{targets:req.query.ids.map((x)=>{ return Number(x)})})
+    cmds.reConnectClient(0,{targets:req.body.params.ids})
+    console.log("[Server] reconnect ",req.body.params.ids)
     res.send('ok');
     
 });
 
-server.get('/api/kick', function(req, res) {
-    cmds.terminateBoard(req.query.ids.map((x)=>{ return Number(x)}))
-    console.log("[Server] kick ",req.query.ids)
+server.post('/api/kick', function(req, res) {
+    cmds.terminateBoard(req.body.params.ids)
+    console.log("[Server] kick ",req.body.params.ids)
     res.send('ok');
 });
 
