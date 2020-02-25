@@ -227,16 +227,36 @@ class Manager {
     //                      Update this.time
     // -------------------------------------------------------------------------
 
-    changeTime(newTime) {
-        // console.log("changeTime", newTime);
+    changeTime(newTime, playing = 0) {
+        // console.log("changeTime", newTime, playing);
         this.time = newTime;
-        let re = this.getTimeInd();
-        for (let i = 0;i < this.timeInd.length; ++i) {
-            this.timeInd[i] = re[i];
-            this.sim.update(i, this.timeInd[i]);
+        if (playing) {
+            let update = 0;
+            for (let i = 0; i < DANCER_NUM; ++i) {
+                if (!this.control[i][this.timeInd[i] + 1]) {
+                    continue;
+                }
+                if (this.time >= this.control[i][this.timeInd[i] + 1]["Start"]) {
+                    this.timeInd[i] += 1;
+                    this.sim.update(i, this.timeInd[i]);
+                    update = 1;
+                }
+            }
+            if (update) {
+                console.log("Playing to new Status");
+                this.editor.update();
+                this.wavesurfer.update();
+            }
         }
-        this.editor.update();
-        this.wavesurfer.update();
+        else {
+            let re = this.getTimeInd();
+            for (let i = 0;i < this.timeInd.length; ++i) {
+                this.timeInd[i] = re[i];
+                this.sim.update(i, this.timeInd[i]);
+            }
+            this.editor.update();
+            this.wavesurfer.update();
+        }
         // this.timeliner.setCurrentTime(Number.parseFloat(newTime) / 1000);
     }
 
@@ -290,6 +310,14 @@ class Manager {
             this.sim.update(i, this.timeInd[i]);
         }
     }
+    changeExecTime(t) {
+        this.time = t;
+
+    }
+    stopExec() {
+        console.log("Stop Exec");
+        if (this.interval) clearInterval(this.interval);
+    }
 
     exec(t) { // Start playing
         this.initial(t);
@@ -305,7 +333,6 @@ class Manager {
                         this.interval = null;
                         // this.time = 0;
                         // this.timeInd.fill(0);
-                        console.log("Stop exec");
                     }
                     else continue;
                 }
