@@ -82,15 +82,10 @@ class Commandcenter {
 
                     let t = document.getElementById("board_table")
 
-                    // t.getElementsByTagName("tbody")[0].innerHTML=""
+                   
                     let tb = t.getElementsByTagName("tbody")[0]
                     tb.innerHTML = ""
-                    // if(tb!=undefined){
-                    //     tb.innerHTML=""
-                    // }
-
-
-                    // document.getElementById('board_table_body')
+                    
                     response.data.boards.forEach((b) => {
                         // console.log(b)
                         let r = tb.insertRow()
@@ -113,7 +108,8 @@ class Commandcenter {
 
                         let cbx = document.createElement("input")
                         cbx.type = "checkbox"
-                        cbx.id = "cbx"
+                        cbx.className = "board_table_cbx"
+                        // cbx.id = "cbx"
                         if (b.status === "disconnect") {
                             cbx.disabled = "disabled"
                         }
@@ -212,15 +208,19 @@ class Commandcenter {
         {
             function getSelected() {
                 let tbody = document.getElementById("board_table").tBodies[0]
+                // document.getElementById("board_table").getElementsByTagName('')[0]
                 let id_arr = []
                 for (let j = 0; j < tbody.rows.length; j++) {
                     let row = tbody.rows[j];
-                    if (row.cells[4].firstChild.checked) {
+                    if (row.cells[4].firstChild.getElementsByTagName('input')[0].checked) {
                         id_arr.push(Number(row.cells[0].innerText))
                     }
                 }
                 return id_arr
             }
+
+            let self = this
+
             let conrtol_zone = document.createElement("div")
             conrtol_zone.id = "conrtol_zone"
 
@@ -232,7 +232,7 @@ class Commandcenter {
             let allow_scan = document.createElement("input")
             allow_scan.type = "checkbox"
             allow_scan.id = "chbx_allow_scan"
-            let self = this
+            
             allow_scan.checked = true
             allow_scan.onchange = function() {
                 if (this.checked == true) {
@@ -256,12 +256,19 @@ class Commandcenter {
             btn_upload.onclick = function() {
                 let id_arr = getSelected()
                 if (id_arr.length != 0) {
-                    axios.get('/api/upload', {
+                    // axios.get('/api/upload', {
+                    //     params: {
+                    //         ids: id_arr,
+                    //         time: 0
+                    //     }
+                    // });
+                    axios.post('/api/upload',{
                         params: {
                             ids: id_arr,
-                            time: 0
+                            time: 0,
+                            control : self.mgr.getControl()
                         }
-                    });
+                    })
                 }
                 console.log(id_arr)
             }
@@ -272,7 +279,7 @@ class Commandcenter {
             btn_reconnect.onclick = function() {
                 let id_arr = getSelected()
                 if (id_arr.length != 0) {
-                    axios.get('/api/reconnect', {
+                    axios.post('/api/reconnect', {
                         params: {
                             ids: id_arr,
                             time: 0
@@ -288,7 +295,7 @@ class Commandcenter {
             btn_kick.onclick = function() {
                 let id_arr = getSelected()
                 if (id_arr.length != 0) {
-                    axios.get('/api/kick', {
+                    axios.post('/api/kick', {
                         params: {
                             ids: id_arr,
                             time: 0
@@ -304,7 +311,7 @@ class Commandcenter {
             btn_reboot.onclick = function() {
                 let id_arr = getSelected()
                 if (id_arr.length != 0) {
-                    axios.get('/api/reboot', {
+                    axios.post('/api/reboot', {
                         params: {
                             ids: id_arr,
                             time: 0
@@ -320,7 +327,7 @@ class Commandcenter {
             btn_play.onclick = function() {
                 let id_arr = getSelected()
                 if (id_arr.length != 0) {
-                    axios.get('/api/play', {
+                    axios.post('/api/play', {
                         params: {
                             ids: id_arr,
                             time: 0
@@ -336,7 +343,7 @@ class Commandcenter {
             btn_pause.onclick = function() {
                 let id_arr = getSelected()
                 if (id_arr.length != 0) {
-                    axios.get('/api/pause', {
+                    axios.post('/api/pause', {
                         params: {
                             ids: id_arr,
                             time: 0
