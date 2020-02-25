@@ -16,7 +16,7 @@ const Layout_Config = {
                 {
                     type: 'component',
                     height : 20,
-                    isClosable : true,
+                    isClosable : false,
                     componentName: 'timeline_Component',
                     title : 'Timeline',
                     componentState: { label: 'timeline_Component' }
@@ -28,7 +28,7 @@ const Layout_Config = {
                             type: 'component',
                             componentName: 'display_Component',
                             title : 'Simulator',
-                            isClosable : true,
+                            isClosable : false,
                             componentState: { label: 'display_Component' }
                         },
                         {
@@ -36,7 +36,7 @@ const Layout_Config = {
                             width : 24.978317432784035,
                             componentName: 'editor_Component',
                             title : 'editor',
-                            isClosable : true,
+                            isClosable : false,
                             componentState: { label: 'editor_Component' }
                         },
                         {
@@ -44,7 +44,7 @@ const Layout_Config = {
                             width : 18,
                             componentName: 'presets_Component',
                             title : 'Presets',
-                            isClosable : true,
+                            isClosable : false,
                             componentState: { label: 'presets_Component' }
                         }
                     ]
