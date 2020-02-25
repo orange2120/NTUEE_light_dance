@@ -138,6 +138,29 @@ class Manager {
         for (let i = 0;i < DANCER_NUM; ++i) {
             Object.assign(this.control[i][this.timeInd[i]]["Status"], this.newStatus[i]);
         }
+        const sampleId = 0;
+        if (this.time !== this.control[sampleId][this.timeInd[sampleId]]["Start"]) {
+            // console.log("Do you want to change Time to new Time?", this.control[sampleId][this.timeInd[sampleId]]["Start"], this.time);
+            let re = window.confirm(`Do you want to change Time to new Time? (${this.time})`);
+            if (re === true) {
+                console.log("Change to new Time");
+                if (this.timeInd[sampleId] != 0 &&
+                    this.time < this.control[sampleId][this.timeInd[sampleId] - 1]["Start"]) 
+                {
+                    window.alert("Error: Can't Change Time!! [newTime smaller than forward Status Start Time]");
+                }
+                else if (this.timeInd[sampleId] != this.control[sampleId].length - 1 &&
+                    this.time > this.control[sampleId][this.timeInd[sampleId] + 1]["Start"])
+                {
+                    window.alert("Error: Can't Change Time!! [newTime bigger than next Status Start Time]")
+                }
+                else {
+                    for (let i = 0;i < DANCER_NUM; ++i) {
+                        this.control[i][this.timeInd[i]]["Start"] = this.time;
+                    }
+                }
+            }
+        }
         document.getElementById("editbtn").classList.remove('selected');
         this.setEditMode();
     }
@@ -230,6 +253,12 @@ class Manager {
     changeTime(newTime, playing = 0) {
         // console.log("changeTime", newTime, playing);
         this.time = newTime;
+        this.editor.updateTime();
+        if (this.mode !== "") {
+            this.editor.update();
+            this.wavesurfer.update();
+            return;
+        }
         if (playing) {
             let update = 0;
             for (let i = 0; i < DANCER_NUM; ++i) {
