@@ -14,6 +14,7 @@ using json = nlohmann::json;
 
 extern const string ELs[NUM_OF_EL];
 extern const string LEDs[NUM_OF_LED];
+extern const string DIR;
 
 int EL_part::el_count = 0;
 int LED_part::led_count = 0;
@@ -61,13 +62,14 @@ void Execute::set_EL_part(double a[NUM_OF_EL]) { // set every EL_parts for one t
     }
 }
 
-LED_part::LED_part(const string& s, const double& d):path(s), alpha(d) {
+LED_part::LED_part(const string& s, const double& d):alpha(d) {
     idx = led_count;
     ++led_count;
-    ifstream infile(s);
-    cerr << "[Reading] led rgb..." << endl;
+    path = DIR; path.append(s); path.append(".json");
+    ifstream infile(path);
+    //cerr << "[Reading] led rgb...  " << path << endl;
     if(!infile.is_open()){
-        cerr << "[Error] Can't open file \"" << s << "\"." << endl;
+        cerr << "[Error] Can't open file \"" << path << "\"." << endl;
         dataSize = 0;
         RGB_data = 0;
         return;
