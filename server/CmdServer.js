@@ -332,8 +332,8 @@ class CmdServer
         this.sendToBoards(msg,params.targets)
     }
 }
-export default CmdServer
-
+// export default CmdServer
+module.exports = CmdServer
 /*
 const CONFIG = require('./config.json')
 const CONTROL = require('../data/control_test2.json')

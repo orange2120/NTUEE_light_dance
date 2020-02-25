@@ -1,1 +1,25 @@
-{"boards":[{"ip":"192.168.1.7","mac":"b8:27:eb:34:3f:e6","status":"disconnect","id":0},{"ip":"10.129.173.122","mac":"8c:85:90:d1:41:dc","status":"connected","id":1}],"settings":{"ping_interval":1000}}
+{
+    "boards": [
+        {
+            "ip": "192.168.1.7",
+            "mac": "b8:27:eb:34:3f:e6",
+            "status": "disconnect",
+            "id": 0
+        },
+        {
+            "ip": "10.129.173.122",
+            "mac": "8c:85:90:d1:41:dc",
+            "status": "connected",
+            "id": 1
+        },
+        {
+            "ip": "",
+            "mac": "80:7d:3a:7f:44:82",
+            "status": "",
+            "id": 2
+        }
+    ],
+    "settings": {
+        "ping_interval": 1000
+    }
+}
