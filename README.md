@@ -75,7 +75,8 @@ NTUEE_light_dance
 ├── asset
 ├── client
 │   ├── Arduino
-│   └── clientApp
+│   ├── clientApp
+│   └── clientSocket
 │
 ├── data
 ├── editor
