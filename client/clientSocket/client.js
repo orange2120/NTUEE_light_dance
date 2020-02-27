@@ -1,68 +1,71 @@
 // settings
 
 const SERVER_MAC = "8c:85:90:d1:41:dc"
-const PORT =8081
-const PATH_clientApp ="./clientApp_sim"
+const PORT = 8081
+const PATH_clientApp = "../clientApp/clientApp_sim"
 // client.js
 const fs = require('fs')
 const WebSocket = require('ws')
 // const ReconnectingWebSocket = require('reconnecting-websocket');
 
 const os = require('os');
-const spawn =  require('child_process').spawn
+const spawn = require('child_process').spawn
 let need_reconnect = true
 
-function main(){
+function main() {
   console.log("Scanning local network...")
-  let scan_cmd = spawn('./scan.sh' ,[])
+  let scan_cmd = spawn('./scan.sh', [])
 
-  // let clientApp = spawn('../clientApp/clientApp' ,[1])
-  // let clientApp = spawn('./clientApp_sim' ,[1])
-  let clientApp = ""
-  function spawnClientApp(){
-    if (clientApp!="" && !clientApp.killed){
-      clientApp.kill()
+  // let clientApp_cmd = spawn('../clientApp/clientApp' ,[1])
+  // let clientApp_cmd = spawn('./clientApp_sim' ,[1])
+  let clientApp_cmd = ""
+  function spawnClientApp() {
+    if (clientApp_cmd != "" && !clientApp_cmd.killed) {
+      clientApp_cmd.kill()
     }
-    clientApp = spawn(PATH_clientApp ,[1])
+    clientApp_cmd = spawn(PATH_clientApp, [1])
   }
-  spawnClientApp()
+  
 
-  scan_cmd.on("exit",function() {
-    let arp_cmd = spawn('arp' ,['-a'])
+  scan_cmd.on("exit", function () {
+    let arp_cmd = spawn('arp', ['-a'])
     let buffer = ''
 
     arp_cmd.stdout.on('data', function (data) {
-        buffer += data;
-        // 8c:85:90:d1:41:dc
+      buffer += data;
+      // 8c:85:90:d1:41:dc
     });
 
-    arp_cmd.on('close', function(code){
-        // console.log('closed with code ' + code);
+    arp_cmd.on('close', function (code) {
+      // console.log('closed with code ' + code);
 
     });
 
-    arp_cmd.on('exit', function(code){
-    // console.log('exited with code ' + code);
-        buffer = buffer.split(os.EOL)
-        buffer = buffer.slice(0,buffer.length-1)
-        buffer = buffer.map(d => {
-            let s = d.split(' ')
-            return {
-                ip : s[1].substr(1,s[1].length-2),
-                mac : s[3]
-            }
-        })
-        let b = buffer.filter(obj => {
-            return obj.mac === SERVER_MAC
-        });
-        if(b.length ==0){
-            console.log(`Cannot find server with mac = ${SERVER_MAC} in local network`)
-            return
+    arp_cmd.on('exit', function (code) {
+      // console.log('exited with code ' + code);
+      buffer = buffer.split(os.EOL)
+      buffer = buffer.slice(0, buffer.length - 1)
+      buffer = buffer.map(d => {
+        let s = d.split(' ')
+        return {
+          ip: s[1].substr(1, s[1].length - 2),
+          mac: s[3]
         }
+      })
+      let b = buffer.filter(obj => {
+        return obj.mac === SERVER_MAC
+      });
+      if (b.length == 0) {
+        console.log(`Cannot find server with mac = ${SERVER_MAC} in local network`)
+        process.exit()
+        return
+      }
+
+      function mainSocket() {
         console.log(`Find Server ${b[0].ip} ${b[0].mac}`)
         let url = 'ws://' + b[0].ip + ':' + String(PORT)
 
-        
+
         const connection = new WebSocket(url)
 
         // const connection = new ReconnectingWebSocket(url, [], {
@@ -92,14 +95,18 @@ function main(){
           }, 1000 + 3000);
         }
 
-        let board_id=-1
+        let board_id = -1
         connection.onopen = () => {
-          let response_msg ={
-            type :  "request_to_join"
+          let response_msg = {
+            type: "request_to_join",
+            data:{
+              board_type:"dancer"
+            }
           }
           connection.send(JSON.stringify(response_msg))
+          
         }
-        
+
         connection.onerror = (error) => {
           console.log(`WebSocket error: ${error}`)
         }
@@ -107,69 +114,74 @@ function main(){
         connection.onmessage = (e) => {
           console.log(e.data)
           let msg = JSON.parse(e.data)
-          if(msg.type === "ACKs" ){ // for ACK messages 
-            if(msg.data.ack_type === "request_to_join")
-            {
+          if (msg.type === "ACKs") { // for ACK messages 
+            if (msg.data.ack_type === "request_to_join") {
               board_id = msg.data.board_id
               console.log(`Conected to Server with Borad ID=${board_id}`)
+              spawnClientApp()
+              console.log(`ClientApp Start at PID=${clientApp_cmd.pid}`)
             }
-          }else if(msg.type === "upload" ){
+          } else if (msg.type === "upload") {
             fs.writeFileSync('recieve.json', JSON.stringify(msg.data));
             console.log("Done")
-          }else if(msg.type === "play" ){
+          } else if (msg.type === "play") {
             console.log(`Play from ${msg.data.play_from_time}`)
-            clientApp.stdin.write('run '+ String(msg.data.play_from_time))
+            clientApp_cmd.stdin.write('run ' + String(msg.data.play_from_time))
             console.log('Done')
-          }else if(msg.type === "pause" ){
+          } else if (msg.type === "pause") {
             console.log(`Pause from Server`)
-            clientApp.kill("SIGUSR1") //pause
-            // fs.writeFileSync('recieve.json', JSON.stringify(msg.data));
+            clientApp_cmd.kill("SIGUSR1") //pause
             console.log("Done")
-          }else if(msg.type === "safe_kick" ){
+          } else if (msg.type === "safe_kick") {
             console.log("Safe Kick By Server")
             need_reconnect = false
             connection.terminate()
             // fs.writeFileSync('recieve.json', JSON.stringify(msg.data));
             console.log("Done")
-          }else if(msg.type === "reConnectClient" ){
-              console.log("Reconnect request By Server")
-              need_reconnect = true
-              connection.terminate()
-              // fs.writeFileSync('recieve.json', JSON.stringify(msg.data));
-              console.log("Done")            
-          }else if(msg.type === "restart" ){
-            if(msg.data.restart_target === "clientSocket"){
+          } else if (msg.type === "reConnectClient") {
+            console.log("Reconnect request By Server")
+            need_reconnect = true
+            connection.terminate()
+            // fs.writeFileSync('recieve.json', JSON.stringify(msg.data));
+            console.log("Done")
+          } else if (msg.type === "restart") {
+            if (msg.data.restart_target === "clientSocket") {
               console.log("Restart Client Socket By Server")
               connection.close()
-            }else if(msg.data.restart_target === "clientApp"){
+            } else if (msg.data.restart_target === "clientApp") {
 
               spawnClientApp()
-            }else{
+            } else {
               console.log(`Unknown restart target ${msg.data.restart_target}`)
             }
-            
-            console.log("Done")            
+
+            console.log("Done")
           }
-        }
-        
-        connection.onclose = (e)=>{
-          clearTimeout(this.pingTimeout);
-          console.log("client socket closed")
-          if(!clientApp.killed){
-            clientApp.kill()
-          }
-          if(need_reconnect){
-            console.log("prepare to reconnect")
-            
-            setTimeout(function() {
-              main();
-            }, 1000);
-          }else{
-            process.exit()
-          }
-          
         }
 
+        connection.onclose = (e) => {
+          clearTimeout(this.pingTimeout);
+          console.log("client socket closed")
+          if (clientApp_cmd != "" && !clientApp_cmd.killed) {
+            clientApp_cmd.kill()
+          }
+          if (need_reconnect) {
+            console.log("prepare to reconnect")
+
+            setTimeout(function () {
+              mainSocket();
+            }, 1000);
+            return
+          } else {
+            process.exit()
+          }
+
+        }
+
+      }
+
+
+      mainSocket()
     });
 
   });

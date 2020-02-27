@@ -74,7 +74,7 @@ class Commandcenter {
         try {
             const response = await axios.get('/api/getCurrentInfo');
             let el = document.getElementById("commandComponent_zone")
-            if ((this.boards, response.data.boards)) {
+            if ((response.data.boards)) {
                 if (this.boards != undefined && el.title != "init" && JSON.stringify(response.data.boards) === JSON.stringify(this.boards)) {
 
                 } else {
@@ -90,7 +90,8 @@ class Commandcenter {
                         // console.log(b)
                         let r = tb.insertRow()
                         let c = r.insertCell()
-                        c.innerHTML = b.id
+                        c.innerHTML = String(b.id) + "(" + b.board_type + ")"
+                        c.setAttribute("board_id",String(b.id))
                         c = r.insertCell()
                         c.innerHTML = b.ip
                         c = r.insertCell()
@@ -127,7 +128,7 @@ class Commandcenter {
 
             if ((response.data.waitingList)) {
                 if (this.waitingList != undefined && el.title != "init" && JSON.stringify(response.data.waitingList) === JSON.stringify(this.boardwaitingLists)) {
-
+                    console.log("Same")
                 } else {
                     el.title = ""
                     let t = document.getElementById("waitlist_zone_table")
@@ -145,7 +146,7 @@ class Commandcenter {
                         // console.log(b)
                         let r = tb.insertRow()
                         let c = r.insertCell()
-                        c.innerHTML = b.ip
+                        c.innerHTML = b.ip + "(" + b.board_type + ")"
                         c = r.insertCell()
                         c.innerHTML = b.mac
                         c = r.insertCell()
@@ -208,12 +209,13 @@ class Commandcenter {
         {
             function getSelected() {
                 let tbody = document.getElementById("board_table").tBodies[0]
+                // document.getElementById("board_table").getAttribute
                 // document.getElementById("board_table").getElementsByTagName('')[0]
                 let id_arr = []
                 for (let j = 0; j < tbody.rows.length; j++) {
                     let row = tbody.rows[j];
                     if (row.cells[4].firstChild.getElementsByTagName('input')[0].checked) {
-                        id_arr.push(Number(row.cells[0].innerText))
+                        id_arr.push(Number(row.cells[0].getAttribute("board_id")))
                     }
                 }
                 return id_arr
@@ -402,10 +404,10 @@ class Commandcenter {
 
                         for (let j = 0; j < tbody.rows.length; j++) {
                             let row = tbody.rows[j];
-                            if (row.cells[4].firstChild.disabled) {
-                                row.cells[4].firstChild.checked = false
+                            if (row.cells[4].firstChild.getElementsByTagName('input')[0].disabled) {
+                                row.cells[4].firstChild.getElementsByTagName('input')[0].checked = false
                             } else {
-                                row.cells[4].firstChild.checked = this.checked
+                                row.cells[4].firstChild.getElementsByTagName('input')[0].checked = this.checked
                             }
 
                         }
