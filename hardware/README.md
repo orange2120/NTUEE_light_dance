@@ -2,9 +2,11 @@
 Hardware design
 
 ## Controller
+For each dancer
 
 ### Raspberry Pi
 Reciving commands from server. Control ELs and LED strips.
+Model 3B+
 
 ### Arduino
 Reciving RGB pixel sequence via SPI protocol from RPi, transforming to WS2812 protocol.
@@ -18,5 +20,9 @@ PCA9685 16 Channel 12 Bit PWM Servo Driver, for EL control.
 Display bitmap picture
 
 ### Electroluminescent wire (EL)
+
+## PCB
+[RPi-Arduino adapter](https://easyeda.com/orange21201/lightdanceconverter)
+
 
 ## References
