@@ -104,7 +104,11 @@ class CmdServer
         // console.log(this.wss.clients)
         this.wss.clients.forEach((client)=>{
             if (client.board_ID==-1) {
-                ret.waitingList.push({ mac: client.macAddr , ip: client.ipAddr })
+                ret.waitingList.push({ 
+                    mac: client.macAddr , 
+                    ip: client.ipAddr, 
+                    board_type : client.board_type
+                })
             }
         })
         return ret
@@ -189,6 +193,8 @@ class CmdServer
                     }
                     ws.macAddr = mac
                     console.log(`[Server] Client Mac:${mac}`);
+                    ws.board_type = message.data.board_type
+
 
                     let find_board =  self.BOARDS.filter(obj => {
                         return obj.mac === String(mac)
@@ -206,9 +212,11 @@ class CmdServer
                     ws.send(JSON.stringify(response_msg))
                     find_board[0].status = "connected"
                     find_board[0].ip = ip
+                    find_board[0].board_type = message.data.board_type
                     ws.board_ID = find_board[0].id
                     ws.ipAddr = ip
                     ws.macAddr = mac
+                    
                     console.log("[Server] ACKs sent")
 
                 });
