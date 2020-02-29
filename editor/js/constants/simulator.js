@@ -44,7 +44,7 @@ export const LIGHTPARTS = [
     "L_ARM1", "L_ARM2", "R_ARM1", "R_ARM2", "L_HAND", "R_HAND", "L_PANTS1", "L_PANTS2", "R_PANTS1",
     "R_PANTS2", "L_SHOES1", "R_SHOES1"
 ];
-export const LEDPARTS = ["LED_CHEST", "LED_R_SHOE", "LED_L_SHOE"];
+export const LEDPARTS = ["LED_CHEST", "LED_R_SHOE", "LED_L_SHOE", "LED_FAN"];
 
 // Setting for Dancer 0
 export const PARTARGS = {
@@ -271,6 +271,13 @@ export const PARTARGS = {
         height: 7.967,
         x: -82 + 282.043,
         y: -41 + 685.524
+    },
+    "LED_FAN": {
+        zIndex: 10,
+        width: 88.548,
+        height: 72.531,
+        x: -82 + 62.57,
+        y: -41 + 517.085
     }
 
 }
