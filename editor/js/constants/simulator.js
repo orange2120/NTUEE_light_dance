@@ -1,5 +1,3 @@
-import { groupD8 } from "pixi.js"
-
 export const DANCER_NUM = 8
 export const DISPLAY_WIDTH = 900
 export const DISPLAY_HEIGHT = DISPLAY_WIDTH * 3 / 4
@@ -44,8 +42,9 @@ export const BLPARTS = ["BLHAT", "BLFACE", "BLCOAT", "BLHAND", "BLINNER", "BLPAN
 export const LIGHTPARTS = [
     "HAT1", "HAT2", "FACE1", "FACE2", "INNER1", "INNER2", "L_COAT1", "L_COAT2", "R_COAT1", "R_COAT2",
     "L_ARM1", "L_ARM2", "R_ARM1", "R_ARM2", "L_HAND", "R_HAND", "L_PANTS1", "L_PANTS2", "R_PANTS1",
-    "R_PANTS2", "L_SHOES1", "L_SHOES2", "R_SHOES1", "R_SHOES2"
+    "R_PANTS2", "L_SHOES1", "R_SHOES1"
 ];
+export const LEDPARTS = ["LED_CHEST", "LED_R_SHOE", "LED_L_SHOE", "LED_FAN"];
 
 // Setting for Dancer 0
 export const PARTARGS = {
@@ -245,13 +244,6 @@ export const PARTARGS = {
         x: -82 + 128.681,
         y: -41 + 637.139
     },
-    "L_SHOES2": {
-        zIndex: 10,
-        width: 69.916,
-        height: 34.176,
-        x: -82 + 133.226,
-        y: -41 + 642.109
-    },
     "R_SHOES1": {
         zIndex: 10,
         width: 78.989,
@@ -259,12 +251,34 @@ export const PARTARGS = {
         x: -82 + 289.201,
         y: -41 + 637.139
     },
-    "R_SHOES2": {
+    "LED_CHEST": {
+        zIndex: 3,
+        width: 92.682,
+        height: 217.681,
+        x: -82 + 199.965,
+        y: -41 + 239.832  
+    },
+    "LED_L_SHOE": {
         zIndex: 10,
-        width: 69.905,
-        height: 34.176,
-        x: -82 + 293.729,
-        y: -41 + 642.109
+        width: 92.609,
+        height: 7.967,
+        x: -82 + 121.879,
+        y: -41 + 685.524
+    },
+    "LED_R_SHOE": {
+        zIndex: 10,
+        width: 92.609,
+        height: 7.967,
+        x: -82 + 282.043,
+        y: -41 + 685.524
+    },
+    "LED_FAN": {
+        zIndex: 10,
+        width: 88.548,
+        height: 72.531,
+        x: -82 + 62.57,
+        y: -41 + 517.085
     }
+
 }
 

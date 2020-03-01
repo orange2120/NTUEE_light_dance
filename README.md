@@ -66,6 +66,18 @@ npm start
 # editor will run at localhost:8080
 ```
 
+> adding new LED pictures
+
+1. ADD the picture to asset/LED/LED_CHEST or LED_L_SHOE or LED_R_SHOE
+2. Go data/load.json, add new LED name to valid "Texture":
+```json
+"Texture": {
+  "LED_CHEST": ["bl_chest", "chest1", "chest2"],
+  "LED_R_SHOE": ["bl_shoe", "r_shoe1", "r_shoe2"],
+  "LED_L_SHOE": ["bl_shoe", "l_shoe1", "l_shoe2"]
+}
+// for example
+```
 
 ## Directory structure
 

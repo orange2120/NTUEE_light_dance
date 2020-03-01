@@ -13,9 +13,8 @@ class Simulator {
     }
     updateEdit(checkedDancerId) {
         if (this.mgr.newStatus.length === 0) console.error(`Error: [updateEdit]`);
-        checkedDancerId.map(id => {
-            this.dancers[id].update(this.mgr.newStatus[id]);
-        });
+        const id = checkedDancerId;
+        this.dancers[id].update(this.mgr.newStatus[id]);
     }
 
     update(dancerId, timeInd) {

@@ -347,7 +347,7 @@ body .lm_content {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 5;
+    z-index: 25;
     display: none;
 }
 
