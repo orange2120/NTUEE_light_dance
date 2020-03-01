@@ -36,7 +36,7 @@ int main()
 
     pca = &pca9685;
 
-    cout << "Usage:\n>> <ID> <Duty cycle>" << endl;
+    cout << "Usage:\n>> <channel ID> <Duty cycle>" << endl;
 
     while (1)
     {
