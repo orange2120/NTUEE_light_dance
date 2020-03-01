@@ -1,4 +1,4 @@
-import { DANCER_NUM, FPS } from '../constants';
+import { DANCER_NUM, FPS, LEDPARTS, LIGHTPARTS } from '../constants';
 
 class Manager {
     constructor() {
@@ -192,11 +192,19 @@ class Manager {
         let checkedDancerId = this.editor.checkedDancerId;
         if (preset["Chosen_Dancer"] && !shouldUpdateDancers.includes(checkedDancerId))
             shouldUpdateDancers.push(checkedDancerId);
-        Object.keys(preset["Status"]).map(key => {
-            shouldUpdateDancers.map(id => {
-                this.updateControl(id, key, preset["Status"][key]);
+        shouldUpdateDancers.map(id => {
+            const status = preset["Status"];
+            LIGHTPARTS.map(lightPart => {
+                if (status[lightPart]["checked"]) 
+                    this.updateControl(id, lightPart, status[lightPart]["value"]);
             });
-        });
+            LEDPARTS.map(ledPart => {
+                if (status[ledPart]["checked"]) {
+                    this.updateLEDControlAlpha(id, ledPart, status[ledPart]["alpha"]);
+                    this.updateLEDControlTexture(id, ledPart, status[ledPart]["name"]);
+                }
+            })
+        })
     }
 
     initNewStatus() {
