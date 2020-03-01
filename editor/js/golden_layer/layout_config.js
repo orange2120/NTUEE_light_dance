@@ -1,4 +1,10 @@
 const Layout_Config = {
+    settings:{
+        popoutWholeStack: false,
+        showPopoutIcon: false,
+        showMaximiseIcon: false,
+        showCloseIcon: false
+    },
     content: [
     {
         type: 'column',

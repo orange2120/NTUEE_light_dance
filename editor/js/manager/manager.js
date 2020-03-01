@@ -1,4 +1,4 @@
-import { DANCER_NUM, FPS } from '../constants';
+import { DANCER_NUM, FPS, LEDPARTS, LIGHTPARTS } from '../constants';
 
 class Manager {
     constructor() {
@@ -47,18 +47,28 @@ class Manager {
     setEditMode() {
         if (this.mode === "EDIT") {
             this.clearStatus();
+            this.mode = "";
         }
-        this.mode = this.mode === "EDIT" ? "" : "EDIT";
-        this.editor.update();
+        else {
+            this.mode = "EDIT";
+            this.initNewStatus();
+        }
+        // this.editor.update();
+        this.editor.setSliderMode();
         this.sim.updateAll();
         console.log("Set edit mode", this.mode);
     }
     setAddMode() {
         if (this.mode === "ADD") {
             this.clearStatus();
+            this.mode = "";
         }
-        this.mode = this.mode === "ADD" ? "" : "ADD";
-        this.editor.update();
+        else {
+            this.mode = "ADD";
+            this.initNewStatus();
+        }
+        // this.editor.update();
+        this.editor.setSliderMode();
         this.sim.updateAll();
         console.log("Set add mode", this.mode);
     }
@@ -124,22 +134,46 @@ class Manager {
     }
 
     editStatus() {
-        console.log("Saving newStatus [Edit]");
+        console.log("Saving newStatus [Edit]", JSON.parse(JSON.stringify(this.newStatus)));
         for (let i = 0;i < DANCER_NUM; ++i) {
             Object.assign(this.control[i][this.timeInd[i]]["Status"], this.newStatus[i]);
+        }
+        const sampleId = 0;
+        if (this.time !== this.control[sampleId][this.timeInd[sampleId]]["Start"]) {
+            // console.log("Do you want to change Time to new Time?", this.control[sampleId][this.timeInd[sampleId]]["Start"], this.time);
+            let re = window.confirm(`Do you want to change Time to new Time? (${this.time})`);
+            if (re === true) {
+                console.log("Change to new Time");
+                if (this.timeInd[sampleId] != 0 &&
+                    this.time < this.control[sampleId][this.timeInd[sampleId] - 1]["Start"]) 
+                {
+                    window.alert("Error: Can't Change Time!! [newTime smaller than forward Status Start Time]");
+                }
+                else if (this.timeInd[sampleId] != this.control[sampleId].length - 1 &&
+                    this.time > this.control[sampleId][this.timeInd[sampleId] + 1]["Start"])
+                {
+                    window.alert("Error: Can't Change Time!! [newTime bigger than next Status Start Time]")
+                }
+                else {
+                    for (let i = 0;i < DANCER_NUM; ++i) {
+                        this.control[i][this.timeInd[i]]["Start"] = this.time;
+                    }
+                }
+            }
         }
         document.getElementById("editbtn").classList.remove('selected');
         this.setEditMode();
     }
 
     addStatus() {
-        console.log("Saving newStatus [Add]", this.newStatus);
+        let timeInd = this.getTimeInd();
+        console.log("Saving newStatus [Add]", JSON.parse(JSON.stringify(this.newStatus)), this.time, timeInd);
         for (let i = 0;i < DANCER_NUM; ++i) {
             let newControl = {};
             newControl["Start"] = this.time;
-            newControl["Status"] = Object.assign({}, this.control[i][this.timeInd[i]]["Status"], this.newStatus[i]);
-            this.control[i].splice(this.timeInd[i] + 1, 0, newControl);
-            this.timeInd[i] += 1;
+            newControl["Status"] = Object.assign({}, this.control[i][timeInd[i]]["Status"], this.newStatus[i]);
+            this.control[i].splice(timeInd[i] + 1, 0, newControl);
+            this.timeInd[i] = timeInd[i];
         }
         console.log(this.mode)
         // this.sim.updateAll();
@@ -159,23 +193,61 @@ class Manager {
         let checkedDancerId = this.editor.checkedDancerId;
         if (preset["Chosen_Dancer"] && !shouldUpdateDancers.includes(checkedDancerId))
             shouldUpdateDancers.push(checkedDancerId);
-        Object.keys(preset["Status"]).map(key => {
-            this.updateControl(shouldUpdateDancers, key, preset["Status"][key]);
-        });
+        shouldUpdateDancers.map(id => {
+            const status = preset["Status"];
+            LIGHTPARTS.map(lightPart => {
+                if (status[lightPart]["checked"]) 
+                    this.updateControl(id, lightPart, status[lightPart]["value"]);
+            });
+            LEDPARTS.map(ledPart => {
+                if (status[ledPart]["checked"]) {
+                    this.updateLEDControlAlpha(id, ledPart, status[ledPart]["alpha"]);
+                    this.updateLEDControlTexture(id, ledPart, status[ledPart]["name"]);
+                }
+            })
+        })
+    }
+
+    initNewStatus() {
+        for (let i = 0;i < DANCER_NUM; ++i) {
+            this.newStatus[i] = JSON.parse(JSON.stringify(this.control[i][this.timeInd[i]]["Status"]));
+        }
+        console.log("initNewStatus", this.newStatus)
     }
 
     updateControl(checkedDancerId, name, value) {
         // update control with this.timeInd, this.time
         if (this.mode !== "") {
-            checkedDancerId.map(id => {
-                this.newStatus[id] = Object.assign({}, this.control[id][this.timeInd[id]]["Status"], this.newStatus[id]);
-                this.newStatus[id][name] = Number(value);
-            });
+            // console.log("Update Control", checkedDancerId, name, value, this.newStatus);
+            const id = checkedDancerId;
+            this.newStatus[id][name] = value;
             this.sim.updateEdit(checkedDancerId);
-            console.log("Update Control", checkedDancerId, name, value, this.newStatus);
         }
         else {
             console.error(`Error: [updateControl], mode: ${this.mode}`);
+        }
+    }
+    updateLEDControlAlpha(checkedDancerId, part, alpha) {
+        if (this.mode !== "") {
+            const id = checkedDancerId;
+            this.newStatus[id][part]["alpha"] = alpha;
+            this.sim.updateEdit(checkedDancerId);
+            // console.log("Update LED Control Alpha", checkedDancerId, part, alpha, this.newStatus);
+        }
+        else {
+            console.error(`Error: [updateLEDControl], mode: ${this.mode}`);
+        }
+    }
+    updateLEDControlTexture(checkedDancerId, part, textureName) {
+        // update control with this.timeInd, this.time
+        if (this.mode !== "") {
+            const id = checkedDancerId;
+            this.newStatus[id][part]["name"] = textureName;
+            this.sim.updateEdit(checkedDancerId);
+            // console.log("Update LED Control TextureName", checkedDancerId, part, textureName, this.newStatus);
+        }
+        else {
+            console.error(`Error: [updateLEDControl], mode: ${this.mode}`);
         }
     }
 
@@ -187,16 +259,43 @@ class Manager {
     //                      Update this.time
     // -------------------------------------------------------------------------
 
-    changeTime(newTime) {
-        // console.log("changeTime", newTime);
+    changeTime(newTime, playing = false) {
+        // console.log("changeTime", newTime, playing);
         this.time = newTime;
-        let re = this.getTimeInd();
-        for (let i = 0;i < this.timeInd.length; ++i) {
-            this.timeInd[i] = re[i];
-            this.sim.update(i, this.timeInd[i]);
+        this.editor.updateTime();
+        if (this.mode !== "") {
+            this.editor.update();
+            this.wavesurfer.update();
+            return;
         }
-        this.editor.update();
-        this.wavesurfer.update();
+        if (playing) {
+            let update = 0;
+            for (let i = 0; i < DANCER_NUM; ++i) {
+                if (!this.control[i][this.timeInd[i] + 1]) {
+                    continue;
+                }
+                if (this.time >= this.control[i][this.timeInd[i] + 1]["Start"]) {
+                    this.timeInd[i] += 1;
+                    this.sim.update(i, this.timeInd[i]);
+                    update = 1;
+                }
+            }
+            if (update) {
+                console.log("Playing to new Status");
+                this.editor.updateTimeInd();
+                // this.wavesurfer.update();
+            }
+        }
+        else {
+            // console.log("Change Time when not playing")
+            let re = this.getTimeInd();
+            for (let i = 0;i < this.timeInd.length; ++i) {
+                this.timeInd[i] = re[i];
+                this.sim.update(i, this.timeInd[i]);
+            }
+            this.editor.update();
+            this.wavesurfer.update();
+        }
         // this.timeliner.setCurrentTime(Number.parseFloat(newTime) / 1000);
     }
 
@@ -250,6 +349,14 @@ class Manager {
             this.sim.update(i, this.timeInd[i]);
         }
     }
+    changeExecTime(t) {
+        this.time = t;
+
+    }
+    stopExec() {
+        console.log("Stop Exec");
+        if (this.interval) clearInterval(this.interval);
+    }
 
     exec(t) { // Start playing
         this.initial(t);
@@ -265,7 +372,6 @@ class Manager {
                         this.interval = null;
                         // this.time = 0;
                         // this.timeInd.fill(0);
-                        console.log("Stop exec");
                     }
                     else continue;
                 }

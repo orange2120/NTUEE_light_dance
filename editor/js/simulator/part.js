@@ -51,18 +51,25 @@ class LightPart extends Part {
 
 class LEDPart extends Part {
     constructor(dancer, name, app, textures) {
+        // console.log("LEDPART", dancer, name, app, textures)
         super(dancer, name, app, textures);
         this.sprite.interactive = true;
         this.sprite.buttonMode = true;
-        this.paths.map(path => {
-            this.textures[path] = PIXI.Texture.from(`../../asset/LED/${path}.png`)
+        this.paths[name].map(path => {
+            try {
+                this.textures[path] = PIXI.Texture.from(`../../asset/LED/${name}/${path}.png`)
+            }
+            catch (err) {
+                console.error(err);
+            }
         });
-        this.sprite.scale.set(40); // to scale up the led texture
-        this.sprite.x += this.dancerID * this.sprite.width * 8.5;
+        this.sprite.on('click', () => {
+            console.log("This is clicked!!", this);
+        });
     }
-    updateTexture({path, alpha}) {
-        console.log("Updating LED: ", path, alpha);
-        this.sprite.texture = this.textures[path];
+    updateTexture({name, alpha}) {
+        // console.log("Updating LEDPart", name, alpha)
+        this.sprite.texture = this.textures[name];
         this.sprite.alpha = alpha;
     }
 
