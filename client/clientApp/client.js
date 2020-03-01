@@ -98,7 +98,7 @@ function main() {
 
             this.terminate();
             console.log("too long")
-          }, 1000 + 3000);
+          }, 3000 + 3000);
         }
 
         let board_id = -1

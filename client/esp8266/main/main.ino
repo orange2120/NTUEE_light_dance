@@ -56,7 +56,7 @@ void webSocketEvent(WStype_t type, uint8_t *payload, size_t length)
 			error = deserializeJson(doc, (char*) payload);
 			if (!error)
 			{
-				String ss = doc["type"];
+				String ss = doc["type"]; 
         unsigned long color = doc["color"];
         
 				Serial.println(ss);
