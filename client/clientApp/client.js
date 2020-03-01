@@ -12,6 +12,8 @@ const os = require('os');
 const spawn = require('child_process').spawn
 let need_reconnect = true
 
+let scriptOutput = "";
+
 function main() {
   console.log("Scanning local network...")
   let scan_cmd = spawn('./scan.sh', [])
@@ -23,8 +25,8 @@ function main() {
     if (clientApp_cmd != "" && !clientApp_cmd.killed) {
       clientApp_cmd.kill()
     }
-    clientApp_cmd = spawn(PATH_clientApp, [1])
-    clientApp_cmd.on('data',function(data){
+    clientApp_cmd = spawn(PATH_clientApp, [])
+    clientApp_cmd.stdout.on('data',function(data){
       console.log(`[clientApp] ${data}`)
     
     })
