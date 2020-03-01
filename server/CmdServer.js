@@ -209,6 +209,7 @@ class CmdServer
                     console.log(`[Server] Adding Board: ip = ${ip} mac = ${mac} id = ${find_board[0].id}`);
                     response_msg.type = "ACKs"
                     response_msg.data = {ack_type : "request_to_join" , board_id : find_board[0].id}
+                    response_msg.color = 0xFF0000
                     ws.send(JSON.stringify(response_msg))
                     find_board[0].status = "connected"
                     find_board[0].ip = ip
