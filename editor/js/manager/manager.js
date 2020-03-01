@@ -134,7 +134,7 @@ class Manager {
     }
 
     editStatus() {
-        console.log("Saving newStatus [Edit]");
+        console.log("Saving newStatus [Edit]", JSON.parse(JSON.stringify(this.newStatus)));
         for (let i = 0;i < DANCER_NUM; ++i) {
             Object.assign(this.control[i][this.timeInd[i]]["Status"], this.newStatus[i]);
         }
@@ -166,13 +166,14 @@ class Manager {
     }
 
     addStatus() {
-        console.log("Saving newStatus [Add]", this.newStatus);
+        let timeInd = this.getTimeInd();
+        console.log("Saving newStatus [Add]", JSON.parse(JSON.stringify(this.newStatus)), this.time, timeInd);
         for (let i = 0;i < DANCER_NUM; ++i) {
             let newControl = {};
             newControl["Start"] = this.time;
-            newControl["Status"] = Object.assign({}, this.control[i][this.timeInd[i]]["Status"], this.newStatus[i]);
-            this.control[i].splice(this.timeInd[i] + 1, 0, newControl);
-            this.timeInd[i] += 1;
+            newControl["Status"] = Object.assign({}, this.control[i][timeInd[i]]["Status"], this.newStatus[i]);
+            this.control[i].splice(timeInd[i] + 1, 0, newControl);
+            this.timeInd[i] = timeInd[i];
         }
         console.log(this.mode)
         // this.sim.updateAll();
