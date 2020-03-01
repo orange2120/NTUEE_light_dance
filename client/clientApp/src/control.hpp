@@ -23,8 +23,14 @@ LED_Strip leds(NUM_OF_LED, numLEDs);
 
 void ReadJson(json& data)
 {
-    cerr << "[Reading] Json file..." << endl;
+    cerr << "[Reading] Json file";
     for(int i = 0; i < PEOPLE_NUM; ++i) { // dimension of people
+        cerr << ".";
+        if((i+1)%4 == 0) {
+            for(int j = 0; j < 4; ++j)  cerr << '\b'; 
+            for(int j = 0; j < 4; ++j)  cerr << " ";
+            for(int j = 0; j < 4; ++j)  cerr << '\b';
+        }
         people.push_back(Person());
         for(size_t j = 0; j < data[i].size(); ++j) { // dimension of execution
             people[i].time_line.push_back(Execute());
@@ -43,7 +49,7 @@ void ReadJson(json& data)
             e.set_EL_part(a);
         }
     }
-    cerr << "[Done!!]" << endl;
+    cerr << endl << "[Done!!]" << endl;
 }
 
 bool init(const string& path) {
@@ -66,6 +72,7 @@ void sendSig(int id) {
     // send LED sig
     for(int i = 0; i < NUM_OF_LED; ++i) {
         leds.sendToStrip(i, e.LED_parts[i]->get_data());
+        if(i != NUM_OF_LED-1)   usleep(20000);
     }
 }
 
@@ -107,7 +114,6 @@ void run(int id, int time) {
     }
 
     cerr << "Dancer "<< id << " Starting From " << time << "..." << endl;
-    turnOff();
     sendSig(id);
     bool off = false;
     cerr << "Time now: ";
@@ -139,7 +145,7 @@ void run(int id, int time) {
     }
     p.t_index = 0;
     for(size_t i = 0; i < 10; ++i) cerr << '\b';
-    cerr << "[End of Signal...]" << endl;
+    cerr << "[End of Signal]" << endl;
 }
 
 // Parse the string "str" for the token "tok", beginning at position "pos",
@@ -186,7 +192,7 @@ void sigint_handler(int sig)
     turnOff();
     // turn off ELs, LEDS, close file...
     printf("Exiting...\n");
-    exit(1);
+    exit(0);
 }
 
 void sig_pause(int sig)

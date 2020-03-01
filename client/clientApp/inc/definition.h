@@ -23,7 +23,7 @@
 #define LEDS_2 40
 
 // refresh_cicle
-#define PERIOD 30 // 30ms
+#define PERIOD 70 // 30ms
 
 // Json file's path
 const std::string DIR = "./json/";

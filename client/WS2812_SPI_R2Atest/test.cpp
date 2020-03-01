@@ -64,7 +64,7 @@ int main(int argc, char *argv[])
 		genColorSeq(test_seq, dataLen, 0x16, 0x16, 0x16); 		
 		bcm2835_spi_transfern(test_seq, dataLen);
 		usleep(TEST_DELAY);
-/*
+
 		printf("Send color 2...\n");
 		genColorSeq(test_seq, dataLen, 0x00, 0xFF, 0x00);
 		bcm2835_spi_transfern(test_seq, dataLen);
@@ -79,7 +79,7 @@ int main(int argc, char *argv[])
 		genColorSeq(test_seq, dataLen, 0x00, 0x16, 0x00);
 		bcm2835_spi_transfern(test_seq, dataLen);
 		usleep(TEST_DELAY);
-*/
+
 	}
 
 

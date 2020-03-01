@@ -71,7 +71,7 @@ int main(int argc, char *argv[]) // arg[1] = person id
 
 
     // people[0].print();
-
+    // turnOff();
     string cmd, tok;
     size_t pos;
     int time = 0; // begin time
@@ -97,6 +97,7 @@ int main(int argc, char *argv[]) // arg[1] = person id
                 continue;
             }
         }
+        
         run(dancer_id, time);
     }
 

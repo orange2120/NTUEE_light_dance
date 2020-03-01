@@ -5,15 +5,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 1,
                 "HAT2": 1,
@@ -46,7 +46,7 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
@@ -87,15 +87,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
-                    "name": "r_shoe",
-                    "alpha": 1
+                    "name": "red",
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
-                    "name": "l_shoe",
-                    "alpha": 1
+                    "name": "green",
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 1,
@@ -128,14 +128,14 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
-                    "name": "r_shoe",
+                    "name": "red",
                     "alpha": 0
                 },
                 "LED_L_SHOE": {
-                    "name": "l_shoe",
+                    "name": "green",
                     "alpha": 0
                 },
                 "HAT1": 1,
@@ -169,14 +169,14 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
-                    "name": "r_shoe",
+                    "name": "red",
                     "alpha": 0
                 },
                 "LED_L_SHOE": {
-                    "name": "l_shoe",
+                    "name": "green",
                     "alpha": 0
                 },
                 "HAT1": 0,
@@ -210,15 +210,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
-                    "name": "r_shoe",
-                    "alpha": 1
+                    "name": "red",
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
-                    "name": "l_shoe",
-                    "alpha": 1
+                    "name": "green",
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 0,
@@ -251,15 +251,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
-                    "name": "r_shoe",
-                    "alpha": 1
+                    "name": "red",
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
-                    "name": "l_shoe",
-                    "alpha": 1
+                    "name": "green",
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 0,
@@ -292,14 +292,14 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
-                    "name": "r_shoe",
+                    "name": "red",
                     "alpha": 0
                 },
                 "LED_L_SHOE": {
-                    "name": "l_shoe",
+                    "name": "green",
                     "alpha": 0
                 },
                 "HAT1": 0,
@@ -333,14 +333,14 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest1",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
-                    "name": "r_shoe",
+                    "name": "red",
                     "alpha": 0
                 },
                 "LED_L_SHOE": {
-                    "name": "l_shoe",
+                    "name": "green",
                     "alpha": 0
                 },
                 "HAT1": 0,
@@ -374,15 +374,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest1",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
-                    "name": "r_shoe",
-                    "alpha": 1
+                    "name": "red",
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
-                    "name": "l_shoe",
-                    "alpha": 1
+                    "name": "green",
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 0,
@@ -415,15 +415,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest1",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
-                    "name": "r_shoe",
-                    "alpha": 1
+                    "name": "red",
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
-                    "name": "l_shoe",
-                    "alpha": 1
+                    "name": "green",
+                    "alpha": 0.2
                 },
                 "HAT1": 0.8,
                 "HAT2": 0.8,
@@ -456,15 +456,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest1",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
-                    "name": "r_shoe",
-                    "alpha": 1
+                    "name": "blue",
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
-                    "name": "l_shoe",
-                    "alpha": 1
+                    "name": "red",
+                    "alpha": 0.2
                 },
                 "HAT1": 0.8,
                 "HAT2": 0.8,
@@ -497,15 +497,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest2",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
-                    "name": "r_shoe",
-                    "alpha": 1
+                    "name": "green",
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
-                    "name": "l_shoe",
-                    "alpha": 1
+                    "name": "blue",
+                    "alpha": 0.2
                 },
                 "HAT1": 0.8,
                 "HAT2": 0.8,
@@ -538,15 +538,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest2",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 0,
@@ -581,15 +581,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 1,
                 "HAT2": 1,
@@ -663,15 +663,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 1,
@@ -786,15 +786,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 0,
@@ -827,15 +827,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 0,
@@ -950,15 +950,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 0,
@@ -991,15 +991,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 0,
@@ -1032,15 +1032,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 0,
@@ -1075,15 +1075,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 1,
                 "HAT2": 1,
@@ -1157,15 +1157,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 1,
@@ -1280,15 +1280,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 0,
@@ -1321,15 +1321,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 0,
@@ -1444,15 +1444,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 0,
@@ -1485,15 +1485,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 0,
@@ -1526,15 +1526,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 0,
@@ -1569,15 +1569,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 1,
                 "HAT2": 1,
@@ -1651,15 +1651,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 1,
@@ -1774,15 +1774,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 0,
@@ -1815,15 +1815,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 0,
@@ -1938,15 +1938,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 0,
@@ -1979,15 +1979,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 0,
@@ -2020,15 +2020,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 0,
@@ -2063,15 +2063,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 1,
                 "HAT2": 1,
@@ -2145,15 +2145,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 1,
@@ -2268,15 +2268,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 0,
@@ -2309,15 +2309,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 0,
@@ -2432,15 +2432,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 0,
@@ -2473,15 +2473,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 0,
@@ -2514,15 +2514,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 0,
@@ -2557,15 +2557,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 1,
                 "HAT2": 1,
@@ -2639,15 +2639,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 1,
@@ -2762,15 +2762,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 0,
@@ -2803,15 +2803,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 0,
@@ -2926,15 +2926,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 0,
@@ -2967,15 +2967,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 0,
@@ -3008,15 +3008,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 0,
@@ -3051,15 +3051,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 1,
                 "HAT2": 1,
@@ -3133,15 +3133,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 1,
@@ -3256,15 +3256,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 0,
@@ -3297,15 +3297,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 0,
@@ -3420,15 +3420,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 0,
@@ -3461,15 +3461,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 0,
@@ -3502,15 +3502,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 0,
@@ -3545,15 +3545,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 1,
                 "HAT2": 1,
@@ -3627,15 +3627,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 1,
@@ -3750,15 +3750,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 0,
@@ -3791,15 +3791,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 0,
@@ -3914,15 +3914,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 0,
@@ -3955,15 +3955,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 0,
@@ -3996,15 +3996,15 @@
             "Status": {
                 "LED_CHEST": {
                     "name": "chest",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_R_SHOE": {
                     "name": "r_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "LED_L_SHOE": {
                     "name": "l_shoe",
-                    "alpha": 1
+                    "alpha": 0.2
                 },
                 "HAT1": 0,
                 "HAT2": 0,
