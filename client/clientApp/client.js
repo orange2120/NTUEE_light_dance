@@ -2,7 +2,7 @@
 
 const SERVER_MAC = "8c:85:90:d1:41:dc"
 const PORT = 8081
-const PATH_clientApp = "../clientApp"
+const PATH_clientApp = "./clientApp"
 // client.js
 const fs = require('fs')
 const WebSocket = require('ws')
