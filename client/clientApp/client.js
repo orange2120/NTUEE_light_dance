@@ -132,6 +132,7 @@ function main() {
             console.log("Done")
           } else if (msg.type === "play") {
             console.log(`Play from ${msg.data.play_from_time}`)
+            console.log('run ' + String(msg.data.play_from_time))
             clientApp_cmd.stdin.write('run ' + String(msg.data.play_from_time))
             console.log('Done')
           } else if (msg.type === "pause") {
