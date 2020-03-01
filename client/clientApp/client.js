@@ -86,7 +86,7 @@ function main() {
         function heartbeat(x) {
           clearTimeout(this.pingTimeout);
           let obj = JSON.parse(String(x))
-          console.log(JSON.parse(String(x)))
+          // console.log(JSON.parse(String(x)))
           // connection.ping
           // Use `WebSocket#terminate()`, which immediately destroys the connection,
           // instead of `WebSocket#close()`, which waits for the close timer.
