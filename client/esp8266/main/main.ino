@@ -21,9 +21,12 @@ DeserializationError error;
 // #define USE_SERIAL Serial1
 
 // parameters
-#define WIFI_NAME "TOTOLINK N300RB"
-#define WIFI_PWD ""
-#define SERVER_IP "192.168.1.6"
+#define WIFI_NAME1 "TOTOLINK N300RB"
+#define WIFI_NAME "MakerSpace_2.4G"
+#define WIFI_PWD "ntueesaad"
+#define SERVER_IP1 "192.168.1.6"
+#define SERVER_IP "192.168.0.85"
+
 #define SERVER_PORT 8081
 
 void webSocketEvent(WStype_t type, uint8_t *payload, size_t length)
@@ -54,7 +57,10 @@ void webSocketEvent(WStype_t type, uint8_t *payload, size_t length)
 			if (!error)
 			{
 				String ss = doc["type"];
+        unsigned long color = doc["color"];
+        
 				Serial.println(ss);
+       Serial.println(color);
 			}
 			// send message to server
 			// webSocket.sendTXT("message here");
@@ -111,7 +117,7 @@ void setup()
 	{
 		delay(100);
 	}
-
+  Serial.println("Ok\n");
 	// server address, port and URL
 	webSocket.begin(SERVER_IP, SERVER_PORT, "/");
 
