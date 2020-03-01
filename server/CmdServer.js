@@ -298,6 +298,7 @@ class CmdServer
                 play_from_time : params.time
             }
         }
+        console.log(msg)
         this.sendToBoards(msg,params.targets)
     }
     pause(cmd_start_time,params){

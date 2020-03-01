@@ -74,7 +74,10 @@ server.get('/api/getCurrentInfo', function(req, res) {
 });
 
 server.post('/api/play', function(req, res) {
-    cmds.play(0,{targets:req.body.params.ids})
+    cmds.play(0,{
+        targets:req.body.params.ids,
+        time:req.body.params.time
+    })
     console.log("[Server] play to ",req.body.params.ids)
     res.send('ok');
 });

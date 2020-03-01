@@ -24,6 +24,10 @@ function main() {
       clientApp_cmd.kill()
     }
     clientApp_cmd = spawn(PATH_clientApp, [1])
+    clientApp_cmd.on('data',function(data){
+      console.log(`[clientApp] ${data}`)
+    
+    })
   }
   
 
