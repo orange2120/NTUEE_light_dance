@@ -76,7 +76,7 @@ void loop()
 #ifdef DEBUG
         // Serial.println("received!");
 #endif
-        delay(5);
+        delay(2);
 
         if (buf[0] == START_BYTE)
             sendToStrip();
