@@ -12,6 +12,7 @@ import Manager from './manager/manager.js';
 import Presets from './presets/presets.js';
 import Commandcenter from './commandcenter/commandcenter.js';
 import Layout_Config from './golden_layer/layout_config.js';
+import { checkControl, checkPreset } from './utility/utility.js'
 // import '@fortawesome/fontawesome-free/js/fontawesome'
 // import '@fortawesome/fontawesome-free/js/solid'
 // import '@fortawesome/fontawesome-free/js/regular'
@@ -95,21 +96,17 @@ myLayout.on("initialised",() => {
     // read data
     const load = require('../../data/load.json');
     // let control = require(`../../data/${load.Control}`);
-    let control = null;
-    if (window.localStorage.getItem('control') === null) {
-        control = require(`../../data/${load.Control}`);
-    }
-    else {
+    let control = [];
+    if (window.localStorage.getItem('control') != null) {
         control = JSON.parse(window.localStorage.getItem('control'));
     }
+    checkControl(control);
 
-    let presets_load = null;
-    if (window.localStorage.getItem('presets') === null) {
-        presets_load = require(`../../data/presets/${load.Presets}`);
-    }
-    else {
+    let presets_load = [];
+    if (window.localStorage.getItem('presets') != null) {
         presets_load = JSON.parse(window.localStorage.getItem('presets'));
     }
+    checkPreset(presets_load);
 
     // get LEDs
     // const LEDs = load.LED

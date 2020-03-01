@@ -41,7 +41,7 @@ class Editor {
         this.updateTime();
         this.updateTimeInd();
         this.updateSlider();
-        this.setSliderMode();
+        // this.setSliderMode();
     }
 
     updateSlider() {

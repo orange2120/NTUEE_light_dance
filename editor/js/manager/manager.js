@@ -250,7 +250,7 @@ class Manager {
     //                      Update this.time
     // -------------------------------------------------------------------------
 
-    changeTime(newTime, playing = 0) {
+    changeTime(newTime, playing = false) {
         // console.log("changeTime", newTime, playing);
         this.time = newTime;
         this.editor.updateTime();
@@ -273,11 +273,12 @@ class Manager {
             }
             if (update) {
                 console.log("Playing to new Status");
-                this.editor.update();
-                this.wavesurfer.update();
+                this.editor.updateTimeInd();
+                // this.wavesurfer.update();
             }
         }
         else {
+            // console.log("Change Time when not playing")
             let re = this.getTimeInd();
             for (let i = 0;i < this.timeInd.length; ++i) {
                 this.timeInd[i] = re[i];

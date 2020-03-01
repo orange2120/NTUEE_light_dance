@@ -93,7 +93,7 @@ class MyWaveSurfer {
     updateAudioProcess() {
         // console.log("Audio Process ", this.wavesurfer.getCurrentTime());
         const newTime = this.wavesurfer.getCurrentTime();
-        this.mgr.changeTime(Math.round(newTime * 1000), 1);
+        this.mgr.changeTime(Math.round(newTime * 1000), true);
     }
     zoom(val) {
         // console.log("Zooming", Number(val));
