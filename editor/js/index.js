@@ -21,6 +21,12 @@ import '../css/goldenlayout-dark-theme.css';
 import '../css/slider.css';
 import '../css/index.css';
 
+import MyUtilities from './utility/utility_functions.js';
+let x = new MyUtilities()
+x.generate(0,(data)=>{
+    console.log(data)
+})
+
 function importAllAsset(r) {
     r.keys().forEach(r);
 }
