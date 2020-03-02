@@ -13,10 +13,10 @@ import Presets from './presets/presets.js';
 import Commandcenter from './commandcenter/commandcenter.js';
 import Layout_Config from './golden_layer/layout_config.js';
 import { checkControl, checkPreset } from './utility/utility.js'
-// import '@fortawesome/fontawesome-free/js/fontawesome'
-// import '@fortawesome/fontawesome-free/js/solid'
-// import '@fortawesome/fontawesome-free/js/regular'
-// import '@fortawesome/fontawesome-free/js/brands'
+import '@fortawesome/fontawesome-free/js/fontawesome'
+import '@fortawesome/fontawesome-free/js/solid'
+import '@fortawesome/fontawesome-free/js/regular'
+import '@fortawesome/fontawesome-free/js/brands'
 import '../css/goldenlayout-base.css';
 import '../css/goldenlayout-dark-theme.css';
 import '../css/slider.css';
