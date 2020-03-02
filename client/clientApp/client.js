@@ -1,18 +1,20 @@
-// settings
-
-const SERVER_MAC = "8c:85:90:d1:41:dc"
-const PORT = 8081
-const PATH_clientApp = "./clientApp"
-// client.js
+// read settings
 const fs = require('fs')
+let CONFIG = fs.readFileSync('../../boards_config.json')
+CONFIG = JSON.parse(CONFIG)
+
+const SERVER_MAC = CONFIG.settings.server_mac_addr
+const PORT = 8081
+
+const PATH_clientApp = "./clientApp"
+
+
 const WebSocket = require('ws')
 // const ReconnectingWebSocket = require('reconnecting-websocket');
 
-const os = require('os');
 const spawn = require('child_process').spawn
 let need_reconnect = true
 
-let scriptOutput = "";
 
 function main() {
   console.log("Scanning local network...")
