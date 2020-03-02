@@ -43,14 +43,15 @@ the program will automatically generate new boards_config.json
 $ cd client/clientApp
 $ sudo node client.js
 ```
-4. on your laptop(server), go to http://localhost:8080 
-5. toogle control+alt/option+c to show the CommandCenter panel
-6. make sure edit board configuration is enabled
-7. at the right side of the panel is the boards not registered
-8. there you should see your rpi, click add board
-9. after adjusting boards' id pattern , remember to click Save
-10. disable edit board configuration
-11. you can now send command to your boards!!
+4. on esp8266, just open it
+5. on your laptop(server), go to http://localhost:8080 
+6. toogle control+alt/option+c to show the CommandCenter panel
+7. make sure edit board configuration is enabled
+8. at the right side of the panel is the boards not registered
+9. there you should see your rpi, click add board
+10. after adjusting boards' id pattern , remember to click Save
+11. disable edit board configuration
+12. you can now send command to your boards!!
 
 ## afterward usage
 1. 
@@ -58,7 +59,7 @@ $ sudo node client.js
 $ npm start
 ```
 2. on your laptop(server), go to http://localhost:8080 
-3. the rest is the same
+3. the rest is the same(rpi,esp8266)
 
 
 ### Client
