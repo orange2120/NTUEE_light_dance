@@ -17,6 +17,8 @@ const path = require('path')
 const express = require('express')
 const fs = require('fs')
 
+const os =require('os')
+
 
 // const webpack = require('webpack')
 // const webpack_config = require('../webpack.config')
@@ -45,9 +47,23 @@ server.listen(PORT,()=>{
 })
 const CONFIG_PATH = './boards_config.json'
 let CONFIG = ''
+
 function readConfigFile(p=CONFIG_PATH){
-    CONFIG = fs.readFileSync(p)
-    CONFIG = JSON.parse(CONFIG)
+    if(!fs.existsSync(p)){
+        // if file not exist create a emty config file
+        CONFIG = {
+            "boards": [],
+            "settings": {
+                "ping_interval": 3000,
+                "server_mac_addr" : os.networkInterfaces()["en0"][0]["mac"]
+            }
+        }
+        writeConfigFile()
+    }else{
+        CONFIG = fs.readFileSync(p)
+        CONFIG = JSON.parse(CONFIG)
+    }
+    
 }
 function writeConfigFile(p=CONFIG_PATH){
     fs.writeFileSync(p,JSON.stringify(CONFIG))

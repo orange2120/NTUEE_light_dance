@@ -30,6 +30,36 @@ Light dance system for 2020 NTUEE night
 
 ### Server
 Control dancers via a Wi-Fi router. 
+## setup (only for first time)
+1. if boards_config.json exists, delete it.
+2. build server
+```bash
+$ npm i
+$ npm run build
+```
+the program will automatically generate new boards_config.json
+3. on r-pi, (make sure we use new generated boards_config.json)
+```bash
+$ cd client/clientApp
+$ sudo node client.js
+```
+4. on your laptop(server), go to http://localhost:8080 
+5. toogle control+alt/option+c to show the CommandCenter panel
+6. make sure edit board configuration is enabled
+7. at the right side of the panel is the boards not registered
+8. there you should see your rpi, click add board
+9. after adjusting boards' id pattern , remember to click Save
+10. disable edit board configuration
+11. you can now send command to your boards!!
+
+## afterward usage
+1. 
+```bash
+$ npm start
+```
+2. on your laptop(server), go to http://localhost:8080 
+3. the rest is the same
+
 
 ### Client
 Each dancer is a client device. Receive commands from the server.
