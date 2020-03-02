@@ -3,5 +3,7 @@
 node_modules/
 editor/dist/
 
+client/clientApp/recieve.json
+
 .o
 .h.gch
