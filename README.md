@@ -30,7 +30,7 @@ Light dance system for 2020 NTUEE night
 
 ### Server
 Control dancers via a Wi-Fi router. 
-## setup (only for first time)
+#### setup (only for first time)
 1. if boards_config.json exists, delete it.
 2. build server
 ```bash
@@ -53,11 +53,12 @@ $ sudo node client.js
 11. disable edit board configuration
 12. you can now send command to your boards!!
 
-## afterward usage
+#### afterward usage
 1. 
 ```bash
 $ npm start
 ```
+
 2. on your laptop(server), go to http://localhost:8080 
 3. the rest is the same(rpi,esp8266)
 
