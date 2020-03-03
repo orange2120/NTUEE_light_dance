@@ -4,7 +4,7 @@
             "Start": 0,
             "Status": {
                 "LED_CHEST": {
-                    "name": "chest",
+                    "name": "0",
                     "alpha": 0.2
                 },
                 "LED_R_SHOE": {
@@ -42,10 +42,10 @@
             }
         },
         {
-            "Start": 500,
+            "Start": 3000,
             "Status": {
                 "LED_CHEST": {
-                    "name": "chest",
+                    "name": "1",
                     "alpha": 0.2
                 },
                 "LED_R_SHOE": {
@@ -83,10 +83,10 @@
             }
         },
         {
-            "Start": 1000,
+            "Start": 6000,
             "Status": {
                 "LED_CHEST": {
-                    "name": "chest",
+                    "name": "2",
                     "alpha": 0.2
                 },
                 "LED_R_SHOE": {
@@ -124,10 +124,10 @@
             }
         },
         {
-            "Start": 1100,
+            "Start": 9000,
             "Status": {
                 "LED_CHEST": {
-                    "name": "chest",
+                    "name": "3",
                     "alpha": 0.2
                 },
                 "LED_R_SHOE": {
@@ -165,10 +165,10 @@
             }
         },
         {
-            "Start": 1200,
+            "Start": 12000,
             "Status": {
                 "LED_CHEST": {
-                    "name": "chest",
+                    "name": "4",
                     "alpha": 0.2
                 },
                 "LED_R_SHOE": {
@@ -206,10 +206,10 @@
             }
         },
         {
-            "Start": 1300,
+            "Start": 15000,
             "Status": {
                 "LED_CHEST": {
-                    "name": "chest",
+                    "name": "5",
                     "alpha": 0.2
                 },
                 "LED_R_SHOE": {
@@ -247,10 +247,10 @@
             }
         },
         {
-            "Start": 1400,
+            "Start": 18000,
             "Status": {
                 "LED_CHEST": {
-                    "name": "chest",
+                    "name": "6",
                     "alpha": 0.2
                 },
                 "LED_R_SHOE": {
@@ -288,10 +288,10 @@
             }
         },
         {
-            "Start": 1500,
+            "Start": 21000,
             "Status": {
                 "LED_CHEST": {
-                    "name": "chest",
+                    "name": "7",
                     "alpha": 0.2
                 },
                 "LED_R_SHOE": {
@@ -329,7 +329,7 @@
             }
         },
         {
-            "Start": 1600,
+            "Start": 24000,
             "Status": {
                 "LED_CHEST": {
                     "name": "chest1",
@@ -370,7 +370,7 @@
             }
         },
         {
-            "Start": 1700,
+            "Start": 27000,
             "Status": {
                 "LED_CHEST": {
                     "name": "chest1",
@@ -411,7 +411,7 @@
             }
         },
         {
-            "Start": 1800,
+            "Start": 30000,
             "Status": {
                 "LED_CHEST": {
                     "name": "chest1",
@@ -452,7 +452,7 @@
             }
         },
         {
-            "Start": 4000,
+            "Start": 32000,
             "Status": {
                 "LED_CHEST": {
                     "name": "chest1",
