@@ -197,33 +197,34 @@ void sigint_handler(int sig)
 
 void sig_pause(int sig)
 {
+    cerr << endl;
     printf("Pause!\n");
     turnOff();
-    
-    string cmd, tok;
-    size_t pos;
-    int time = 0; // begin time
-    bool end = false;
-    while(!end) {
-        cmd = ""; tok = ""; time = 0; pos = 0;
-        cin.clear();
-        cout << ">> ";
-        getline(cin, cmd); cmd.append(" ");
-        pos = myStrGetTok(cmd, tok, pos);
-        if(pos == string::npos) continue;
-        else if(tok != "run") {
-            cerr << "[ERROR] No existing command " << tok << endl;
-            continue;
-        }
-        else {
-            if(myStrGetTok(cmd, tok, pos) == string::npos) { // default begin time = 0
-                time = 0;
-            }
-            else if (!myStr2Int(tok, time)) {
-                cerr << "[ERROR] Format Error, "  << tok << " Is Not a Number!!"<< endl;
-                continue;
-            }
-        }
-        run(dancer_id, time);
-    }
+    return;
+    // string cmd, tok;
+    // size_t pos;
+    // int time = 0; // begin time
+    // bool end = false;
+    // while(!end) {
+    //     cmd = ""; tok = ""; time = 0; pos = 0;
+    //     cin.clear();
+    //     cout << ">> ";
+    //     getline(cin, cmd); cmd.append(" ");
+    //     pos = myStrGetTok(cmd, tok, pos);
+    //     if(pos == string::npos) continue;
+    //     else if(tok != "run") {
+    //         cerr << "[ERROR] No existing command " << tok << endl;
+    //         continue;
+    //     }
+    //     else {
+    //         if(myStrGetTok(cmd, tok, pos) == string::npos) { // default begin time = 0
+    //             time = 0;
+    //         }
+    //         else if (!myStr2Int(tok, time)) {
+    //             cerr << "[ERROR] Format Error, "  << tok << " Is Not a Number!!"<< endl;
+    //             continue;
+    //         }
+    //     }
+    //     run(dancer_id, time);
+    // }
 }
