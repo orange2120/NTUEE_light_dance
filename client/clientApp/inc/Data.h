@@ -32,7 +32,7 @@ class Person { // for every dancer
     ~Person() {}
     inline void set_execute(Execute); // push execution one by one
     void print() const;
-    int t_index = 0 ; // place in time_line
+    unsigned t_index = 0 ; // place in time_line
     vector<Execute> time_line; // including every execution in time order
   private:
 };
