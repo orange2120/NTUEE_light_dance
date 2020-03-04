@@ -10,8 +10,8 @@
 #include <cstdio>
 #include <fstream>
 #include <vector>
-#include <signal.h>
 #include <string>
+#include <signal.h>
 
 #include "control.hpp"
 #include "definition.h"
@@ -26,33 +26,37 @@ int dancer_id = 0;
 
 int main(int argc, char *argv[]) // arg[1] = person id
 {
-    struct sigaction handler_int, handler_usr1;
+    // struct sigaction handler_int, handler_usr1;
+    struct sigaction handler_int;
     handler_int.sa_handler = sigint_handler;
-    handler_usr1.sa_handler = sig_pause;
+    // handler_usr1.sa_handler = sig_pause;
+    signal(SIGUSR1, sig_pause);
 
     if (argc == 2) {
         dancer_id = atoi(argv[1]);
     }
     else if (argc > 2)
     {
-        fprintf(stderr, "[ERROR] Invalid parameters!\nUsage: ./clientApp [dancer ID] \n");
+        fprintf(stderr, "[ERROR] Invalid parameters!\nUsage: sudo ./clientApp [dancer ID] \n");
         return -1;
     }
 
     if (getuid() != 0) {
-		fprintf(stderr, "Program is not started as \'root\' (sudo)\n");
+		fprintf(stderr, "[ERROR] Program is not started as \'root\' (sudo)\n");
 		return -1;
 	}
 
-    if (sigfillset(&handler_int.sa_mask) < 0 || sigfillset(&handler_usr1.sa_mask) < 0)
+    // if (sigfillset(&handler_int.sa_mask) < 0 || sigfillset(&handler_usr1.sa_mask) < 0)
+    if (sigfillset(&handler_int.sa_mask) < 0)
     {
-        fprintf(stderr, "Fillset error!\n");
+        fprintf(stderr, "[ERROR] Fillset error!\n");
         return -1;
     }
     handler_int.sa_flags = 0;
-    handler_usr1.sa_flags = 0;
+    // handler_usr1.sa_flags = 0;
 
-    if (sigaction(SIGINT, &handler_int, 0) < 0 || sigaction(SIGUSR1, &handler_usr1, 0) < 0 )
+    if (sigaction(SIGINT, &handler_int, 0) < 0)
+    // if (sigaction(SIGINT, &handler_int, 0) < 0 || sigaction(SIGUSR1, &handler_usr1, 0) < 0 )
     {
         fprintf(stderr, "[ERROR] sigaction failed!\n");
         return -1;
@@ -63,12 +67,11 @@ int main(int argc, char *argv[]) // arg[1] = person id
 
     if (!init(path))
     {
-        cerr << "[ERROR] Init failed\n";
+        cerr << "[ERROR] Init failed!\n";
         return -1;
     }
     
     printf("Dancer ID = %d\n", dancer_id);
-
 
     // people[0].print();
     // turnOff();
@@ -76,7 +79,7 @@ int main(int argc, char *argv[]) // arg[1] = person id
     size_t pos;
     int time = 0; // begin time
     bool end = false;
-    cout << "Usage:\"run [time]\"" << endl;
+    cout << "Usage:\"run [start time]\"" << endl;
     while(!end) {
         cmd = ""; tok = ""; time = 0; pos = 0;
         cin.clear();
@@ -85,7 +88,7 @@ int main(int argc, char *argv[]) // arg[1] = person id
         pos = myStrGetTok(cmd, tok, pos);
         if(pos == string::npos) continue;
         else if(tok != "run") {
-            cerr << "[ERROR] No existing command " << tok << endl;
+            cerr << "[ERROR] Invalid command! \"" << tok << "\"" << endl;
             continue;
         }
         else {
