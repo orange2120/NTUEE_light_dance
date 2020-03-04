@@ -1,3 +1,11 @@
+/****************************************************************************
+  FileName     [ PCAtest.cpp ]
+  PackageName  [ PCA9685_test ]
+  Synopsis     [ main function ]
+  Author       [  ]
+  Copyright    [ Copyleft(c) , NTUEE, Taiwan ]
+****************************************************************************/
+
 #include <iostream>
 #include <sstream>
 #include <vector>

@@ -79,7 +79,7 @@ LED_part::LED_part(const string& s, const double& d):alpha(d) {
     dataSize = RGB.size();
 
     RGB_data = new char[dataSize];
-    for(int i = 0; i < dataSize; ++i) {
+    for(size_t i = 0; i < dataSize; ++i) {
         double tmp = RGB[i];
         tmp *= d;
         RGB_data[i] = char(int(tmp));
