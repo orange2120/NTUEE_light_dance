@@ -9,7 +9,7 @@ N_WS = 1
 
 
 # convert file to rgb array
-def png2rgb(dimension=1):
+def png2rgb(dimension=1,rotate=0):
     with open('asset.json') as json_file:
         data = json.load(json_file)
         for imgPath in data['path']:
@@ -17,6 +17,10 @@ def png2rgb(dimension=1):
             print("Read file:" + imgPath)
             w, h = img.size
             imgArr = np.array(img).reshape(h, w, 3)
+
+            
+            # rotate 90*rotate degree
+            imgArr = np.rot90(imgArr,rotate)
             imgArr[1::2, :] = imgArr[1::2, ::-1] #invert odd row
             output_path = 'outputRGB/' + imgPath + '.json'
             
@@ -38,6 +42,8 @@ if __name__ == '__main__':
         os.makedirs('outputRGB')
         print('create directory : outputRGB')
     if len(sys.argv)>1:
-        png2rgb(int(sys.argv[1]))
+        print("rotate" , int(sys.argv[1])*90)
+        png2rgb(1,int(sys.argv[1]))
+        
     else:
         png2rgb()
