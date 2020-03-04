@@ -9,10 +9,23 @@ Integrate the system with web interface.
 client application is running on Raspberry Pi.  
 
 ## Arduino/SPI2WS2812
-Receive RGB data via from RPi, convert to WS2812 signal. 
+Receive RGB data via from RPi, convert to WS2812 signal.  
+
+## image_test
+Testing program for test LED strips from converted RGB JSON file.  
+
+Usage:  
+```
+$ sudo ./testImg <strip ID> <JSON file path>
+```
 
 ## WS2812_SPI_R2Atest
 Test program for SPI protocol to WS2812 LED strip from RPi to Ardunio.
+
+Usage:  
+```
+$ sudo ./test <strip ID> <LED number>
+```
 
 ## PCA9685_test
 Test program for PCA9685 PWM module.
