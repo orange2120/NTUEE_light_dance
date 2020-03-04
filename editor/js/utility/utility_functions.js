@@ -8,8 +8,9 @@ const getPixels = require("get-pixels")
 class MyUtilities{
 
 
-    async generate(rotate,callback){
-          getPixels("asset/LED/LED_CHEST/chest1.png", function(err, pixels) {
+    async generate(path,rotate,callback){
+      path = "asset/LED/LED_CHEST/chest1.png"
+          getPixels(path, function(err, pixels) {
             if(err) {
               console.log("Bad image path")
               return
