@@ -1,3 +1,11 @@
+/****************************************************************************
+  FileName     [ control.hpp ]
+  PackageName  [ clientApp ]
+  Synopsis     [ flow control ]
+  Author       [  ]
+  Copyright    [ Copyleft(c) , NTUEE, Taiwan ]
+****************************************************************************/
+
 #include <unistd.h>
 #include "nlohmann/json.hpp"
 #include "Data.h"
@@ -23,7 +31,7 @@ LED_Strip leds(NUM_OF_LED, numLEDs);
 
 void ReadJson(json& data)
 {
-    cerr << "[Reading] Json file";
+    cerr << "[INFO] Reading JSON file";
     for(int i = 0; i < PEOPLE_NUM; ++i) { // dimension of people
         cerr << ".";
         if((i+1)%4 == 0) {
@@ -49,7 +57,7 @@ void ReadJson(json& data)
             e.set_EL_part(a);
         }
     }
-    cerr << endl << "[Done!!]" << endl;
+    cerr << endl << "[INFO] File loaded!!" << endl;
 }
 
 bool init(const string& path) {
@@ -61,7 +69,7 @@ bool init(const string& path) {
     return true;
 }
 
-void sendSig(int id) {
+void sendSig(const int id) {
     Execute &e = people[id].time_line[people[id].t_index];
     // send EL sig 
     for(int i = 0; i < NUM_OF_EL; ++i) {
@@ -81,7 +89,7 @@ void turnOff()
     // send EL sig 
     for(int i = 0; i < NUM_OF_EL; ++i) {
         if(i < 16)  el1.setEL(i, uint16_t(0));
-        else el2.setEL(i%16, uint16_t(0));
+        else el2.setEL(i % 16, uint16_t(0));
     }
     char* tmp = 0;
     // send LED sig 
@@ -93,7 +101,7 @@ void turnOff()
     delete[] tmp;
 }
 
-void run(int id, int time) {
+void run(const int id, int time) {
     // time (ms)
     Person &p = people[id];
     p.t_index = 0;
@@ -187,7 +195,7 @@ bool myStr2Int(const string& str, int& num)
 // system call handler
 void sigint_handler(int sig)
 {
-    printf("Catch SIGINT signal...\n");
+    printf("[INFO] Catch SIGINT signal...\n");
     // TODO
     turnOff();
     // turn off ELs, LEDS, close file...
@@ -198,9 +206,19 @@ void sigint_handler(int sig)
 void sig_pause(int sig)
 {
     cerr << endl;
-    printf("Pause!\n");
+    printf("[INFO] Pause!\n");
     turnOff();
-    return;
+    while(1)
+    {
+        string str;
+        cin >> str;
+        if (str == "cont")
+        {
+            cout << "[INFO] Continue!" << endl;
+            break;
+        }
+    }
+    // return;
     // string cmd, tok;
     // size_t pos;
     // int time = 0; // begin time

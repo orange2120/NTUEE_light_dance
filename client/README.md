@@ -64,11 +64,11 @@ For example, transfer data to LED matrix that has 88 LEDs at address `ID = 0x1`.
 
 ## Dependencies
 [Adafruit_NeoPixel](https://github.com/adafruit/Adafruit_NeoPixel)  
+[bcm2835 library](https://www.airspayce.com/mikem/bcm2835/index.html)  
 
 ## References
 
 ### RPi SPI communication
-[bcm2835 library](https://www.airspayce.com/mikem/bcm2835/index.html)  
 [Raspberry Pi SPI and I2C Tutorial](https://learn.sparkfun.com/tutorials/raspberry-pi-spi-and-i2c-tutorial/all)  
 
 ### Arduino SPI communication
@@ -79,7 +79,7 @@ For example, transfer data to LED matrix that has 88 LEDs at address `ID = 0x1`.
 [PCA9685 16 Channel 12 Bit PWM Servo Driver « osoyoo.com](https://osoyoo.com/2017/07/18/pca9685-16-channel-12-bit-pwm-servo-driver/)  
 
 ### WS2812 LED strip
-**Note:** Color order of WS2812 is G-R-B.  
+**Note:** Color order of WS2812 is `G-R-B`.  
 Each LED requires 3 byte (24 bit) to transfer RGB pixel data.  
 [WS2812 datasheet](https://cdn-shop.adafruit.com/datasheets/WS2812.pdf)  
 [WS2812B datasheet](https://cdn-shop.adafruit.com/datasheets/WS2812B.pdf)  
