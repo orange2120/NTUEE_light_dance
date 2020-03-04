@@ -136,11 +136,11 @@ void run(int id, int time) {
         auto duration = duration_cast<microseconds>(end-start); // transmission time
         if(double(duration.count()) < PERIOD*1000) usleep(PERIOD*1000-double(duration.count())); // delay until 30000 us (30 ms)
         else {
-            for(int i = 0; i < to_string(time).length()+10; ++i) cerr << '\b';
+            for(unsigned i = 0; i < to_string(time).length()+10; ++i) cerr << '\b';
             cerr << "[ERROR] Sending Time Exceeds " << PERIOD << "ms!!" << endl;
             return;
         }
-        for(int i = 0; i < to_string(time).length(); ++i) cerr << '\b';
+        for(unsigned i = 0; i < to_string(time).length(); ++i) cerr << '\b';
         time += PERIOD;
     }
     p.t_index = 0;
