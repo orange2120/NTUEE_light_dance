@@ -10,11 +10,11 @@ class Dancer {
         this.parts    = {};         // dancer body part
         
         // BlackPart
-        BLPARTS.map(blpart => this.parts[blpart] = new BlackPart(this, blpart, this.app));
+        BLPARTS.map(blpart => this.parts[blpart] = new BlackPart(this, blpart));
         // LightPart
-        LIGHTPARTS.map(lipart => this.parts[lipart] = new LightPart(this, lipart, this.app));
+        LIGHTPARTS.map(lipart => this.parts[lipart] = new LightPart(this, lipart));
         // LEDPART
-        LEDPARTS.map(ledpart => this.parts[ledpart] = new LEDPart(this, ledpart, this.app, loadTexture));
+        LEDPARTS.map(ledpart => this.parts[ledpart] = new LEDPart(this, ledpart, loadTexture));
         // this.parts["LEDH"] = new LEDPart(this, this.app, loadTexture["LEDH"]);    // LED Head
 
         // PIXI Rendering

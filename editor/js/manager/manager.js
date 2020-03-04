@@ -1,4 +1,4 @@
-import { DANCER_NUM, FPS } from '../constants';
+import { DANCER_NUM, FPS, LEDPARTS, LIGHTPARTS } from '../constants';
 
 class Manager {
     constructor() {
@@ -134,7 +134,7 @@ class Manager {
     }
 
     editStatus() {
-        console.log("Saving newStatus [Edit]");
+        console.log("Saving newStatus [Edit]", JSON.parse(JSON.stringify(this.newStatus)));
         for (let i = 0;i < DANCER_NUM; ++i) {
             Object.assign(this.control[i][this.timeInd[i]]["Status"], this.newStatus[i]);
         }
@@ -166,13 +166,14 @@ class Manager {
     }
 
     addStatus() {
-        console.log("Saving newStatus [Add]", this.newStatus);
+        let timeInd = this.getTimeInd();
+        console.log("Saving newStatus [Add]", JSON.parse(JSON.stringify(this.newStatus)), this.time, timeInd);
         for (let i = 0;i < DANCER_NUM; ++i) {
             let newControl = {};
             newControl["Start"] = this.time;
-            newControl["Status"] = Object.assign({}, this.control[i][this.timeInd[i]]["Status"], this.newStatus[i]);
-            this.control[i].splice(this.timeInd[i] + 1, 0, newControl);
-            this.timeInd[i] += 1;
+            newControl["Status"] = Object.assign({}, this.control[i][timeInd[i]]["Status"], this.newStatus[i]);
+            this.control[i].splice(timeInd[i] + 1, 0, newControl);
+            this.timeInd[i] = timeInd[i];
         }
         console.log(this.mode)
         // this.sim.updateAll();
@@ -192,11 +193,19 @@ class Manager {
         let checkedDancerId = this.editor.checkedDancerId;
         if (preset["Chosen_Dancer"] && !shouldUpdateDancers.includes(checkedDancerId))
             shouldUpdateDancers.push(checkedDancerId);
-        Object.keys(preset["Status"]).map(key => {
-            shouldUpdateDancers.map(id => {
-                this.updateControl(id, key, preset["Status"][key]);
+        shouldUpdateDancers.map(id => {
+            const status = preset["Status"];
+            LIGHTPARTS.map(lightPart => {
+                if (status[lightPart]["checked"]) 
+                    this.updateControl(id, lightPart, status[lightPart]["value"]);
             });
-        });
+            LEDPARTS.map(ledPart => {
+                if (status[ledPart]["checked"]) {
+                    this.updateLEDControlAlpha(id, ledPart, status[ledPart]["alpha"]);
+                    this.updateLEDControlTexture(id, ledPart, status[ledPart]["name"]);
+                }
+            })
+        })
     }
 
     initNewStatus() {
