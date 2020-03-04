@@ -22,10 +22,13 @@ import '../css/goldenlayout-dark-theme.css';
 import '../css/slider.css';
 import '../css/index.css';
 
-import MyUtilities from './utility/utility_functions.js';
-let x = new MyUtilities()
-x.generate(0,(data)=>{
-    console.log(data)
+import { png2rgb_arr } from './utility/utility_functions.js'
+
+png2rgb_arr("asset/LED/LED_CHEST/chest1.png",0,(data)=>{
+    console.log(0,data)
+})
+png2rgb_arr("asset/LED/LED_CHEST/chest1.png",1,(data)=>{
+    console.log(1,data)
 })
 
 function importAllAsset(r) {
