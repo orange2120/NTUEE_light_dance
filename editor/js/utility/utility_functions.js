@@ -5,11 +5,19 @@ const axios = require('axios').default
 const getPixels = require("get-pixels")
 
 
-class MyUtilities{
+
+function arr_transpose(a) {
+  return Object.keys(a[0]).map(function (c) {
+      return a.map(function (r) {
+          return r[c];
+      });
+  });
+}
 
 
-    async generate(path,rotate,callback){
-      path = "asset/LED/LED_CHEST/chest1.png"
+// png2rgb_arr("<path>",rotate(times of 90 degree right),callback function)
+ export async function png2rgb_arr(path,rotate=1,callback){
+      // path = "asset/LED/LED_CHEST/chest1.png"
           getPixels(path, function(err, pixels) {
             if(err) {
               console.log("Bad image path")
@@ -17,40 +25,45 @@ class MyUtilities{
             }
             let pixels_raw = Array.from(pixels.data)
             
+
             let img_arr=[]
             let width = pixels.shape[0]
             let height = pixels.shape[1]
             // console.log("got pixels", pixels.shape.slice())
             // console.log(pixels_raw)
             img_arr = math.reshape(pixels_raw,[height,width,4])
+            
+            
+            for(let i =0;i<rotate;++i)
+            {
+              // to rotate 90 degree -> reverse then transpose
+              img_arr.reverse()
+              img_arr = arr_transpose(img_arr)
+            }
+            
+            width = img_arr[0].length
+            height = img_arr.length
+
+            // flip odd row
             img_arr.map((r,i)=>{
               if(i%2 === 1){
                 r.reverse()
               }
               return r
             })
+            // remove alpha data
             img_arr.map((r)=> r.map((p)=> {
               p.pop()
               return p
             }))
-            let ret_arr = Array(width).fill().map(() => Array(height).fill().map(()=>Array(3)));
 
-            for (let i = 0; i < img_arr.length; i++) {
-              for (let j = 0; j < img_arr[i].length; i++) {
-                ret_arr[width-j][height-i] = img_arr[i][j]
-              }
-            } 
-            // math.transpose(img_arr)
-            
-            
-            callback(ret_arr.flat(3))
+            callback(img_arr.flat(3))
             
           })
         
     }
     
-}
+
 
  
 
-export default MyUtilities
