@@ -6,7 +6,7 @@ import { DISPLAY_WIDTH, DISPLAY_HEIGHT } from './constants';
 
 import Simulator from './simulator/simulator.js';
 import Editor from './editor/editor.js';
-import Mytimeline from './timeline/mytimeline.js';
+// import Mytimeline from './timeline/mytimeline.js';
 import MyWaveSurfer from './wavesurfer/wavesurfer.js';
 import Manager from './manager/manager.js';
 import Presets from './presets/presets.js';
