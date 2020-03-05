@@ -1,6 +1,6 @@
 /****************************************************************************
   FileName     [ testImg.cpp ]
-  PackageName  [ Image_test ]
+  PackageName  [ image_test ]
   Synopsis     [ main function ]
   Author       [  ]
   Copyright    [ Copyleft(c) , NTUEE, Taiwan ]
@@ -16,7 +16,7 @@
 #include "definition.h"
 #include "LED_strip.h"
 
-#define alpha 0.6
+#define alpha 0.2
 #define TEST_INTERVAL 5000000 // us
 
 
@@ -30,10 +30,14 @@ LED_Strip leds(NUM_OF_LED, numLEDs);
 
 int main(int argc, char *argv[])
 {
-    if (argc != 2)
+    if (argc == 3)
+    {
+        path = argv[2];
+    }
+    else if (argc != 2)
 	{
 		cerr << "[ERROR] Invalid parameter\n";
-		cerr << "Usage: sudo ./testImg <strip ID> \n";
+		cerr << "Usage: sudo ./testImg <strip ID> [JSON file path]\n";
 		return -1;
 	}
 
@@ -57,4 +61,5 @@ int main(int argc, char *argv[])
     leds.sendToStrip(id, tmp);
     delete[] tmp;
     // usleep(TEST_INTERVAL);
+    cout << "done!" << endl;
 }
