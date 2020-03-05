@@ -23,7 +23,7 @@
 #define LEDS_2 40
 
 // refresh interval
-#define PERIOD 70 // 70ms
+#define PERIOD 90 // 90ms
 
 // PCA9685 I2C address
 #define NUM_EL_1       16
