@@ -1,8 +1,8 @@
 {
     "path": [
-        "test1.png",
-        "test2.png",
-        "test3.png"
+        "bl_chest.png",
+        "chest1.png",
+        "chest2.png"
     ],
     "time_line":[ 
         [100, 200, "a5b4"],
