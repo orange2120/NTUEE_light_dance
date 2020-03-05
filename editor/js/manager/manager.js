@@ -1,4 +1,5 @@
 import { DANCER_NUM, FPS, LEDPARTS, LIGHTPARTS } from '../constants';
+import { checkControl } from '../utility/utility.js';
 
 class Manager {
     constructor() {
@@ -41,7 +42,7 @@ class Manager {
     }
 
     setTime(t) {         // for global time
-        this.time = t;
+        this.time = Number(t);
         console.log(`Manager set time to ${this.time}`);
     }
     setEditMode() {
@@ -114,6 +115,7 @@ class Manager {
         if (this.mode === "EDIT") this.editStatus();
         else if (this.mode === "ADD") this.addStatus();
         window.localStorage.setItem('control', JSON.stringify(this.control));
+        console.log("mgr: saveNewStatus", this.control);
     }
 
     delStatus() {
@@ -131,6 +133,7 @@ class Manager {
         this.sim.updateAll();
         this.editor.update();
         this.wavesurfer.update();
+        this.saveNewStatus();
     }
 
     editStatus() {
@@ -277,7 +280,7 @@ class Manager {
 
     changeTime(newTime, playing = false) {
         // console.log("changeTime", newTime, playing);
-        this.time = newTime;
+        this.time = Number(newTime);
         this.editor.updateTime();
         if (this.mode !== "") {
             this.editor.update();
@@ -331,7 +334,7 @@ class Manager {
             }
         }
         const newTime = this.control[this.editor.checkedDancerId][this.timeInd[0]]["Start"]
-        this.time = newTime === undefined ? this.time : newTime;
+        this.time = newTime === undefined ? this.time : Number(newTime);
         this.editor.update();
         this.wavesurfer.update();
         // console.log("TimeIndIncrement", this.timeInd);
@@ -349,7 +352,7 @@ class Manager {
             }
         }
         const newTime = this.control[this.editor.checkedDancerId][this.timeInd[0]]["Start"]
-        this.time = newTime === undefined ? this.time : newTime;
+        this.time = newTime === undefined ? this.time : Number(newTime);
         this.editor.update();
         console.log("ChangeTimeInd", val);
     }
@@ -359,7 +362,7 @@ class Manager {
     // -------------------------------------------------------------------------
 
     initial(t) {
-        this.time = t;
+        this.time = Number(t);
         this.timeInd = this.getTimeInd(t).slice();
         for (let i = 0; i < DANCER_NUM; ++i) {
             this.sim.update(i, this.timeInd[i]);
@@ -410,7 +413,9 @@ class Manager {
             fr.onload = evt => {
                 let re = JSON.parse(evt.target.result);
                 this.control = re;
+                checkControl(this.control);
                 console.log("upload new control", this.control);
+                this.saveNewStatus();
             };
             fr.readAsText(files[0]);
         }
