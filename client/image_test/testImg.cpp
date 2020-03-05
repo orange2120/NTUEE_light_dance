@@ -11,32 +11,33 @@
 #include <vector>
 #include <string>
 #include <unistd.h>
+#include <time.h>
 #include "nlohmann/json.hpp"
 #include "definition.h"
 #include "LED_strip.h"
 
 #define alpha 0.6
-#define TEST_INTERVAL 500000 // us 
+#define TEST_INTERVAL 5000000 // us
+
 
 using json = nlohmann::json;
 using namespace std;
 
 int id = 0, dataSize = 0;
 char* RGB_data = NULL;
-string path = "";
+string path = "./test.json";
 LED_Strip leds(NUM_OF_LED, numLEDs);
 
 int main(int argc, char *argv[])
 {
-    if (argc != 3)
+    if (argc != 2)
 	{
 		cerr << "[ERROR] Invalid parameter\n";
-		cerr << "Usage: sudo ./testImg <strip ID> <JSON file path>\n";
+		cerr << "Usage: sudo ./testImg <strip ID> \n";
 		return -1;
 	}
 
     id = atoi(argv[1]);
-    path = argv[2];
     ifstream infile(path);
     json RGB = json::parse(infile);
     dataSize = RGB.size();
@@ -47,4 +48,13 @@ int main(int argc, char *argv[])
         RGB_data[i] = char(int(tmp));
     }
     leds.sendToStrip(id, RGB_data);
+    usleep(TEST_INTERVAL);
+
+    // turnoff
+    char* tmp = 0;
+    tmp = new char[dataSize];
+    for(int j = 0; j < dataSize; ++j) tmp[j] = 0;
+    leds.sendToStrip(id, tmp);
+    delete[] tmp;
+    // usleep(TEST_INTERVAL);
 }
