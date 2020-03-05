@@ -208,6 +208,22 @@ class Manager {
         })
     }
 
+    loadScene(scene) {
+        if (this.mode === "") return;
+        console.log("Mgr load scene", scene);
+        for (let id = 0; id < DANCER_NUM; ++id) {
+            const status = scene["status"][id];
+            LIGHTPARTS.map(lightPart => {
+                this.updateControl(id, lightPart, status[lightPart]);
+            });
+            LEDPARTS.map(ledPart => {
+                this.updateLEDControlAlpha(id, ledPart, status[ledPart]["alpha"]);
+                this.updateLEDControlTexture(id, ledPart, status[ledPart]["name"]);
+            });
+        }
+
+    }
+
     initNewStatus() {
         for (let i = 0;i < DANCER_NUM; ++i) {
             this.newStatus[i] = JSON.parse(JSON.stringify(this.control[i][this.timeInd[i]]["Status"]));

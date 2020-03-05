@@ -300,17 +300,17 @@ body .lm_content {
     margin: 0px 3px 0px 3px;
 }
 
-#presets {
+#presets, #scenes {
     padding: 6px 6px 0px 6px;
     position: relative;
     overflow-y: auto;
 }
 
-#presets .title {
+#presets .title, #scenes .title {
     border-bottom: 1px solid gray;
 }
 
-.presets-addbtn {
+.presets-addbtn, .scenes-addbtn {
     position: absolute;
     right: 10px;
     top: 6px;
@@ -321,18 +321,18 @@ body .lm_content {
     
 }
 
-.preset-li {
+.preset-li, .scenes-li {
     padding: 5px 3px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.preset-li svg {
+.preset-li svg, .scenes-li svg {
     cursor: pointer;
     padding-left: 6px;
 }
 
-.preset-li:hover {
+.preset-li:hover, .scenes-li:hover {
     background-color: rgba(100, 100, 100, 0.5);
     transition: background-color .2s;
 }
