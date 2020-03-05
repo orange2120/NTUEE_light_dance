@@ -76,7 +76,10 @@ For example, transfer data to LED matrix that has 88 LEDs at address `ID = 0x1`.
 [How to use SPI in Arduino: Communication between two Arduino Boards](https://circuitdigest.com/microcontroller-projects/arduino-spi-communication-tutorial)  
 
 ### PCA9685 16 Channel 12 Bit PWM Servo Driver
+[Adafruit PCA9685 16-Channel Servo Driver](https://cdn-learn.adafruit.com/downloads/pdf/16-channel-pwm-servo-driver.pdf)  
 [PCA9685 16 Channel 12 Bit PWM Servo Driver « osoyoo.com](https://osoyoo.com/2017/07/18/pca9685-16-channel-12-bit-pwm-servo-driver/)  
+[PCA9685 16-Channel 12 Bit I2C Bus PWM Driver - Wiki](http://wiki.sunfounder.cc/index.php?title=PCA9685_16-Channel_12_Bit_I2C_Bus_PWM_Driver#Cascading_multiple_driver_modules)  
+**Note:** The default I<sup>2</sup>C address is `0x40`.  
 
 ### WS2812 LED strip
 **Note:** Color order of WS2812 is `G-R-B`.  

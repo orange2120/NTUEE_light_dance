@@ -22,12 +22,18 @@
 #define LEDS_1 40
 #define LEDS_2 40
 
-// refresh cicle
+// refresh interval
 #define PERIOD 70 // 70ms
+
+// PCA9685 I2C address
+#define NUM_EL_1       16
+#define NUM_EL_2       8
+#define PCA9685_ADDR_1 0x40
+#define PCA9685_ADDR_2 0x60
 
 // Json file's path
 const std::string DIR = "./json/";
-const std::string FILENAME = "test2.json";
+const std::string FILENAME = "0304.json";
 
 // EL parts' name
 const std::string ELs[NUM_OF_EL] = {
@@ -36,7 +42,7 @@ const std::string ELs[NUM_OF_EL] = {
   "INNER1", "INNER2", "R_ARM1", "R_ARM2", 
   "R_HAND", "L_ARM1", "L_ARM2", "L_HAND", 
   "R_PANTS1", "R_PANTS2", "L_PANTS1", "L_PANTS2", 
-  "R_SHOE1", "R_SHOE2", "L_SHOE1", "L_SHOE2"
+  "R_SHOES1", "R_SHOES2", "L_SHOES1", "L_SHOES2"
 };
 
 // LED parts' name
@@ -45,6 +51,5 @@ const std::string LEDs[NUM_OF_LED] = {
 };
 
 const uint16_t numLEDs[NUM_OF_LED] = { LEDS_0, LEDS_1, LEDS_2 };
-
 
 #endif // _DEF_H_

@@ -17,6 +17,8 @@
 #include "pca9685.h"
 using namespace std;
 
+#define I2C_ADDR 0x60
+
 PCA9685 *pca = NULL;
 
 void sigint_handler(int);
@@ -38,7 +40,7 @@ int main()
     sigfillset(&handler_int.sa_mask);
     sigaction(SIGINT, &handler_int, 0);
 
-    PCA9685 pca9685;
+    PCA9685 pca9685(I2C_ADDR);
 	pca9685.Dump();
     pca9685.SetFrequency(1000);
 
@@ -63,7 +65,7 @@ int main()
         size_t nTok = tok.size();
         if (nTok != 2)
         {
-            cerr << "Invalid parameter\n";
+            cerr << "[ERROR] Invalid parameter\n";
             continue;
         }
 
@@ -78,7 +80,7 @@ int main()
 
 void sigint_handler(int sig)
 {
-    printf("\nCatch SIGINT signal...\n");
+    printf("\n[ERROR] Catch SIGINT signal...\n");
     
     for (uint8_t i = 0; i < 16; ++i)
 	    pca->SetFullOff(CHANNEL(i), true);
