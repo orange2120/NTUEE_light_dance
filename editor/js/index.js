@@ -10,6 +10,7 @@ import Mytimeline from './timeline/mytimeline.js';
 import MyWaveSurfer from './wavesurfer/wavesurfer.js';
 import Manager from './manager/manager.js';
 import Presets from './presets/presets.js';
+import Scenes from './presets/scenes.js';
 import Commandcenter from './commandcenter/commandcenter.js';
 import Layout_Config from './golden_layer/layout_config.js';
 import { checkControl, checkPreset } from './utility/utility.js'
@@ -56,6 +57,10 @@ myLayout.registerComponent( 'editor_Component', function( container, componentSt
 
 myLayout.registerComponent( 'presets_Component', function( container, componentState ){
     container.getElement().html('<div id="presets"><div class="title"> <span>Presets:</span> <span class="presets-addbtn">+</span></div><div id="presets-list"></div></div>');
+});
+
+myLayout.registerComponent( 'scenes_Component', function( container, componentState ){
+    container.getElement().html('<div id="scenes_component"><div id="scenes"></div></div>');
 });
 
 myLayout.init();
@@ -111,6 +116,11 @@ myLayout.on("initialised",() => {
     }
     checkPreset(presets_load);
 
+    let scenes_load = [];
+    if (window.localStorage.getItem('scenes') != null) {
+        scenes_load = JSON.parse(window.localStorage.getItem('scenes'));
+    }
+
     // get LEDs
     // const LEDs = load.LED
 
@@ -137,6 +147,9 @@ myLayout.on("initialised",() => {
     
     // presets
     const presets = new Presets(mgr, presets_load, load.Texture);
+
+    // scenes
+    const scenes = new Scenes(mgr, scenes_load);
 
     // timeline
     // const mytimeliner = new Mytimeline(mgr);

@@ -1,8 +1,13 @@
 {
     "path": [
-        "test1.png",
-        "test2.png",
-        "test3.png"
+        "Test.out0.png",
+        "Test.out1.png",
+        "Test.out2.png",
+        "Test.out3.png",
+        "Test.out4.png",
+        "Test.out5.png",
+        "Test.out6.png",
+        "Test.out7.png"
     ],
     "time_line":[ 
         [100, 200, "a5b4"],
