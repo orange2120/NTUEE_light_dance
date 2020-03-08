@@ -9,6 +9,7 @@
 #include <chrono>
 #include <string>
 #include <unistd.h>
+#include <setjmp.h>
 #include "definition.h"
 #include "nlohmann/json.hpp"
 #include "Data.h"
@@ -24,6 +25,7 @@ extern const uint16_t numLEDs[NUM_OF_LED];
 extern const string ELs[NUM_OF_EL];
 extern const string LEDs[NUM_OF_LED];
 extern int dancer_id;
+extern jmp_buf jmpbuffer;
 
 int Count = 1;
 EL el1(16, 0x40), el2(8, 0x60);
@@ -32,34 +34,25 @@ LED_Strip leds(NUM_OF_LED, numLEDs);
 void ReadJson(json& data)
 {
     cerr << "[INFO] Reading JSON file";
-    cerr << endl;
     for(int i = 0; i < PEOPLE_NUM; ++i) { // dimension of people
-        // cerr << ".";
-        // if((i+1)%4 == 0) {
-        //     for(int j = 0; j < 4; ++j)  cerr << '\b'; 
-        //     for(int j = 0; j < 4; ++j)  cerr << " ";
-        //     for(int j = 0; j < 4; ++j)  cerr << '\b';
-        // }
+        cerr << ".";
+        if((i+1)%4 == 0) {
+            for(int j = 0; j < 4; ++j)  cerr << '\b'; 
+            for(int j = 0; j < 4; ++j)  cerr << " ";
+            for(int j = 0; j < 4; ++j)  cerr << '\b';
+        }
         people.push_back(Person());
         for(size_t j = 0; j < data[i].size(); ++j) { // dimension of execution
-            cerr << "count: " << Count << endl;
-            Count++;
-
-            cerr << "1" << endl;
             people[i].time_line.push_back(Execute());
             Execute& e = people[i].time_line[j];
-            cerr << "1.5" << endl;
             e.set_start_time(data[i][j]["Start"]);
-            cerr << "2" << endl;
             // set LED part
             for(int k = 0; k < NUM_OF_LED; ++k)
                 e.set_LED_part(data[i][j]["Status"][LEDs[k]]["name"], data[i][j]["Status"][LEDs[k]]["alpha"]);
-            cerr << "3" << endl;
             // set EL part
             double a[NUM_OF_EL];
             for(int k = 0; k < NUM_OF_EL; ++k)
                 a[k] = data[i][j]["Status"][ELs[k]];
-            cerr << "4" << endl;
             e.set_EL_part(a);
 
         }
@@ -86,9 +79,17 @@ void sendSig(const int id) {
     }
     // send LED sig
     for(int i = 0; i < NUM_OF_LED; ++i) {
-        if(e.LED_parts[i]->get_data() == 0) continue;
-        leds.sendToStrip(i, e.LED_parts[i]->get_data());
-        if(i != NUM_OF_LED-1)   usleep(LED_DELAY);
+        if(e.LED_parts[i]->get_data() == 0) { // no file => turnoff
+            char* tmp = 0;
+            tmp = new char[3*numLEDs[i]];
+            for(int j = 0; j < 3*numLEDs[i]; ++j) tmp[j] = 0;
+            leds.sendToStrip(i, tmp);
+            delete[] tmp;
+        }
+        else {
+            leds.sendToStrip(i, e.LED_parts[i]->get_data());
+            if(i != NUM_OF_LED-1)   usleep(LED_DELAY);
+        }
     }
 }
 
@@ -117,7 +118,7 @@ void run(const int id, int time) {
         cerr << "[ERROR] Input time should >= 0 !!" << endl;
         return;
     }
-    if(time > p.time_line[p.time_line.size()-2].start_time) {
+    if(time > p.time_line[p.time_line.size()-1].start_time) {
         cerr << "[ERROR] Input time exceed total time!!" << endl;
         return;
     }
@@ -217,42 +218,5 @@ void sig_pause(int sig)
     cerr << endl;
     printf("[INFO] Pause!\n");
     turnOff();
-    // goto START;
-    // while(1)
-    // {
-    //     string str;
-    //     cin >> str;
-    //     if (str == "cont")
-    //     {
-    //         cout << "[INFO] Continue!" << endl;
-    //         break;
-    //     }
-    // }
-    // return;
-    // string cmd, tok;
-    // size_t pos;
-    // int time = 0; // begin time
-    // bool end = false;
-    // while(!end) {
-    //     cmd = ""; tok = ""; time = 0; pos = 0;
-    //     cin.clear();
-    //     cout << ">> ";
-    //     getline(cin, cmd); cmd.append(" ");
-    //     pos = myStrGetTok(cmd, tok, pos);
-    //     if(pos == string::npos) continue;
-    //     else if(tok != "run") {
-    //         cerr << "[ERROR] No existing command " << tok << endl;
-    //         continue;
-    //     }
-    //     else {
-    //         if(myStrGetTok(cmd, tok, pos) == string::npos) { // default begin time = 0
-    //             time = 0;
-    //         }
-    //         else if (!myStr2Int(tok, time)) {
-    //             cerr << "[ERROR] Format Error, "  << tok << " Is Not a Number!!"<< endl;
-    //             continue;
-    //         }
-    //     }
-    //     run(dancer_id, time);
-    // }
+    longjmp(jmpbuffer, 1);
 }
