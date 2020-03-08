@@ -3,7 +3,7 @@ import * as PIXI from 'pixi.js';
 import { PARTARGS } from '../constants';
 
 class Part {
-    constructor(dancer, name, app, textures) {
+    constructor(dancer, name, textures) {
         this.dancer = dancer;
         this.dancerID = dancer.id;
         this.name = name;
@@ -19,8 +19,8 @@ class Part {
 }
 
 class BlackPart extends Part {
-    constructor(dancer, name, app) {
-        super(dancer, name, app, [name]);
+    constructor(dancer, name) {
+        super(dancer, name, [name]);
         this.textures[this.paths[0]] = PIXI.Texture.from(`./asset/BlackPart/${this.paths[0]}.svg`);
         this.sprite.texture = this.textures[this.paths[0]];
     }
@@ -33,13 +33,15 @@ class BlackPart extends Part {
 
 
 class LightPart extends Part {
-    constructor(dancer, name, app) {
-        super(dancer, name, app, [name]);
+    constructor(dancer, name) {
+        super(dancer, name, [name]);
         this.textures[this.paths[0]] = PIXI.Texture.from(`./asset/Part/${this.paths[0]}.svg`)
         this.sprite.interactive = true;
         this.sprite.buttonMode = true;
         this.sprite.on('click', () => {
-            console.log("This is clicked!!", this);
+            const checkBox = document.querySelector('#dancer-checkbox-list').children[dancer.id].children[0];
+            checkBox.onclick();
+            checkBox.checked = true;
         });
     }
     updateTexture(alpha) {
@@ -50,9 +52,8 @@ class LightPart extends Part {
 }
 
 class LEDPart extends Part {
-    constructor(dancer, name, app, textures) {
-        // console.log("LEDPART", dancer, name, app, textures)
-        super(dancer, name, app, textures);
+    constructor(dancer, name, textures) {
+        super(dancer, name, textures);
         this.sprite.interactive = true;
         this.sprite.buttonMode = true;
         this.paths[name].map(path => {
@@ -64,7 +65,9 @@ class LEDPart extends Part {
             }
         });
         this.sprite.on('click', () => {
-            console.log("This is clicked!!", this);
+            const checkBox = document.querySelector('#dancer-checkbox-list').children[dancer.id].children[0];
+            checkBox.onclick();
+            checkBox.checked = true;
         });
     }
     updateTexture({name, alpha}) {
