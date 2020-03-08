@@ -1,0 +1,1357 @@
+[
+    {
+        "Name": "All_BL",
+        "Chosen_Dancer": false,
+        "Dancers": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+        ],
+        "Status": {
+            "HAT1": {
+                "value": 1,
+                "checked": true
+            },
+            "HAT2": {
+                "value": 1,
+                "checked": true
+            },
+            "FACE1": {
+                "value": 1,
+                "checked": true
+            },
+            "FACE2": {
+                "value": 0,
+                "checked": true
+            },
+            "INNER1": {
+                "value": 0,
+                "checked": true
+            },
+            "INNER2": {
+                "value": 0,
+                "checked": true
+            },
+            "L_COAT1": {
+                "value": 0,
+                "checked": true
+            },
+            "L_COAT2": {
+                "value": 0,
+                "checked": true
+            },
+            "R_COAT1": {
+                "value": 0,
+                "checked": true
+            },
+            "R_COAT2": {
+                "value": 0,
+                "checked": true
+            },
+            "L_ARM1": {
+                "value": 0,
+                "checked": true
+            },
+            "L_ARM2": {
+                "value": 0,
+                "checked": true
+            },
+            "R_ARM1": {
+                "value": 0,
+                "checked": true
+            },
+            "R_ARM2": {
+                "value": 0,
+                "checked": true
+            },
+            "L_HAND": {
+                "value": 0,
+                "checked": true
+            },
+            "R_HAND": {
+                "value": 0,
+                "checked": true
+            },
+            "L_PANTS1": {
+                "value": 0,
+                "checked": true
+            },
+            "L_PANTS2": {
+                "value": 0,
+                "checked": true
+            },
+            "R_PANTS1": {
+                "value": 0,
+                "checked": true
+            },
+            "R_PANTS2": {
+                "value": 0,
+                "checked": true
+            },
+            "L_SHOES1": {
+                "value": 0,
+                "checked": true
+            },
+            "R_SHOES1": {
+                "value": 0,
+                "checked": true
+            },
+            "LED_CHEST": {
+                "name": "",
+                "alpha": 0,
+                "checked": true
+            },
+            "LED_R_SHOE": {
+                "name": "",
+                "alpha": 0,
+                "checked": true
+            },
+            "LED_L_SHOE": {
+                "name": "",
+                "alpha": 0,
+                "checked": true
+            },
+            "LED_FAN": {
+                "name": "",
+                "alpha": 0,
+                "checked": true
+            }
+        },
+        "id": "E0ZQcluL"
+    },
+    {
+        "Name": "All_light",
+        "Chosen_Dancer": false,
+        "Dancers": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+        ],
+        "Status": {
+            "HAT1": {
+                "checked": true,
+                "value": 1
+            },
+            "HAT2": {
+                "checked": true,
+                "value": 1
+            },
+            "FACE1": {
+                "checked": true,
+                "value": 1
+            },
+            "FACE2": {
+                "checked": true,
+                "value": 1
+            },
+            "INNER1": {
+                "checked": true,
+                "value": 1
+            },
+            "INNER2": {
+                "checked": true,
+                "value": 1
+            },
+            "L_COAT1": {
+                "checked": true,
+                "value": 1
+            },
+            "L_COAT2": {
+                "checked": true,
+                "value": 1
+            },
+            "R_COAT1": {
+                "checked": true,
+                "value": 1
+            },
+            "R_COAT2": {
+                "checked": true,
+                "value": 1
+            },
+            "L_ARM1": {
+                "checked": true,
+                "value": 1
+            },
+            "L_ARM2": {
+                "checked": true,
+                "value": 1
+            },
+            "R_ARM1": {
+                "checked": true,
+                "value": 1
+            },
+            "R_ARM2": {
+                "checked": true,
+                "value": 1
+            },
+            "L_HAND": {
+                "checked": true,
+                "value": 1
+            },
+            "R_HAND": {
+                "checked": true,
+                "value": 1
+            },
+            "L_PANTS1": {
+                "checked": true,
+                "value": 1
+            },
+            "L_PANTS2": {
+                "checked": true,
+                "value": 1
+            },
+            "R_PANTS1": {
+                "checked": true,
+                "value": 1
+            },
+            "R_PANTS2": {
+                "checked": true,
+                "value": 1
+            },
+            "L_SHOES1": {
+                "checked": true,
+                "value": 1
+            },
+            "R_SHOES1": {
+                "checked": true,
+                "value": 1
+            },
+            "LED_CHEST": {
+                "name": "",
+                "alpha": 0,
+                "checked": true
+            },
+            "LED_R_SHOE": {
+                "name": "",
+                "alpha": 0,
+                "checked": true
+            },
+            "LED_L_SHOE": {
+                "name": "",
+                "alpha": 0,
+                "checked": true
+            },
+            "LED_FAN": {
+                "name": "",
+                "alpha": 0,
+                "checked": true
+            }
+        },
+        "id": "GvhP3f8Q"
+    },
+    {
+        "Name": "Test",
+        "Chosen_Dancer": false,
+        "Dancers": [
+            2,
+            3
+        ],
+        "Status": {
+            "HAT1": {
+                "value": 1,
+                "checked": true
+            },
+            "HAT2": {
+                "value": 1,
+                "checked": true
+            },
+            "FACE1": {
+                "value": 1,
+                "checked": true
+            },
+            "FACE2": {
+                "value": 0,
+                "checked": false
+            },
+            "INNER1": {
+                "value": 0,
+                "checked": false
+            },
+            "INNER2": {
+                "value": 0,
+                "checked": false
+            },
+            "L_COAT1": {
+                "value": 0,
+                "checked": false
+            },
+            "L_COAT2": {
+                "value": 0,
+                "checked": false
+            },
+            "R_COAT1": {
+                "value": 0,
+                "checked": false
+            },
+            "R_COAT2": {
+                "value": 0,
+                "checked": false
+            },
+            "L_ARM1": {
+                "value": 0,
+                "checked": false
+            },
+            "L_ARM2": {
+                "value": 0,
+                "checked": false
+            },
+            "R_ARM1": {
+                "value": 0,
+                "checked": false
+            },
+            "R_ARM2": {
+                "value": 0,
+                "checked": false
+            },
+            "L_HAND": {
+                "value": 0,
+                "checked": false
+            },
+            "R_HAND": {
+                "value": 0,
+                "checked": false
+            },
+            "L_PANTS1": {
+                "value": 0,
+                "checked": false
+            },
+            "L_PANTS2": {
+                "value": 0,
+                "checked": false
+            },
+            "R_PANTS1": {
+                "value": 0,
+                "checked": false
+            },
+            "R_PANTS2": {
+                "value": 0,
+                "checked": false
+            },
+            "L_SHOES1": {
+                "value": 0,
+                "checked": false
+            },
+            "R_SHOES1": {
+                "value": 0,
+                "checked": false
+            },
+            "LED_CHEST": {
+                "name": "chest1",
+                "alpha": 1,
+                "checked": true
+            },
+            "LED_R_SHOE": {
+                "name": "",
+                "alpha": 0,
+                "checked": false
+            },
+            "LED_L_SHOE": {
+                "name": "",
+                "alpha": 0,
+                "checked": false
+            },
+            "LED_FAN": {
+                "name": "",
+                "alpha": 0,
+                "checked": false
+            }
+        },
+        "id": "CL4si066"
+    },
+    {
+        "Name": "test2",
+        "Chosen_Dancer": false,
+        "Dancers": [
+            2,
+            3,
+            5
+        ],
+        "Status": {
+            "HAT1": {
+                "value": 1,
+                "checked": true
+            },
+            "HAT2": {
+                "value": 1,
+                "checked": true
+            },
+            "FACE1": {
+                "value": 0,
+                "checked": false
+            },
+            "FACE2": {
+                "value": 0,
+                "checked": false
+            },
+            "INNER1": {
+                "value": 0,
+                "checked": false
+            },
+            "INNER2": {
+                "value": 0,
+                "checked": false
+            },
+            "L_COAT1": {
+                "value": 0,
+                "checked": false
+            },
+            "L_COAT2": {
+                "value": 0,
+                "checked": false
+            },
+            "R_COAT1": {
+                "value": 0,
+                "checked": false
+            },
+            "R_COAT2": {
+                "value": 0,
+                "checked": false
+            },
+            "L_ARM1": {
+                "value": 0,
+                "checked": false
+            },
+            "L_ARM2": {
+                "value": 0,
+                "checked": false
+            },
+            "R_ARM1": {
+                "value": 0,
+                "checked": false
+            },
+            "R_ARM2": {
+                "value": 0,
+                "checked": false
+            },
+            "L_HAND": {
+                "value": 0,
+                "checked": false
+            },
+            "R_HAND": {
+                "value": 0,
+                "checked": false
+            },
+            "L_PANTS1": {
+                "value": 0,
+                "checked": false
+            },
+            "L_PANTS2": {
+                "value": 0,
+                "checked": false
+            },
+            "R_PANTS1": {
+                "value": 0,
+                "checked": false
+            },
+            "R_PANTS2": {
+                "value": 0,
+                "checked": false
+            },
+            "L_SHOES1": {
+                "value": 0,
+                "checked": false
+            },
+            "R_SHOES1": {
+                "value": 1,
+                "checked": true
+            },
+            "LED_CHEST": {
+                "name": "bl_chest",
+                "alpha": 1,
+                "checked": false
+            },
+            "LED_R_SHOE": {
+                "name": "",
+                "alpha": 0,
+                "checked": false
+            },
+            "LED_L_SHOE": {
+                "name": "",
+                "alpha": 0,
+                "checked": false
+            },
+            "LED_FAN": {
+                "name": "",
+                "alpha": 0,
+                "checked": false
+            }
+        },
+        "id": "pBnbm8lS"
+    },
+    {
+        "Name": "All_Chest",
+        "Chosen_Dancer": false,
+        "Dancers": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+        ],
+        "Status": {
+            "HAT1": {
+                "value": 0,
+                "checked": false
+            },
+            "HAT2": {
+                "value": 0,
+                "checked": false
+            },
+            "FACE1": {
+                "value": 0,
+                "checked": false
+            },
+            "FACE2": {
+                "value": 0,
+                "checked": false
+            },
+            "INNER1": {
+                "value": 0,
+                "checked": false
+            },
+            "INNER2": {
+                "value": 0,
+                "checked": false
+            },
+            "L_COAT1": {
+                "value": 0,
+                "checked": false
+            },
+            "L_COAT2": {
+                "value": 0,
+                "checked": false
+            },
+            "R_COAT1": {
+                "value": 0,
+                "checked": false
+            },
+            "R_COAT2": {
+                "value": 0,
+                "checked": false
+            },
+            "L_ARM1": {
+                "value": 0,
+                "checked": false
+            },
+            "L_ARM2": {
+                "value": 0,
+                "checked": false
+            },
+            "R_ARM1": {
+                "value": 0,
+                "checked": false
+            },
+            "R_ARM2": {
+                "value": 0,
+                "checked": false
+            },
+            "L_HAND": {
+                "value": 0,
+                "checked": false
+            },
+            "R_HAND": {
+                "value": 0,
+                "checked": false
+            },
+            "L_PANTS1": {
+                "value": 0,
+                "checked": false
+            },
+            "L_PANTS2": {
+                "value": 0,
+                "checked": false
+            },
+            "R_PANTS1": {
+                "value": 0,
+                "checked": false
+            },
+            "R_PANTS2": {
+                "value": 0,
+                "checked": false
+            },
+            "L_SHOES1": {
+                "value": 0,
+                "checked": false
+            },
+            "R_SHOES1": {
+                "value": 0,
+                "checked": false
+            },
+            "LED_CHEST": {
+                "name": "chest1",
+                "alpha": 1,
+                "checked": true
+            },
+            "LED_R_SHOE": {
+                "name": "",
+                "alpha": 0,
+                "checked": false
+            },
+            "LED_L_SHOE": {
+                "name": "",
+                "alpha": 0,
+                "checked": false
+            },
+            "LED_FAN": {
+                "name": "",
+                "alpha": 0,
+                "checked": false
+            }
+        },
+        "id": "ALKu2HGj"
+    },
+    {
+        "Name": "All_Shoe",
+        "Chosen_Dancer": false,
+        "Dancers": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+        ],
+        "Status": {
+            "HAT1": {
+                "value": 0,
+                "checked": false
+            },
+            "HAT2": {
+                "value": 0,
+                "checked": false
+            },
+            "FACE1": {
+                "value": 0,
+                "checked": false
+            },
+            "FACE2": {
+                "value": 0,
+                "checked": false
+            },
+            "INNER1": {
+                "value": 0,
+                "checked": false
+            },
+            "INNER2": {
+                "value": 0,
+                "checked": false
+            },
+            "L_COAT1": {
+                "value": 0,
+                "checked": false
+            },
+            "L_COAT2": {
+                "value": 0,
+                "checked": false
+            },
+            "R_COAT1": {
+                "value": 0,
+                "checked": false
+            },
+            "R_COAT2": {
+                "value": 0,
+                "checked": false
+            },
+            "L_ARM1": {
+                "value": 0,
+                "checked": false
+            },
+            "L_ARM2": {
+                "value": 0,
+                "checked": false
+            },
+            "R_ARM1": {
+                "value": 0,
+                "checked": false
+            },
+            "R_ARM2": {
+                "value": 0,
+                "checked": false
+            },
+            "L_HAND": {
+                "value": 0,
+                "checked": false
+            },
+            "R_HAND": {
+                "value": 0,
+                "checked": false
+            },
+            "L_PANTS1": {
+                "value": 0,
+                "checked": false
+            },
+            "L_PANTS2": {
+                "value": 0,
+                "checked": false
+            },
+            "R_PANTS1": {
+                "value": 0,
+                "checked": false
+            },
+            "R_PANTS2": {
+                "value": 0,
+                "checked": false
+            },
+            "L_SHOES1": {
+                "value": 0,
+                "checked": false
+            },
+            "R_SHOES1": {
+                "value": 0,
+                "checked": false
+            },
+            "LED_CHEST": {
+                "name": "",
+                "alpha": 0,
+                "checked": false
+            },
+            "LED_R_SHOE": {
+                "name": "r_shoe2",
+                "alpha": 1,
+                "checked": true
+            },
+            "LED_L_SHOE": {
+                "name": "l_shoe2",
+                "alpha": 1,
+                "checked": true
+            },
+            "LED_FAN": {
+                "name": "",
+                "alpha": 0,
+                "checked": false
+            }
+        },
+        "id": "3j0S4xdz"
+    },
+    {
+        "Name": "All_Pants",
+        "Chosen_Dancer": false,
+        "Dancers": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+        ],
+        "Status": {
+            "HAT1": {
+                "value": 0,
+                "checked": false
+            },
+            "HAT2": {
+                "value": 0,
+                "checked": false
+            },
+            "FACE1": {
+                "value": 0,
+                "checked": false
+            },
+            "FACE2": {
+                "value": 0,
+                "checked": false
+            },
+            "INNER1": {
+                "value": 0,
+                "checked": false
+            },
+            "INNER2": {
+                "value": 0,
+                "checked": false
+            },
+            "L_COAT1": {
+                "value": 0,
+                "checked": false
+            },
+            "L_COAT2": {
+                "value": 0,
+                "checked": false
+            },
+            "R_COAT1": {
+                "value": 0,
+                "checked": false
+            },
+            "R_COAT2": {
+                "value": 0,
+                "checked": false
+            },
+            "L_ARM1": {
+                "value": 0,
+                "checked": false
+            },
+            "L_ARM2": {
+                "value": 0,
+                "checked": false
+            },
+            "R_ARM1": {
+                "value": 0,
+                "checked": false
+            },
+            "R_ARM2": {
+                "value": 0,
+                "checked": false
+            },
+            "L_HAND": {
+                "value": 0,
+                "checked": false
+            },
+            "R_HAND": {
+                "value": 0,
+                "checked": false
+            },
+            "L_PANTS1": {
+                "value": 1,
+                "checked": true
+            },
+            "L_PANTS2": {
+                "value": 1,
+                "checked": true
+            },
+            "R_PANTS1": {
+                "value": 1,
+                "checked": true
+            },
+            "R_PANTS2": {
+                "value": 1,
+                "checked": true
+            },
+            "L_SHOES1": {
+                "value": 0,
+                "checked": false
+            },
+            "R_SHOES1": {
+                "value": 0,
+                "checked": false
+            },
+            "LED_CHEST": {
+                "name": "",
+                "alpha": 0,
+                "checked": false
+            },
+            "LED_R_SHOE": {
+                "name": "",
+                "alpha": 0,
+                "checked": false
+            },
+            "LED_L_SHOE": {
+                "name": "",
+                "alpha": 0,
+                "checked": false
+            },
+            "LED_FAN": {
+                "name": "",
+                "alpha": 0,
+                "checked": false
+            }
+        },
+        "id": "WAIdNZ9D"
+    },
+    {
+        "Name": "All_Cloth",
+        "Chosen_Dancer": false,
+        "Dancers": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+        ],
+        "Status": {
+            "HAT1": {
+                "value": 0,
+                "checked": false
+            },
+            "HAT2": {
+                "value": 0,
+                "checked": false
+            },
+            "FACE1": {
+                "value": 0,
+                "checked": false
+            },
+            "FACE2": {
+                "value": 0,
+                "checked": false
+            },
+            "INNER1": {
+                "value": 0,
+                "checked": false
+            },
+            "INNER2": {
+                "value": 0,
+                "checked": false
+            },
+            "L_COAT1": {
+                "value": 1,
+                "checked": true
+            },
+            "L_COAT2": {
+                "value": 0,
+                "checked": false
+            },
+            "R_COAT1": {
+                "value": 1,
+                "checked": true
+            },
+            "R_COAT2": {
+                "value": 0,
+                "checked": false
+            },
+            "L_ARM1": {
+                "value": 1,
+                "checked": true
+            },
+            "L_ARM2": {
+                "value": 0,
+                "checked": false
+            },
+            "R_ARM1": {
+                "value": 1,
+                "checked": true
+            },
+            "R_ARM2": {
+                "value": 0,
+                "checked": false
+            },
+            "L_HAND": {
+                "value": 0,
+                "checked": false
+            },
+            "R_HAND": {
+                "value": 0,
+                "checked": false
+            },
+            "L_PANTS1": {
+                "value": 0,
+                "checked": false
+            },
+            "L_PANTS2": {
+                "value": 0,
+                "checked": false
+            },
+            "R_PANTS1": {
+                "value": 0,
+                "checked": false
+            },
+            "R_PANTS2": {
+                "value": 0,
+                "checked": false
+            },
+            "L_SHOES1": {
+                "value": 0,
+                "checked": false
+            },
+            "R_SHOES1": {
+                "value": 0,
+                "checked": false
+            },
+            "LED_CHEST": {
+                "name": "",
+                "alpha": 0,
+                "checked": false
+            },
+            "LED_R_SHOE": {
+                "name": "",
+                "alpha": 0,
+                "checked": false
+            },
+            "LED_L_SHOE": {
+                "name": "",
+                "alpha": 0,
+                "checked": false
+            },
+            "LED_FAN": {
+                "name": "",
+                "alpha": 0,
+                "checked": false
+            }
+        },
+        "id": "lb-bE-7y"
+    },
+    {
+        "Name": "All_Face",
+        "Chosen_Dancer": false,
+        "Dancers": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+        ],
+        "Status": {
+            "HAT1": {
+                "value": 0,
+                "checked": false
+            },
+            "HAT2": {
+                "value": 0,
+                "checked": false
+            },
+            "FACE1": {
+                "value": 1,
+                "checked": true
+            },
+            "FACE2": {
+                "value": 1,
+                "checked": true
+            },
+            "INNER1": {
+                "value": 0,
+                "checked": false
+            },
+            "INNER2": {
+                "value": 0,
+                "checked": false
+            },
+            "L_COAT1": {
+                "value": 0,
+                "checked": false
+            },
+            "L_COAT2": {
+                "value": 0,
+                "checked": false
+            },
+            "R_COAT1": {
+                "value": 0,
+                "checked": false
+            },
+            "R_COAT2": {
+                "value": 0,
+                "checked": false
+            },
+            "L_ARM1": {
+                "value": 0,
+                "checked": false
+            },
+            "L_ARM2": {
+                "value": 0,
+                "checked": false
+            },
+            "R_ARM1": {
+                "value": 0,
+                "checked": false
+            },
+            "R_ARM2": {
+                "value": 0,
+                "checked": false
+            },
+            "L_HAND": {
+                "value": 0,
+                "checked": false
+            },
+            "R_HAND": {
+                "value": 0,
+                "checked": false
+            },
+            "L_PANTS1": {
+                "value": 0,
+                "checked": false
+            },
+            "L_PANTS2": {
+                "value": 0,
+                "checked": false
+            },
+            "R_PANTS1": {
+                "value": 0,
+                "checked": false
+            },
+            "R_PANTS2": {
+                "value": 0,
+                "checked": false
+            },
+            "L_SHOES1": {
+                "value": 0,
+                "checked": false
+            },
+            "R_SHOES1": {
+                "value": 0,
+                "checked": false
+            },
+            "LED_CHEST": {
+                "name": "",
+                "alpha": 0,
+                "checked": false
+            },
+            "LED_R_SHOE": {
+                "name": "",
+                "alpha": 0,
+                "checked": false
+            },
+            "LED_L_SHOE": {
+                "name": "",
+                "alpha": 0,
+                "checked": false
+            },
+            "LED_FAN": {
+                "name": "",
+                "alpha": 0,
+                "checked": false
+            }
+        },
+        "id": "bbhyT_NL"
+    },
+    {
+        "Name": "All_Hats",
+        "Chosen_Dancer": false,
+        "Dancers": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+        ],
+        "Status": {
+            "HAT1": {
+                "value": 1,
+                "checked": true
+            },
+            "HAT2": {
+                "value": 1,
+                "checked": true
+            },
+            "FACE1": {
+                "value": 0,
+                "checked": false
+            },
+            "FACE2": {
+                "value": 0,
+                "checked": false
+            },
+            "INNER1": {
+                "value": 0,
+                "checked": false
+            },
+            "INNER2": {
+                "value": 0,
+                "checked": false
+            },
+            "L_COAT1": {
+                "value": 0,
+                "checked": false
+            },
+            "L_COAT2": {
+                "value": 0,
+                "checked": false
+            },
+            "R_COAT1": {
+                "value": 0,
+                "checked": false
+            },
+            "R_COAT2": {
+                "value": 0,
+                "checked": false
+            },
+            "L_ARM1": {
+                "value": 0,
+                "checked": false
+            },
+            "L_ARM2": {
+                "value": 0,
+                "checked": false
+            },
+            "R_ARM1": {
+                "value": 0,
+                "checked": false
+            },
+            "R_ARM2": {
+                "value": 0,
+                "checked": false
+            },
+            "L_HAND": {
+                "value": 0,
+                "checked": false
+            },
+            "R_HAND": {
+                "value": 0,
+                "checked": false
+            },
+            "L_PANTS1": {
+                "value": 0,
+                "checked": false
+            },
+            "L_PANTS2": {
+                "value": 0,
+                "checked": false
+            },
+            "R_PANTS1": {
+                "value": 0,
+                "checked": false
+            },
+            "R_PANTS2": {
+                "value": 0,
+                "checked": false
+            },
+            "L_SHOES1": {
+                "value": 0,
+                "checked": false
+            },
+            "R_SHOES1": {
+                "value": 0,
+                "checked": false
+            },
+            "LED_CHEST": {
+                "name": "",
+                "alpha": 0,
+                "checked": false
+            },
+            "LED_R_SHOE": {
+                "name": "",
+                "alpha": 0,
+                "checked": false
+            },
+            "LED_L_SHOE": {
+                "name": "",
+                "alpha": 0,
+                "checked": false
+            },
+            "LED_FAN": {
+                "name": "",
+                "alpha": 0,
+                "checked": false
+            }
+        },
+        "id": "ndWvrQ0N"
+    },
+    {
+        "Name": "one_bl",
+        "Chosen_Dancer": true,
+        "Dancers": [],
+        "Status": {
+            "HAT1": {
+                "value": 0,
+                "checked": true
+            },
+            "HAT2": {
+                "value": 0,
+                "checked": true
+            },
+            "FACE1": {
+                "value": 0,
+                "checked": true
+            },
+            "FACE2": {
+                "value": 0,
+                "checked": true
+            },
+            "INNER1": {
+                "value": 0,
+                "checked": true
+            },
+            "INNER2": {
+                "value": 0,
+                "checked": true
+            },
+            "L_COAT1": {
+                "value": 0,
+                "checked": true
+            },
+            "L_COAT2": {
+                "value": 0,
+                "checked": true
+            },
+            "R_COAT1": {
+                "value": 0,
+                "checked": true
+            },
+            "R_COAT2": {
+                "value": 0,
+                "checked": true
+            },
+            "L_ARM1": {
+                "value": 0,
+                "checked": true
+            },
+            "L_ARM2": {
+                "value": 0,
+                "checked": true
+            },
+            "R_ARM1": {
+                "value": 0,
+                "checked": true
+            },
+            "R_ARM2": {
+                "value": 0,
+                "checked": true
+            },
+            "L_HAND": {
+                "value": 0,
+                "checked": true
+            },
+            "R_HAND": {
+                "value": 0,
+                "checked": true
+            },
+            "L_PANTS1": {
+                "value": 0,
+                "checked": true
+            },
+            "L_PANTS2": {
+                "value": 0,
+                "checked": true
+            },
+            "R_PANTS1": {
+                "value": 0,
+                "checked": true
+            },
+            "R_PANTS2": {
+                "value": 0,
+                "checked": true
+            },
+            "L_SHOES1": {
+                "value": 0,
+                "checked": true
+            },
+            "R_SHOES1": {
+                "value": 0,
+                "checked": true
+            },
+            "LED_CHEST": {
+                "name": "",
+                "alpha": 0,
+                "checked": true
+            },
+            "LED_R_SHOE": {
+                "name": "",
+                "alpha": 0,
+                "checked": true
+            },
+            "LED_L_SHOE": {
+                "name": "",
+                "alpha": 0,
+                "checked": true
+            },
+            "LED_FAN": {
+                "name": "",
+                "alpha": 0,
+                "checked": true
+            }
+        },
+        "id": "p_6B34Bt"
+    }
+]

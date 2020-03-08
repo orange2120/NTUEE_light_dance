@@ -6,21 +6,31 @@ import { DISPLAY_WIDTH, DISPLAY_HEIGHT } from './constants';
 
 import Simulator from './simulator/simulator.js';
 import Editor from './editor/editor.js';
-import Mytimeline from './timeline/mytimeline.js';
+// import Mytimeline from './timeline/mytimeline.js';
 import MyWaveSurfer from './wavesurfer/wavesurfer.js';
 import Manager from './manager/manager.js';
 import Presets from './presets/presets.js';
+import Scenes from './presets/scenes.js';
 import Commandcenter from './commandcenter/commandcenter.js';
 import Layout_Config from './golden_layer/layout_config.js';
 import { checkControl, checkPreset } from './utility/utility.js'
-// import '@fortawesome/fontawesome-free/js/fontawesome'
-// import '@fortawesome/fontawesome-free/js/solid'
-// import '@fortawesome/fontawesome-free/js/regular'
-// import '@fortawesome/fontawesome-free/js/brands'
+import '@fortawesome/fontawesome-free/js/fontawesome'
+import '@fortawesome/fontawesome-free/js/solid'
+import '@fortawesome/fontawesome-free/js/regular'
+import '@fortawesome/fontawesome-free/js/brands'
 import '../css/goldenlayout-base.css';
 import '../css/goldenlayout-dark-theme.css';
 import '../css/slider.css';
 import '../css/index.css';
+
+import { png2rgb_arr } from './utility/utility_functions.js'
+
+png2rgb_arr("asset/LED/LED_CHEST/chest1.png",0,(data)=>{
+    console.log(0,data)
+})
+png2rgb_arr("asset/LED/LED_CHEST/chest1.png",1,(data)=>{
+    console.log(1,data)
+})
 
 function importAllAsset(r) {
     r.keys().forEach(r);
@@ -47,6 +57,10 @@ myLayout.registerComponent( 'editor_Component', function( container, componentSt
 
 myLayout.registerComponent( 'presets_Component', function( container, componentState ){
     container.getElement().html('<div id="presets"><div class="title"> <span>Presets:</span> <span class="presets-addbtn">+</span></div><div id="presets-list"></div></div>');
+});
+
+myLayout.registerComponent( 'scenes_Component', function( container, componentState ){
+    container.getElement().html('<div id="scenes_component"><div id="scenes"></div></div>');
 });
 
 myLayout.init();
@@ -102,6 +116,11 @@ myLayout.on("initialised",() => {
     }
     checkPreset(presets_load);
 
+    let scenes_load = [];
+    if (window.localStorage.getItem('scenes') != null) {
+        scenes_load = JSON.parse(window.localStorage.getItem('scenes'));
+    }
+
     // get LEDs
     // const LEDs = load.LED
 
@@ -128,6 +147,9 @@ myLayout.on("initialised",() => {
     
     // presets
     const presets = new Presets(mgr, presets_load, load.Texture);
+
+    // scenes
+    const scenes = new Scenes(mgr, scenes_load);
 
     // timeline
     // const mytimeliner = new Mytimeline(mgr);
