@@ -1,4 +1,5 @@
 // read settings
+const os = require('os')
 const fs = require('fs')
 let CONFIG = fs.readFileSync('../../boards_config.json')
 CONFIG = JSON.parse(CONFIG)
@@ -6,7 +7,7 @@ CONFIG = JSON.parse(CONFIG)
 const SERVER_MAC = CONFIG.settings.server_mac_addr
 const PORT = 8081
 
-const PATH_clientApp = "./clientApp"
+const PATH_clientApp = "./clientApp_sim"
 
 
 const WebSocket = require('ws')

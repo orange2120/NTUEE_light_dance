@@ -4,15 +4,45 @@
  *Created on: 24.05.2015
  *
  */
+//#define DEBUG
 #include <Arduino.h>
 #include <ESP8266WiFi.h>
 #include <ESP8266WiFiMulti.h>
 #include <WebSocketsClient.h>
-#include <Hash.h>
+#include <FastLED.h>
+
 #include <ArduinoJson.h>
+#include "LedManager.h"
 
 ESP8266WiFiMulti WiFiMulti;
 WebSocketsClient webSocket;
+LedManager ledMgr;
+
+const char* jsonData = "{\
+   \"picture\": {\
+      \"fan_1\": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 150, 0, 255, 150, 0, 255, 150, 0, 255, 150, 0, 255, 150, 0, 255, 150, 0, 255, 150, 0, 255, 150, 0, 255, 150, 0, 255, 150, 0, 255, 150, 0, 255, 150, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 150, 0, 255, 150, 0, 255, 150, 0, 255, 150, 0, 255, 150, 0, 255, 150, 0, 255, 150, 0, 255, 150, 0, 255, 150, 0, 255, 150, 0, 255, 150, 0, 255, 150, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],\
+      \"fan_2\": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 150, 0, 255, 150, 0, 255, 150, 0, 255, 150, 0, 255, 150, 0, 255, 150, 0, 255, 150, 0, 255, 150, 0, 255, 150, 0, 255, 150, 0, 255, 150, 0, 255, 150, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 150, 0, 255, 150, 0, 255, 150, 0, 255, 150, 0, 255, 150, 0, 255, 150, 0, 255, 150, 0, 255, 150, 0, 255, 150, 0, 255, 150, 0, 255, 150, 0, 255, 150, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],\
+      \"bl_fan\": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]\
+   },\
+   \"timeline\": [\
+      {\
+         \"Start\": 0,\
+         \"name\": \"fan_1\",\
+         \"alpha\": 1\
+      },\
+      {\
+         \"Start\": 1000,\
+         \"name\": \"fan_2\",\
+         \"alpha\": 0.5\
+      },\
+      {\
+         \"Start\": 2000,\
+         \"name\": \"bl_fan\",\
+         \"alpha\": 0\
+      }\
+   ]\
+}";
+
 
 // for json msg parsing
 StaticJsonDocument<200> doc;
@@ -23,9 +53,10 @@ DeserializationError error;
 // parameters
 #define WIFI_NAME1 "TOTOLINK N300RB"
 #define WIFI_NAME "MakerSpace_2.4G"
-#define WIFI_PWD "ntueesaad"
+#define WIFI_PWD "ntueesaad" 
+//"ntueesaad"
 #define SERVER_IP1 "192.168.1.6"
-#define SERVER_IP "192.168.0.85"
+#define SERVER_IP "192.168.0.86"
 
 #define SERVER_PORT 8081
 
@@ -56,11 +87,16 @@ void webSocketEvent(WStype_t type, uint8_t *payload, size_t length)
 			error = deserializeJson(doc, (char*) payload);
 			if (!error)
 			{
-				String ss = doc["type"]; 
-        unsigned long color = doc["color"];
-        
-				Serial.println(ss);
-       Serial.println(color);
+				String ss = doc["type"];
+        Serial.println(ss); 
+//        unsigned long color = doc["color"];
+        if(ss=="play"){
+          ledMgr.play();
+        }else if(ss=="pause"){
+          ledMgr.pause();
+        }
+				
+//       Serial.println(color);
 			}
 			// send message to server
 			// webSocket.sendTXT("message here");
@@ -135,9 +171,23 @@ void setup()
 	// expect pong from server within 3000 ms
 	// consider connection disconnected if pong is not received 2 times
 	webSocket.enableHeartbeat(15000, 3000, 2);
+
+	pinMode(13, INPUT);   // Initialize the LED_BUILTIN pin as an output
+   	delay(10);
+
+	ledMgr.init();
+	if(!ledMgr.parsing_json(jsonData))
+		ESP.restart();
+
+	delay(1000);
+	Serial.println("parse ok");
+	
+
 }
 
 void loop()
 {
 	webSocket.loop();
+	ledMgr.loop();
+  
 }
