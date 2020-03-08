@@ -347,6 +347,7 @@ class Commandcenter {
                         }
                     });
                 }
+                document.getElementById("playPause-btn").click()
                 console.log(id_arr)
             }
 

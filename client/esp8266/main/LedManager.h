@@ -8,6 +8,8 @@
 #define NUM_LEDS 96
 #define DATA_PIN 0
 
+#define DEBUG
+
 class LedManager{
 public:
    LedManager():begin_time(0), playing_time(0), playing(false) {}
@@ -18,15 +20,19 @@ public:
    }
 
    bool parsing_json(const char* data){
-      error = deserializeJson(led_json["data"], data);
+      error = deserializeJson(led_json, data);
       if (error) {
          Serial.println("Parsing Error: Pic map");
          Serial.println(error.c_str());
          delay(1000);
          return false;
       }
-
       return true;
+   }
+
+   void load(const StaticJsonDocument<200>& doc){
+      led_json = doc;
+      
    }
 
    void play() {
@@ -49,13 +55,14 @@ public:
 
       for(int j = 0; j < NUM_LEDS; j++) {
          for(int k = 0; k < 3; ++k){
-            leds[j][k] = (int)((int)led_json["data"]["data"]["picture"][name][counter] * alpha);
+            leds[j][k] = (int)((int)led_json["data"]["picture"][name][counter] * alpha);
             counter++;
          }
       }
-
-      #ifdef DEBUG
+      Serial.println("show frame");
       Serial.println(name);
+      #ifdef DEBUG
+      //Serial.println(name);
       #endif // DEBUG
 
       FastLED.show();
@@ -71,9 +78,15 @@ public:
          }
       }
    }
+
+   const StaticJsonDocument<20000>& getDoc(){
+      return led_json;
+   }
+
 private:
    CRGB leds[NUM_LEDS];
-   StaticJsonDocument<20000> led_json["data"];
+   StaticJsonDocument<33772> led_json;
+//   DynamicJsonDocument led_json(23511);
    DeserializationError error;
 
    unsigned long begin_time;
