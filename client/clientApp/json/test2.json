@@ -4,7 +4,7 @@
             "Start": 0,
             "Status": {
                 "LED_CHEST": {
-                    "name": "waves/wave_amp_out/person_8/fig_amp_8_0.png",
+                    "name": "energy_json/energyv30.png",
                     "alpha": 0.2
                 },
                 "LED_R_SHOE": {
@@ -45,7 +45,7 @@
             "Start": 100,
             "Status": {
                 "LED_CHEST": {
-                    "name": "waves/wave_amp_out/person_8/fig_amp_8_1.png",
+                    "name": "energy_json/energyv31.png",
                     "alpha": 0.2
                 },
                 "LED_R_SHOE": {
@@ -86,7 +86,7 @@
             "Start": 200,
             "Status": {
                 "LED_CHEST": {
-                    "name": "waves/wave_amp_out/person_8/fig_amp_8_2.png",
+                    "name": "energy_json/energyv32.png",
                     "alpha": 0.2
                 },
                 "LED_R_SHOE": {
@@ -127,7 +127,7 @@
             "Start": 300,
             "Status": {
                 "LED_CHEST": {
-                    "name": "waves/wave_amp_out/person_8/fig_amp_8_3.png",
+                    "name": "energy_json/energyv33.png",
                     "alpha": 0.2
                 },
                 "LED_R_SHOE": {
@@ -168,7 +168,7 @@
             "Start": 400,
             "Status": {
                 "LED_CHEST": {
-                    "name": "waves/wave_amp_out/person_8/fig_amp_8_4.png",
+                    "name": "energy_json/energyv34.png",
                     "alpha": 0.2
                 },
                 "LED_R_SHOE": {
@@ -209,7 +209,7 @@
             "Start": 500,
             "Status": {
                 "LED_CHEST": {
-                    "name": "waves/wave_amp_out/person_8/fig_amp_8_5.png",
+                    "name": "energy_json/energyv35.png",
                     "alpha": 0.2
                 },
                 "LED_R_SHOE": {
@@ -250,7 +250,7 @@
             "Start": 600,
             "Status": {
                 "LED_CHEST": {
-                    "name": "waves/wave_amp_out/person_8/fig_amp_8_6.png",
+                    "name": "energy_json/energyv36.png",
                     "alpha": 0.2
                 },
                 "LED_R_SHOE": {
@@ -291,7 +291,7 @@
             "Start": 700,
             "Status": {
                 "LED_CHEST": {
-                    "name": "waves/wave_amp_out/person_8/fig_amp_8_7.png",
+                    "name": "energy_json/energyv37.png",
                     "alpha": 0.2
                 },
                 "LED_R_SHOE": {
@@ -332,7 +332,7 @@
             "Start": 800,
             "Status": {
                 "LED_CHEST": {
-                    "name": "waves/wave_amp_out/person_8/fig_amp_8_8.png",
+                    "name": "energy_json/energyv38.png",
                     "alpha": 0.2
                 },
                 "LED_R_SHOE": {
@@ -373,7 +373,7 @@
             "Start": 900,
             "Status": {
                 "LED_CHEST": {
-                    "name": "waves/wave_amp_out/person_8/fig_amp_8_9.png",
+                    "name": "energy_json/energyv39.png",
                     "alpha": 0.2
                 },
                 "LED_R_SHOE": {
@@ -414,7 +414,7 @@
             "Start": 1000,
             "Status": {
                 "LED_CHEST": {
-                    "name": "waves/wave_amp_out/person_8/fig_amp_8_10.png",
+                    "name": "energy_json/energyv310.png",
                     "alpha": 0.2
                 },
                 "LED_R_SHOE": {
@@ -455,7 +455,7 @@
             "Start": 1100,
             "Status": {
                 "LED_CHEST": {
-                    "name": "waves/wave_amp_out/person_8/fig_amp_8_11.png",
+                    "name": "energy_json/energyv311.png",
                     "alpha": 0.2
                 },
                 "LED_R_SHOE": {
@@ -496,7 +496,7 @@
             "Start": 1200,
             "Status": {
                 "LED_CHEST": {
-                    "name": "waves/wave_amp_out/person_8/fig_amp_8_12.png",
+                    "name": "energy_json/energyv312.png",
                     "alpha": 0.2
                 },
                 "LED_R_SHOE": {
@@ -537,7 +537,7 @@
             "Start": 1300,
             "Status": {
                 "LED_CHEST": {
-                    "name": "waves/wave_amp_out/person_8/fig_amp_8_13.png",
+                    "name": "energy_json/energyv313.png",
                     "alpha": 0.2
                 },
                 "LED_R_SHOE": {
@@ -578,7 +578,7 @@
             "Start": 1400,
             "Status": {
                 "LED_CHEST": {
-                    "name": "waves/wave_amp_out/person_8/fig_amp_8_14.png",
+                    "name": "energy_json/energyv314.png",
                     "alpha": 0.2
                 },
                 "LED_R_SHOE": {
@@ -619,7 +619,7 @@
             "Start": 1500,
             "Status": {
                 "LED_CHEST": {
-                    "name": "waves/wave_amp_out/person_8/fig_amp_8_15.png",
+                    "name": "energy_json/energyv315.png",
                     "alpha": 0.2
                 },
                 "LED_R_SHOE": {
@@ -660,7 +660,7 @@
             "Start": 1600,
             "Status": {
                 "LED_CHEST": {
-                    "name": "waves/wave_amp_out/person_8/fig_amp_8_16.png",
+                    "name": "energy_json/energyv316.png",
                     "alpha": 0.2
                 },
                 "LED_R_SHOE": {
@@ -701,7 +701,7 @@
             "Start": 1700,
             "Status": {
                 "LED_CHEST": {
-                    "name": "waves/wave_amp_out/person_8/fig_amp_8_17.png",
+                    "name": "energy_json/energyv317.png",
                     "alpha": 0.2
                 },
                 "LED_R_SHOE": {
@@ -742,7 +742,7 @@
             "Start": 1800,
             "Status": {
                 "LED_CHEST": {
-                    "name": "waves/wave_amp_out/person_8/fig_amp_8_18.png",
+                    "name": "energy_json/energyv318.png",
                     "alpha": 0.2
                 },
                 "LED_R_SHOE": {
@@ -783,7 +783,7 @@
             "Start": 1900,
             "Status": {
                 "LED_CHEST": {
-                    "name": "waves/wave_amp_out/person_8/fig_amp_8_19.png",
+                    "name": "energy_json/energyv319.png",
                     "alpha": 0.2
                 },
                 "LED_R_SHOE": {
@@ -824,7 +824,7 @@
             "Start": 2000,
             "Status": {
                 "LED_CHEST": {
-                    "name": "waves/wave_amp_out/person_8/fig_amp_8_20.png",
+                    "name": "energy_json/energyv320.png",
                     "alpha": 0.2
                 },
                 "LED_R_SHOE": {
@@ -865,7 +865,7 @@
             "Start": 2100,
             "Status": {
                 "LED_CHEST": {
-                    "name": "waves/wave_amp_out/person_8/fig_amp_8_21.png",
+                    "name": "energy_json/energyv321.png",
                     "alpha": 0.2
                 },
                 "LED_R_SHOE": {
@@ -906,7 +906,7 @@
             "Start": 2200,
             "Status": {
                 "LED_CHEST": {
-                    "name": "waves/wave_amp_out/person_8/fig_amp_8_22.png",
+                    "name": "energy_json/energyv322.png",
                     "alpha": 0.2
                 },
                 "LED_R_SHOE": {
@@ -947,7 +947,7 @@
             "Start": 2300,
             "Status": {
                 "LED_CHEST": {
-                    "name": "waves/wave_amp_out/person_8/fig_amp_8_23.png",
+                    "name": "energy_json/energyv323.png",
                     "alpha": 0.2
                 },
                 "LED_R_SHOE": {
@@ -988,7 +988,7 @@
             "Start": 2400,
             "Status": {
                 "LED_CHEST": {
-                    "name": "waves/wave_amp_out/person_8/fig_amp_8_23.png",
+                    "name": "energy_json/energyv324.png",
                     "alpha": 0.2
                 },
                 "LED_R_SHOE": {
@@ -1029,7 +1029,581 @@
             "Start": 2500,
             "Status": {
                 "LED_CHEST": {
-                    "name": "waves/wave_amp_out/person_8/fig_amp_8_23.png",
+                    "name": "energy_json/energyv325.png",
+                    "alpha": 0.2
+                },
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
+                    "alpha": 0.2
+                },
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
+                    "alpha": 0.2
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 2600,
+            "Status": {
+                "LED_CHEST": {
+                    "name": "energy_json/energyv326.png",
+                    "alpha": 0.2
+                },
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
+                    "alpha": 0.2
+                },
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
+                    "alpha": 0.2
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 2700,
+            "Status": {
+                "LED_CHEST": {
+                    "name": "energy_json/energyv327.png",
+                    "alpha": 0.2
+                },
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
+                    "alpha": 0.2
+                },
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
+                    "alpha": 0.2
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 2800,
+            "Status": {
+                "LED_CHEST": {
+                    "name": "energy_json/energyv328.png",
+                    "alpha": 0.2
+                },
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
+                    "alpha": 0.2
+                },
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
+                    "alpha": 0.2
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 2900,
+            "Status": {
+                "LED_CHEST": {
+                    "name": "energy_json/energyv329.png",
+                    "alpha": 0.2
+                },
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
+                    "alpha": 0.2
+                },
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
+                    "alpha": 0.2
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 3000,
+            "Status": {
+                "LED_CHEST": {
+                    "name": "energy_json/energyv330.png",
+                    "alpha": 0.2
+                },
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
+                    "alpha": 0.2
+                },
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
+                    "alpha": 0.2
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 3100,
+            "Status": {
+                "LED_CHEST": {
+                    "name": "energy_json/energyv331.png",
+                    "alpha": 0.2
+                },
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
+                    "alpha": 0.2
+                },
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
+                    "alpha": 0.2
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 3200,
+            "Status": {
+                "LED_CHEST": {
+                    "name": "energy_json/energyv332.png",
+                    "alpha": 0.2
+                },
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
+                    "alpha": 0.2
+                },
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
+                    "alpha": 0.2
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 3300,
+            "Status": {
+                "LED_CHEST": {
+                    "name": "energy_json/energyv333.png",
+                    "alpha": 0.2
+                },
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
+                    "alpha": 0.2
+                },
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
+                    "alpha": 0.2
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 3400,
+            "Status": {
+                "LED_CHEST": {
+                    "name": "energy_json/energyv334.png",
+                    "alpha": 0.2
+                },
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
+                    "alpha": 0.2
+                },
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
+                    "alpha": 0.2
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 3500,
+            "Status": {
+                "LED_CHEST": {
+                    "name": "energy_json/energyv335.png",
+                    "alpha": 0.2
+                },
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
+                    "alpha": 0.2
+                },
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
+                    "alpha": 0.2
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 3600,
+            "Status": {
+                "LED_CHEST": {
+                    "name": "energy_json/energyv336.png",
+                    "alpha": 0.2
+                },
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
+                    "alpha": 0.2
+                },
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
+                    "alpha": 0.2
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 3700,
+            "Status": {
+                "LED_CHEST": {
+                    "name": "energy_json/energyv337.png",
+                    "alpha": 0.2
+                },
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
+                    "alpha": 0.2
+                },
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
+                    "alpha": 0.2
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 3800,
+            "Status": {
+                "LED_CHEST": {
+                    "name": "energy_json/energyv338.png",
+                    "alpha": 0.2
+                },
+                "LED_R_SHOE": {
+                    "name": "r_shoe",
+                    "alpha": 0.2
+                },
+                "LED_L_SHOE": {
+                    "name": "l_shoe",
+                    "alpha": 0.2
+                },
+                "HAT1": 0,
+                "HAT2": 0,
+                "FACE1": 0,
+                "FACE2": 0,
+                "R_COAT1": 0,
+                "R_COAT2": 0,
+                "L_COAT1": 0,
+                "L_COAT2": 0,
+                "INNER1": 0,
+                "INNER2": 0,
+                "R_ARM1": 0,
+                "R_ARM2": 0,
+                "R_HAND": 0,
+                "L_ARM1": 0,
+                "L_ARM2": 0,
+                "L_HAND": 0,
+                "R_PANTS1": 0,
+                "R_PANTS2": 0,
+                "L_PANTS1": 0,
+                "L_PANTS2": 0,
+                "R_SHOES1": 0,
+                "R_SHOES2": 0,
+                "L_SHOES1": 0,
+                "L_SHOES2": 0
+            }
+        },
+        {
+            "Start": 390000,
+            "Status": {
+                "LED_CHEST": {
+                    "name": "energy_json/energyv338.png",
                     "alpha": 0.2
                 },
                 "LED_R_SHOE": {
