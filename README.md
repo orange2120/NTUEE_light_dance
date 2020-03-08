@@ -7,6 +7,8 @@ Light dance system for 2020 NTUEE night
   - [Features](#features)
   - [System architecture](#system-architecture)
     - [Server](#server)
+      - [setup (only for first time)](#setup-only-for-first-time)
+      - [afterward usage](#afterward-usage)
     - [Client](#client)
     - [Editor](#editor)
   - [Directory structure](#directory-structure)
@@ -37,13 +39,13 @@ Control dancers via a Wi-Fi router.
 $ npm i
 $ npm run build
 ```
-the program will automatically generate new boards_config.json
-3. on r-pi, (make sure we use new generated boards_config.json)
+the program will automatically generate new `boards_config.json`
+3. on RPi, (make sure we use new generated `boards_config.json`)
 ```bash
 $ cd client/clientApp
 $ sudo node client.js
 ```
-4. on esp8266, just open it
+4. on ESP8266, just open it
 5. on your laptop(server), go to http://localhost:8080 
 6. toogle control+alt/option+c to show the CommandCenter panel
 7. make sure edit board configuration is enabled
@@ -59,8 +61,8 @@ $ sudo node client.js
 $ npm start
 ```
 
-2. on your laptop(server), go to http://localhost:8080 
-3. the rest is the same(rpi,esp8266)
+2. on your laptop(server), go to http://localhost:8080  
+3. the rest is the same(RPi, ESP8266)  
 
 
 ### Client
@@ -117,6 +119,10 @@ npm start
 NTUEE_light_dance
 ├── accessories
 ├── asset
+│   ├── BlackPart
+│   ├── LED
+│   └── Part
+│
 ├── client
 │   ├── Arduino
 │   ├── clientApp
@@ -129,6 +135,7 @@ NTUEE_light_dance
 │   └── js
 │
 ├── hardware
+├── music
 ├── server
 └── test
 ```

@@ -134,7 +134,7 @@ void run(const int id, int time) {
     bool off = false;
     cerr << "Time now: ";
     while(!off) 
-    {   
+    {
         cerr << time;
         auto start = high_resolution_clock::now();
         if(time >= p.time_line[p.t_index+1].start_time) { 
