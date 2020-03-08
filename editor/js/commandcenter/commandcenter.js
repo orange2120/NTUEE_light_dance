@@ -252,6 +252,7 @@ class Commandcenter {
 
             let boards_control_zone = document.createElement("div")
             boards_control_zone.id = "boards_control_zone"
+
             let btn_upload = document.createElement("button")
             btn_upload.innerText = "Upload"
             btn_upload.id = "btn_upload"
@@ -273,6 +274,16 @@ class Commandcenter {
                     })
                 }
                 console.log(id_arr)
+            }
+
+            let btn_compile = document.createElement("button")
+            btn_compile.innerText = "Compile"
+            btn_compile.id = "btn_compile"
+            btn_compile.onclick = function() {
+                axios.get('/api/compile',{
+                    params: {
+                    }
+                })
             }
 
             let btn_reconnect = document.createElement("button")
@@ -355,8 +366,9 @@ class Commandcenter {
                 console.log(id_arr)
             }
 
-
+            
             boards_control_zone.appendChild(btn_upload)
+            boards_control_zone.appendChild(btn_compile)
             boards_control_zone.appendChild(btn_reconnect)
             boards_control_zone.appendChild(btn_kick)
             boards_control_zone.appendChild(btn_reboot)

@@ -94,7 +94,12 @@ void webSocketEvent(WStype_t type, uint8_t *payload, size_t length)
           ledMgr.play();
         }else if(ss=="pause"){
           ledMgr.pause();
+        }else if(ss=="upload"){
+          ledMgr.parsing_json((char*) payload)
+		  Serial.println("get upload");
+		//   doc["data"]
         }
+
 				
 //       Serial.println(color);
 			}

@@ -18,7 +18,7 @@ public:
    }
 
    bool parsing_json(const char* data){
-      error = deserializeJson(led_json, data);
+      error = deserializeJson(led_json["data"], data);
       if (error) {
          Serial.println("Parsing Error: Pic map");
          Serial.println(error.c_str());
@@ -44,12 +44,12 @@ public:
       int counter = 0;
       double alpha = 0;
 
-      const char* name = led_json["timeline"][frame_idx]["name"];
-      alpha = led_json["timeline"][frame_idx]["alpha"];
+      const char* name = led_json["data"]["timeline"][frame_idx]["name"];
+      alpha = led_json["data"]["timeline"][frame_idx]["alpha"];
 
       for(int j = 0; j < NUM_LEDS; j++) {
          for(int k = 0; k < 3; ++k){
-            leds[j][k] = (int)((int)led_json["picture"][name][counter] * alpha);
+            leds[j][k] = (int)((int)led_json["data"]["data"]["picture"][name][counter] * alpha);
             counter++;
          }
       }
@@ -64,8 +64,8 @@ public:
    void loop() {
       if(playing){
          playing_time = millis() - begin_time;
-         if(frame_idx == led_json["timeline"].size() - 1) {}
-         else if(playing_time > led_json["timeline"][frame_idx + 1]["Start"]){
+         if(frame_idx == led_json["data"]["timeline"].size() - 1) {}
+         else if(playing_time > led_json["data"]["timeline"][frame_idx + 1]["Start"]){
             ++frame_idx;
             show_frame();
          }
@@ -73,7 +73,7 @@ public:
    }
 private:
    CRGB leds[NUM_LEDS];
-   StaticJsonDocument<20000> led_json;
+   StaticJsonDocument<20000> led_json["data"];
    DeserializationError error;
 
    unsigned long begin_time;

@@ -123,6 +123,13 @@ server.post('/api/upload', function(req, res) {
     res.send('ok');
 });
 
+server.get('/api/compile', function(req, res) {
+    console.log("[Server] compile pngs")
+    cmds.compile()
+    // console.log("[Server] compile done")
+    res.send('ok');
+});
+
 
 server.post('/api/reconnect', function(req, res) {
     // cmds.reConnectClient(0,{targets:req.query.ids.map((x)=>{ return Number(x)})})
@@ -158,6 +165,11 @@ server.get('/api/config/addBoard', function(req, res) {
     }
     
 });
+
+
+
+
+
 server.get('/api/config/alert', function(req, res) {
     // req.query.mac
     res.send("OK")
@@ -171,3 +183,5 @@ server.get('/api/config/reload', function(req, res) {
     cmds.loadConfig(CONFIG)
     res.send("OK")
 });
+
+cmds.compile()
