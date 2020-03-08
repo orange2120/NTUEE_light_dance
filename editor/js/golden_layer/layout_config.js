@@ -40,12 +40,24 @@ const Layout_Config = {
                             componentState: { label: 'editor_Component' }
                         },
                         {
-                            type: 'component',
+                            type: 'stack',
                             width : 18,
-                            componentName: 'presets_Component',
-                            title : 'Presets',
-                            isClosable : false,
-                            componentState: { label: 'presets_Component' }
+                            content: [
+                                {
+                                    type: 'component',
+                                    componentName: 'presets_Component',
+                                    title : 'Presets',
+                                    isClosable : false,
+                                    componentState: { label: 'presets_Component' }
+                                },
+                                {
+                                    type: 'component',
+                                    componentName: 'scenes_Component',
+                                    title : 'Scenes',
+                                    isClosable : false,
+                                    componentState: { label: 'scenes_Component' }
+                                }
+                            ]
                         }
                     ]
                 }
