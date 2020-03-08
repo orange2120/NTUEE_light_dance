@@ -2,22 +2,35 @@
 const fs = require('fs')
 const WebSocket = require('ws')
 const os = require('os');
+const path = require('path');
+
 
 const libarp = require('arp');
 
 const math = require('mathjs')
+
+const PNG = require('pngjs').PNG
 
 
 const axios = require('axios').default
 const getPixels = require("get-pixels")
 
 const DANCER_NUM  = 8
+const LED_PATH = "../asset/LED/"
 
+function arr_transpose(a) {
+    return Object.keys(a[0]).map(function (c) {
+        return a.map(function (r) {
+            return r[c];
+        });
+    });
+}
 
 class CmdServer {
     constructor(_port = 8081, _config) {
 
         this.wss = new WebSocket.Server({ port: _port })
+        this.pngs = {}
         // this.wss.waitingList = []
         this.config = -1
         this.loadConfig(_config)
@@ -311,43 +324,66 @@ class CmdServer {
         this.sendToBoards(msg, params.targets)
     }
     upload(cmd_start_time, params, control) {
+        control = JSON.parse(JSON.stringify(control))
+        // console.log(control)
         let parsed_control=[]
+        /*
+        for (let i =0;i<control.length;++i){
+            control.push([0])
+        }*/
+        let self = this
+        
         this.wss.clients.forEach((client) => {
-            if (client.readyState === WebSocket.OPEN && params.targets.includes(client.board_ID)) {
+            if (client.readyState === WebSocket.OPEN ) {
                 console.log("processing", client.board_ID)
-                if(client.board_type==="dancer"){
-                    control[client.board_ID].map((frame)=>{
-                        if(frame["LED_CHEST"]["name"] === ""){
-                            frame["LED_CHEST"]["name"] = "bl_chest"
+                
+                if(client.board_type==="dancer" || client.board_type==="fan" ){
+                    control[client.board_ID]= control[client.board_ID].map((frame)=>{
+                        // console.log(frame)
+                        if(frame["Status"]["LED_CHEST"]["name"] === ""){
+                            frame["Status"]["LED_CHEST"]["name"] = "bl_chest"
                         }
-                        if(frame["LED_R_SHOE"]["name"] === ""){
-                            frame["LED_R_SHOE"]["name"] = "bl_shoe"
+                        if(frame["Status"]["LED_R_SHOE"]["name"] === ""){
+                            frame["Status"]["LED_R_SHOE"]["name"] = "bl_shoe"
                         }
-                        if(frame["LED_L_SHOE"]["name"] === ""){
-                            frame["LED_L_SHOE"]["name"] = "bl_shoe"
+                        if(frame["Status"]["LED_L_SHOE"]["name"] === ""){
+                            frame["Status"]["LED_L_SHOE"]["name"] = "bl_shoe"
+                        }
+                        if(frame["Status"]["LED_FAN"]["name"] === ""){
+                            frame["Status"]["LED_FAN"]["name"] = "bl_fan"
                         }
                         return frame
                     })
-                }else if(client.board_type === "fan"){
-                    let corresspond_dancer =  client.board_ID - DANCER_NUM
-                    
+                }
+
+                // }else 
+                if(client.board_type === "fan"){
+                    let corresspond_dancer =  0//client.board_ID - DANCER_NUM
+                    let new_control = {}
+                    new_control["timeline"] = control[corresspond_dancer].map((frame)=>{
+                        let new_frame = {}
+                        new_frame["Start"] = frame["Start"]
+                        new_frame["name"] = frame["Status"]["LED_FAN"]["name"]
+                        new_frame["alpha"] = frame["Status"]["LED_FAN"]["alpha"]
+                        return new_frame
+                    })  
+                    new_control["picture"] =   self.pngs["LED_FAN"]
+                    control[client.board_ID] = new_control
                     
                 }
-                let boardMsg = {
-                    type: 'upload',
-                    data: control[client.board_ID] //boardData[client.boardId]
-                    // wsdata: wsData[client.boardId]
-                };
             }
         });
+        
         this.wss.clients.forEach((client) => {
             if (client.readyState === WebSocket.OPEN && params.targets.includes(client.board_ID)) {
                 console.log("upload", client.board_ID)
+                
                 let boardMsg = {
                     type: 'upload',
                     data: control[client.board_ID] //boardData[client.boardId]
                     // wsdata: wsData[client.boardId]
                 };
+                console.log(control[client.board_ID])
                 client.send(JSON.stringify(boardMsg));
             }
         });
@@ -355,13 +391,80 @@ class CmdServer {
     process_control() {
 
     }
-    arr_transpose(a) {
-        return Object.keys(a[0]).map(function (c) {
-            return a.map(function (r) {
-                return r[c];
+    compile(){
+        this.pngs = {}
+        this.convert_png('LED_FAN')
+        this.convert_png('LED_CHEST')
+        this.convert_png('LED_L_SHOE')
+        this.convert_png('LED_R_SHOE')
+    }
+    convert_png(f){
+        this.pngs[f] = {}
+        const directoryPath = path.join(__dirname, LED_PATH +  f);
+        //passsing directoryPath and callback function
+        let self = this
+        fs.readdir(directoryPath, function (err, files) {
+            //handling error
+            if (err) {
+                return console.log('Unable to scan directory: ' + err);
+            } 
+            //listing all files using forEach
+            
+            files.forEach(function (file) {
+                // Do whatever you want to do with the file
+                if(file.endsWith(".png")){
+                    
+                    let rotate = 1
+                    let data = fs.readFileSync(path.join(__dirname,LED_PATH +  f,file));
+                    let png = PNG.sync.read(data);
+                    
+
+                    let pixels_raw = Array.from(png.data)
+
+
+                    let img_arr = []
+                    let width = png.width
+                    let height = png.height
+                    img_arr = math.reshape(pixels_raw, [height, width, 4])
+
+
+                    for (let i = 0; i < rotate; ++i) {
+                        // to rotate 90 degree -> reverse then transpose
+                        img_arr.reverse()
+                        img_arr = arr_transpose(img_arr)
+                    }
+
+                    width = img_arr[0].length
+                    height = img_arr.length
+
+                    // flip odd row
+                    img_arr = img_arr.map((r, i) => {
+                        if (i % 2 === 1) {
+                            r.reverse()
+                        }
+                        return r
+                    })
+                    // remove alpha data
+                    img_arr = img_arr.map((r) => r.map((p) => {
+                        p.pop()
+                        return p
+                    }))
+                    img_arr = math.flatten(img_arr)
+                    // console.log(img_arr)
+                    self.pngs[f][file.substr(0,file.length-4)]=img_arr
+                    console.log("Convert",file); 
+                    // console.log(rgb_arr)
+                    
+                    // let filee = fs.createWriteStream('array.txt');
+                    // filee.on('error', function(err) { /* error handling */ });
+                    // img_arr.forEach(function(v) { filee.write(v.join(', ') ); });
+                    // filee.end();
+                }
+                
             });
         });
     }
+    
 
     // png2rgb_arr("<path>",rotate(times of 90 degree right),callback function)
     async png2rgb_arr(path, rotate = 1, callback) {
