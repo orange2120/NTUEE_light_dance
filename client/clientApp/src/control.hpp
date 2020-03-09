@@ -88,7 +88,8 @@ void sendSig(const int id) {
         }
         else {
             leds.sendToStrip(i, e.LED_parts[i]->get_data());
-            if(i != NUM_OF_LED-1)   usleep(LED_DELAY);
+            if(i == 0)   usleep(LED_DELAY_1*1000);
+            if(i == 1)   usleep(LED_DELAY_2*1000);
         }
     }
 }
@@ -106,6 +107,8 @@ void turnOff()
         tmp = new char[3*numLEDs[i]];
         for(int j = 0; j < 3*numLEDs[i]; ++j) tmp[j] = 0;
         leds.sendToStrip(i, tmp);
+        if(i == 0)  usleep(LED_DELAY_1*1000);
+        if(i == 1)  usleep(LED_DELAY_2*1000);
         delete[] tmp;
     }
 }
@@ -151,7 +154,7 @@ void run(const int id, int time) {
         }
         auto end = high_resolution_clock::now();
         auto duration = duration_cast<microseconds>(end-start); // transmission time
-        if(double(duration.count()) < PERIOD*1000) usleep(PERIOD*1000-double(duration.count())); // delay until 30000 us (30 ms)
+        if(double(duration.count()) < PERIOD*1000) usleep(PERIOD*1000-double(duration.count())); // delay until PERIOD
         else {
             for(unsigned i = 0; i < to_string(time).length()+10; ++i) cerr << '\b';
             cerr << "[ERROR] Sending Time Exceeds " << PERIOD << "ms!!" << endl;
