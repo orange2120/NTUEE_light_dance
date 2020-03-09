@@ -14,7 +14,6 @@
 #include <time.h>
 #include <dirent.h>
 #include "nlohmann/json.hpp"
-#include "definition.h"
 #include "LED_strip.h"
 
 using json = nlohmann::json;
@@ -22,6 +21,8 @@ using namespace std;
 
 #define alpha 1
 #define TEST_INTERVAL 500000 // us
+#define NUM_OF_LED 3
+const uint16_t numLEDs[NUM_OF_LED] = {300 40 40};
 
 string Dir = "./energy_json/";
 const string Ending = ".json";
