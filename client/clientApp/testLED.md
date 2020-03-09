@@ -25,6 +25,7 @@ json裡面會有每個dancer的資料，只要去改第一位就好
        40顆的 就改LED_R_SHOE.name
 ！！記得name不要加.json
 要測n張，就改n+1個(因為最後一個execution不會執行，會被視為結束的時間點)
+阿最後那張的name直接改成 "" 就好
 對...就一張一張改QQ
 
 ### Step 5
