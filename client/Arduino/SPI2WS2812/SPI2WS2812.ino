@@ -60,7 +60,7 @@ void setup()
     SPCR |= _BV(SPE); // Turn on SPI in Slave Mode
     SPCR |= _BV(SPIE); // get ready for an interrupt 
     received = false;
-    SPI.attachInterrupt();    // Interuupt ON is set for SPI commnucation
+    SPI.attachInterrupt();    // Interrupt ON is set for SPI commnucation
 
 #ifdef DEBUG
     Serial.println("init done.");

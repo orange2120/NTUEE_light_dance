@@ -22,7 +22,7 @@ const char* jsonData = "{\"type\":\"upload\",\"data\":{\"picture\":{\"fan_1\":[0
 
 
 // for json msg parsing
-StaticJsonDocument<200> doc;
+StaticJsonDocument<90> doc;
 DeserializationError error;
 
 // #define USE_SERIAL Serial1
@@ -33,7 +33,7 @@ DeserializationError error;
 #define WIFI_PWD "ntueesaad" 
 //"ntueesaad"
 #define SERVER_IP1 "192.168.1.6"
-#define SERVER_IP "192.168.0.86"
+#define SERVER_IP "192.168.0.89"
 
 #define SERVER_PORT 8081
 
@@ -74,7 +74,7 @@ void webSocketEvent(WStype_t type, uint8_t *payload, size_t length)
         error = deserializeJson(doc, (char*) payload);
         String ss = doc["type"];
         if(ss=="play"){
-          ledMgr.play();
+          ledMgr.play(doc["data"]["p"]);
         }else if(ss=="pause"){
           ledMgr.pause();
         }
@@ -184,12 +184,12 @@ void setup()
    	delay(10);
 
 	ledMgr.init();
-	if(!ledMgr.parsing_json(jsonData))
-		ESP.restart();
+	// if(!ledMgr.parsing_json(jsonData))
+	// 	ESP.restart();
 
 	delay(1000);
-	Serial.println("parse ok");
-  ledMgr.play();
+	Serial.println("ready");
+  	// ledMgr.play();
 	
 
 }

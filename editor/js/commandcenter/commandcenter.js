@@ -343,7 +343,7 @@ class Commandcenter {
                     axios.post('/api/play', {
                         params: {
                             ids: id_arr,
-                            time: 0
+                            time: self.mgr.time
                         }
                     });
                 }

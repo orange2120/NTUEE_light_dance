@@ -307,8 +307,8 @@ class CmdServer {
         let msg = {
             type: "play",
             data: {
-                start_at_server: cmd_start_time,
-                play_from_time: params.time
+                s: cmd_start_time, //start_at_server
+                p: params.time //play_from_time
             }
         }
         console.log(msg)
@@ -449,9 +449,25 @@ class CmdServer {
                         p.pop()
                         return p
                     }))
+
+                    if(f === "LED_FAN"){
+                        img_arr = img_arr.map((r)=>r.map((p)=>{
+                            console.log("in",p)
+                            let ret = p[0]
+                            ret = ret<<8
+                            ret = ret + p[1]
+                            ret = ret<<8
+                            ret = ret + p[2]
+                            return ret
+                        }))
+                        
+                    }else{
+                        // console.log(img_arr)
+                    }
                     img_arr = math.flatten(img_arr)
                     // console.log(img_arr)
                     self.pngs[f][file.substr(0,file.length-4)]=img_arr
+                    
                     console.log("Convert",file); 
                     // console.log(rgb_arr)
                     
