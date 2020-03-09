@@ -25,7 +25,7 @@ using namespace std;
 
 int id = 0, dataSize = 0;
 char* RGB_data = NULL;
-string path = "./test.json";
+string path = "../json/energy_json/energy11093_json/sprite_02.png.json";
 LED_Strip leds(NUM_OF_LED, numLEDs);
 
 int main(int argc, char *argv[])
