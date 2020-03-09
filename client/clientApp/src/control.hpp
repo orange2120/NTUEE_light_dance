@@ -88,7 +88,7 @@ void sendSig(const int id) {
         }
         else {
             leds.sendToStrip(i, e.LED_parts[i]->get_data());
-            if(i != NUM_OF_LED-1)   usleep(LED_DELAY);
+            if(i != NUM_OF_LED-1)   usleep(LED_DELAY*1000);
         }
     }
 }
