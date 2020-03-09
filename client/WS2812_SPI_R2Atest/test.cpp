@@ -1,3 +1,11 @@
+/****************************************************************************
+  FileName     [ test.cpp ]
+  PackageName  [ WS2812_SPI_R2Atest ]
+  Synopsis     [ RGB data to Arduino via SPI protocol for LED strip ]
+  Author       [  ]
+  Copyright    [ Copyleft(c) , NTUEE, Taiwan ]
+****************************************************************************/
+
 #include <iostream>
 #include <cstdio>
 #include <bcm2835.h>

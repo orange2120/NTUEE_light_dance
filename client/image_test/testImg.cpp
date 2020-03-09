@@ -17,7 +17,7 @@
 #include "LED_strip.h"
 
 #define alpha 0.2
-#define TEST_INTERVAL 5000000 // us
+#define TEST_INTERVAL 500000 // us
 
 
 using json = nlohmann::json;
@@ -55,11 +55,11 @@ int main(int argc, char *argv[])
     usleep(TEST_INTERVAL);
 
     // turnoff
-    char* tmp = 0;
-    tmp = new char[dataSize];
-    for(int j = 0; j < dataSize; ++j) tmp[j] = 0;
-    leds.sendToStrip(id, tmp);
-    delete[] tmp;
+    // char* tmp = 0;
+    // tmp = new char[dataSize];
+    // for(int j = 0; j < dataSize; ++j) tmp[j] = 0;
+    // leds.sendToStrip(id, tmp);
+    // delete[] tmp;
     // usleep(TEST_INTERVAL);
     cout << "done!" << endl;
 }
