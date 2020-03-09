@@ -12,6 +12,7 @@
 #include <vector>
 #include <string>
 #include <signal.h>
+#include <setjmp.h>
 
 #include "control.hpp"
 #include "definition.h"
@@ -23,6 +24,7 @@ extern const string DIR;
 extern const string FILENAME;
 vector<Person> people; // dancers
 int dancer_id = 0;
+jmp_buf jmpbuffer;
 
 int main(int argc, char *argv[]) // arg[1] = person id
 {
@@ -31,6 +33,7 @@ int main(int argc, char *argv[]) // arg[1] = person id
     handler_int.sa_handler = sigint_handler;
     // handler_usr1.sa_handler = sig_pause;
     signal(SIGUSR1, sig_pause);
+    signal(SIGUSR2, sig_pause);
 
     if (argc == 2) {
         dancer_id = atoi(argv[1]);
@@ -73,12 +76,14 @@ int main(int argc, char *argv[]) // arg[1] = person id
     
     printf("Dancer ID = %d\n", dancer_id);
 
-    // people[0].print();
     // turnOff();
+    // people[0].print();
+
     string cmd, tok;
     size_t pos;
     int time = 0; // begin time
     bool end = false;
+    if(setjmp(jmpbuffer) == 1)  signal(SIGUSR1, sig_pause);
     cout << "Usage:\"run [start time]\"" << endl;
     while(!end) {
         cmd = ""; tok = ""; time = 0; pos = 0;
@@ -87,6 +92,10 @@ int main(int argc, char *argv[]) // arg[1] = person id
         getline(cin, cmd); cmd.append(" ");
         pos = myStrGetTok(cmd, tok, pos);
         if(pos == string::npos) continue;
+        else if(tok == "print") {
+            people[dancer_id].print();
+            continue;
+        }
         else if(tok != "run") {
             cerr << "[ERROR] Invalid command! \"" << tok << "\"" << endl;
             continue;
@@ -100,7 +109,6 @@ int main(int argc, char *argv[]) // arg[1] = person id
                 continue;
             }
         }
-        
         run(dancer_id, time);
     }
 

@@ -24,7 +24,7 @@
 
 // refresh interval
 #define PERIOD 100 // ms
-#define LED_DELAY 30 // delay between led_strips
+#define LED_DELAY 40 // delay between led_strips
 
 // PCA9685 I2C address
 #define NUM_EL_1       16
@@ -34,7 +34,7 @@
 
 // Json file's path
 const std::string DIR = "./json/";
-const std::string FILENAME = "0304.json";
+const std::string FILENAME = "test2.json";
 
 // EL parts' name
 const std::string ELs[NUM_OF_EL] = {
