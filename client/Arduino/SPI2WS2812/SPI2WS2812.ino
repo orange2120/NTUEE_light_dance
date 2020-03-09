@@ -22,7 +22,7 @@
 #define STOP_BYTE_2 0xFF
 
 const uint16_t NUM_LEDS[] = {300, 40, 40, 88};
-const uint8_t LED_PIN[]  = {30, 31, 28, 29};
+const uint8_t LED_PIN[]  = {30, 31, 29, 27};
 
 volatile uint16_t cnt = 0;
 volatile bool received;      // handle SPI received event flag
