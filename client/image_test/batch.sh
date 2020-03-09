@@ -5,7 +5,7 @@ then
     FOLDER="$1/"
 fi
 
-for file in ./$1/*
+for file in ./$FOLDER/*
 do
     if [ ${file##*.} == "json" ]
     then
