@@ -1,19 +1,16 @@
 #ifndef LED_MANAGER
 #define LED_MANAGER
 
-#define FASTLED_ESP8266_RAW_PIN_ORDER
-
 #include <FastLED.h>
 #include <Arduino.h>
 #include <ArduinoJson.h>
 
-#define NUM_LEDS 64
+#define NUM_LEDS 96
 #define DATA_PIN 0
-// #define CLOCK_PIN 13
 
 class LedManager{
 public:
-   LedManager():starting_time(0), playing_time(0), playing(false) {}
+   LedManager():begin_time(0), playing_time(0), playing(false) {}
    ~LedManager() {}
 
    void init() {
@@ -32,54 +29,39 @@ public:
       return true;
    }
 
-   void play(unsigned long time = 0) {
-      starting_time = millis();
-      playing_time = start_from_witch_time = time;
-      
-      playing = true;
-      set_fram_idx();
+   void play() {
       show_frame();
+      playing = true;
+      begin_time = playing_time = millis();
    }
-   void pause() {
-      playing = false;
-   }
+   void pause() {}
    void upload() {}
 
    void show_frame(){
+      int counter = 0;
       double alpha = 0;
+
       const char* name = led_json["timeline"][frame_idx]["name"];
       alpha = led_json["timeline"][frame_idx]["alpha"];
 
       for(int j = 0; j < NUM_LEDS; j++) {
-         leds[j].r = (int)(((unsigned int)led_json["picture"][name][j]>>16) * alpha);
-         leds[j].g = (int)(((unsigned int)led_json["picture"][name][j]>>8) % 256 * alpha);
-         leds[j].b = (int)((unsigned int)led_json["picture"][name][j] % 256 * alpha);
+         for(int k = 0; k < 3; ++k){
+            leds[j][k] = (int)((int)led_json["picture"][name][counter] * alpha);
+            counter++;
+         }
       }
 
       #ifdef DEBUG
       Serial.println(name);
-      Serial.println(millis());
       #endif // DEBUG
 
       FastLED.show();
    }
-   void set_fram_idx(){
-      while(!frame_end() && playing_time >= led_json["timeline"][frame_idx + 1]["Start"])
-         ++frame_idx;
-      while(frame_idx != 0 && playing_time < led_json["timeline"][frame_idx]["Start"])
-         --frame_idx;
-   }
-   bool frame_end(){
-      if(frame_idx == led_json["timeline"].size() - 1)
-         return true;
-      else
-         return false;
-   }
 
    void loop() {
       if(playing){
-         playing_time = millis() - starting_time + start_from_witch_time;
-         if(frame_end()) {}
+         playing_time = millis() - begin_time;
+         if(frame_idx == led_json["timeline"].size() - 1) {}
          else if(playing_time > led_json["timeline"][frame_idx + 1]["Start"]){
             ++frame_idx;
             show_frame();
@@ -91,9 +73,8 @@ private:
    StaticJsonDocument<20000> led_json;
    DeserializationError error;
 
-   unsigned long starting_time;
+   unsigned long begin_time;
    unsigned long playing_time;
-   unsigned long start_from_witch_time;
 
    unsigned short frame_idx;
    bool playing;
