@@ -48,7 +48,7 @@ int main(int argc, char *argv[])
     else if (argc != 2)
 	{
 		cerr << "[ERROR] Invalid parameter\n";
-		cerr << "Usage: sudo ./testImg <strip ID> [JSON file path]\n";
+		cerr << "Usage: sudo ./testImg <strip ID> [JSON directory path]\n";
 		return -1;
 	}
 
@@ -83,7 +83,6 @@ void getFiles(const string& dir_path, vector<string>& files) {
     }
     while ((dirp = readdir(dp)) != NULL ) {
         // cerr << dirp->d_name << endl;
-        // FIXME: test dir/file
         if(cmpEnding(dirp->d_name, Ending) && dirp->d_type == DT_REG) { // DT_REG regular file 
             files.push_back(dirp->d_name);
         }

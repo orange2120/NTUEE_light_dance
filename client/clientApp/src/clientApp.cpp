@@ -33,7 +33,6 @@ int main(int argc, char *argv[]) // arg[1] = person id
     handler_int.sa_handler = sigint_handler;
     // handler_usr1.sa_handler = sig_pause;
     signal(SIGUSR1, sig_pause);
-    signal(SIGUSR2, sig_pause);
 
     if (argc == 2) {
         dancer_id = atoi(argv[1]);
