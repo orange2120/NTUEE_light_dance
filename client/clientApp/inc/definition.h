@@ -23,7 +23,7 @@
 #define LEDS_2 35
 
 // refresh interval
-#define PERIOD 40 // ms
+#define PERIOD 50 // ms
 #define LED_DELAY_1 14 // delay between led_strips
 #define LED_DELAY_2 4
 
