@@ -146,6 +146,12 @@ server.post('/api/kick', function(req, res) {
     res.send('ok');
 });
 
+server.post('/api/reboot', function(req, res) {
+    cmds.rebootBoard(req.body.params.ids)
+    console.log("[Server] reboot ",req.body.params.ids)
+    res.send('ok');
+});
+
 server.get('/api/config/clear', function(req, res) {
     CONFIG.boards = []
     cmds.loadConfig(CONFIG)
