@@ -18,6 +18,17 @@ const WebSocket = require('ws')
 const spawn = require('child_process').spawn
 let need_reconnect = true
 
+function spawnClientApp() {
+  if (clientApp_cmd != "" && !clientApp_cmd.killed) {
+    clientApp_cmd.kill()
+  }
+  clientApp_cmd = spawn(PATH_clientApp, [])
+  // clientApp_cmd.on('')
+  
+  console.log(`ClientApp Start at PID=${clientApp_cmd.pid}`)
+}
+
+
 function mainSocket() {
   // console.log(`Find Server ${b[0].ip} ${b[0].mac}`)
   let url = 'ws://' + SERVER_IP + ':' + String(PORT)
