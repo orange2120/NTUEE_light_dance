@@ -11,7 +11,7 @@ const fs = require('fs')
 const SERVER_MAC = ""//CONFIG.settings.server_mac_addr
 const PORT = 8081
 
-const SERVER_IP = "192.168.0.199"//CONFIG.settings.server_ip_addr
+const SERVER_IP = "192.168.0.200"//CONFIG.settings.server_ip_addr
 
 const PATH_clientApp = path.join(__dirname,"./clientApp")
 let clientApp_cmd = ""
