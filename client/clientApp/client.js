@@ -10,7 +10,7 @@ const PORT = 8081
 const SERVER_IP = CONFIG.settings.server_ip_addr
 
 const PATH_clientApp = "./clientApp"
-
+let clientApp_cmd = ""
 
 const WebSocket = require('ws')
 // const ReconnectingWebSocket = require('reconnecting-websocket');
