@@ -138,6 +138,8 @@ function mainSocket() {
       } else if (msg.data.restart_target === "clientApp") {
 
         spawnClientApp()
+      } else if (msg.data.restart_target === "board") {
+        require('child_process').exec('sudo reboot', function (msg) { console.log(msg) });
       } else {
         console.log(`Unknown restart target ${msg.data.restart_target}`)
       }

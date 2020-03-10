@@ -204,7 +204,7 @@ class CmdServer {
                         return
                     } else if (regex.test(mac) == false) {
                         console.log(`[Server] Cannot find corressponding Mac Address of ${ip}`)
-                        // ws.terminate()
+                        ws.terminate()
                         return
                     }
                     ws.macAddr = mac
@@ -530,7 +530,10 @@ class CmdServer {
 
     rebootBoard(cmd_start_time, params) {
         let msg = {
-            type: "rebootBoard"
+            type: "rebootBoard",
+            data:{
+                restart_target : "board"
+            }
         }
         this.sendToBoards(msg, params.targets)
     }
