@@ -146,3 +146,5 @@ function mainSocket() {
   }
 
 }
+
+mainSocket()
