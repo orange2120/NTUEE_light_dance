@@ -29,10 +29,9 @@ function main() {
       clientApp_cmd.kill()
     }
     clientApp_cmd = spawn(PATH_clientApp, [])
-    clientApp_cmd.stdout.on('data',function(data){
-      console.log(`[clientApp] ${data}`)
+    // clientApp_cmd.on('')
     
-    })
+    console.log(`ClientApp Start at PID=${clientApp_cmd.pid}`)
   }
   
 
@@ -127,20 +126,29 @@ function main() {
             if (msg.data.ack_type === "request_to_join") {
               board_id = msg.data.board_id
               console.log(`Conected to Server with Borad ID=${board_id}`)
-              spawnClientApp()
-              console.log(`ClientApp Start at PID=${clientApp_cmd.pid}`)
+              // spawnClientApp()
+              
             }
           } else if (msg.type === "upload") {
             fs.writeFileSync('recieve.json', JSON.stringify(msg.data));
             console.log("Done")
           } else if (msg.type === "play") {
+            // spawnClientApp()
             console.log(`Play from ${msg.data.play_from_time}`)
+            spawnClientApp()
+            clientApp_cmd.stdout.on('data',function(data){
+              clientApp_cmd.stdin.write('run ' + String(msg.data.p) + '\n')
+              console.log('Done')
+            })
             // console.log('run ' + String(msg.data.play_from_time))
-            clientApp_cmd.stdin.write('run ' + String(msg.data.play_from_time) + '\n')
-            console.log('Done')
+            
+            
+            
           } else if (msg.type === "pause") {
             console.log(`Pause from Server`)
             clientApp_cmd.kill("SIGUSR1") //pause
+            clientApp_cmd.kill()
+            // spawnClientApp()
             console.log("Done")
           } else if (msg.type === "safe_kick") {
             console.log("Safe Kick By Server")

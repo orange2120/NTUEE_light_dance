@@ -29,11 +29,12 @@ DeserializationError error;
 
 // parameters
 #define WIFI_NAME1 "TOTOLINK N300RB"
-#define WIFI_NAME "MakerSpace_2.4G"
-#define WIFI_PWD "ntueesaad" 
+#define WIFI_NAME2 "MakerSpace_2.4G"
+#define WIFI_NAME "AndroidAP1FA1"
+#define WIFI_PWD "igno3688" 
 //"ntueesaad"
 #define SERVER_IP1 "192.168.1.6"
-#define SERVER_IP "192.168.0.89"
+#define SERVER_IP "192.168.43.207"
 
 #define SERVER_PORT 8081
 

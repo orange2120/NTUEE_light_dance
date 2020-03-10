@@ -1,1 +1,1 @@
-{"boards":[{"ip":"192.168.0.203","mac":"80:7d:3a:7f:3c:3e","status":"connected","id":0,"board_type":"fan"}],"settings":{"ping_interval":3000,"server_mac_addr":"8c:85:90:d1:41:dc"}}
+{"boards":[{"ip":"10.129.245.233","mac":"8c:85:90:d1:41:dc","status":"connected","id":0,"board_type":"dancer"}],"settings":{"ping_interval":3000,"server_mac_addr":"8c:85:90:d1:41:dc"}}

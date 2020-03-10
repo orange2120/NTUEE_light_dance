@@ -6,7 +6,7 @@
         "LED_CHEST": ["bl_chest", "chest1", "chest2"],
         "LED_R_SHOE": ["bl_shoe", "r_shoe1", "r_shoe2"],
         "LED_L_SHOE": ["bl_shoe", "l_shoe1", "l_shoe2"],
-        "LED_FAN": ["bl_fan", "fan_1", "fan_2", "fan_3", "fan_4"]
+        "LED_FAN": ["bl_fan", "fan_1", "fan_2", "fan_3", "fan_4","fan_left1_dark","fan_left2_dark","fan_left3_dark","fan_right1_dark","fan_right2_dark","fan_right3_dark","fan_all_bright","fan_three","fan_three_noMid","fan_two","fan_two_noMid"]
     },
     "timeline_setting": {
         "version": "1.2.0",
