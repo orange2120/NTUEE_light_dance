@@ -28,11 +28,11 @@ jmp_buf jmpbuffer;
 
 int main(int argc, char *argv[]) // arg[1] = person id
 {
-    // struct sigaction handler_int, handler_usr1;
-    struct sigaction handler_int;
+    struct sigaction handler_int, handler_usr1;
+    // struct sigaction handler_int;
     handler_int.sa_handler = sigint_handler;
-    // handler_usr1.sa_handler = sig_pause;
-    signal(SIGUSR1, sig_pause);
+    handler_usr1.sa_handler = sig_pause;
+    // signal(SIGUSR1, sig_pause);
 
     if (argc == 2) {
         dancer_id = atoi(argv[1]);
@@ -48,17 +48,17 @@ int main(int argc, char *argv[]) // arg[1] = person id
 		return -1;
 	}
 
-    // if (sigfillset(&handler_int.sa_mask) < 0 || sigfillset(&handler_usr1.sa_mask) < 0)
-    if (sigfillset(&handler_int.sa_mask) < 0)
+    if (sigfillset(&handler_int.sa_mask) < 0 || sigfillset(&handler_usr1.sa_mask) < 0)
+    // if (sigfillset(&handler_int.sa_mask) < 0)
     {
         fprintf(stderr, "[ERROR] Fillset error!\n");
         return -1;
     }
     handler_int.sa_flags = 0;
-    // handler_usr1.sa_flags = 0;
+    handler_usr1.sa_flags = 0;
 
-    if (sigaction(SIGINT, &handler_int, 0) < 0)
-    // if (sigaction(SIGINT, &handler_int, 0) < 0 || sigaction(SIGUSR1, &handler_usr1, 0) < 0 )
+    // if (sigaction(SIGINT, &handler_int, 0) < 0)
+    if (sigaction(SIGINT, &handler_int, 0) < 0 || sigaction(SIGUSR1, &handler_usr1, 0) < 0 )
     {
         fprintf(stderr, "[ERROR] sigaction failed!\n");
         return -1;
