@@ -1,6 +1,10 @@
 // read settings
 const os = require('os')
 const fs = require('fs')
+const path = require('path')
+
+console.log(__dirname)
+
 let CONFIG = fs.readFileSync('../../boards_config.json')
 CONFIG = JSON.parse(CONFIG)
 
@@ -94,7 +98,7 @@ function mainSocket() {
       console.log("Done")
     } else if (msg.type === "play") {
       // spawnClientApp()
-      console.log(`Play from ${msg.data.play_from_time}`)
+      console.log(`Play from ${msg.data.p}`)
       spawnClientApp()
       clientApp_cmd.stdout.on('data',function(data){
         clientApp_cmd.stdin.write('run ' + String(msg.data.p) + '\n')
@@ -106,8 +110,12 @@ function mainSocket() {
       
     } else if (msg.type === "pause") {
       console.log(`Pause from Server`)
-      clientApp_cmd.kill("SIGUSR1") //pause
-      clientApp_cmd.kill()
+      if(clientApp_cmd != '' && !clientApp_cmd.killed) {
+	      clientApp_cmd.kill('SIGUSR1')
+	      clientApp_cmd.kill()
+      }
+      //clientApp_cmd.kill("SIGUSR1") //pause
+      //clientApp_cmd.kill()
       // spawnClientApp()
       console.log("Done")
     } else if (msg.type === "safe_kick") {
