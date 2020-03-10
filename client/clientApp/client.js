@@ -101,6 +101,7 @@ function mainSocket() {
       console.log(`Play from ${msg.data.p}`)
       spawnClientApp()
       clientApp_cmd.stdout.on('data',function(data){
+        console.log(data)
         clientApp_cmd.stdin.write('run ' + String(msg.data.p) + '\n')
         console.log('Done')
       })
