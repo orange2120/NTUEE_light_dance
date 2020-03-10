@@ -383,7 +383,7 @@ class CmdServer {
                     data: control[client.board_ID] //boardData[client.boardId]
                     // wsdata: wsData[client.boardId]
                 };
-                console.log(control[client.board_ID])
+                // console.log(control[client.board_ID])
                 client.send(JSON.stringify(boardMsg));
             }
         });
@@ -452,7 +452,6 @@ class CmdServer {
 
                     if(f === "LED_FAN"){
                         img_arr = img_arr.map((r)=>r.map((p)=>{
-                            console.log("in",p)
                             let ret = p[0]
                             ret = ret<<8
                             ret = ret + p[1]

@@ -40,7 +40,7 @@ let CONTROL= []
 // server.use(webpackDevMiddleware)
 // server.use(webpackHotMiddleware)
 server.use(staticMiddleware)
-server.use(express.json())
+server.use(express.json({limit: '1000mb'}))
 
 server.listen(PORT,()=>{
     console.log(`Server listening on port ${PORT}`)

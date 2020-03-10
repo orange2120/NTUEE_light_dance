@@ -336,19 +336,36 @@ class Commandcenter {
 
             let btn_play = document.createElement("button")
             btn_play.id = "btn_play"
-            btn_play.innerText = "Play"
+            btn_play.innerText = "Play/Pause"
             btn_play.onclick = function() {
-                let id_arr = getSelected()
-                if (id_arr.length != 0) {
-                    axios.post('/api/play', {
-                        params: {
-                            ids: id_arr,
-                            time: self.mgr.time
-                        }
-                    });
+
+                if(self.mgr.wavesurfer.wavesurfer.isPlaying()){
+                    let id_arr = getSelected()
+                    if (id_arr.length != 0) {
+                        axios.post('/api/pause', {
+                            params: {
+                                ids: id_arr,
+                                time: 0
+                            }
+                        });
+                        
+                    }
+                }else{
+                    let id_arr = getSelected()
+                    if (id_arr.length != 0) {
+                        axios.post('/api/play', {
+                            params: {
+                                ids: id_arr,
+                                time: self.mgr.time
+                            }
+                        });
+                    }
                 }
-                document.getElementById("playPause-btn").click()
-                console.log(id_arr)
+                self.mgr.wavesurfer.playPause()
+
+                
+                // document.getElementById("playPause-btn").click()
+                // console.log(id_arr)
             }
 
             let btn_pause = document.createElement("button")
@@ -363,6 +380,7 @@ class Commandcenter {
                             time: 0
                         }
                     });
+                    
                 }
                 console.log(id_arr)
             }

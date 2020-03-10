@@ -11,6 +11,7 @@
 #define DATA_PIN 0
 
 #define DEBUG
+DynamicJsonDocument led_json(43772);
 
 class LedManager{
 public:
@@ -102,8 +103,8 @@ public:
 
 private:
    CRGB leds[NUM_LEDS];
-   StaticJsonDocument<33772> led_json;
-//   DynamicJsonDocument led_json(23511);
+//   StaticJsonDocument<43772> led_json;
+//   DynamicJsonDocument led_json(43772);
    DeserializationError error;
 
    unsigned long starting_time;
