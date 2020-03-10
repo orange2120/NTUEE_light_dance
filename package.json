@@ -12,7 +12,8 @@
     "editor:build": "webpack --mode production",
     "editor:dev": "webpack-dev-server --mode development",
     "dev": "nodemon --watch server server/main.js",
-    "build": "webpack --mode production && node server/main.js"
+    "build": "webpack --mode production && node server/main.js",
+    "rpi:setup" : "npm i ws child_process"
   },
   "repository": {
     "type": "git",

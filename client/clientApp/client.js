@@ -7,7 +7,7 @@ CONFIG = JSON.parse(CONFIG)
 const SERVER_MAC = CONFIG.settings.server_mac_addr
 const PORT = 8081
 
-const PATH_clientApp = "./clientApp_sim"
+const PATH_clientApp = "./clientApp"
 
 
 const WebSocket = require('ws')
