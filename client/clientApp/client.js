@@ -1,17 +1,17 @@
 // read settings
 const os = require('os')
 const fs = require('fs')
-const path = require('path')
+// const path = require('path')
 
-console.log(`Config file path at ${path.join(__dirname,"../../boards_config.json")}`)
+// console.log(`Config file path at ${path.join(__dirname,"../../boards_config.json")}`)
 
-let CONFIG = fs.readFileSync(path.join(__dirname,"../../boards_config.json"))
-CONFIG = JSON.parse(CONFIG)
+// let CONFIG = fs.readFileSync(path.join(__dirname,"../../boards_config.json"))
+// CONFIG = JSON.parse(CONFIG)
 
-const SERVER_MAC = CONFIG.settings.server_mac_addr
+const SERVER_MAC = ""//CONFIG.settings.server_mac_addr
 const PORT = 8081
 
-const SERVER_IP = CONFIG.settings.server_ip_addr
+const SERVER_IP = "192.168.0.199"//CONFIG.settings.server_ip_addr
 
 const PATH_clientApp = path.join(__dirname,"./clientApp")
 let clientApp_cmd = ""
