@@ -1,7 +1,7 @@
 // read settings
 const os = require('os')
 const fs = require('fs')
-// const path = require('path')
+const path = require('path')
 
 // console.log(`Config file path at ${path.join(__dirname,"../../boards_config.json")}`)
 
