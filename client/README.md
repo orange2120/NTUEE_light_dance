@@ -9,7 +9,10 @@ Integrate the system with web interface.
 client application is running on Raspberry Pi.  
 
 ## Arduino/SPI2WS2812
-Receive RGB data via from RPi, convert to WS2812 signal.  
+Receive RGB data via SPI protocol from RPi, convert to WS2812 signal.  
+
+## Arduino/testColor
+Test the color with LED strip by adjusting 3 potentiometer.
 
 ## image_test
 Testing program for test LED strips from converted RGB JSON file.  
