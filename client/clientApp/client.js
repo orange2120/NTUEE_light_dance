@@ -3,9 +3,9 @@ const os = require('os')
 const fs = require('fs')
 const path = require('path')
 
-console.log(__dirname)
+console.log(`Config file path at ${path.join(__dirname,"../../boards_config.json")}`)
 
-let CONFIG = fs.readFileSync('../../boards_config.json')
+let CONFIG = fs.readFileSync(path.join(__dirname,"../../boards_config.json"))
 CONFIG = JSON.parse(CONFIG)
 
 const SERVER_MAC = CONFIG.settings.server_mac_addr
