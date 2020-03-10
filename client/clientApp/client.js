@@ -13,7 +13,7 @@ const PORT = 8081
 
 const SERVER_IP = CONFIG.settings.server_ip_addr
 
-const PATH_clientApp = "./clientApp"
+const PATH_clientApp = path.join(__dirname,"./clientApp")
 let clientApp_cmd = ""
 
 const WebSocket = require('ws')
