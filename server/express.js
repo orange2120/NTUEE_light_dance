@@ -55,8 +55,8 @@ function readConfigFile(p=CONFIG_PATH){
             "boards": [],
             "settings": {
                 "ping_interval": 3000,
-                "server_mac_addr" : os.networkInterfaces()["en0"][0]["mac"],
-                "server_ip_addr" : os.networkInterfaces()["en0"][0]["address"]
+                "server_mac_addr" : os.networkInterfaces()["en0"][1]["mac"],
+                "server_ip_addr" : os.networkInterfaces()["en0"][1]["address"]
             }
         }
         writeConfigFile()
