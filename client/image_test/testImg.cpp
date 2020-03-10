@@ -20,11 +20,14 @@ using json = nlohmann::json;
 using namespace std;
 
 #define alpha 1
-#define TEST_INTERVAL 500000 // us
+#define TEST_INTERVAL  100000 // us
 #define NUM_OF_LED 3
-const uint16_t numLEDs[NUM_OF_LED] = {300 40 40};
+#define LED_0 300
+#define LED_1 35
+#define LED_2 35
+const uint16_t numLEDs[NUM_OF_LED] = {LED_0, LED_1, LED_2};
 
-string Dir = "./energy_json/";
+string Dir = "./json/energy_final_json/";
 const string Ending = ".json";
 int id = 0, dataSize = 0;
 char* RGB_data = NULL;
@@ -56,8 +59,7 @@ int main(int argc, char *argv[])
 	}
 
     id = atoi(argv[1]);
-    if(id == 0) dataSize = 300;
-    else dataSize = 40;
+    dataSize = numLEDs[id]*3;
     vector<string> FileNames;
     vector<char*>  RGBs;
     getFiles(Dir, FileNames);
@@ -73,7 +75,6 @@ int main(int argc, char *argv[])
     for(int j = 0; j < dataSize; ++j) tmp[j] = 0;
     leds.sendToStrip(id, tmp);
     delete[] tmp;
-    usleep(TEST_INTERVAL);
     cout << "done!" << endl;
 }
 
@@ -87,7 +88,7 @@ void getFiles(const string& dir_path, vector<string>& files) {
     }
     for(int i = 0; i < count; ++i) {
         if(cmpEnding(namelist[i]->d_name, Ending) && namelist[i]->d_type == DT_REG) {
-            cerr << namelist[i]->d_name << endl;
+            // cerr << namelist[i]->d_name << endl;
             files.push_back(namelist[i]->d_name);
         }
     }
@@ -95,16 +96,20 @@ void getFiles(const string& dir_path, vector<string>& files) {
 }
 
 void readFiles(const vector<string>& files, vector<char*>& RGB_datas) {
+    cerr << "[INFO] Reading json..." << endl;
+    string path;
     for(size_t i = 0; i < files.size(); ++i) {
-        ifstream infile(files[i]);
+        path = Dir;
+        path.append(files[i]);
+        ifstream infile(path);
         json RGB = json::parse(infile);
         char* data = new char[dataSize];
         for(int j = 0; j < dataSize; ++j) {
-            double tmp = RGB[i];
+            double tmp = RGB[j];
             tmp *= alpha;
-            data[i] = char(int(tmp));
+            data[j] = char(int(tmp));
         }
         RGB_datas.push_back(data);
-        delete[] data;
     }
+    cerr << "[INFO] Done Reading!!" << endl;
 }
