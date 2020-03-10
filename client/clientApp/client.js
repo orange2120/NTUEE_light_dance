@@ -63,11 +63,6 @@ function main() {
       let b = buffer.filter(obj => {
         return obj.mac === SERVER_MAC
       });
-      if (b.length == 0) {
-        console.log(`Cannot find server with mac = ${SERVER_MAC} in local network`)
-        process.exit()
-        return
-      }
 
       function mainSocket() {
         console.log(`Find Server ${b[0].ip} ${b[0].mac}`)
@@ -198,8 +193,18 @@ function main() {
 
       }
 
+      if (b.length == 0) {
+        console.log(`Cannot find server with mac = ${SERVER_MAC} in local network`)
+        // process.exit()
+        return
+      }else{
+        mainSocket()
+      }
 
-      mainSocket()
+      
+
+
+      
     });
 
   });
