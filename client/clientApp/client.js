@@ -100,7 +100,8 @@ function mainSocket() {
         
       }
     } else if (msg.type === "upload") {
-      fs.writeFileSync('./json/test2.json', JSON.stringify(msg.data));
+      let dd = [[msg.data]]
+      fs.writeFileSync('./json/test2.json', JSON.stringify(dd));
       console.log("Done")
     } else if (msg.type === "play") {
       // spawnClientApp()
