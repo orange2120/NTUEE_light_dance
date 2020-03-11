@@ -280,8 +280,13 @@ class Commandcenter {
             btn_compile.innerText = "Compile"
             btn_compile.id = "btn_compile"
             btn_compile.onclick = function() {
-                axios.get('/api/compile',{
+                // axios.get('/api/compile',{
+                //     params: {
+                //     }
+                // })
+                axios.post('/api/compile',{
                     params: {
+                        control : self.mgr.getControl()
                     }
                 })
             }
@@ -392,7 +397,7 @@ class Commandcenter {
             boards_control_zone.appendChild(btn_kick)
             boards_control_zone.appendChild(btn_reboot)
             boards_control_zone.appendChild(btn_play)
-            boards_control_zone.appendChild(btn_pause)
+            // boards_control_zone.appendChild(btn_pause)
 
             // conrtol_zone.appendChild(allow_scan)
             // conrtol_zone.appendChild(allow_scan_title)
