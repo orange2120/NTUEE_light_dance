@@ -324,7 +324,24 @@ class CmdServer {
         this.sendToBoards(msg, params.targets)
     }
     upload(cmd_start_time, params, control) {
-        control = JSON.parse(JSON.stringify(control))
+        
+        
+        this.wss.clients.forEach((client) => {
+            if (client.readyState === WebSocket.OPEN && params.targets.includes(client.board_ID)) {
+                console.log("upload", client.board_ID)
+                
+                let boardMsg = {
+                    type: 'upload',
+                    data: self.tmp_control[client.board_ID] //boardData[client.boardId]
+                    // wsdata: wsData[client.boardId]
+                };
+                // console.log(control[client.board_ID])
+                client.send(JSON.stringify(boardMsg));
+            }
+        });
+    }
+    process_control() {
+        
         // console.log(control)
         let parsed_control=[]
         /*
@@ -338,7 +355,7 @@ class CmdServer {
                 console.log("processing", client.board_ID)
                 
                 if(client.board_type==="dancer" || client.board_type==="fan" ){
-                    control[client.board_ID]= control[client.board_ID].map((frame)=>{
+                    self.tmp_control[client.board_ID]= self.tmp_control[client.board_ID].map((frame)=>{
                         // console.log(frame)
                         if(frame["Status"]["LED_CHEST"]["name"] === ""){
                             frame["Status"]["LED_CHEST"]["name"] = "bl_chest"
@@ -360,43 +377,28 @@ class CmdServer {
                 if(client.board_type === "fan"){
                     let corresspond_dancer =  0//client.board_ID - DANCER_NUM
                     let new_control = {}
-                    new_control["timeline"] = control[corresspond_dancer].map((frame)=>{
+                    new_control["timeline"] = self.tmp_control[corresspond_dancer].map((frame)=>{
                         let new_frame = {}
                         new_frame["Start"] = frame["Start"]
                         new_frame["name"] = frame["Status"]["LED_FAN"]["name"]
                         new_frame["alpha"] = frame["Status"]["LED_FAN"]["alpha"]
                         return new_frame
                     })  
-                    new_control["picture"] =   self.pngs["LED_FAN"]
-                    control[client.board_ID] = new_control
+                    // new_control["picture"] =   self.pngs["LED_FAN"]
+                    self.tmp_control[client.board_ID] = new_control
                     
                 }
             }
         });
-        
-        this.wss.clients.forEach((client) => {
-            if (client.readyState === WebSocket.OPEN && params.targets.includes(client.board_ID)) {
-                console.log("upload", client.board_ID)
-                
-                let boardMsg = {
-                    type: 'upload',
-                    data: control[client.board_ID] //boardData[client.boardId]
-                    // wsdata: wsData[client.boardId]
-                };
-                // console.log(control[client.board_ID])
-                client.send(JSON.stringify(boardMsg));
-            }
-        });
     }
-    process_control() {
-
-    }
-    compile(){
+    compile(control){
+        this.tmp_control = JSON.parse(JSON.stringify(control))
         this.pngs = {}
         this.convert_png('LED_FAN')
         this.convert_png('LED_CHEST')
         this.convert_png('LED_L_SHOE')
         this.convert_png('LED_R_SHOE')
+        this.process_control()
     }
     convert_png(f){
         this.pngs[f] = {}
