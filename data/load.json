@@ -1,12 +1,12 @@
 {
-    "Music": "light_dance_bgm_v1.mp3",
+    "Music": "eenight.wav",
     "Control": "control.json",
     "Presets": "presets.json",
     "Texture": {
-        "LED_CHEST": ["bl_chest", "chest1", "chest2"],
-        "LED_R_SHOE": ["bl_shoe", "r_shoe1", "r_shoe2"],
-        "LED_L_SHOE": ["bl_shoe", "l_shoe1", "l_shoe2"],
-        "LED_FAN": ["bl_fan", "fan_1", "fan_2", "fan_3", "fan_4","fan_left1_dark","fan_left2_dark","fan_left3_dark","fan_right1_dark","fan_right2_dark","fan_right3_dark","fan_all_bright","fan_three","fan_three_noMid","fan_two","fan_two_noMid"]
+        "LED_CHEST": ["bl_chest", "chest1", "chest2", "energy_01", "energy_02", "energy_03", "energy_04", "energy_05", "energy_06", "energy_07", "energy_08", "energy_09", "energy_10", "energy_11", "energy_12", "energy_13", "energy_14", "energy_15", "energy_16", "eye_0_4", "eye_1_4", "eye_2_4", "eye_3_4", "eye_4_4", "eye_5_4", "eye_6_4", "eye_7_4", "eye_8_4", "eye_9_4", "eye_10_4", "eye_11_4", "eye_12_4", "eye_13_4", "eye_14_4", "eye_15_4", "eye_16_4", "eye_17_4", "eye_18_4", "eye_19_4", "eye_20_4", "eye_21_4", "eye_22_4", "eye_23_4", "eye_24_4", "eye_25_4", "eye_26_4", "eye_27_4", "eye_28_4", "eye_29_4", "eye_30_4", "eye_31_4", "eye_0_1", "eye_1_1", "eye_2_1", "eye_3_1", "eye_4_1", "eye_5_1", "eye_6_1", "eye_7_1", "eye_8_1", "eye_9_1", "eye_10_1", "eye_11_1", "eye_12_1", "eye_13_1", "eye_14_1", "eye_15_1", "eye_16_1", "eye_17_1", "eye_18_1", "eye_19_1", "eye_20_1", "eye_21_1", "eye_22_1", "eye_23_1", "eye_24_1", "eye_25_1", "eye_26_1", "eye_27_1", "eye_28_1", "eye_29_1", "eye_30_1", "eye_31_1"],
+        "LED_R_SHOE": ["bl_shoe", "r_shoe1", "r_shoe2", "r_shoe_red", "r_shoe_purpleblue", "r_shoe_yellow"],
+        "LED_L_SHOE": ["bl_shoe", "l_shoe1", "l_shoe2", "l_shoe_red", "l_shoe_purpleblue", "l_shoe_yellow"],
+        "LED_FAN": ["bl_fan", "fan_1", "fan_2", "fan_3", "fan_4"]
     },
     "timeline_setting": {
         "version": "1.2.0",
