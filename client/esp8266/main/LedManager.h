@@ -8,14 +8,41 @@
 #include <ArduinoJson.h>
 
 #define NUM_LEDS 96
+#define LED_ROWS 8
+#define LEDS_IN_ROW (NUM_LEDS/LED_ROWS)
 #define DATA_PIN 0
 
-#define DEBUG
-DynamicJsonDocument led_json(43772);
+// DynamicJsonDocument led_json(43772);
+const char* pic_data = "{\
+   \"fan_1\": 24,\
+   \"fan_2\": 36,\
+   \"fan_3\": 66,\
+   \"fan_4\": 129,\
+   \"fan_all_bright\": 255,\
+   \"fan_left1_dark\": 127,\
+   \"fan_left2_dark\": 191,\
+   \"fan_left3_dark\": 223,\
+   \"fan_right1_dark\": 254,\
+   \"fan_right2_dark\": 253,\
+   \"fan_right3_dark\": 251,\
+   \"fan_three\": 126,\
+   \"fan_three_noMid\": 231,\
+   \"fan_two\": 60,\
+   \"fan_two_noMid\": 195,\
+   \"bl_fan\": 0\
+}";
+const CRGB Ocher = {255, 150, 0};
 
 class LedManager{
 public:
-   LedManager():starting_time(0), playing_time(0), playing(false) {}
+   LedManager():starting_time(0), playing_time(0), playing(false) {
+      error = deserializeJson(pic_json, pic_data);
+      if (error) {
+         Serial.println("Parsing Error: Pic map");
+         Serial.println(error.c_str());
+         delay(5000);
+      }
+   }
    ~LedManager() {}
 
    void init() {
@@ -51,11 +78,31 @@ public:
 
    void show_frame(){
       double alpha = 0;
+      uint8_t temp = 0;
 
       const char* name = led_json["data"]["timeline"][frame_idx]["name"];
       alpha = led_json["data"]["timeline"][frame_idx]["alpha"];
+      temp = pic_json[name];
 
-      for(int j = 0; j < NUM_LEDS; j++) {
+      for(int i = 0; i < LED_ROWS; ++i){
+         if((temp>>(7 - i)) % 2 == 1){
+            Serial.print("1 ");
+            for(int j = 0; j < LEDS_IN_ROW; ++j){
+               leds[i*LEDS_IN_ROW + j].r = Ocher.r * alpha;
+               leds[i*LEDS_IN_ROW + j].g = Ocher.g * alpha;
+               leds[i*LEDS_IN_ROW + j].b = Ocher.b * alpha;
+            }
+         }
+         else{
+            Serial.print("0 ");
+            for(int j = 0; j < LEDS_IN_ROW; ++j){
+               leds[i*LEDS_IN_ROW + j] = CRGB::Black;
+            }
+         }
+      }
+      Serial.println();
+
+      /* for(int j = 0; j < NUM_LEDS; j++) {
 
          leds[j].r = (int)(((unsigned int)led_json["data"]["picture"][name][j]>>16) * alpha);
          leds[j].g = (int)(((unsigned int)led_json["data"]["picture"][name][j]>>8) % 256 * alpha);
@@ -65,23 +112,23 @@ public:
          //    leds[j][k] = (int)((int)led_json["data"]["picture"][name][counter] * alpha);
          //    counter++;
          // }
-      }
+      } */
       Serial.println("show frame");
       Serial.println(name);
-      #ifdef DEBUG
-      //Serial.println(name);
-      #endif // DEBUG
+      Serial.print(millis());
+      Serial.print(" ");
+      Serial.println(playing_time);
 
       FastLED.show();
    }
    void set_fram_idx(){
-      while(!frame_end() && playing_time >= led_json["timeline"][frame_idx + 1]["Start"])
+      while(!frame_end() && playing_time >= led_json["data"]["timeline"][frame_idx + 1]["Start"])
          ++frame_idx;
-      while(frame_idx != 0 && playing_time < led_json["timeline"][frame_idx]["Start"])
+      while(frame_idx != 0 && playing_time < led_json["data"]["timeline"][frame_idx]["Start"])
          --frame_idx;
    }
    bool frame_end(){
-      if(frame_idx == led_json["timeline"].size() - 1)
+      if(frame_idx == led_json["data"]["timeline"].size() - 1)
          return true;
       else
          return false;
@@ -103,7 +150,8 @@ public:
 
 private:
    CRGB leds[NUM_LEDS];
-//   StaticJsonDocument<43772> led_json;
+   StaticJsonDocument<35000> led_json;
+   StaticJsonDocument<450> pic_json;
 //   DynamicJsonDocument led_json(43772);
    DeserializationError error;
 

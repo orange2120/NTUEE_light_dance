@@ -18,9 +18,6 @@ ESP8266WiFiMulti WiFiMulti;
 WebSocketsClient webSocket;
 LedManager ledMgr;
 
-const char* jsonData = "{\"type\":\"upload\",\"data\":{\"picture\":{\"fan_1\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,255,150,0,255,150,0,255,150,0,255,150,0,255,150,0,255,150,0,255,150,0,255,150,0,255,150,0,255,150,0,255,150,0,255,150,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,255,150,0,255,150,0,255,150,0,255,150,0,255,150,0,255,150,0,255,150,0,255,150,0,255,150,0,255,150,0,255,150,0,255,150,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],\"fan_2\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,255,150,0,255,150,0,255,150,0,255,150,0,255,150,0,255,150,0,255,150,0,255,150,0,255,150,0,255,150,0,255,150,0,255,150,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,255,150,0,255,150,0,255,150,0,255,150,0,255,150,0,255,150,0,255,150,0,255,150,0,255,150,0,255,150,0,255,150,0,255,150,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],\"bl_fan\":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]},\"timeline\":[{\"Start\":0,\"name\":\"fan_1\",\"alpha\":1},{\"Start\":1000,\"name\":\"fan_2\",\"alpha\":0.5},{\"Start\":2000,\"name\":\"bl_fan\",\"alpha\":0}]}}";
-
-
 // for json msg parsing
 StaticJsonDocument<90> doc;
 DeserializationError error;
@@ -29,12 +26,12 @@ DeserializationError error;
 
 // parameters
 #define WIFI_NAME1 "TOTOLINK N300RB"
-#define WIFI_NAME2 "MakerSpace_2.4G"
-#define WIFI_NAME "AndroidAP1FA1"
-#define WIFI_PWD "igno3688" 
+#define WIFI_NAME "MakerSpace_2.4G"
+#define WIFI_NAME3 "ronchen21"
+#define WIFI_PWD "ntueesaad" 
 //"ntueesaad"
-#define SERVER_IP1 "192.168.1.6"
-#define SERVER_IP "192.168.43.207"
+#define SERVER_IP "192.168.0.200"
+#define SERVER_IP1 "192.168.0.181"
 
 #define SERVER_PORT 8081
 
@@ -65,20 +62,20 @@ void webSocketEvent(WStype_t type, uint8_t *payload, size_t length)
       Serial.println(*(((char*)payload)+9));
       Serial.println();
       if(    *(((char*)payload)+9) == 'u'){
-        ledMgr.pause();
-        Serial.println("Get u\n");
-        if (!ledMgr.parsing_json((char*) payload))
-        {
-          
-        }
-      }else{
-        error = deserializeJson(doc, (char*) payload);
-        String ss = doc["type"];
-        if(ss=="play"){
-          ledMgr.play(doc["data"]["p"]);
-        }else if(ss=="pause"){
-          ledMgr.pause();
-        }
+         ledMgr.pause();
+         Serial.println("Get u\n");
+         if (!ledMgr.parsing_json((char*) payload))
+         {
+            
+         }
+      } else{
+         error = deserializeJson(doc, (char*) payload);
+         String ss = doc["type"];
+         if(ss=="play"){
+            ledMgr.play(doc["data"]["p"]);
+         } else if(ss=="pause"){
+            ledMgr.pause();
+         }
       }
       
 
@@ -122,12 +119,12 @@ void webSocketEvent(WStype_t type, uint8_t *payload, size_t length)
 			break;
 		case WStype_PING:
 			// pong will be send automatically
-//			Serial.println("[WSc] get ping\n");
+			Serial.println("[WSc] get ping\n");
 			//            USE_SERIAL.printf("[WSc] get ping\n");
 			break;
 		case WStype_PONG:
 			// answer to a ping we send
-//			Serial.println("[WSc] get pong\n");
+			Serial.println("[WSc] get pong\n");
 			//            USE_SERIAL.printf("[WSc] get pong\n");
 			break;
 	}
