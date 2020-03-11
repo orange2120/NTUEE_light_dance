@@ -118,7 +118,7 @@ server.get('/api/stop', function(req, res) {
 server.post('/api/upload', function(req, res) {
     
     cmds.upload(0,{
-        targets : req.body.params.ids
+        ids : req.body.params.ids
     },req.body.params.control)
     console.log("[Server] upload new control to ",req.body.params.ids)
     res.send('ok');
