@@ -92,7 +92,7 @@ server.get('/api/getCurrentInfo', function(req, res) {
 
 server.post('/api/play', function(req, res) {
     cmds.play(0,{
-        targets:req.body.params.ids,
+        ids:req.body.params.ids,
         time:req.body.params.time
     })
     console.log("[Server] play to ",req.body.params.ids)
@@ -100,7 +100,7 @@ server.post('/api/play', function(req, res) {
 });
 
 server.post('/api/pause', function(req, res) {
-    cmds.pause(0,{targets:req.body.params.ids})
+    cmds.pause(0,{ids:req.body.params.ids})
     console.log("[Server] pause to ",req.body.params.ids)
     res.send('ok');
 });
@@ -140,7 +140,7 @@ server.post('/api/compile', function(req, res) {
 
 server.post('/api/reconnect', function(req, res) {
     // cmds.reConnectClient(0,{targets:req.query.ids.map((x)=>{ return Number(x)})})
-    cmds.reConnectClient(0,{targets:req.body.params.ids})
+    cmds.reConnectClient(0,{ids:req.body.params.ids})
     console.log("[Server] reconnect ",req.body.params.ids)
     res.send('ok');
     
@@ -153,7 +153,7 @@ server.post('/api/kick', function(req, res) {
 });
 
 server.post('/api/reboot', function(req, res) {
-    cmds.rebootBoard({targets:req.body.params.ids})
+    cmds.rebootBoard({ids:req.body.params.ids})
     console.log("[Server] reboot ",req.body.params.ids)
     res.send('ok');
 });
