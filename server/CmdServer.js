@@ -352,6 +352,8 @@ class CmdServer {
             control.push([0])
         }*/
         let self = this
+
+        self.tmp_control.push([])
         
         this.wss.clients.forEach((client) => {
             if (client.readyState === WebSocket.OPEN ) {
@@ -378,7 +380,7 @@ class CmdServer {
 
                 // }else 
                 if(client.board_type === "fan"){
-                    let corresspond_dancer =  0//client.board_ID - DANCER_NUM
+                    let corresspond_dancer =  client.board_ID - DANCER_NUM
                     let new_control = {}
                     new_control["timeline"] = self.tmp_control[corresspond_dancer].map((frame)=>{
                         let new_frame = {}
