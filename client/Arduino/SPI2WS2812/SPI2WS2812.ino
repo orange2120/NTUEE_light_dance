@@ -21,7 +21,7 @@
 #define STOP_BYTE_1 0x55
 #define STOP_BYTE_2 0xFF
 
-const uint16_t NUM_LEDS[] = {300, 40, 40, 88};
+const uint16_t NUM_LEDS[] = {300, 35, 35, 88};
 const uint8_t LED_PIN[]  = {30, 31, 29, 27};
 
 volatile uint16_t cnt = 0;

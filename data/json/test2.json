@@ -42,7 +42,7 @@
             }
         },
         {
-            "Start": 45,
+            "Start": 40,
             "Status": {
                 "LED_CHEST": {
                     "name": "energy_json/energy11092_json/sprite_1.png",
@@ -83,7 +83,7 @@
             }
         },
         {
-            "Start": 90,
+            "Start": 80,
             "Status": {
                 "LED_CHEST": {
                     "name": "energy_json/energy11092_json/sprite_2.png",
@@ -124,7 +124,7 @@
             }
         },
         {
-            "Start": 300,
+            "Start": 120,
             "Status": {
                 "LED_CHEST": {
                     "name": "energy_json/energy11092_json/sprite_3.png",
@@ -165,7 +165,7 @@
             }
         },
         {
-            "Start": 400,
+            "Start": 160,
             "Status": {
                 "LED_CHEST": {
                     "name": "energy_json/energy11092_json/sprite_4.png",
@@ -206,7 +206,7 @@
             }
         },
         {
-            "Start": 500,
+            "Start": 200,
             "Status": {
                 "LED_CHEST": {
                     "name": "energy_json/energy11092_json/sprite_5.png",
@@ -247,7 +247,7 @@
             }
         },
         {
-            "Start": 600,
+            "Start": 240,
             "Status": {
                 "LED_CHEST": {
                     "name": "energy_json/energy11092_json/sprite_6.png",
@@ -288,7 +288,7 @@
             }
         },
         {
-            "Start": 700,
+            "Start": 280,
             "Status": {
                 "LED_CHEST": {
                     "name": "energy_json/energy11092_json/sprite_7.png",
@@ -329,7 +329,7 @@
             }
         },
         {
-            "Start": 800,
+            "Start": 320,
             "Status": {
                 "LED_CHEST": {
                     "name": "energy_json/energy11092_json/sprite_8.png",
@@ -370,7 +370,7 @@
             }
         },
         {
-            "Start": 900,
+            "Start": 360,
             "Status": {
                 "LED_CHEST": {
                     "name": "energy_json/energy11092_json/sprite_9.png",
