@@ -13,7 +13,7 @@
 #define _DEF_H_
 #include <string>
 
-#define NUM_OF_EL  24 // number of EL strips
+#define NUM_OF_EL  22 // number of EL strips
 #define NUM_OF_LED 3 // number of LED strips
 #define PEOPLE_NUM 8 // number of dancer
 
@@ -44,7 +44,7 @@ const std::string ELs[NUM_OF_EL] = {
   "INNER1", "INNER2", "R_ARM1", "R_ARM2", 
   "R_HAND", "L_ARM1", "L_ARM2", "L_HAND", 
   "R_PANTS1", "R_PANTS2", "L_PANTS1", "L_PANTS2", 
-  "R_SHOES1", "R_SHOES2", "L_SHOES1", "L_SHOES2"
+  "R_SHOES1", "L_SHOES1"
 };
 
 // LED parts' name
