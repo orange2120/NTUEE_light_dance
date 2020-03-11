@@ -147,7 +147,7 @@ server.post('/api/kick', function(req, res) {
 });
 
 server.post('/api/reboot', function(req, res) {
-    cmds.rebootBoard(req.body.params.ids)
+    cmds.rebootBoard({targets:req.body.params.ids})
     console.log("[Server] reboot ",req.body.params.ids)
     res.send('ok');
 });
