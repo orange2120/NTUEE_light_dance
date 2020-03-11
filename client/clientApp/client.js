@@ -32,6 +32,12 @@ function spawnClientApp() {
   console.log(`ClientApp Start at PID=${clientApp_cmd.pid}`)
 }
 
+function closeClientApp() {
+  if(clientApp_cmd != '' && !clientApp_cmd.killed) {
+    clientApp_cmd.kill('SIGUSR1')
+    clientApp_cmd.kill()
+  }
+}
 
 function mainSocket() {
   // console.log(`Find Server ${b[0].ip} ${b[0].mac}`)
@@ -116,22 +122,25 @@ function mainSocket() {
       
     } else if (msg.type === "pause") {
       console.log(`Pause from Server`)
-      if(clientApp_cmd != '' && !clientApp_cmd.killed) {
-	      clientApp_cmd.kill('SIGUSR1')
-	      clientApp_cmd.kill()
-      }
+      // if(clientApp_cmd != '' && !clientApp_cmd.killed) {
+	    //   clientApp_cmd.kill('SIGUSR1')
+	    //   clientApp_cmd.kill()
+      // }
+      closeClientApp()
       //clientApp_cmd.kill("SIGUSR1") //pause
       //clientApp_cmd.kill()
       // spawnClientApp()
       console.log("Done")
     } else if (msg.type === "safe_kick") {
       console.log("Safe Kick By Server")
+      closeClientApp()
       need_reconnect = false
       connection.terminate()
       // fs.writeFileSync('recieve.json', JSON.stringify(msg.data));
       console.log("Done")
     } else if (msg.type === "reConnectClient") {
       console.log("Reconnect request By Server")
+      closeClientApp()
       need_reconnect = true
       connection.terminate()
       // fs.writeFileSync('recieve.json', JSON.stringify(msg.data));
@@ -141,9 +150,10 @@ function mainSocket() {
         console.log("Restart Client Socket By Server")
         connection.close()
       } else if (msg.data.restart_target === "clientApp") {
-
+        closeClientApp()
         spawnClientApp()
       } else if (msg.data.restart_target === "board") {
+        closeClientApp()
         require('child_process').exec('sudo reboot', function (msg) { console.log(msg) });
       } else {
         console.log(`Unknown restart target ${msg.data.restart_target}`)
@@ -156,9 +166,7 @@ function mainSocket() {
   connection.onclose = (e) => {
     clearTimeout(this.pingTimeout);
     console.log("client socket closed")
-    if (clientApp_cmd != "" && !clientApp_cmd.killed) {
-      clientApp_cmd.kill()
-    }
+    closeClientApp()
     if (need_reconnect) {
       console.log("prepare to reconnect")
 

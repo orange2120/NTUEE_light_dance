@@ -109,11 +109,11 @@ server.get('/api/stop', function(req, res) {
     res.send('hello world');
 });
 
-server.get('/api/upload', function(req, res) {
-    cmds.upload(0,{targets:req.query.ids.map((x)=>{ return Number(x)})},CONTROL)
-    console.log("[Server] upload to ",req.query.ids)
-    res.send('ok');
-});
+// server.get('/api/upload', function(req, res) {
+//     cmds.upload(0,{targets:req.query.ids.map((x)=>{ return Number(x)})},CONTROL)
+//     console.log("[Server] upload to ",req.query.ids)
+//     res.send('ok');
+// });
 
 server.post('/api/upload', function(req, res) {
     
@@ -124,12 +124,18 @@ server.post('/api/upload', function(req, res) {
     res.send('ok');
 });
 
-server.get('/api/compile', function(req, res) {
+server.post('/api/compile', function(req, res) {
+    cmds.compile(req.body.params.control)
     console.log("[Server] compile pngs")
-    cmds.compile()
-    // console.log("[Server] compile done")
     res.send('ok');
 });
+
+// server.get('/api/compile', function(req, res) {
+//     console.log("[Server] compile pngs")
+//     cmds.compile()
+//     // console.log("[Server] compile done")
+//     res.send('ok');
+// });
 
 
 server.post('/api/reconnect', function(req, res) {
@@ -191,4 +197,4 @@ server.get('/api/config/reload', function(req, res) {
     res.send("OK")
 });
 
-cmds.compile()
+cmds.compile([])
