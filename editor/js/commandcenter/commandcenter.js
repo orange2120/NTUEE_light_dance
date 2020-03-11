@@ -95,7 +95,7 @@ class Commandcenter {
                         c = r.insertCell()
                         c.innerHTML = b.ip
                         c = r.insertCell()
-                        c.innerHTML = b.mac
+                        c.innerHTML = b.hostname
                         c = r.insertCell()
                         c.className = "class_" + b.status
                         c.innerHTML = b.status
@@ -148,7 +148,7 @@ class Commandcenter {
                         let c = r.insertCell()
                         c.innerHTML = b.ip + "(" + b.board_type + ")"
                         c = r.insertCell()
-                        c.innerHTML = b.mac
+                        c.innerHTML = b.hostname
                         c = r.insertCell()
                         let btn_add_config = document.createElement("button")
                         btn_add_config.innerText = "add Board"
@@ -156,7 +156,7 @@ class Commandcenter {
                             // alert(b.mac)
                             axios.get('/api/config/addBoard', {
                                 params: {
-                                    mac: b.mac
+                                    hostname: b.hostname
                                 }
                             });
                         }
@@ -166,7 +166,7 @@ class Commandcenter {
                             // alert(b.mac)
                             axios.get('/api/config/alert', {
                                 params: {
-                                    mac: b.mac
+                                    hostname: b.hostname
                                 }
                             });
                         }
@@ -423,7 +423,7 @@ class Commandcenter {
             let board_table_h = board_table.createTHead();
             board_table.createTBody();
             let board_table_h_row = board_table_h.insertRow(0);
-            let table_header = ['ID', 'IP', 'MAC', 'Status', 'Select']
+            let table_header = ['ID', 'IP', 'HOSTNAME', 'Status', 'Select']
             for (const y of table_header) {
                 let cell = board_table_h_row.insertCell();
 
@@ -481,7 +481,7 @@ class Commandcenter {
                 let h = waitlist_zone_table.createTHead();
                 waitlist_zone_table.createTBody();
                 let row = h.insertRow(0);
-                let table_header = ['IP', 'MAC', 'Select']
+                let table_header = ['IP', 'HOSTNAME', 'Select']
                 for (const y of table_header) {
                     let cell = row.insertCell();
                     cell.innerHTML = y;

@@ -34,7 +34,7 @@ class CmdServer {
         // this.wss.waitingList = []
         this.config = -1
         this.loadConfig(_config)
-        this.server_ip = this.getLocalIp()
+        this.server_ip = "serverip"//this.getLocalIp()
         // this.BOARDS=[]
 
         this.wss.on('connection', this.processConnection);
@@ -73,35 +73,7 @@ class CmdServer {
 
 
     }
-    getLocalIp() {
-        let ifaces = os.networkInterfaces();
-
-        let ipp = "error"
-
-        Object.keys(ifaces).forEach(function (ifname) {
-            let alias = 0;
-
-            ifaces[ifname].forEach(function (iface) {
-                if ('IPv4' !== iface.family || iface.internal !== false) {
-                    // skip over internal (i.e. 127.0.0.1) and non-ipv4 addresses
-                    return;
-                }
-
-                if (alias >= 1) {
-                    // this single interface has multiple ipv4 addresses
-                    //   console.log(ifname + ':' + alias, iface.address);
-                    ipp = iface.address;
-                } else {
-                    // this interface has only one ipv4 adress
-                    //   console.log(ifname, iface.address);
-                    ipp = iface.address;
-                    //   break;
-                }
-                ++alias;
-            });
-        });
-        return ipp
-    }
+   
     printServerSats() {
         console.log('[Server Status]')
         console.log('Server local ip: ' + String(this.server_ip))
@@ -124,7 +96,7 @@ class CmdServer {
         this.wss.clients.forEach((client) => {
             if (client.board_ID == -1) {
                 ret.waitingList.push({
-                    mac: client.macAddr,
+                    hostname: client.hostname,
                     ip: client.ipAddr,
                     board_type: client.board_type
                 })
@@ -163,6 +135,7 @@ class CmdServer {
     processConnection(ws, req) {
         ws.board_ID = -1
         ws.ipAddr = ""
+        ws.hostname = ""
         ws.isAlive = true;
 
         ws.transmit_delay = -1
@@ -179,7 +152,7 @@ class CmdServer {
         // console.log(this)
         const ip = req.connection.remoteAddress.split(":")[3];
         ws.ipAddr = ip
-        ws.macAddr = -1
+        
         let server_self = this
         ws.on('message', message => {
             let response_msg = {
@@ -190,55 +163,37 @@ class CmdServer {
             console.log(`[Client] ${ip} : ${message}`)
             message = JSON.parse(message)
             if (message.type === "request_to_join") {
-
                 // new board request to join
                 let self = this
-                libarp.getMAC(ip, function (err, mac) {
-                    // assert.ok(!err);
-                    // assert.ok(mac != null);
-                    let regex = /^((([a-fA-F0-9][a-fA-F0-9]+[-]){5}|([a-fA-F0-9][a-fA-F0-9]+[:]){5})([a-fA-F0-9][a-fA-F0-9])$)|(^([a-fA-F0-9][a-fA-F0-9][a-fA-F0-9][a-fA-F0-9]+[.]){2}([a-fA-F0-9][a-fA-F0-9][a-fA-F0-9][a-fA-F0-9]))$/
-                    if (mac == null) {
 
-                        console.log(`[Server] Cannot find corressponding Mac Address of ${ip}`)
-                        ws.terminate()
-                        return
-                    } else if (regex.test(mac) == false) {
+                ws.board_type = message.data.board_type
+                ws.hostname = message.data.hostname
 
-                        console.log(`[Server] Cannot find corressponding Mac Address of ${ip}`)
-                        console.log(mac)
-                        ws.terminate()
-                        return
+                let boards_correspond_id = -1
+                for(let i =0;i<self.BOARDS.length;++i){
+                    if(self.BOARDS[i].hostname === ws.hostname ){
+                        boards_correspond_id = self.BOARDS[i].id
                     }
-                    ws.macAddr = mac
-                    console.log(`[Server] Client Mac:${mac}`);
-                    ws.board_type = message.data.board_type
+                }
+                if(boards_correspond_id == -1){
+                    console.log(`[Server] Board(${ws.hostname}) not registered`)
 
-
-                    let find_board = self.BOARDS.filter(obj => {
-                        return obj.mac === String(mac)
-                    })
-                    // let find_board = self.getBoardByIP(ip)
-                    if (find_board.length === 0) {
-                        // the board's ip is not regestered
-                        console.log(`[Server] Board(${mac}) not registered`)
-                        // ws.terminate()
-                        return
-                    }
-                    console.log(`[Server] Adding Board: ip = ${ip} mac = ${mac} id = ${find_board[0].id}`);
+                }else{
+                    console.log(`[Server] Connecting Board: ip = ${ip} hostname = ${ws.hostname} id = ${self.BOARDS[boards_correspond_id].id}`);
                     response_msg.type = "ACKs"
-                    response_msg.data = { ack_type: "request_to_join", board_id: find_board[0].id }
-                    response_msg.color = 0xFF0000
+                    response_msg.data = { ack_type: "request_to_join", board_id: self.BOARDS[boards_correspond_id].id}
+                    
                     ws.send(JSON.stringify(response_msg))
-                    find_board[0].status = "connected"
-                    find_board[0].ip = ip
-                    find_board[0].board_type = message.data.board_type
-                    ws.board_ID = find_board[0].id
+                    self.BOARDS[boards_correspond_id].status = "connected"
+                    self.BOARDS[boards_correspond_id].ip = ip
+                    self.BOARDS[boards_correspond_id].board_type = message.data.board_type
+                    ws.board_ID = self.BOARDS[boards_correspond_id].id
                     ws.ipAddr = ip
-                    ws.macAddr = mac
+                    
 
                     console.log("[Server] ACKs sent")
-
-                });
+                }
+               
 
 
                 // console.log(this.BOARDS)
@@ -253,7 +208,7 @@ class CmdServer {
                 }
 
             }
-            console.log(`[Client] (${ws.board_ID}) ${ws.ipAddr} ${ws.macAddr} leave`)
+            console.log(`[Client] (${ws.board_ID}) ${ws.ipAddr} ${ws.hostname} leave`)
         })
     }
     sendToBoards(msg, ids) {
@@ -332,12 +287,24 @@ class CmdServer {
         this.wss.clients.forEach((client) => {
             if (client.readyState === WebSocket.OPEN && params.ids.includes(client.board_ID)) {
                 console.log("upload", client.board_ID)
-                
-                let boardMsg = {
-                    type: 'upload',
-                    data: self.tmp_control[client.board_ID] //boardData[client.boardId]
-                    // wsdata: wsData[client.boardId]
-                };
+                let boardMsg = {}
+                if (client.board_type === "dancer") {
+                    boardMsg = {
+                        type: 'upload',
+                        data: self.tmp_control[client.board_ID]//control
+                    }
+                }else{
+                    boardMsg = {
+                        type: 'upload',
+                        data: self.tmp_control[client.board_ID] //boardData[client.boardId]
+                        // wsdata: wsData[client.boardId]
+                    };
+                }
+                // let boardMsg = {
+                //     type: 'upload',
+                //     data: self.tmp_control[client.board_ID] //boardData[client.boardId]
+                //     // wsdata: wsData[client.boardId]
+                // };
                 // console.log(control[client.board_ID])
                 client.send(JSON.stringify(boardMsg));
             }
@@ -352,29 +319,31 @@ class CmdServer {
             control.push([0])
         }*/
         let self = this
-
-        self.tmp_control.push([])
+        for (let i =0;i<3;++i){
+            self.tmp_control.push([])
+        }
         
         this.wss.clients.forEach((client) => {
-            if (client.readyState === WebSocket.OPEN ) {
+            if (client.readyState === WebSocket.OPEN  && client.board_ID!=-1) {
                 console.log("processing", client.board_ID)
                 
                 if(client.board_type==="dancer" || client.board_type==="fan" ){
                     self.tmp_control[client.board_ID]= self.tmp_control[client.board_ID].map((frame)=>{
+                        let new_frame = JSON.parse(JSON.stringify(frame))
                         // console.log(frame)
-                        if(frame["Status"]["LED_CHEST"]["name"] === ""){
-                            frame["Status"]["LED_CHEST"]["name"] = "bl_chest"
+                        if(new_frame["Status"]["LED_CHEST"]["name"] === ""){
+                            new_frame["Status"]["LED_CHEST"]["name"] = "bl_chest"
                         }
-                        if(frame["Status"]["LED_R_SHOE"]["name"] === ""){
-                            frame["Status"]["LED_R_SHOE"]["name"] = "bl_shoe"
+                        if(new_frame["Status"]["LED_R_SHOE"]["name"] === ""){
+                            new_frame["Status"]["LED_R_SHOE"]["name"] = "bl_shoe"
                         }
-                        if(frame["Status"]["LED_L_SHOE"]["name"] === ""){
-                            frame["Status"]["LED_L_SHOE"]["name"] = "bl_shoe"
+                        if(new_frame["Status"]["LED_L_SHOE"]["name"] === ""){
+                            new_frame["Status"]["LED_L_SHOE"]["name"] = "bl_shoe"
                         }
-                        if(frame["Status"]["LED_FAN"]["name"] === ""){
-                            frame["Status"]["LED_FAN"]["name"] = "bl_fan"
+                        if(new_frame["Status"]["LED_FAN"]["name"] === ""){
+                            new_frame["Status"]["LED_FAN"]["name"] = "bl_fan"
                         }
-                        return frame
+                        return new_frame
                     })
                 }
 
