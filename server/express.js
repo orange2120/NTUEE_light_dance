@@ -165,13 +165,13 @@ server.get('/api/config/clear', function(req, res) {
 });
 
 server.get('/api/config/addBoard', function(req, res) {
-    console.log(req.query.mac)
-    if(req.query.mac ==-1){
-        res.send('no mac');
+    console.log(req.query.hostname)
+    if(req.query.hostname == ""){
+        res.send('no hostname');
     }else{
         CONFIG.boards.push({
             "ip" : "",
-            "mac" : req.query.mac
+            "hostname" : req.query.hostname
         })
         cmds.loadConfig(CONFIG)
         res.send('ok');
