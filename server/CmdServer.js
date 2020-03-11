@@ -535,6 +535,7 @@ class CmdServer {
                 restart_target : "board"
             }
         }
+        console.log(params)
         this.sendToBoards(msg, params.targets)
     }
     runTest(cmd_start_time, params) {
