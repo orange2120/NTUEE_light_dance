@@ -34,8 +34,9 @@ function spawnClientApp() {
 
 function closeClientApp() {
   if(clientApp_cmd != '' && !clientApp_cmd.killed) {
-    clientApp_cmd.kill('SIGUSR1')
-    clientApp_cmd.kill()
+    // clientApp_cmd.kill('SIGUSR1')
+    clientApp_cmd.kill(9)
+    console.log("Kill ClientApp")
   }
 }
 
@@ -68,7 +69,7 @@ function mainSocket() {
     // sends out pings plus a conservative assumption of the latency.
     this.pingTimeout = setTimeout(() => {
 
-      this.terminate();
+      // this.terminate();
       console.log("too long")
     }, 3000 + 3000);
   }
@@ -78,7 +79,8 @@ function mainSocket() {
     let response_msg = {
       type: "request_to_join",
       data:{
-        board_type:"dancer"
+        board_type:"dancer",
+        hostname : os.hostname()
       }
     }
     connection.send(JSON.stringify(response_msg))
@@ -100,7 +102,7 @@ function mainSocket() {
         
       }
     } else if (msg.type === "upload") {
-      let dd = [[msg.data]]
+      let dd = [msg.data]
       fs.writeFileSync('./json/test2.json', JSON.stringify(dd));
       console.log("Done")
     } else if (msg.type === "play") {
