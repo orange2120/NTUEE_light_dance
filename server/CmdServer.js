@@ -203,7 +203,9 @@ class CmdServer {
                         ws.terminate()
                         return
                     } else if (regex.test(mac) == false) {
+
                         console.log(`[Server] Cannot find corressponding Mac Address of ${ip}`)
+                        console.log(mac)
                         ws.terminate()
                         return
                     }
@@ -254,9 +256,9 @@ class CmdServer {
             console.log(`[Client] (${ws.board_ID}) ${ws.ipAddr} ${ws.macAddr} leave`)
         })
     }
-    sendToBoards(msg, targets) {
+    sendToBoards(msg, ids) {
         this.wss.clients.forEach((client) => {
-            if (client.readyState === WebSocket.OPEN && targets.includes(client.board_ID)) {
+            if (client.readyState === WebSocket.OPEN && ids.includes(client.board_ID)) {
                 // let boardMsg = {
                 //     type: 'upload',
                 //     data: CONTROL[client.board_ID] //boardData[client.boardId]
@@ -312,7 +314,7 @@ class CmdServer {
             }
         }
         console.log(msg)
-        this.sendToBoards(msg, params.targets)
+        this.sendToBoards(msg, params.ids)
     }
     pause(cmd_start_time, params) {
         let msg = {
@@ -321,14 +323,14 @@ class CmdServer {
                 start_at_server: cmd_start_time
             }
         }
-        this.sendToBoards(msg, params.targets)
+        this.sendToBoards(msg, params.ids)
     }
     upload(cmd_start_time, params, control) {
         
         let self = this
         
         this.wss.clients.forEach((client) => {
-            if (client.readyState === WebSocket.OPEN && params.targets.includes(client.board_ID)) {
+            if (client.readyState === WebSocket.OPEN && params.ids.includes(client.board_ID)) {
                 console.log("upload", client.board_ID)
                 
                 let boardMsg = {
@@ -533,25 +535,25 @@ class CmdServer {
 
     rebootBoard(cmd_start_time, params) {
         let msg = {
-            type: "rebootBoard",
+            type: "restart",
             data:{
                 restart_target : "board"
             }
         }
         console.log(params)
-        this.sendToBoards(msg, params.targets)
+        this.sendToBoards(msg, params.ids)
     }
     runTest(cmd_start_time, params) {
         let msg = {
             type: "runTest"
         }
-        this.sendToBoards(msg, params.targets)
+        this.sendToBoards(msg, params.ids)
     }
     reConnectClient(cmd_start_time, params) {
         let msg = {
             type: "reConnectClient"
         }
-        this.sendToBoards(msg, params.targets)
+        this.sendToBoards(msg, params.ids)
     }
 }
 // export default CmdServer
