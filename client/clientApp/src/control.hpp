@@ -27,7 +27,6 @@ extern const string LEDs[NUM_OF_LED];
 extern int dancer_id;
 extern jmp_buf jmpbuffer;
 
-int Count = 1;
 EL el1(16, 0x40), el2(8, 0x60);
 LED_Strip leds(NUM_OF_LED, numLEDs);
 
@@ -136,10 +135,10 @@ void run(const int id, int time) {
     cerr << "Dancer ["<< id << "] Starting From " << time << "..." << endl;
     sendSig(id);
     bool off = false;
-    cerr << "Time now: ";
+    // cerr << "Time now: ";
     while(!off) 
     {
-        cerr << time;
+        // cerr << time;
         auto start = high_resolution_clock::now();
         if(time >= p.time_line[p.t_index+1].start_time) { 
             if(p.t_index == p.time_line.size()-2) { // last one is a dummy execution
@@ -154,13 +153,14 @@ void run(const int id, int time) {
         }
         auto end = high_resolution_clock::now();
         auto duration = duration_cast<microseconds>(end-start); // transmission time
+        cerr << double(duration.count()) << endl;
         if(double(duration.count()) < PERIOD*1000) usleep(PERIOD*1000-double(duration.count())); // delay until PERIOD
         else {
             for(unsigned i = 0; i < to_string(time).length()+10; ++i) cerr << '\b';
             cerr << "[ERROR] Sending Time Exceeds " << PERIOD << "ms!!" << endl;
             return;
         }
-        for(unsigned i = 0; i < to_string(time).length(); ++i) cerr << '\b';
+        // for(unsigned i = 0; i < to_string(time).length(); ++i) cerr << '\b';
         time += PERIOD;
     }
     p.t_index = 0;

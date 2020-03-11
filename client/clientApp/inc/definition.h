@@ -19,13 +19,13 @@
 
 // Number of LEDs in strip
 #define LEDS_0 300
-#define LEDS_1 40
-#define LEDS_2 40
+#define LEDS_1 35
+#define LEDS_2 35
 
 // refresh interval
-#define PERIOD 40 // ms
+#define PERIOD 50 // ms
 #define LED_DELAY_1 14 // delay between led_strips
-#define LED_DELAY_2 5
+#define LED_DELAY_2 4
 
 // PCA9685 I2C address
 #define NUM_EL_1       16
