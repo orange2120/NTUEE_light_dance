@@ -325,6 +325,7 @@ class CmdServer {
     }
     upload(cmd_start_time, params, control) {
         
+        let self = this
         
         this.wss.clients.forEach((client) => {
             if (client.readyState === WebSocket.OPEN && params.targets.includes(client.board_ID)) {
