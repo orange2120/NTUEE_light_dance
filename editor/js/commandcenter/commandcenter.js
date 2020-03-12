@@ -257,7 +257,7 @@ class Commandcenter {
             boards_control_zone.id = "boards_control_zone"
 
             let btn_upload_timeline = document.createElement("button")
-            btn_upload_timeline.innerText = "Upload"
+            btn_upload_timeline.innerText = "Upload Timeline"
             btn_upload_timeline.id = "btn_upload"
             btn_upload_timeline.onclick = function() {
                 let id_arr = getSelected()
@@ -274,7 +274,7 @@ class Commandcenter {
             }
 
             let btn_upload_leds = document.createElement("button")
-            btn_upload_leds.innerText = "Upload"
+            btn_upload_leds.innerText = "Upload Led"
             btn_upload_leds.id = "btn_upload"
             btn_upload_leds.onclick = function() {
                 let id_arr = getSelected()
