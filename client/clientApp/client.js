@@ -112,15 +112,28 @@ function mainSocket() {
       closeClientApp()
       if (msg.data.upload_type === "timeline") {
         let dd = [msg.data.data]
-        fs.writeFileSync(path.join(__dirname,"./json/current/timeline.json"), JSON.stringify(dd));
-        console.log(`timeline file save`)
-        let response_msg = {
-          type: "ACKc",
-          data:{
-            board_type:"dancer",
-            ack_type : "upload_ok"
+        if (!fs.existsSync(path.join(__dirname,"./json/current"))) {
+          let response_msg = {
+            type: "ACKc",
+            data:{
+              board_type:"dancer",
+              ack_type : "no_leds"
+            }
+          }
+          connection.send(JSON.stringify(response_msg))
+          console.log(`ACKc no_leds sent`)
+        } else{
+          fs.writeFileSync(path.join(__dirname,"./json/current/timeline.json"), JSON.stringify(dd));
+          console.log(`timeline file save`)
+          let response_msg = {
+            type: "ACKc",
+            data:{
+              board_type:"dancer",
+              ack_type : "upload_ok"
+            }
           }
         }
+        
         connection.send(JSON.stringify(response_msg))
         console.log(`ACKc upload_ok sent`)
       }else if (msg.data.upload_type === "leds") {
