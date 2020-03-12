@@ -34,7 +34,7 @@ function spawnClientApp() {
 
 function closeClientApp() {
   if(clientApp_cmd != '' && !clientApp_cmd.killed) {
-    // clientApp_cmd.kill('SIGUSR1')
+    clientApp_cmd.kill('SIGUSR1')
     clientApp_cmd.kill(9)
     console.log("Kill ClientApp")
   }
