@@ -64,6 +64,7 @@ class CmdServer {
         this.config = _config
         this.wss.BOARDS = this.config.boards.map(obj => {
             obj.status = "disconnect"
+            obj.msg= ""
             return obj
         })
 
@@ -137,7 +138,7 @@ class CmdServer {
         ws.ipAddr = ""
         ws.hostname = ""
         ws.isAlive = true;
-
+        
         ws.transmit_delay = -1
 
         function heartbeat(x) {
@@ -185,6 +186,7 @@ class CmdServer {
                     
                     ws.send(JSON.stringify(response_msg))
                     self.BOARDS[boards_correspond_id].status = "connected"
+                    self.BOARDS[boards_correspond_id].msg = "idle"
                     self.BOARDS[boards_correspond_id].ip = ip
                     self.BOARDS[boards_correspond_id].board_type = message.data.board_type
                     ws.board_ID = self.BOARDS[boards_correspond_id].id
@@ -194,9 +196,10 @@ class CmdServer {
                     console.log("[Server] ACKs sent")
                 }
                
-
-
                 // console.log(this.BOARDS)
+            }else if (message.type === "ACKc") {
+                server_self.BOARDS[ws.board_ID].msg = message.data.ack_type
+                // server_self.update_Board_Msg(ws.board_ID,message.data.ack_type)
             }
         });
         // ws.send('Hello! Message From Server!!')
@@ -280,12 +283,26 @@ class CmdServer {
         }
         this.sendToBoards(msg, params.ids)
     }
+
+    prepare(cmd_start_time,params) {
+        for (let i =0;i<params.ids.length;++i)
+        {
+            this.wss.BOARDS[i].msg = "preparing"
+        }
+        let boardMsg = {
+            type: 'prepare',
+            data: {}//control
+        }
+        this.sendToBoards(boardMsg,params.ids)
+    }
+
     upload(cmd_start_time, params, control) {
         
         let self = this
         
         this.wss.clients.forEach((client) => {
             if (client.readyState === WebSocket.OPEN && params.ids.includes(client.board_ID)) {
+                self.wss.BOARDS[client.board_ID].msg = "uploading"
                 console.log("upload", client.board_ID)
                 let boardMsg = {}
                 if (client.board_type === "dancer") {
@@ -454,6 +471,10 @@ class CmdServer {
                 
             });
         });
+    }
+
+    update_Board_Msg(id,s) {
+        this.wss.BOARDS[id].msg = s
     }
     
 
