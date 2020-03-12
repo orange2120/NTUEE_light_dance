@@ -118,6 +118,9 @@ class Commandcenter {
                         lbl.appendChild(ckmk)
 
                         c.appendChild(lbl)
+                        c = r.insertCell()
+                        c.innerHTML = b.msg
+
                     })
 
                     this.boards = response.data.boards
@@ -259,12 +262,6 @@ class Commandcenter {
             btn_upload.onclick = function() {
                 let id_arr = getSelected()
                 if (id_arr.length != 0) {
-                    // axios.get('/api/upload', {
-                    //     params: {
-                    //         ids: id_arr,
-                    //         time: 0
-                    //     }
-                    // });
                     axios.post('/api/upload',{
                         params: {
                             ids: id_arr,
@@ -339,6 +336,24 @@ class Commandcenter {
                 console.log(id_arr)
             }
 
+            let btn_prepare = document.createElement("button")
+            btn_prepare.innerText = "Prepare"
+            btn_prepare.id = "btn_prepare"
+            btn_prepare.onclick = function() {
+                let id_arr = getSelected()
+                if (id_arr.length != 0) {
+                    axios.post('/api/prepare',{
+                        params: {
+                            ids: id_arr,
+                            time: 0
+                        }
+                    })
+                }
+                console.log(id_arr)
+            }
+
+
+
             let btn_play = document.createElement("button")
             btn_play.id = "btn_play"
             btn_play.innerText = "Play/Pause"
@@ -396,6 +411,8 @@ class Commandcenter {
             boards_control_zone.appendChild(btn_reconnect)
             boards_control_zone.appendChild(btn_kick)
             boards_control_zone.appendChild(btn_reboot)
+            boards_control_zone.appendChild(btn_prepare)
+            
             boards_control_zone.appendChild(btn_play)
             // boards_control_zone.appendChild(btn_pause)
 
@@ -423,7 +440,7 @@ class Commandcenter {
             let board_table_h = board_table.createTHead();
             board_table.createTBody();
             let board_table_h_row = board_table_h.insertRow(0);
-            let table_header = ['ID', 'IP', 'HOSTNAME', 'Status', 'Select']
+            let table_header = ['ID', 'IP', 'HOSTNAME', 'Status', 'Select','MSG']
             for (const y of table_header) {
                 let cell = board_table_h_row.insertCell();
 

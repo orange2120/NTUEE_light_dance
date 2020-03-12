@@ -121,38 +121,41 @@ function mainSocket() {
       }
       connection.send(JSON.stringify(response_msg))
       console.log(`ACKc upload_ok sent`)
-      spawnClientApp()
-      clientApp_cmd.stderr.on('data',(data)=>{
-        console.log(`[ClientApp Error] ${data.toString()}`)
-      })
-      clientApp_cmd.stdout.on('data',function(data){
-        console.log('[clientApp] ' + data.toString())
-        if ( data.toString().includes("run")) {
-
-          let response_msg = {
-            type: "ACKc",
-            data:{
-              board_type:"dancer",
-              ack_type : "clientApp_ok"
-            }
-          }
-          connection.send(JSON.stringify(response_msg))
-          console.log(`ACKc clientApp_ok sent`)
-
-          
-        
-          // console.log('Done')
-        }
-	    })
+      
       
 
     } else if (msg.type === "play") {
       // spawnClientApp()
       console.log(`recieved Play from ${msg.data.p}`)
       if (isClientAppOn()) {
+        spawnClientApp()
+        clientApp_cmd.stderr.on('data',(data)=>{
+          console.log(`[ClientApp Error] ${data.toString()}`)
+        })
+        clientApp_cmd.stdout.on('data',function(data){
+          console.log('[clientApp] ' + data.toString())
+          if ( data.toString().includes("run")) {
+  
+            let response_msg = {
+              type: "ACKc",
+              data:{
+                board_type:"dancer",
+                ack_type : "clientApp_ok"
+              }
+            }
+            connection.send(JSON.stringify(response_msg))
+            console.log(`ACKc clientApp_ok sent`)
+  
+            
+          
+            // console.log('Done')
+          }
+        })
+
           clientApp_cmd.stdin.write('run ' + String(msg.data.p) + '\n')
           console.log('Play')
       }else{
+        
         console.log('ClientApp not started!!')
       }
       // spawnClientApp()
@@ -179,6 +182,10 @@ function mainSocket() {
       //clientApp_cmd.kill()
       // spawnClientApp()
       console.log("Done")
+    
+    } else if (msg.type === "prepare") {
+
+
     } else if (msg.type === "safe_kick") {
       console.log("Safe Kick By Server")
       closeClientApp()

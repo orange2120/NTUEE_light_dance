@@ -124,6 +124,15 @@ server.post('/api/upload', function(req, res) {
     res.send('ok');
 });
 
+server.post('/api/prepare', function(req, res) {
+    
+    cmds.prepare(0,{
+        ids : req.body.params.ids
+    })
+    console.log("[Server] prepare to ",req.body.params.ids)
+    res.send('ok');
+});
+
 server.post('/api/compile', function(req, res) {
     cmds.compile(req.body.params.control)
     console.log("[Server] compile pngs")
