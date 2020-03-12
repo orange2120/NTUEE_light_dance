@@ -145,7 +145,7 @@ function mainSocket() {
         
         fs.mkdirSync(path.join(__dirname,"./json/current"))
         for (let i=0; i<msg.data.leds.length; i++) {
-          fs.writeFileSync(path.join(__dirname,"./json/current",msg.data.leds[i].name), JSON.stringify(msg.data.leds[i].data));
+          fs.writeFileSync(path.join(__dirname,"./json/current",msg.data.leds[i].name) + ".json", JSON.stringify(msg.data.leds[i].data));
         }
         let response_msg = {
           type: "ACKc",
