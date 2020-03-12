@@ -1,5 +1,5 @@
 import { DANCER_NUM, FPS, LEDPARTS, LIGHTPARTS } from '../constants';
-import { checkControl } from '../utility/utility.js';
+import { checkControl, mergeControl } from '../utility/utility.js';
 
 class Manager {
     constructor() {
@@ -429,6 +429,22 @@ class Manager {
         let data = `text/json;charset=utf-8,` + encodeURIComponent(JSON.stringify(this.control));
         downloadLink.href = `data:${data}`;
         downloadLink.download = "control.json";
+    }
+    merge(e) {
+        try {
+            let files = e.target.files;  
+            let fr = new FileReader(); 
+            fr.onload = evt => {
+                let re = JSON.parse(evt.target.result);
+                console.log("Merge File from merge btn");
+                mergeControl(this.control, re);
+                this.saveNewStatus();
+            };
+            fr.readAsText(files[0]);
+        }
+        catch (err) {
+            console.error(err);
+        }
     }
 }
 

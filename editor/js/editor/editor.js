@@ -30,6 +30,8 @@ class Editor {
         this.addUpload();
         // add download
         this.addDownloadBtn();
+        // add merge
+        this.addMerge();
         console.log('Editor ', this);
     }
 
@@ -329,6 +331,15 @@ class Editor {
     addDownloadBtn() {
         // console.log("addDownloadBtn")
         document.getElementById("download-link").onclick = (e) => this.mgr.download();
+    }
+
+    addMerge() {
+        document.getElementById("merge-file").onchange = (e) => {
+            this.mgr.merge(e);
+            let filename = e.target.value.split("\\").pop()
+            document.querySelector('#merge-file').nextElementSibling.innerHTML = filename;
+
+        }
     }
 }
 
