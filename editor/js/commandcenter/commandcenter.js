@@ -256,13 +256,30 @@ class Commandcenter {
             let boards_control_zone = document.createElement("div")
             boards_control_zone.id = "boards_control_zone"
 
-            let btn_upload = document.createElement("button")
-            btn_upload.innerText = "Upload"
-            btn_upload.id = "btn_upload"
-            btn_upload.onclick = function() {
+            let btn_upload_timeline = document.createElement("button")
+            btn_upload_timeline.innerText = "Upload"
+            btn_upload_timeline.id = "btn_upload"
+            btn_upload_timeline.onclick = function() {
                 let id_arr = getSelected()
                 if (id_arr.length != 0) {
-                    axios.post('/api/upload',{
+                    axios.post('/api/upload/timeline',{
+                        params: {
+                            ids: id_arr,
+                            time: 0,
+                            control : self.mgr.getControl()
+                        }
+                    })
+                }
+                console.log(id_arr)
+            }
+
+            let btn_upload_leds = document.createElement("button")
+            btn_upload_leds.innerText = "Upload"
+            btn_upload_leds.id = "btn_upload"
+            btn_upload_leds.onclick = function() {
+                let id_arr = getSelected()
+                if (id_arr.length != 0) {
+                    axios.post('/api/upload/leds',{
                         params: {
                             ids: id_arr,
                             time: 0,
@@ -406,7 +423,8 @@ class Commandcenter {
             }
 
             boards_control_zone.appendChild(btn_compile)
-            boards_control_zone.appendChild(btn_upload)
+            boards_control_zone.appendChild(btn_upload_leds)
+            boards_control_zone.appendChild(btn_upload_timeline)
             
             boards_control_zone.appendChild(btn_reconnect)
             boards_control_zone.appendChild(btn_kick)

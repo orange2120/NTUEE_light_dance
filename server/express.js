@@ -115,12 +115,21 @@ server.get('/api/stop', function(req, res) {
 //     res.send('ok');
 // });
 
-server.post('/api/upload', function(req, res) {
+server.post('/api/upload/timeline', function(req, res) {
     
     cmds.upload_timeline(0,{
         ids : req.body.params.ids
     },req.body.params.control)
     console.log("[Server] upload new control to ",req.body.params.ids)
+    res.send('ok');
+});
+
+server.post('/api/upload/leds', function(req, res) {
+    
+    cmds.upload_leds(0,{
+        ids : req.body.params.ids
+    })
+    console.log("[Server] upload new leds to ",req.body.params.ids)
     res.send('ok');
 });
 
