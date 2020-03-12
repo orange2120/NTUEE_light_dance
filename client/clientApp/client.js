@@ -26,7 +26,7 @@ function spawnClientApp() {
   if (clientApp_cmd != "" && !clientApp_cmd.killed) {
     clientApp_cmd.kill()
   }
-  clientApp_cmd = spawn(PATH_clientApp, [])
+  clientApp_cmd = spawn( PATH_clientApp, [])
   // clientApp_cmd.on('')
   
   console.log(`ClientApp Start at PID=${clientApp_cmd.pid}`)
@@ -122,6 +122,9 @@ function mainSocket() {
       connection.send(JSON.stringify(response_msg))
       console.log(`ACKc upload_ok sent`)
       spawnClientApp()
+      clientApp_cmd.stderr.on('data',(data)=>{
+        console.log(`[ClientApp Error] ${data.toString()}`)
+      })
       clientApp_cmd.stdout.on('data',function(data){
         console.log('[clientApp] ' + data.toString())
         if ( data.toString().includes("run")) {
