@@ -287,7 +287,7 @@ class CmdServer {
     prepare(cmd_start_time,params) {
         for (let i =0;i<params.ids.length;++i)
         {
-            this.wss.BOARDS[i].msg = "preparing"
+            this.wss.BOARDS[params.ids[i]].msg = "preparing"
         }
         let boardMsg = {
             type: 'prepare',
