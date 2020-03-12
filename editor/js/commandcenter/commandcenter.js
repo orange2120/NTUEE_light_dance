@@ -387,18 +387,27 @@ class Commandcenter {
                         });
                         
                     }
+                    self.mgr.wavesurfer.playPause()
                 }else{
                     let id_arr = getSelected()
+                    let scheduled_time = Math.floor(new Date()/1) + 5000
                     if (id_arr.length != 0) {
                         axios.post('/api/play', {
                             params: {
                                 ids: id_arr,
-                                time: self.mgr.time
+                                time: self.mgr.time,
+                                start_at_time : scheduled_time
+
                             }
                         });
                     }
+                    while(Math.floor(new Date()/1) < scheduled_time){
+
+                    }
+                    self.mgr.wavesurfer.playPause()
                 }
-                self.mgr.wavesurfer.playPause()
+
+                
 
                 
                 // document.getElementById("playPause-btn").click()

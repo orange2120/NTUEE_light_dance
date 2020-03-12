@@ -268,7 +268,8 @@ class CmdServer {
             type: "play",
             data: {
                 s: cmd_start_time, //start_at_server
-                p: params.time //play_from_time
+                p: params.time, //play_from_time
+                sc : params.start_at_time
             }
         }
         console.log(msg)
