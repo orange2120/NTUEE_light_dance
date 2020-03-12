@@ -340,7 +340,7 @@ class CmdServer {
                         type: 'upload',
                         data: {
                             upload_type : "leds",
-                            data : self.pngs["LED_CHEST"] + self.pngs["LED_L_SHOE"] + self.pngs["LED_R_SHOE"]
+                            leds : self.pngs// + self.pngs["LED_L_SHOE"] + self.pngs["LED_R_SHOE"]
                         }
                     }
                 }else{
@@ -348,7 +348,7 @@ class CmdServer {
                         type: 'upload',
                         data: {
                             upload_type : "leds",
-                            data : self.pngs["LED_CHEST"] + self.pngs["LED_L_SHOE"] + self.pngs["LED_R_SHOE"]
+                            leds : self.pngs //+ self.pngs["LED_L_SHOE"] + self.pngs["LED_R_SHOE"]
                         }
                     }
                 }
@@ -413,7 +413,7 @@ class CmdServer {
     }
     compile(control){
         this.tmp_control = JSON.parse(JSON.stringify(control))
-        this.pngs = {}
+        this.pngs = []
         this.convert_png('LED_FAN')
         this.convert_png('LED_CHEST')
         this.convert_png('LED_L_SHOE')
@@ -421,7 +421,7 @@ class CmdServer {
         this.process_control()
     }
     convert_png(f){
-        this.pngs[f] = {}
+        // this.pngs[f] = {}
         const directoryPath = path.join(__dirname, LED_PATH +  f);
         //passsing directoryPath and callback function
         let self = this
@@ -487,8 +487,12 @@ class CmdServer {
                     }
                     img_arr = math.flatten(img_arr)
                     // console.log(img_arr)
-                    self.pngs[f][file.substr(0,file.length-4)]=img_arr
-                    
+                    let new_led = {
+                        name : file.substr(0,file.length-4),
+                        data : img_arr
+                    }
+                    // self.pngs[f][file.substr(0,file.length-4)]=img_arr
+                    self.pngs.push(new_led)
                     console.log("Convert",file); 
                     // console.log(rgb_arr)
                     
