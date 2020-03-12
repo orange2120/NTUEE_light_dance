@@ -132,10 +132,11 @@ function mainSocket() {
               ack_type : "upload_ok"
             }
           }
+          connection.send(JSON.stringify(response_msg))
+          console.log(`ACKc upload_ok sent`)
         }
         
-        connection.send(JSON.stringify(response_msg))
-        console.log(`ACKc upload_ok sent`)
+        
       }else if (msg.data.upload_type === "leds") {
         // rimraf.sync(path.join(__dirname,"./json/current"));
         fs.rmdirSync(path.join(__dirname,"./json/current"))
