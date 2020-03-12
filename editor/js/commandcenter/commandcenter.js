@@ -390,9 +390,9 @@ class Commandcenter {
                 console.log(id_arr)
             }
 
-            
-            boards_control_zone.appendChild(btn_upload)
             boards_control_zone.appendChild(btn_compile)
+            boards_control_zone.appendChild(btn_upload)
+            
             boards_control_zone.appendChild(btn_reconnect)
             boards_control_zone.appendChild(btn_kick)
             boards_control_zone.appendChild(btn_reboot)

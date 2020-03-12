@@ -40,6 +40,10 @@ function closeClientApp() {
   }
 }
 
+function isClientAppOn() {
+  return clientApp_cmd != '' && !clientApp_cmd.killed
+}
+
 function mainSocket() {
   // console.log(`Find Server ${b[0].ip} ${b[0].mac}`)
   let url = 'ws://' + SERVER_IP + ':' + String(PORT)
@@ -102,27 +106,64 @@ function mainSocket() {
         
       }
     } else if (msg.type === "upload") {
+      console.log(`Shutting down clientApp.. for server upload`)
+      closeClientApp()
       let dd = [msg.data]
       
       fs.writeFileSync(path.join(__dirname,"./json/test2.json"), JSON.stringify(dd));
-      console.log("Done")
-    } else if (msg.type === "play") {
-      // spawnClientApp()
-      console.log(`Play from ${msg.data.p}`)
+      console.log(`timeline file save`)
+      let response_msg = {
+        type: "ACKc",
+        data:{
+          board_type:"dancer",
+          ack_type : "upload_ok"
+        }
+      }
+      connection.send(JSON.stringify(response_msg))
+      console.log(`ACKc upload_ok sent`)
       spawnClientApp()
       clientApp_cmd.stdout.on('data',function(data){
         console.log('[clientApp] ' + data.toString())
-	if ( data.toString().includes("run")) {
+        if ( data.toString().includes("run")) {
 
-	
-        	clientApp_cmd.stdin.write('run ' + String(msg.data.p) + '\n')
+          let response_msg = {
+            type: "ACKc",
+            data:{
+              board_type:"dancer",
+              ack_type : "clientApp_ok"
+            }
+          }
+          connection.send(JSON.stringify(response_msg))
+          console.log(`ACKc clientApp_ok sent`)
+
+          
         
-		console.log('Done')
-	}
-	})
-      // console.log('run ' + String(msg.data.play_from_time))
+          // console.log('Done')
+        }
+	    })
       
+
+    } else if (msg.type === "play") {
+      // spawnClientApp()
+      console.log(`recieved Play from ${msg.data.p}`)
+      if (isClientAppOn()) {
+          clientApp_cmd.stdin.write('run ' + String(msg.data.p) + '\n')
+          console.log('Play')
+      }else{
+        console.log('ClientApp not started!!')
+      }
+      // spawnClientApp()
+      // clientApp_cmd.stdout.on('data',function(data){
+      //   console.log('[clientApp] ' + data.toString())
+      //   if ( data.toString().includes("run")) {
+      //     clientApp_cmd.stdin.write('run ' + String(msg.data.p) + '\n')
+        
+      //     console.log('Done')
+      //   }
+	    // })
+      // // console.log('run ' + String(msg.data.play_from_time))
       
+      // clientApp_cmd.stdin.write('run ' + String(msg.data.p) + '\n')
       
     } else if (msg.type === "pause") {
       console.log(`Pause from Server`)
