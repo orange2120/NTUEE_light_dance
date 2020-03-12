@@ -128,34 +128,28 @@ function mainSocket() {
       // spawnClientApp()
       console.log(`recieved Play from ${msg.data.p}`)
       if (isClientAppOn()) {
-        spawnClientApp()
-        clientApp_cmd.stderr.on('data',(data)=>{
-          console.log(`[ClientApp Error] ${data.toString()}`)
-        })
-        clientApp_cmd.stdout.on('data',function(data){
-          console.log('[clientApp] ' + data.toString())
-          if ( data.toString().includes("run")) {
-  
-            let response_msg = {
-              type: "ACKc",
-              data:{
-                board_type:"dancer",
-                ack_type : "clientApp_ok"
-              }
-            }
-            connection.send(JSON.stringify(response_msg))
-            console.log(`ACKc clientApp_ok sent`)
-  
-            
-          
-            // console.log('Done')
-          }
-        })
-
           clientApp_cmd.stdin.write('run ' + String(msg.data.p) + '\n')
           console.log('Play')
+          let response_msg = {
+            type: "ACKc",
+            data:{
+              board_type:"dancer",
+              ack_type : "playing"
+            }
+          }
+          connection.send(JSON.stringify(response_msg))
+          console.log(`ACKc playing sent`)
+
       }else{
-        
+        let response_msg = {
+          type: "ACKc",
+          data:{
+            board_type:"dancer",
+            ack_type : "err_not_prepared"
+          }
+        }
+        connection.send(JSON.stringify(response_msg))
+        console.log(`ACKc err_not_prepared sent`)
         console.log('ClientApp not started!!')
       }
       // spawnClientApp()
@@ -173,18 +167,40 @@ function mainSocket() {
       
     } else if (msg.type === "pause") {
       console.log(`Pause from Server`)
-      // if(clientApp_cmd != '' && !clientApp_cmd.killed) {
-	    //   clientApp_cmd.kill('SIGUSR1')
-	    //   clientApp_cmd.kill()
-      // }
       closeClientApp()
-      //clientApp_cmd.kill("SIGUSR1") //pause
-      //clientApp_cmd.kill()
-      // spawnClientApp()
-      console.log("Done")
+      let response_msg = {
+        type: "ACKc",
+        data:{
+          board_type:"dancer",
+          ack_type : "idle"
+        }
+      }
+      connection.send(JSON.stringify(response_msg))
+      console.log(`ACKc idle sent`)
     
     } else if (msg.type === "prepare") {
+      console.log(`shutdown clientApp for prepare`)
+      closeClientApp()
+      spawnClientApp()
+      clientApp_cmd.stderr.on('data',(data)=>{
+        console.log(`[ClientApp Error] ${data.toString()}`)
+      })
 
+      clientApp_cmd.stdout.on('data',function(data){
+        console.log('[clientApp] ' + data.toString())
+        if ( data.toString().includes("run")) {
+
+          let response_msg = {
+            type: "ACKc",
+            data:{
+              board_type:"dancer",
+              ack_type : "clientApp_ok"
+            }
+          }
+          connection.send(JSON.stringify(response_msg))
+          console.log(`ACKc clientApp_ok sent`)
+        }
+      })       
 
     } else if (msg.type === "safe_kick") {
       console.log("Safe Kick By Server")
