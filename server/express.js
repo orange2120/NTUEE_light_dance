@@ -117,7 +117,7 @@ server.get('/api/stop', function(req, res) {
 
 server.post('/api/upload', function(req, res) {
     
-    cmds.upload(0,{
+    cmds.upload_timeline(0,{
         ids : req.body.params.ids
     },req.body.params.control)
     console.log("[Server] upload new control to ",req.body.params.ids)

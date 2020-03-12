@@ -13,7 +13,7 @@
     "editor:dev": "webpack-dev-server --mode development",
     "dev": "nodemon --watch server server/main.js",
     "build": "webpack --mode production && node server/main.js",
-    "rpi:setup" : "npm i ws child_process"
+    "rpi:setup": "npm i ws child_process"
   },
   "repository": {
     "type": "git",
@@ -42,6 +42,7 @@
     "pngjs": "^3.4.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "rimraf": "^3.0.2",
     "shortid": "^2.2.15",
     "table-dragger": "^1.0.3",
     "wavesurfer.js": "^3.3.1",
