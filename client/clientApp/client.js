@@ -140,11 +140,13 @@ function mainSocket() {
       }else if (msg.data.upload_type === "leds") {
         // rimraf.sync(path.join(__dirname,"./json/current"));
         if (fs.existsSync(path.join(__dirname,"./json/current"))) {
-          fs.rmdirSync(path.join(__dirname,"./json/current"))
+          rimraf.sync(path.join(__dirname,"./json/current"));
+          // fs.rmdirSync(path.join(__dirname,"./json/current"))
         }
         
         fs.mkdirSync(path.join(__dirname,"./json/current"))
         for (let i=0; i<msg.data.leds.length; i++) {
+          console.log(msg.data.leds[i].name)
           fs.writeFileSync(path.join(__dirname,"./json/current",msg.data.leds[i].name) + ".json", JSON.stringify(msg.data.leds[i].data));
         }
         let response_msg = {
