@@ -3,6 +3,8 @@ const os = require('os')
 const fs = require('fs')
 const path = require('path')
 
+const rimraf = require("rimraf");
+
 // console.log(`Config file path at ${path.join(__dirname,"../../boards_config.json")}`)
 
 // let CONFIG = fs.readFileSync(path.join(__dirname,"../../boards_config.json"))
@@ -108,19 +110,38 @@ function mainSocket() {
     } else if (msg.type === "upload") {
       console.log(`Shutting down clientApp.. for server upload`)
       closeClientApp()
-      let dd = [msg.data]
-      
-      fs.writeFileSync(path.join(__dirname,"./json/test2.json"), JSON.stringify(dd));
-      console.log(`timeline file save`)
-      let response_msg = {
-        type: "ACKc",
-        data:{
-          board_type:"dancer",
-          ack_type : "upload_ok"
+      if (msg.data.upload_type === "timeline") {
+        let dd = [msg.data.data]
+        fs.writeFileSync(path.join(__dirname,"./json/current/timeline.json"), JSON.stringify(dd));
+        console.log(`timeline file save`)
+        let response_msg = {
+          type: "ACKc",
+          data:{
+            board_type:"dancer",
+            ack_type : "upload_ok"
+          }
         }
+        connection.send(JSON.stringify(response_msg))
+        console.log(`ACKc upload_ok sent`)
+      }else if (msg.data.upload_type === "leds") {
+        // rimraf.sync(path.join(__dirname,"./json/current"));
+        fs.rmdirSync(path.join(__dirname,"./json/current"))
+        fs.mkdirSync(path.join(__dirname,"./json/current"))
+        for (let i=0; i<msg.data.leds.length; i++) {
+          fs.writeFileSync(path.join(__dirname,"./json/current",msg.data.leds[i].name), JSON.stringify(msg.data.leds[i].data));
+        }
+        let response_msg = {
+          type: "ACKc",
+          data:{
+            board_type:"dancer",
+            ack_type : "upload_leds_ok"
+          }
+        }
+        connection.send(JSON.stringify(response_msg))
+        console.log(`ACKc upload_leds_ok sent`)
       }
-      connection.send(JSON.stringify(response_msg))
-      console.log(`ACKc upload_ok sent`)
+      
+      
       
       
 

@@ -296,33 +296,62 @@ class CmdServer {
         this.sendToBoards(boardMsg,params.ids)
     }
 
-    upload(cmd_start_time, params, control) {
+    upload_timeline(cmd_start_time, params, control) {
         
         let self = this
         
         this.wss.clients.forEach((client) => {
             if (client.readyState === WebSocket.OPEN && params.ids.includes(client.board_ID)) {
-                self.wss.BOARDS[client.board_ID].msg = "uploading"
+                self.wss.BOARDS[client.board_ID].msg = "uploading_timeline"
                 console.log("upload", client.board_ID)
                 let boardMsg = {}
                 if (client.board_type === "dancer") {
                     boardMsg = {
                         type: 'upload',
-                        data: self.tmp_control[client.board_ID]//control
+                        data: {
+                            upload_type : "timeline",
+                            data : self.tmp_control[client.board_ID]
+                        }//control
                     }
                 }else{
                     boardMsg = {
                         type: 'upload',
-                        data: self.tmp_control[client.board_ID] //boardData[client.boardId]
-                        // wsdata: wsData[client.boardId]
+                        data: {
+                            upload_type : "timeline",
+                            data : self.tmp_control[client.board_ID]
+                        }//control
                     };
                 }
-                // let boardMsg = {
-                //     type: 'upload',
-                //     data: self.tmp_control[client.board_ID] //boardData[client.boardId]
-                //     // wsdata: wsData[client.boardId]
-                // };
-                // console.log(control[client.board_ID])
+                client.send(JSON.stringify(boardMsg));
+            }
+        });
+    }
+    upload_leds(cmd_start_time, params) {
+        
+        let self = this
+        
+        this.wss.clients.forEach((client) => {
+            if (client.readyState === WebSocket.OPEN && params.ids.includes(client.board_ID)) {
+                self.wss.BOARDS[client.board_ID].msg = "uploading_leds"
+                console.log("upload", client.board_ID)
+                let boardMsg = {}
+                if (client.board_type === "dancer") {
+                    boardMsg = {
+                        type: 'upload',
+                        data: {
+                            upload_type : "leds",
+                            data : self.pngs["LED_CHEST"] + self.pngs["LED_L_SHOE"] + self.pngs["LED_R_SHOE"]
+                        }
+                    }
+                }else{
+                    boardMsg = {
+                        type: 'upload',
+                        data: {
+                            upload_type : "leds",
+                            data : self.pngs["LED_CHEST"] + self.pngs["LED_L_SHOE"] + self.pngs["LED_R_SHOE"]
+                        }
+                    }
+                }
                 client.send(JSON.stringify(boardMsg));
             }
         });
