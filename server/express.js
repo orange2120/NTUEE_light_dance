@@ -9,13 +9,14 @@
 const ntp = require('ntp2');
 
 
-ntp.Client()
-const server = ntp.createServer(function(message, response){
+
+const ntp_server = ntp.createServer(function(message, response){
   console.log('server message:', message);
   message.transmitTimestamp = Date.now();
   response(message);
 }).listen(123, function(err){
-  console.log('server is running at %s', server.address().port);
+    // console.log(ntp_server.address().ip)
+  console.log('server is running at %s', ntp_server.address().port);
 });
 
 
@@ -81,6 +82,14 @@ function writeConfigFile(p=CONFIG_PATH){
 }
 readConfigFile()
 let cmds = new CmdServer(8081,CONFIG)
+
+
+
+
+
+// cmds.compile([])
+
+
 
 server.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../editor/dist', 'index.html'));
@@ -226,4 +235,3 @@ server.get('/api/config/reload', function(req, res) {
     res.send("OK")
 });
 
-cmds.compile([])
