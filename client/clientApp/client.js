@@ -7,7 +7,7 @@ const rimraf = require("rimraf");
 
 
 const ntpClient = require('ntp-client');
- 
+ //pool.ntp.org
 ntpClient.getNetworkTime("192.168.0.200", 123, function(err, date) {
     if(err) {
         console.error(err);
