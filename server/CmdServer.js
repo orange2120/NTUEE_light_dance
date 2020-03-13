@@ -315,13 +315,13 @@ class CmdServer {
                         }//control
                     }
                 }else{
+                    
                     boardMsg = {
                         type: 'upload',
-                        data: {
-                            upload_type : "timeline",
-                            data : self.tmp_control[client.board_ID]
-                        }//control
+                        data: {timeline : []}//self.tmp_control[client.board_ID]
+                        //control
                     };
+                    console.log(boardMsg)
                 }
                 client.send(JSON.stringify(boardMsg));
             }

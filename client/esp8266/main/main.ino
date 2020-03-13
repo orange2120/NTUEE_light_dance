@@ -51,7 +51,7 @@ void webSocketEvent(WStype_t type, uint8_t *payload, size_t length)
 			Serial.println((char*) payload);
 			Serial.println();
 			// send message to server when Connected
-			webSocket.sendTXT("{\"type\":\"request_to_join\",\"data\":{\"board_type\":\"fan\"}}");
+			webSocket.sendTXT("{\"type\":\"request_to_join\",\"data\":{\"board_type\":\"fan\",\"hostname\":\"fan1\"}}");
       
 			break;
 		case WStype_TEXT:
