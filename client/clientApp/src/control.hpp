@@ -10,6 +10,7 @@
 #include <string>
 #include <unistd.h>
 #include <setjmp.h>
+#include <sys/time.h> 
 #include "definition.h"
 #include "nlohmann/json.hpp"
 #include "Data.h"
@@ -36,7 +37,7 @@ long getsystime() // ms
     struct timeval tv;
     struct timezone tz;
     gettimeofday(&tv, &tz);
-    return (tv.tv_sec*1000 + tv.usec/1000);
+    return (tv.tv_sec*1000 + tv.tv_usec/1000);
 }
 
 void ReadJson(json& data)
@@ -162,6 +163,7 @@ void run(const int id, long currentTime) {
             }
         }
         else usleep(10000);
+        
         // auto end = high_resolution_clock::now();
         // auto duration = duration_cast<microseconds>(end-start); // transmission time
         // cerr << double(duration.count()) << endl;
@@ -172,8 +174,8 @@ void run(const int id, long currentTime) {
         //     return;
         // }
 
-        currentTime = getsystime() + startTime - sysStartTime;
         for(unsigned i = 0; i < to_string(currentTime).length(); ++i) cerr << '\b';
+        currentTime = getsystime() + startTime - sysStartTime;
         // time += PERIOD;
     }
     p.t_index = 0;
