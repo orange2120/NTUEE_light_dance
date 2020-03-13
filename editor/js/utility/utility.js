@@ -1,5 +1,20 @@
 import { DANCER_NUM, LEDPARTS, LIGHTPARTS } from '../constants';
 
+const checkIncreasing = (control) => {
+    console.log("Checking Increasing ...");
+    for (let id = 0; id < DANCER_NUM; ++id) {
+        const timeline = control[id];
+        let lastStart = timeline[0]["Start"];
+        for (let i = 1; i < timeline.length; ++i) {
+            if (timeline[i]["Start"] < lastStart) {
+                console.error("[Error] Not Increasing Control!!!");
+                return;
+            }
+        }
+    }
+    console.log("Checking Increasing Finsih!!");
+}
+
 export function checkControl(control) {
     console.log("Checking Control ...");
     // Check DANCER_NUM == TimeLine Num
@@ -27,6 +42,7 @@ export function checkControl(control) {
             });
         });
     });
+    checkIncreasing(control);
     console.log("Check Finished", control);
 }
 
@@ -58,4 +74,31 @@ export function checkPreset(presets) {
         });
     });
     console.log("Check Finished", presets);
+}
+
+export function mergeControl(A, B) {
+    console.log("Mergine Control ...", JSON.parse(JSON.stringify(A)), JSON.parse(JSON.stringify(B)));
+    // const A = JSON.parse(JSON.stringify(a));
+    // const B = JSON.parse(JSON.stringify(b));
+    checkControl(A);
+    checkControl(B);
+    for (let id = 0; id < DANCER_NUM; ++id) {
+        const Atimeline = A[id];
+        const Btimeline = B[id];
+        let i = 0;
+        for (let j = 0; j < Btimeline.length; ++j) {
+            const BStart = Btimeline[j]["Start"];
+            let AStart = Atimeline[i]["Start"];
+            while (AStart < BStart) {
+                i += 1;
+                if (i == Atimeline.length) break;
+                AStart = Atimeline[i]["Start"];
+            }
+            Atimeline.splice(i, 0, Btimeline[j]);
+        }
+    }
+    console.log("Merge Finish", A);
+    checkIncreasing(A);
+
+    return A;
 }
