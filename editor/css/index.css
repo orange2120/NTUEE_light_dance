@@ -87,7 +87,7 @@ header h2, header h3 {
     background-color: rgba(0, 136, 169, 0.8);
 }
 
-.upload_file {
+.upload_file, .merge_file {
     width: 0.1px;
     height: 0.1px;
     opacity: 0;
@@ -96,7 +96,7 @@ header h2, header h3 {
     z-index: -1;
 }
 
-.upload_file + label {
+.upload_file + label, .merge_file + label {
     padding: 3px 15px;
     background-color: rgba(209, 86, 86, 1);
     border: none;
@@ -104,9 +104,19 @@ header h2, header h3 {
     cursor: pointer;
     transition: all 0.3s ease 0s;
 }
+
+.merge_file + label {
+    background-color: rgba(86, 180, 86, 1);
+}
+
 .upload_file:focus + label,
 .upload_file + label:hover {
     background-color: rgba(209, 86, 86, 0.8);
+}
+
+.merge_file:focus + label,
+.merge_file + label:hover {
+    background-color: rgba(86, 180, 86, 0.8);
 }
 
 body .lm_content {
