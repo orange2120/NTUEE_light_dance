@@ -24,11 +24,20 @@ extern vector<Person> people;
 extern const uint16_t numLEDs[NUM_OF_LED];
 extern const string ELs[NUM_OF_EL];
 extern const string LEDs[NUM_OF_LED];
+extern long sysStartTime;
 extern int dancer_id;
 extern jmp_buf jmpbuffer;
 
 EL el1(16, 0x40), el2(8, 0x60);
 LED_Strip leds(NUM_OF_LED, numLEDs);
+
+long getsystime() // ms
+{
+    struct timeval tv;
+    struct timezone tz;
+    gettimeofday(&tv, &tz);
+    return (tv.tv_sec*1000 + tv.usec/1000);
+}
 
 void ReadJson(json& data)
 {
@@ -112,35 +121,36 @@ void turnOff()
     }
 }
 
-void run(const int id, int time) {
+void run(const int id, long currentTime) {
     // time (ms)
     Person &p = people[id];
     p.t_index = 0;
-    if(time < 0) {
+    int startTime = currentTime;
+    if(currentTime < 0) {
         cerr << "[ERROR] Input time should >= 0 !!" << endl;
         return;
     }
-    if(time > p.time_line[p.time_line.size()-1].start_time) {
+    if(currentTime > p.time_line[p.time_line.size()-1].start_time) {
         cerr << "[ERROR] Input time exceed total time!!" << endl;
         return;
     }
     for(size_t i = 0; i < p.time_line.size(); ++i) {
-        if(time < p.time_line[i].start_time) {
+        if(currentTime < p.time_line[i].start_time) {
             p.t_index = i;
             continue;
         }
         else break;
     }
 
-    cerr << "Dancer ["<< id << "] Starting From " << time << "..." << endl;
+    cerr << "Dancer ["<< id << "] Starting From " << currentTime << "..." << endl;
     sendSig(id);
     bool off = false;
-    // cerr << "Time now: ";
+    cerr << "Time now: ";
     while(!off) 
     {
-        // cerr << time;
-        auto start = high_resolution_clock::now();
-        if(time >= p.time_line[p.t_index+1].start_time) { 
+        cerr << currentTime;
+        // auto start = high_resolution_clock::now();
+        if(currentTime >= p.time_line[p.t_index+1].start_time) { 
             if(p.t_index == p.time_line.size()-2) { // last one is a dummy execution
                 p.t_index = 0;
                 turnOff();
@@ -151,17 +161,20 @@ void run(const int id, int time) {
                 sendSig(id);
             }
         }
-        auto end = high_resolution_clock::now();
-        auto duration = duration_cast<microseconds>(end-start); // transmission time
-        cerr << double(duration.count()) << endl;
-        if(double(duration.count()) < PERIOD*1000) usleep(PERIOD*1000-double(duration.count())); // delay until PERIOD
-        else {
-            for(unsigned i = 0; i < to_string(time).length()+10; ++i) cerr << '\b';
-            cerr << "[ERROR] Sending Time Exceeds " << PERIOD << "ms!!" << endl;
-            return;
-        }
-        // for(unsigned i = 0; i < to_string(time).length(); ++i) cerr << '\b';
-        time += PERIOD;
+        else usleep(10000);
+        // auto end = high_resolution_clock::now();
+        // auto duration = duration_cast<microseconds>(end-start); // transmission time
+        // cerr << double(duration.count()) << endl;
+        // if(double(duration.count()) < PERIOD*1000) usleep(PERIOD*1000-double(duration.count())); // delay until PERIOD
+        // else {
+        //     for(unsigned i = 0; i < to_string(time).length()+10; ++i) cerr << '\b';
+        //     cerr << "[ERROR] Sending Time Exceeds " << PERIOD << "ms!!" << endl;
+        //     return;
+        // }
+
+        currentTime = getsystime() + startTime - sysStartTime;
+        for(unsigned i = 0; i < to_string(currentTime).length(); ++i) cerr << '\b';
+        // time += PERIOD;
     }
     p.t_index = 0;
     for(size_t i = 0; i < 10; ++i) cerr << '\b';

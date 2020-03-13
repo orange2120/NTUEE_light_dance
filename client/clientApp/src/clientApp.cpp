@@ -13,6 +13,7 @@
 #include <string>
 #include <signal.h>
 #include <setjmp.h>
+#include "time.h"
 
 #include "control.hpp"
 #include "definition.h"
@@ -25,6 +26,7 @@ extern const string FILENAME;
 vector<Person> people; // dancers
 int dancer_id = 0;
 jmp_buf jmpbuffer;
+long sysStartTime = 0;
 
 int main(int argc, char *argv[]) // arg[1] = person id
 {
@@ -82,7 +84,8 @@ int main(int argc, char *argv[]) // arg[1] = person id
     size_t pos;
     int time = 0; // begin time
     bool end = false;
-    if(setjmp(jmpbuffer) == 1)  signal(SIGUSR1, sig_pause);
+    setjmp(jumbuffer);
+    // if(setjmp(jmpbuffer) == 1)  signal(SIGUSR1, sig_pause);
     cout << "Usage:\"run [start time]\"" << endl;
     while(!end) {
         cmd = ""; tok = ""; time = 0; pos = 0;
@@ -108,6 +111,7 @@ int main(int argc, char *argv[]) // arg[1] = person id
                 continue;
             }
         }
+        sysStartTime = getsystime();
         run(dancer_id, time);
     }
 
