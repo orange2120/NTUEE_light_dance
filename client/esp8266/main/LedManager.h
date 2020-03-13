@@ -14,24 +14,28 @@
 
 // DynamicJsonDocument led_json(43772);
 const char* pic_data = "{\
-   \"fan_1\": 24,\
-   \"fan_2\": 36,\
-   \"fan_3\": 66,\
-   \"fan_4\": 129,\
-   \"fan_all_bright\": 255,\
-   \"fan_left1_dark\": 127,\
-   \"fan_left2_dark\": 191,\
-   \"fan_left3_dark\": 223,\
-   \"fan_right1_dark\": 254,\
-   \"fan_right2_dark\": 253,\
-   \"fan_right3_dark\": 251,\
-   \"fan_three\": 126,\
-   \"fan_three_noMid\": 231,\
-   \"fan_two\": 60,\
-   \"fan_two_noMid\": 195,\
+   \"fan_1\": 536,\
+   \"fan_2\": 548,\
+   \"fan_3\": 578,\
+   \"fan_4\": 641,\
+   \"fan_all_bright\": 767,\
+   \"fan_all_pink\": 255,\
+   \"fan_all_red\": 511,\
+   \"fan_left1_dark\": 639,\
+   \"fan_left2_dark\": 703,\
+   \"fan_left3_dark\": 735,\
+   \"fan_right1_dark\": 766,\
+   \"fan_right2_dark\": 765,\
+   \"fan_right3_dark\": 763,\
+   \"fan_three\": 638,\
+   \"fan_three_noMid\": 743,\
+   \"fan_two\": 572,\
+   \"fan_two_noMid\": 707,\
    \"bl_fan\": 0\
 }";
-const CRGB Ocher = {255, 150, 0};
+const CRGB Pink = {255, 0, 43};
+const CRGB Red = {255, 0, 0};
+const CRGB Dark_Red = {125, 0, 0};
 
 class LedManager{
 public:
@@ -77,20 +81,25 @@ public:
    void upload() {}
 
    void show_frame(){
-      double alpha = 0;
-      uint8_t temp = 0;
-
       const char* name = led_json["data"]["timeline"][frame_idx]["name"];
-      alpha = led_json["data"]["timeline"][frame_idx]["alpha"];
-      temp = pic_json[name];
+      double alpha = led_json["data"]["timeline"][frame_idx]["alpha"];
+      int temp = pic_json[name];
+      CRGB color;
+
+      switch (temp>>8) {
+         case 0: color = Pink; break;
+         case 1: color = Red; break;
+         case 2: color = Dark_Red; break;
+         default: color = CRGB::Green; break;
+      }
 
       for(int i = 0; i < LED_ROWS; ++i){
-         if((temp>>(7 - i)) % 2 == 1){
+         if((temp>>(i)) % 2 == 1){
             Serial.print("1 ");
             for(int j = 0; j < LEDS_IN_ROW; ++j){
-               leds[i*LEDS_IN_ROW + j].r = Ocher.r * alpha;
-               leds[i*LEDS_IN_ROW + j].g = Ocher.g * alpha;
-               leds[i*LEDS_IN_ROW + j].b = Ocher.b * alpha;
+               leds[i*LEDS_IN_ROW + j].r = color.r * alpha;
+               leds[i*LEDS_IN_ROW + j].g = color.g * alpha;
+               leds[i*LEDS_IN_ROW + j].b = color.b * alpha;
             }
          }
          else{
@@ -135,7 +144,7 @@ public:
    }
    void loop() {
       if(playing){
-         playing_time = millis() - starting_time;
+         playing_time = millis() - starting_time + start_from_witch_time;
          if(frame_idx == led_json["data"]["timeline"].size() - 1) {}
          else if(playing_time > led_json["data"]["timeline"][frame_idx + 1]["Start"]){
             ++frame_idx;
