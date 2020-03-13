@@ -401,7 +401,7 @@ class Commandcenter {
                             }
                         });
                     }
-                    while(Math.floor(new Date()/1) < scheduled_time){
+                    while(Math.floor(new Date()/1) < scheduled_time-50){
 
                     }
                     self.mgr.wavesurfer.playPause()
