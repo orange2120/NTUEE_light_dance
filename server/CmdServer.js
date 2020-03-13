@@ -319,7 +319,7 @@ class CmdServer {
                     
                     boardMsg = {
                         type: 'upload',
-                        data: {timeline : []}//self.tmp_control[client.board_ID]
+                        data: self.tmp_control[client.board_ID]
                         //control
                     };
                     console.log(boardMsg)
@@ -407,7 +407,20 @@ class CmdServer {
                         return new_frame
                     })  
                     // new_control["picture"] =   self.pngs["LED_FAN"]
-                    self.tmp_control[client.board_ID] = new_control
+                    let thin_control = {}
+                    thin_control["timeline"] = []
+                    thin_control["timeline"].push(new_control["timeline"][0])
+                    console.log(thin_control)
+                    let last_idx = 0
+                    for(let i=1;i<new_control["timeline"].length;++i){
+                        if (new_control["timeline"][i-1]["name"] ===  new_control["timeline"][i]["name"] && new_control["timeline"][i-1]["alpha"] ===  new_control["timeline"][i]["alpha"]) {
+
+                        }else{
+                            thin_control["timeline"].push(new_control["timeline"][i])
+                        }
+                    }
+                    console.log(thin_control)
+                    self.tmp_control[client.board_ID] = thin_control
                     
                 }
             }
