@@ -6,7 +6,17 @@
 
 // import CONTROL from '../data/control_test3.json'
 
+const ntp = require('ntp2');
 
+
+ntp.Client()
+const server = ntp.createServer(function(message, response){
+  console.log('server message:', message);
+  message.transmitTimestamp = Date.now();
+  response(message);
+}).listen(123, function(err){
+  console.log('server is running at %s', server.address().port);
+});
 
 
 
