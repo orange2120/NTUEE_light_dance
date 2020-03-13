@@ -10,14 +10,14 @@ const ntp = require('ntp2');
 
 
 
-const ntp_server = ntp.createServer(function(message, response){
-  console.log('server message:', message);
-  message.transmitTimestamp = Date.now();
-  response(message);
-}).listen(123, function(err){
-    // console.log(ntp_server.address().ip)
-  console.log('server is running at %s', ntp_server.address().port);
-});
+// const ntp_server = ntp.createServer(function(message, response){
+//   console.log('server message:', message);
+//   message.transmitTimestamp = Date.now();
+//   response(message);
+// }).listen(123, "0.0.0.0" , function(err){
+//     // console.log(ntp_server.address().ip)
+//   console.log('server is running at %s', ntp_server.address().port);
+// });
 
 
 
