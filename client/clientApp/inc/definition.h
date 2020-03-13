@@ -34,7 +34,7 @@
 #define PCA9685_ADDR_2 0x60
 
 // Json file's path
-const std::string DIR = "/home/pi/NTUEE_light_dance/client/clientApp/json/current/";//"./json/";
+const std::string DIR = "/home/pi/NTUEE_light_dance/client/clientApp/json/current/"; //"./json/";
 const std::string FILENAME = "timeline.json";
 
 // EL parts' name

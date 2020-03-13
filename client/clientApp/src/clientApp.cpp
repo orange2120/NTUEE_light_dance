@@ -84,7 +84,7 @@ int main(int argc, char *argv[]) // arg[1] = person id
     size_t pos;
     int time = 0; // begin time
     bool end = false;
-    setjmp(jumbuffer);
+    setjmp(jmpbuffer);
     // if(setjmp(jmpbuffer) == 1)  signal(SIGUSR1, sig_pause);
     cout << "Usage:\"run [start time]\"" << endl;
     while(!end) {
