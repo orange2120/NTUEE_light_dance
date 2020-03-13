@@ -252,6 +252,7 @@ class CmdServer {
                         server_time: Date.now(),
                         delay: client.transmit_delay
                     }), {}, true);
+                console.log(client.transmit_delay)
                 //   ws.ping(noop);
             });
         }, this.config.settings.ping_interval);
