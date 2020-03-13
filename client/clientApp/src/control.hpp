@@ -42,13 +42,13 @@ long getsystime() // ms
 
 void ReadJson(json& data)
 {
-    cerr << "[INFO] Reading JSON file";
+    cout << "[INFO] Reading JSON file";
     for(int i = 0; i < PEOPLE_NUM; ++i) { // dimension of people
-        cerr << ".";
+        cout << ".";
         if((i+1)%4 == 0) {
-            for(int j = 0; j < 4; ++j)  cerr << '\b'; 
-            for(int j = 0; j < 4; ++j)  cerr << " ";
-            for(int j = 0; j < 4; ++j)  cerr << '\b';
+            for(int j = 0; j < 4; ++j)  cout << '\b'; 
+            for(int j = 0; j < 4; ++j)  cout << " ";
+            for(int j = 0; j < 4; ++j)  cout << '\b';
         }
         people.push_back(Person());
         for(size_t j = 0; j < data[i].size(); ++j) { // dimension of execution
@@ -66,7 +66,7 @@ void ReadJson(json& data)
 
         }
     }
-    cerr << endl << "[INFO] File loaded!!" << endl;
+    cout << endl << "[INFO] File loaded!!" << endl;
 }
 
 bool init(const string& path) {
@@ -143,13 +143,13 @@ void run(const int id, long currentTime) {
         else break;
     }
 
-    cerr << "Dancer ["<< id << "] Starting From " << currentTime << "..." << endl;
+    cout << "Dancer ["<< id << "] Starting From " << currentTime << "..." << endl;
     sendSig(id);
     bool off = false;
-    cerr << "Time now: ";
+    cout << "Time now: ";
     while(!off) 
     {
-        cerr << currentTime;
+        cout << currentTime;
         // auto start = high_resolution_clock::now();
         if(currentTime >= p.time_line[p.t_index+1].start_time) { 
             if(p.t_index == p.time_line.size()-2) { // last one is a dummy execution
@@ -174,13 +174,13 @@ void run(const int id, long currentTime) {
         //     return;
         // }
 
-        for(unsigned i = 0; i < to_string(currentTime).length(); ++i) cerr << '\b';
+        for(unsigned i = 0; i < to_string(currentTime).length(); ++i) cout << '\b';
         currentTime = getsystime() + startTime - sysStartTime;
         // time += PERIOD;
     }
     p.t_index = 0;
-    for(size_t i = 0; i < 10; ++i) cerr << '\b';
-    cerr << "[End of Signal]" << endl;
+    for(size_t i = 0; i < 10; ++i) cout << '\b';
+    cout << "[End of Signal]" << endl;
     // START:
 }
 
