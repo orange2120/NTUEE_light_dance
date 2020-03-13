@@ -3,7 +3,9 @@
 node_modules/
 editor/dist/
 
-client/clientApp/recieve.json
+boards_config.json
+client/clientApp/json/current
+
 
 .o
 .h.gch

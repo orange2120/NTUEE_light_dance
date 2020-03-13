@@ -1,6 +1,13 @@
 {
     "boards": [
         {
+            "ip": "192.168.0.200",
+            "hostname": "System-MBP",
+            "status": "connected",
+            "id": 0,
+            "board_type": "dancer"
+        },
+        {
             "ip": "192.168.0.81",
             "hostname": "lightdancer-1",
             "status": "connected",
