@@ -6,17 +6,17 @@ const path = require('path')
 const rimraf = require("rimraf");
 
 
-const ntpClient = require('ntp-client');
- //pool.ntp.org
-ntpClient.getNetworkTime("192.168.0.200", 123, function(err, date) {
-    if(err) {
-        console.error(err);
-        return;
-    }
+// const ntpClient = require('ntp-client');
+//  //pool.ntp.org
+// ntpClient.getNetworkTime("192.168.0.200", 123, function(err, date) {
+//     if(err) {
+//         console.error(err);
+//         return;
+//     }
  
-    console.log("Current time : ");
-    console.log(date); // Mon Jul 08 2013 21:31:31 GMT+0200 (Paris, Madrid (heure d’été))
-});
+//     console.log("Current time : ");
+//     console.log(date); // Mon Jul 08 2013 21:31:31 GMT+0200 (Paris, Madrid (heure d’été))
+// });
 
 
 // console.log(`Config file path at ${path.join(__dirname,"../../boards_config.json")}`)
