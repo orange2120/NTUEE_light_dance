@@ -149,7 +149,8 @@ void run(const int id, long currentTime) {
     cout << "Time now: ";
     while(!off) 
     {
-        cout << currentTime;
+        // printf("%d\n",currentTime);
+        // cout << currentTime<<'\n';
         // auto start = high_resolution_clock::now();
         if(currentTime >= p.time_line[p.t_index+1].start_time) { 
             if(p.t_index == p.time_line.size()-2) { // last one is a dummy execution
@@ -162,7 +163,10 @@ void run(const int id, long currentTime) {
                 sendSig(id);
             }
         }
-        else usleep(10000);
+        else {
+
+        }
+        //usleep(10000);
         
         // auto end = high_resolution_clock::now();
         // auto duration = duration_cast<microseconds>(end-start); // transmission time
@@ -174,7 +178,7 @@ void run(const int id, long currentTime) {
         //     return;
         // }
 
-        for(unsigned i = 0; i < to_string(currentTime).length(); ++i) cout << '\b';
+        // for(unsigned i = 0; i < to_string(currentTime).length(); ++i) cout << '\b';
         currentTime = getsystime() + startTime - sysStartTime;
         // time += PERIOD;
     }
