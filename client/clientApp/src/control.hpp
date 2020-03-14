@@ -82,7 +82,7 @@ void sendSig(const int id) {
     Execute &e = people[id].time_line[people[id].t_index];
     // send EL sig 
     for(int i = 0; i < NUM_OF_EL; ++i) {
-        double br = e.EL_parts[i].get_brightness()*4095;
+        double br = e.EL_parts[i].get_brightness()*LED_BRIGHTNESS_SCALE;
         if(i < 16) el1.setEL(i, uint16_t(br));
         else el2.setEL(i%16, uint16_t(br));
     }
