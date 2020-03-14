@@ -273,6 +273,38 @@ class Commandcenter {
                 console.log(id_arr)
             }
 
+            let btn_upload_test = document.createElement("button")
+            btn_upload_test.innerText = "Upload Test"
+            btn_upload_test.id = "btn_upload_test"
+            btn_upload_test.onclick = function() {
+                let id_arr = getSelected()
+                if (id_arr.length != 0) {
+                    axios.post('/api/upload/test',{
+                        params: {
+                            ids: id_arr,
+                            time: 0
+                        }
+                    })
+                }
+                console.log(id_arr)
+            }
+
+            let btn_exe_test = document.createElement("button")
+            btn_exe_test.innerText = "Execute Test"
+            btn_exe_test.id = "btn_play_test"
+            btn_exe_test.onclick = function() {
+                let id_arr = getSelected()
+                if (id_arr.length != 0) {
+                    axios.post('/api/exe_test',{
+                        params: {
+                            ids: id_arr,
+                            time: 0
+                        }
+                    })
+                }
+                console.log(id_arr)
+            }
+
             let btn_upload_leds = document.createElement("button")
             btn_upload_leds.innerText = "Upload Led"
             btn_upload_leds.id = "btn_upload"
@@ -353,6 +385,38 @@ class Commandcenter {
                 console.log(id_arr)
             }
 
+            let btn_halt = document.createElement("button")
+            btn_halt.id = "btn_halt"
+            btn_halt.innerText = "Halt"
+            btn_halt.onclick = function() {
+                let id_arr = getSelected()
+                if (id_arr.length != 0) {
+                    axios.post('/api/halt', {
+                        params: {
+                            ids: id_arr,
+                            time: 0
+                        }
+                    });
+                }
+                console.log(id_arr)
+            }
+
+            let btn_git_pull = document.createElement("button")
+            btn_git_pull.id = "btn_git_pull"
+            btn_git_pull.innerText = "Pull"
+            btn_git_pull.onclick = function() {
+                let id_arr = getSelected()
+                if (id_arr.length != 0) {
+                    axios.post('/api/git_pull', {
+                        params: {
+                            ids: id_arr,
+                            time: 0
+                        }
+                    });
+                }
+                console.log(id_arr)
+            }
+
             let btn_prepare = document.createElement("button")
             btn_prepare.innerText = "Prepare"
             btn_prepare.id = "btn_prepare"
@@ -401,7 +465,7 @@ class Commandcenter {
                             }
                         });
                     }
-                    while(Math.floor(new Date()/1) < scheduled_time-50){
+                    while(Math.floor(new Date()/1) < scheduled_time+500){
 
                     }
                     self.mgr.wavesurfer.playPause()
@@ -434,13 +498,18 @@ class Commandcenter {
             boards_control_zone.appendChild(btn_compile)
             boards_control_zone.appendChild(btn_upload_leds)
             boards_control_zone.appendChild(btn_upload_timeline)
+            boards_control_zone.appendChild(btn_prepare)
+            boards_control_zone.appendChild(btn_play)
             
-            boards_control_zone.appendChild(btn_reconnect)
+            // boards_control_zone.appendChild(btn_reconnect)
             boards_control_zone.appendChild(btn_kick)
             boards_control_zone.appendChild(btn_reboot)
-            boards_control_zone.appendChild(btn_prepare)
+            boards_control_zone.appendChild(btn_halt)
+            boards_control_zone.appendChild(btn_git_pull)
+
+            boards_control_zone.appendChild(btn_upload_test)
+            boards_control_zone.appendChild(btn_exe_test)
             
-            boards_control_zone.appendChild(btn_play)
             // boards_control_zone.appendChild(btn_pause)
 
             // conrtol_zone.appendChild(allow_scan)

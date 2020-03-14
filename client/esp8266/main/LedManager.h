@@ -63,16 +63,21 @@ public:
       }
       return true;
    }
-
-   void play(unsigned long s_time = 0) {
+   void prepare_to_play(unsigned long s_time = 0) {
       Serial.println("play from");
       Serial.println(s_time);
-      starting_time = millis();
+      
       playing_time = start_from_witch_time = s_time;
-      
-      
       set_fram_idx();
+
+
+
+      
+   }
+   void play() {
+      Serial.println("Start Playing");
       show_frame();
+      starting_time = millis();
       playing = true;
    }
    void pause() {

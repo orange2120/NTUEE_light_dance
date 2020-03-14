@@ -6,7 +6,7 @@
 
 // import CONTROL from '../data/control_test3.json'
 
-const ntp = require('ntp2');
+// const ntp = require('ntp2');
 
 
 
@@ -14,7 +14,7 @@ const ntp = require('ntp2');
 //   console.log('server message:', message);
 //   message.transmitTimestamp = Date.now();
 //   response(message);
-// }).listen(123, "0.0.0.0" , function(err){
+// }).listen(123,"192.168.1.6", function(err){
 //     // console.log(ntp_server.address().ip)
 //   console.log('server is running at %s', ntp_server.address().port);
 // });
@@ -195,6 +195,33 @@ server.post('/api/reboot', function(req, res) {
     console.log("[Server] reboot ",req.body.params.ids)
     res.send('ok');
 });
+
+
+server.post('/api/exe_test', function(req, res) {
+    cmds.play(0,{
+        ids:req.body.params.ids,
+        time:req.body.params.time,
+        start_at_time : req.body.params.start_at_time
+    })
+    console.log("[Server] play to ",req.body.params.ids)
+    res.send('ok');
+});
+
+server.post('/api/upload/test', function(req, res) {
+    
+    cmds.upload_timeline(0,{
+        ids : req.body.params.ids
+    },req.body.params.control)
+    console.log("[Server] upload new control to ",req.body.params.ids)
+    res.send('ok');
+});
+
+
+
+
+
+
+
 
 server.get('/api/config/clear', function(req, res) {
     CONFIG.boards = []
