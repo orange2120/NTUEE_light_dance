@@ -135,7 +135,7 @@ function mainSocket() {
             type: "ACKc",
             data:{
               board_type:"dancer",
-              ack_type : "upload_ok"
+              ack_type : "upload_timeline_ok"
             }
           }
           connection.send(JSON.stringify(response_msg))
@@ -284,6 +284,9 @@ function mainSocket() {
     } else if (msg.type === "halt" ) {
       closeClientApp()
       require('child_process').exec('sudo halt', function (msg) { console.log(msg) });
+    } else if (msg.type === "git_pull_force" ) {
+      closeClientApp()
+      require('child_process').exec(path.join(__dirname,"./git_force_pull.sh"), function (msg) { console.log(msg) });
     }else{
       let response_msg = {
         type: "ACKc",
