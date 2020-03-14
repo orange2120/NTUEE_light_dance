@@ -18,7 +18,7 @@
 #define PEOPLE_NUM 8 // number of dancer
 
 // Number of LEDs in strip
-#define LED_BRIGHTNESS_SCALE 0.2*4095
+#define LED_BRIGHTNESS_SCALE 0.2*255
 #define LEDS_0 300
 #define LEDS_1 35
 #define LEDS_2 35
@@ -33,7 +33,7 @@
 #define NUM_EL_2       8
 #define PCA9685_ADDR_1 0x40
 #define PCA9685_ADDR_2 0x60
-
+#define EL_BRIGHTNESS_SCALE 0.25*4095
 // Json file's path
 const std::string DIR = "/home/pi/NTUEE_light_dance/client/clientApp/json/current/"; //"./json/";
 const std::string FILENAME = "timeline.json";
