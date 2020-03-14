@@ -195,6 +195,11 @@ server.post('/api/reboot', function(req, res) {
     console.log("[Server] reboot ",req.body.params.ids)
     res.send('ok');
 });
+server.post('/api/halt', function(req, res) {
+    cmds.rebootBoard({ids:req.body.params.ids})
+    console.log("[Server] halt ",req.body.params.ids)
+    res.send('ok');
+});
 
 
 server.post('/api/exe_test', function(req, res) {

@@ -583,6 +583,14 @@ class CmdServer {
         console.log(params)
         this.sendToBoards(msg, params.ids)
     }
+    haltBoard(cmd_start_time, params) {
+        let msg = {
+            type: "halt",
+            data:{}
+        }
+        console.log(params)
+        this.sendToBoards(msg, params.ids)
+    }
     runTest(cmd_start_time, params) {
         let msg = {
             type: "runTest"
