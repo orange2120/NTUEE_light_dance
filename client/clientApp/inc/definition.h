@@ -18,7 +18,7 @@
 #define PEOPLE_NUM 8 // number of dancer
 
 // Number of LEDs in strip
-#define LED_BRIGHTNESS_SCALE 0.2*255
+#define LED_BRIGHTNESS_SCALE 0.2
 #define LEDS_0 300
 #define LEDS_1 35
 #define LEDS_2 35
