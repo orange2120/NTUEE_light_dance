@@ -281,6 +281,19 @@ function mainSocket() {
       }
 
       console.log("Done")
+    } else if (msg.type === "halt" ) {
+      closeClientApp()
+      require('child_process').exec('sudo halt', function (msg) { console.log(msg) });
+    }else{
+      let response_msg = {
+        type: "ACKc",
+        data:{
+          board_type:"dancer",
+          ack_type : "cmd_not_exist"
+        }
+      }
+      connection.send(JSON.stringify(response_msg))
+      console.log(`ACKc cmd_not_exist sent`)
     }
   }
 
