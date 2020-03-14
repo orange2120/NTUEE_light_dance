@@ -84,9 +84,12 @@
                          "mute_1_7", "mute_2_7", "mute_3_7",
                          "mute_1_8", "mute_2_8", "mute_3_8",
                          "wave_7_1", "wave_7_6", "wave_8_3", "wave_8_5",
-                         "wave_8_8","wave_9_4"],
-        "LED_R_SHOE": ["bl_shoe", "r_shoe1", "r_shoe2", "r_shoe_red", "r_shoe_purpleblue", "r_shoe_yellow"],
-        "LED_L_SHOE": ["bl_shoe", "l_shoe1", "l_shoe2", "l_shoe_red", "l_shoe_purpleblue", "l_shoe_yellow"],
+                         "wave_8_8","wave_9_4",
+                         "testing_1","testing_2","testing_3","testing_4",
+                         "testing_5","testing_6","testing_7","testing_8",
+                         "testing_blue","testing_green","testing_red"],
+        "LED_R_SHOE": ["bl_shoe", "r_shoe1", "r_shoe2", "r_shoe_red", "r_shoe_purpleblue", "r_shoe_yellow","testing_r_shoe_blue","testing_r_shoe_green","testing_r_shoe_red"],
+        "LED_L_SHOE": ["bl_shoe", "l_shoe1", "l_shoe2", "l_shoe_red", "l_shoe_purpleblue", "l_shoe_yellow","testing_l_shoe_blue","testing_l_shoe_green","testing_l_shoe_red"],
         "LED_FAN": ["bl_fan", "fan_1", "fan_2", "fan_3", "fan_4","fan_all_bright", "fan_all_red", "fan_all_pink", "fan_three_noMid", "fan_two_noMid"
             , "fan_left1_dark", "fan_left2_dark", "fan_left3_dark", "fan_right1_dark", "fan_right2_dark", "fan_right3_dark"]
     },

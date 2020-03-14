@@ -184,6 +184,7 @@ function mainSocket() {
       console.log(`recieved Play from ${msg.data.p}`)
       if (isClientAppOn()) {
           while(Math.floor(new Date()/1) < msg.data.sc){
+            console.log(new Date() / 1, msg.data.sc);
 
           }
           clientApp_cmd.stdin.write('run ' + String(msg.data.p) + '\n')

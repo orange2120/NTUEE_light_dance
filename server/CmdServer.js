@@ -235,7 +235,7 @@ class CmdServer {
                 // console.log("checking id=" + String(ws.board_ID))
                 if (client.isAlive === false) {
                     // self.terminateBoard()
-                    client.terminate()
+                    // client.terminate()
                     if (client.board_ID != -1) {
                         // self.wss.BOARDS[client.board_ID].status = "disconnect"
                         console.log(`[Server] Board(registered) remove upexpectedly (${client.board_ID}) at ${client.ipAddr}`)
