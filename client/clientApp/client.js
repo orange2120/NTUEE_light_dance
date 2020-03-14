@@ -67,15 +67,6 @@ function mainSocket() {
 
   const connection = new WebSocket(url)
 
-  // const connection = new ReconnectingWebSocket(url, [], {
-  //   maxReconnectionDelay: 1000,
-  //   minReconnectionDelay: 1000,
-  //   reconnectionDelayGrowFactor: 1,
-  //   connectionTimeout: 1000,
-  //   maxRetries: Infinity,
-  //   WebSocket: require('ws')
-  // });
-
 
   console.log(`Connect to Server => ${url}`)
   function heartbeat(x) {
