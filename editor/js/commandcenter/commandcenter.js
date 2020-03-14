@@ -465,9 +465,9 @@ class Commandcenter {
                             }
                         });
                     }
-                    while(Math.floor(new Date()/1) < scheduled_time+500){
+                    // while(Math.floor(new Date()/1) < scheduled_time+200){
 
-                    }
+                    // }
                     self.mgr.wavesurfer.playPause()
                 }
 
