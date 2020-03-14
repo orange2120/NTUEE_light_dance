@@ -6,7 +6,7 @@
   Copyright    [ Copyleft(c) , NTUEE, Taiwan ]
 ****************************************************************************/
 #include "LED_strip.h"
-
+#include "definition.h"
 /*!
   @brief constructor of LED strip, initialize SPI communication.
   @param nStrips number of LED strips
