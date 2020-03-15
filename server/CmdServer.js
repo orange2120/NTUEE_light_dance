@@ -17,6 +17,7 @@ const getPixels = require("get-pixels")
 
 const DANCER_NUM  = 8
 const LED_PATH = "../asset/LED/"
+const TESTDATA_PATH = "../data/json/testing_timeline.json"
 
 function arr_transpose(a) {
     return Object.keys(a[0]).map(function (c) {
@@ -28,7 +29,7 @@ function arr_transpose(a) {
 
 class CmdServer {
     constructor(_port = 8081, _config) {
-
+        this.testing_timeline = []
         this.wss = new WebSocket.Server({ port: _port })
         this.pngs = {}
         // this.wss.waitingList = []
@@ -299,9 +300,7 @@ class CmdServer {
     }
 
     upload_timeline(cmd_start_time, params, control) {
-        
         let self = this
-        
         this.wss.clients.forEach((client) => {
             if (client.readyState === WebSocket.OPEN && params.ids.includes(client.board_ID)) {
                 self.wss.BOARDS[client.board_ID].msg = "uploading_timeline"
@@ -361,11 +360,7 @@ class CmdServer {
     process_control() {
         
         // console.log(control)
-        let parsed_control=[]
-        /*
-        for (let i =0;i<control.length;++i){
-            control.push([0])
-        }*/
+        
         let self = this
         for (let i =0;i<3;++i){
             self.tmp_control.push([])
@@ -427,6 +422,7 @@ class CmdServer {
         });
     }
     compile(control){
+        load_testing_timeline()
         this.tmp_control = JSON.parse(JSON.stringify(control))
         this.pngs = []
         this.convert_png('LED_FAN')
@@ -434,6 +430,10 @@ class CmdServer {
         this.convert_png('LED_L_SHOE')
         this.convert_png('LED_R_SHOE')
         this.process_control()
+    }
+    load_testing_timeline(){
+        this.testing_timeline = []
+        this.testing_timeline  = JSON.parse(fs.readFileSync(TESTDATA_PATH))
     }
     convert_png(f){
         // this.pngs[f] = {}
@@ -520,7 +520,34 @@ class CmdServer {
             });
         });
     }
-
+    upload_test() {
+        let self = this
+        this.wss.clients.forEach((client) => {
+            if (client.readyState === WebSocket.OPEN && params.ids.includes(client.board_ID)) {
+                self.wss.BOARDS[client.board_ID].msg = "uploading_testing_data"
+                console.log("uploading_testing_data", client.board_ID)
+                let boardMsg = {}
+                if (client.board_type === "dancer") {
+                    boardMsg = {
+                        type: 'upload',
+                        data: {
+                            upload_type : "testing_timeline",
+                            data : self.testing_timeline[client.board_ID]
+                        }//control
+                    }
+                }else{
+                    
+                    boardMsg = {
+                        type: 'fuck',
+                        data: []
+                        //control
+                    };
+                    console.log(boardMsg)
+                }
+                client.send(JSON.stringify(boardMsg));
+            }
+        });
+    }
     update_Board_Msg(id,s) {
         this.wss.BOARDS[id].msg = s
     }
