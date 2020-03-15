@@ -383,7 +383,7 @@ function mainSocket() {
             }
           }
           connection.send(JSON.stringify(response_msg))
-          console.log(`ACKc clientApp_ok sent`)
+          console.log(`ACKc git_pull_ok sent`)
         }
         // String(data)
         // console.log(`Received chunk ${data}`);
