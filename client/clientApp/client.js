@@ -263,7 +263,7 @@ function mainSocket() {
       console.log("Reconnect request By Server")
       closeClientApp()
       need_reconnect = true
-      connection.terminate()
+      connection.close
       // fs.writeFileSync('recieve.json', JSON.stringify(msg.data));
       console.log("Done")
     } else if (msg.type === "restart") {
@@ -293,11 +293,28 @@ function mainSocket() {
       closeClientApp()
       const process_git_pull_force = spawn(path.join(__dirname,"./git_force_pull.sh"));
       process_git_pull_force.stdout.on('data', (data) => {
+        if (String(data).includes("HEAD is now at")){
+          // let d = String(data).split(' ')
+          let response_msg = {
+            type: "ACKc",
+            data:{
+              board_type:"dancer",
+              ack_type : "git_pull_ok " + String(data).split(' ')[4]
+            }
+          }
+          connection.send(JSON.stringify(response_msg))
+          console.log(`ACKc clientApp_ok sent`)
+        }
         // String(data)
         // console.log(`Received chunk ${data}`);
       });
       // require('child_process').exec(path.join(__dirname,"./git_force_pull.sh"), function (msg) { console.log(msg) });
-    }else{
+    
+    
+    
+    } else if (msg.type === "make" ) {
+      
+    } else{
       let response_msg = {
         type: "ACKc",
         data:{
