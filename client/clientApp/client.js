@@ -274,7 +274,12 @@ function mainSocket() {
         closeClientApp()
         spawnClientApp()
       } else if (msg.data.restart_target === "board") {
+        console.log(`Shutting down clientApp.. for rpi reboot`)
         closeClientApp()
+        console.log(`Shutting down connection.. for rpi reboot`)
+        need_reconnect = false
+        connection.close()
+        console.log(`Calling sudo reboot.. for rpi reboot`)
         require('child_process').exec('sudo reboot', function (msg) { console.log(msg) });
       } else {
         console.log(`Unknown restart target ${msg.data.restart_target}`)
