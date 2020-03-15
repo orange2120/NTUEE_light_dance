@@ -83,62 +83,7 @@ function mainSocket() {
       console.log("too long")
     }, 3000 + 3000);
   }
-  function prepare(cb) {
-    console.log(`shutdown clientApp for prepare`)
-        closeClientApp()
-        spawnClientApp()
-        clientApp_cmd.stderr.on('data',(data)=>{
-          console.log(`[ClientApp Error] ${data.toString()}`)
-        })
-  
-        clientApp_cmd.stdout.on('data',function(data){
-          console.log('[clientApp] ' + data.toString())
-          if ( data.toString().includes("run")) {
-  
-            let response_msg = {
-              type: "ACKc",
-              data:{
-                board_type:"dancer",
-                ack_type : "clientApp_ok"
-              }
-            }
-            connection.send(JSON.stringify(response_msg))
-            console.log(`ACKc clientApp_ok sent`)
-            cb()
-          }
-        })       
-  }
-  function play() {
-    if (isClientAppOn()) {
-        // while(Math.floor(new Date()/1) < msg.data.sc){
-        //   console.log(new Date() / 1, msg.data.sc);
 
-        // }
-        clientApp_cmd.stdin.write('run ' + String(msg.data.p) + '\n')
-        console.log('Play')
-        let response_msg = {
-          type: "ACKc",
-          data:{
-            board_type:"dancer",
-            ack_type : "playing"
-          }
-        }
-        connection.send(JSON.stringify(response_msg))
-        console.log(`ACKc playing sent`)
-
-    }else{
-      let response_msg = {
-        type: "ACKc",
-        data:{
-          board_type:"dancer",
-          ack_type : "err_not_prepared"
-        }
-      }
-      connection.send(JSON.stringify(response_msg))
-      console.log(`ACKc err_not_prepared sent`)
-      console.log('ClientApp not started!!')
-    }
-  }
   let board_id = -1
   connection.onopen = () => {
     let response_msg = {

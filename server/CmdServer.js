@@ -422,7 +422,7 @@ class CmdServer {
         });
     }
     compile(control){
-        load_testing_timeline()
+        this.load_testing_timeline()
         this.tmp_control = JSON.parse(JSON.stringify(control))
         this.pngs = []
         this.convert_png('LED_FAN')
@@ -433,7 +433,7 @@ class CmdServer {
     }
     load_testing_timeline(){
         this.testing_timeline = []
-        this.testing_timeline  = JSON.parse(fs.readFileSync(TESTDATA_PATH))
+        this.testing_timeline  = JSON.parse(fs.readFileSync(path.join(__dirname, TESTDATA_PATH)))
     }
     convert_png(f){
         // this.pngs[f] = {}
@@ -520,7 +520,7 @@ class CmdServer {
             });
         });
     }
-    upload_test() {
+    upload_test(cmd_start_time,params) {
         let self = this
         this.wss.clients.forEach((client) => {
             if (client.readyState === WebSocket.OPEN && params.ids.includes(client.board_ID)) {

@@ -44,7 +44,10 @@ class MyWaveSurfer {
         // play/pause
         document.getElementById("playPause-btn").onclick = () => this.playPause();
         // stop
-        document.getElementById("stop-btn").onclick = () => this.wavesurfer.stop();
+        document.getElementById("stop-btn").onclick = () => {
+            this.wavesurfer.stop();
+            this.mgr.changeTime(0);
+        }
         // zoom slider
         const zoomSlider = document.getElementById("zoom-slider");
         zoomSlider.min = 1;
