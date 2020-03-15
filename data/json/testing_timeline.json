@@ -26,7 +26,7 @@
              "L_SHOES1":0,
              "R_SHOES1":0,
              "LED_CHEST":{
-                "name":"",
+                "name":"bl_chest",
                 "alpha":0
              },
              "LED_R_SHOE":{
@@ -372,7 +372,7 @@
               "L_SHOES1":0,
               "R_SHOES1":0,
               "LED_CHEST":{
-                 "name":"",
+                 "name":"bl_chest",
                  "alpha":0
               },
               "LED_R_SHOE":{

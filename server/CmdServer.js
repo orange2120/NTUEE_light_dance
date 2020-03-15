@@ -388,6 +388,8 @@ class CmdServer {
                         }
                         return new_frame
                     })
+                    
+                    // console.log("processing", client.board_ID)
                 }
 
                 // }else 
@@ -508,7 +510,7 @@ class CmdServer {
                     }
                     // self.pngs[f][file.substr(0,file.length-4)]=img_arr
                     self.pngs.push(new_led)
-                    console.log("Convert",file); 
+                    // console.log("Convert",file); 
                     // console.log(rgb_arr)
                     
                     // let filee = fs.createWriteStream('array.txt');
