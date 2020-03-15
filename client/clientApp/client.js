@@ -5,7 +5,7 @@ const path = require('path')
 
 const rimraf = require("rimraf");
 
-
+console.log("test")
 // const ntpClient = require('ntp-client');
 //  //pool.ntp.org
 // ntpClient.getNetworkTime("192.168.0.200", 123, function(err, date) {
