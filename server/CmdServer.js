@@ -522,10 +522,10 @@ class CmdServer {
     }
     upload_test(cmd_start_time,params) {
         let self = this
-        this.wss.clients.forEach((client) => {
-            if (client.readyState === WebSocket.OPEN && params.ids.includes(client.board_ID)) {
-                self.wss.BOARDS[client.board_ID].msg = "uploading_testing_data"
-                console.log("uploading_testing_data", client.board_ID)
+                this.wss.clients.forEach((client) => {
+                    if (client.readyState === WebSocket.OPEN && params.ids.includes(client.board_ID)) {
+                        self.wss.BOARDS[client.board_ID].msg = "uploading_testing_data"
+                        console.log("uploading_testing_data", client.board_ID)
                 let boardMsg = {}
                 if (client.board_type === "dancer") {
                     boardMsg = {
@@ -533,9 +533,9 @@ class CmdServer {
                         data: {
                             upload_type : "testing_timeline",
                             data : self.testing_timeline[client.board_ID]
-                        }//control
-                    }
-                }else{
+                                }//control
+                            }
+                        }else{
                     
                     boardMsg = {
                         type: 'fuck',
