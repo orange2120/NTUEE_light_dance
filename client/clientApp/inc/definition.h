@@ -40,13 +40,13 @@ const std::string FILENAME = "timeline.json";
 
 // EL parts' name
 const std::string ELs[NUM_OF_EL] = {
+  "R_COAT2", "R_COAT1",
+  "L_COAT2", "L_COAT1",
+  "R_ARM2", "R_ARM1",
+  "L_ARM2", "L_ARM1",
+  "R_HAND", "L_HAND" ,
   "INNER1", "INNER2",
-  "R_COAT1", "R_COAT2",
-  "L_COAT1", "L_COAT2",
-  "R_ARM1", "R_ARM2",
-  "L_ARM1", "L_ARM2",
-  "L_HAND" , "R_HAND",
-  "HAT1", "HAT2" , "FACE1", "FACE2" , 
+  "FACE1", "FACE2" , "HAT1", "HAT2" , 
 
   "R_PANTS1","R_PANTS2",
   "L_PANTS1","L_PANTS2",
