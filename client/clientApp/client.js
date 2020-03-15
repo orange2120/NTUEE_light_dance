@@ -284,14 +284,19 @@ function mainSocket() {
       } else {
         console.log(`Unknown restart target ${msg.data.restart_target}`)
       }
-
       console.log("Done")
     } else if (msg.type === "halt" ) {
       closeClientApp()
       require('child_process').exec('sudo halt', function (msg) { console.log(msg) });
     } else if (msg.type === "git_pull_force" ) {
+      console.log(`Shutting down clientApp.. for git pull`)
       closeClientApp()
-      require('child_process').exec(path.join(__dirname,"./git_force_pull.sh"), function (msg) { console.log(msg) });
+      const process_git_pull_force = spawn(path.join(__dirname,"./git_force_pull.sh"));
+      process_git_pull_force.stdout.on('data', (data) => {
+        // String(data)
+        // console.log(`Received chunk ${data}`);
+      });
+      // require('child_process').exec(path.join(__dirname,"./git_force_pull.sh"), function (msg) { console.log(msg) });
     }else{
       let response_msg = {
         type: "ACKc",
