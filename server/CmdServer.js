@@ -592,6 +592,7 @@ class CmdServer {
         this.sendToBoards(msg, params.ids)
     }
     git_pull(cmd_start_time, params, forced = true) {
+        let self = this
         this.wss.clients.forEach((client) => {
             if (client.readyState === WebSocket.OPEN && params.ids.includes(client.board_ID)) {
                 self.wss.BOARDS[client.board_ID].msg = "git pulling"
@@ -607,6 +608,7 @@ class CmdServer {
         });
     }
     make_clientApp(cmd_start_time, params) {
+        let self = this
         this.wss.clients.forEach((client) => {
             if (client.readyState === WebSocket.OPEN && params.ids.includes(client.board_ID)) {
                 self.wss.BOARDS[client.board_ID].msg = "making clientApp"

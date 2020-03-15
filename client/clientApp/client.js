@@ -310,9 +310,7 @@ function mainSocket() {
       });
       // require('child_process').exec(path.join(__dirname,"./git_force_pull.sh"), function (msg) { console.log(msg) });
     
-    
-    
-    } else if (msg.type === "make" ) {
+    } else if (msg.type === "make_clientApp" ) {
       console.log(`Shutting down clientApp.. for make`)
       closeClientApp()
       const process_make_clientApp = spawn(path.join(__dirname,"./make_clientApp.sh"));
