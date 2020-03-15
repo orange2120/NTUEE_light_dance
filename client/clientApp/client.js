@@ -313,7 +313,23 @@ function mainSocket() {
     
     
     } else if (msg.type === "make" ) {
-      
+      console.log(`Shutting down clientApp.. for make`)
+      closeClientApp()
+      const process_make_clientApp = spawn(path.join(__dirname,"./make_clientApp.sh"));
+      process_make_clientApp.stdout.on('data', (data) => {
+        if (String(data).includes("FINISH")){
+          // let d = String(data).split(' ')
+          let response_msg = {
+            type: "ACKc",
+            data:{
+              board_type:"dancer",
+              ack_type : "make_ok "
+            }
+          }
+          connection.send(JSON.stringify(response_msg))
+          console.log(`ACKc make_ok sent`)
+        }
+      });
     } else{
       let response_msg = {
         type: "ACKc",
