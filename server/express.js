@@ -204,6 +204,13 @@ server.post('/api/halt', function(req, res) {
     console.log("[Server] halt ",req.body.params.ids)
     res.send('ok');
 });
+server.post('/api/git_pull', function(req, res) {
+    cmds.git_pull(0,{
+        ids : req.body.params.ids
+    })
+    console.log("[Server] git_pull ",req.body.params.ids)
+    res.send('ok');
+});
 
 
 server.post('/api/exe_test', function(req, res) {
