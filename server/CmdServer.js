@@ -592,12 +592,34 @@ class CmdServer {
         this.sendToBoards(msg, params.ids)
     }
     git_pull(cmd_start_time, params, forced = true) {
-        let msg = {
-            type: "git_pull_force",
-            data:{}
-        }
-        console.log(params)
-        this.sendToBoards(msg, params.ids)
+        this.wss.clients.forEach((client) => {
+            if (client.readyState === WebSocket.OPEN && params.ids.includes(client.board_ID)) {
+                self.wss.BOARDS[client.board_ID].msg = "git pulling"
+                console.log("git pull ", client.board_ID)
+                let boardMsg = {}
+                boardMsg = {
+                    type: 'git_pull_force',
+                    data: {}//control
+                }
+                
+                client.send(JSON.stringify(boardMsg));
+            }
+        });
+    }
+    make_clientApp(cmd_start_time, params) {
+        this.wss.clients.forEach((client) => {
+            if (client.readyState === WebSocket.OPEN && params.ids.includes(client.board_ID)) {
+                self.wss.BOARDS[client.board_ID].msg = "making clientApp"
+                console.log("make", client.board_ID)
+                let boardMsg = {}
+                boardMsg = {
+                    type: 'make_clientApp',
+                    data: {}//control
+                }
+                
+                client.send(JSON.stringify(boardMsg));
+            }
+        });
     }
     runTest(cmd_start_time, params) {
         let msg = {

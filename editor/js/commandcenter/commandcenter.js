@@ -403,11 +403,27 @@ class Commandcenter {
 
             let btn_git_pull = document.createElement("button")
             btn_git_pull.id = "btn_git_pull"
-            btn_git_pull.innerText = "Pull"
+            btn_git_pull.innerText = "Git Pull"
             btn_git_pull.onclick = function() {
                 let id_arr = getSelected()
                 if (id_arr.length != 0) {
                     axios.post('/api/git_pull', {
+                        params: {
+                            ids: id_arr,
+                            time: 0
+                        }
+                    });
+                }
+                console.log(id_arr)
+            }
+
+            let btn_make = document.createElement("button")
+            btn_make.id = "btn_make"
+            btn_make.innerText = "Make"
+            btn_make.onclick = function() {
+                let id_arr = getSelected()
+                if (id_arr.length != 0) {
+                    axios.post('/api/make', {
                         params: {
                             ids: id_arr,
                             time: 0
@@ -506,6 +522,7 @@ class Commandcenter {
             boards_control_zone.appendChild(btn_reboot)
             boards_control_zone.appendChild(btn_halt)
             boards_control_zone.appendChild(btn_git_pull)
+            boards_control_zone.appendChild(btn_make)
 
             boards_control_zone.appendChild(btn_upload_test)
             boards_control_zone.appendChild(btn_exe_test)

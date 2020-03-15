@@ -211,6 +211,13 @@ server.post('/api/git_pull', function(req, res) {
     console.log("[Server] git_pull ",req.body.params.ids)
     res.send('ok');
 });
+server.post('/api/make', function(req, res) {
+    cmds.make_clientApp(0,{
+        ids : req.body.params.ids
+    })
+    console.log("[Server] make_clientApp ",req.body.params.ids)
+    res.send('ok');
+});
 
 
 server.post('/api/exe_test', function(req, res) {
