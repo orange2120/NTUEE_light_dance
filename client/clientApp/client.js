@@ -98,7 +98,7 @@ function mainSocket() {
   }
 
   connection.onerror = (error) => {
-    console.log(`WebSocket error: ${error}`)
+    console.log(`WebSocket error: ${error.message}`)
   }
   connection.on('ping', heartbeat);
   connection.onmessage = (e) => {
