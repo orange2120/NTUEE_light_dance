@@ -591,6 +591,14 @@ class CmdServer {
         console.log(params)
         this.sendToBoards(msg, params.ids)
     }
+    git_pull(cmd_start_time, params, forced = true) {
+        let msg = {
+            type: "git_pull_force",
+            data:{}
+        }
+        console.log(params)
+        this.sendToBoards(msg, params.ids)
+    }
     runTest(cmd_start_time, params) {
         let msg = {
             type: "runTest"
