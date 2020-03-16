@@ -59,19 +59,20 @@ void Execute::set_LED_part(const string& s, const double& d) {
 }
 
 void Execute::set_EL_part(double a[NUM_OF_EL]) { // set every EL_parts for one time
+    uint16_t br[NUM_OF_EL];
     for(int i = 0; i < NUM_OF_EL; ++i) {
-        if(a[i] == 0) a[i] = convertEL[0];
-        else if(a[i] == 0.1) a[i] = convertEL[1];
-        else if(a[i] == 0.2) a[i] = convertEL[2];
-        else if(a[i] == 0.3) a[i] = convertEL[3];
-        else if(a[i] == 0.4) a[i] = convertEL[4];
-        else if(a[i] == 0.5) a[i] = convertEL[5];
-        else if(a[i] == 0.6) a[i] = convertEL[6];
-        else if(a[i] == 0.7) a[i] = convertEL[7];
-        else if(a[i] == 0.8) a[i] = convertEL[8];
-        else if(a[i] == 0.9) a[i] = convertEL[9];
-        else if(a[i] == 1) a[i] = convertEL[10];
-        EL_parts.push_back(EL_part(a[i]));
+        if(a[i] == 0)        br[i] = convertEL[0];
+        else if(a[i] == 0.1) br[i] = convertEL[1];
+        else if(a[i] == 0.2) br[i] = convertEL[2];
+        else if(a[i] == 0.3) br[i] = convertEL[3];
+        else if(a[i] == 0.4) br[i] = convertEL[4];
+        else if(a[i] == 0.5) br[i] = convertEL[5];
+        else if(a[i] == 0.6) br[i] = convertEL[6];
+        else if(a[i] == 0.7) br[i] = convertEL[7];
+        else if(a[i] == 0.8) br[i] = convertEL[8];
+        else if(a[i] == 0.9) br[i] = convertEL[9];
+        else if(a[i] == 1)   br[i] = convertEL[10];
+        EL_parts.push_back(EL_part(br[i]));
     }
 }
 
