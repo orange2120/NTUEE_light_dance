@@ -36,7 +36,7 @@
 #define EL_BRIGHTNESS_SCALE 0.25*4095
 // Json file's path
 const std::string DIR = "/home/pi/NTUEE_light_dance/client/clientApp/json/current/"; //"./json/";
-const std::string FILENAME = "timeline.json";
+const std::string FILENAME = "testing_timeline.json";
 
 // EL parts' name
 const std::string ELs[NUM_OF_EL] = {
