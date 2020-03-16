@@ -17,11 +17,12 @@
 #include "pca9685.h"
 using namespace std;
 
-#define I2C_ADDR 0x40
+// #define I2C_ADDR 0x40
 
 PCA9685 *pca = NULL;
 
 void sigint_handler(int);
+void setAll(uint16_t);
 
 int main()
 {
