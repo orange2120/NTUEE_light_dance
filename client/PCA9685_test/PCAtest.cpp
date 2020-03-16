@@ -50,6 +50,8 @@ int main()
 
     while (1)
     {
+        int8_t id = 0;
+        uint16_t duty = 0;
         string cmd = "";
         string tmp = "";
         vector<string> tok;
@@ -69,13 +71,25 @@ int main()
             continue;
         }
 
-        uint8_t id = (uint8_t)stoul(tok[0]);
-        uint16_t duty = (uint16_t)stoul(tok[1]);
+        duty = (uint16_t)stoul(tok[1]);
+        if (id == -1)
+        {
+            setAll(duty);
+        }
+        else
+        {
+            id = (int8_t)stoul(tok[0]);
+            pca9685.Write(CHANNEL(id), VALUE(duty));
+        }
 
-        cout << "ID = " << (unsigned)id << " Duty = " << duty << endl;
-
-        pca9685.Write(CHANNEL(id), VALUE(duty));
+        cout << "ID = " << (int)id << " Duty = " << duty << endl;
     }
+}
+
+void setAll(uint16_t duty)
+{
+    for (uint8_t i = 0; i < 16; ++i)
+	    pca->Write(CHANNEL(i), VALUE(duty));
 }
 
 void sigint_handler(int sig)
