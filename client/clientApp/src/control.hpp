@@ -173,7 +173,7 @@ void run(const int id, long currentTime) {
         // cerr << double(duration.count()) << endl;
         // if(double(duration.count()) < PERIOD*1000) usleep(PERIOD*1000-double(duration.count())); // delay until PERIOD
         // else {
-        //     for(unsigned i = 0; i < to_string(time).length()+10; ++i) cerr << '\b';
+        //     for(unsigned i = 0; i < to_string(time).length()+10; ++i) cout << '\b';
         //     cerr << "[ERROR] Sending Time Exceeds " << PERIOD << "ms!!" << endl;
         //     return;
         // }
