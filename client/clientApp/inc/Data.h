@@ -61,7 +61,7 @@ class EL_part { // for each part of EL
   public:
     // Member function
     EL_part(const double& s){ 
-      brightness = double(s); 
+      brightness = double(s);
       idx = el_count; 
       ++el_count; 
     }

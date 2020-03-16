@@ -15,6 +15,7 @@ using json = nlohmann::json;
 extern const string ELs[NUM_OF_EL];
 extern const string LEDs[NUM_OF_LED];
 extern const string DIR;
+extern const double convertEL[11];
 
 int EL_part::el_count = 0;
 int LED_part::led_count = 0;
@@ -56,8 +57,20 @@ void Execute::set_LED_part(const string& s, const double& d) {
     LED_part* tmp = new LED_part(s, d);
     LED_parts.push_back(tmp);
 }
+
 void Execute::set_EL_part(double a[NUM_OF_EL]) { // set every EL_parts for one time
     for(int i = 0; i < NUM_OF_EL; ++i) {
+        if(a[i] == 0) a[i] = convertEL[0];
+        else if(a[i] == 0.1) a[i] = convertEL[1];
+        else if(a[i] == 0.2) a[i] = convertEL[2];
+        else if(a[i] == 0.3) a[i] = convertEL[3];
+        else if(a[i] == 0.4) a[i] = convertEL[4];
+        else if(a[i] == 0.5) a[i] = convertEL[5];
+        else if(a[i] == 0.6) a[i] = convertEL[6];
+        else if(a[i] == 0.7) a[i] = convertEL[7];
+        else if(a[i] == 0.8) a[i] = convertEL[8];
+        else if(a[i] == 0.9) a[i] = convertEL[9];
+        else if(a[i] == 1) a[i] = convertEL[10];
         EL_parts.push_back(EL_part(a[i]));
     }
 }
