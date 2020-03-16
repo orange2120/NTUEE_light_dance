@@ -35,13 +35,16 @@ Test program for PCA9685 PWM module.
 
 Compile:
 ```
-$ make -DI2C_ADDR=[I2C address]
+$ make ADDR=[I2C address]
 ```
 
 Usage:
 ```
 $ sudo ./PCAtest
+>> <ID> <duty cycle>
 ```
+**Note:**assign ID=-1 to set add channels at the same time.
+
 
 ## Hardware architecture
 
