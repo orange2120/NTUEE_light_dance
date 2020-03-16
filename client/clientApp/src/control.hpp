@@ -85,6 +85,7 @@ void sendSig(const int id) {
         double br = e.EL_parts[i].get_brightness()*EL_BRIGHTNESS_SCALE;
         if(i < 16) el1.setEL(i, uint16_t(br));
         else el2.setEL(i%16, uint16_t(br));
+        cerr << e.EL_parts[i].get_brightness() << " ";
     }
     // send LED sig
     for(int i = 0; i < NUM_OF_LED; ++i) {
@@ -150,7 +151,7 @@ void run(const int id, long currentTime) {
     while(!off) 
     {
         // printf("%d\n",currentTime);
-        // cout << currentTime<<'\n';
+        // cout << currentTime << endl;
         // auto start = high_resolution_clock::now();
         if(currentTime >= p.time_line[p.t_index+1].start_time) { 
             if(p.t_index == p.time_line.size()-2) { // last one is a dummy execution
