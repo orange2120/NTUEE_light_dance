@@ -46,6 +46,7 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "rimraf": "^3.0.2",
+    "set-system-clock": "^1.0.4",
     "shortid": "^2.2.15",
     "table-dragger": "^1.0.3",
     "wavesurfer.js": "^3.3.1",
