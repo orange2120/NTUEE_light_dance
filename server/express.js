@@ -30,6 +30,9 @@ const fs = require('fs')
 
 const os =require('os')
 
+const dgram = require("dgram");
+const ntp_server = dgram.createSocket("udp4");
+
 
 // const webpack = require('webpack')
 // const webpack_config = require('../webpack.config')
