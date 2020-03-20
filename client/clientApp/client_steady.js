@@ -4,8 +4,7 @@ const fs = require('fs')
 const path = require('path')
 
 const rimraf = require("rimraf");
-const ntpClient = require('ntp-client');
-const DateTimeControl = require('set-system-clock');
+
 console.log("test")
 // const ntpClient = require('ntp-client');
 //  //pool.ntp.org
@@ -28,9 +27,9 @@ console.log("test")
 const SERVER_MAC = ""//CONFIG.settings.server_mac_addr
 const PORT = 8081
 
-const SERVER_IP = "192.168.1.6"//CONFIG.settings.server_ip_addr
+const SERVER_IP = "192.168.0.200"//CONFIG.settings.server_ip_addr
 
-const PATH_clientApp = path.join(__dirname,"./clientApp_sim")
+const PATH_clientApp = path.join(__dirname,"./clientApp")
 let clientApp_cmd = ""
 
 const WebSocket = require('ws')
@@ -95,17 +94,7 @@ function mainSocket() {
       }
     }
     connection.send(JSON.stringify(response_msg))
-    ntpClient.getNetworkTime(SERVER_IP, 1230, function(err, date) {
-      if(err) {
-          console.error(err);
-          return;
-      }
-   
-      console.log("Current time : ");
-      console.log(date)
-      console.log(date.getTime()); // Mon Jul 08 2013 21:31:31 GMT+0200 (Paris, Madrid (heure d’été))
-      DateTimeControl.DateTimeControl.setDateTime(date)
-    });
+    
   }
 
   connection.onerror = (error) => {
