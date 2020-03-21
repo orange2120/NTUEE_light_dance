@@ -66,7 +66,8 @@ myLayout.registerComponent( 'scenes_Component', function( container, componentSt
 myLayout.init();
 
 
-myLayout.on("initialised",() => {    
+myLayout.on("initialised",() => {
+    
     myLayout.root.contentItems[ 0 ].on("itemDestroyed",(item)=>{
         // console.log("itemDestroyed")
         if(item.origin.isComponent && item.origin.componentName === "command_Component"){
