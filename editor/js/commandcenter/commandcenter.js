@@ -1,7 +1,7 @@
 // import tableDragger from 'table-dragger'
 
 const axios = require('axios').default;
-
+const schedule = require('node-schedule');
 class Commandcenter {
     constructor(mgr) {
         this.mgr = mgr
@@ -289,6 +289,7 @@ class Commandcenter {
                 console.log(id_arr)
             }
 
+            
             let btn_exe_test = document.createElement("button")
             btn_exe_test.innerText = "Execute Test"
             btn_exe_test.id = "btn_play_test"
@@ -449,7 +450,29 @@ class Commandcenter {
                 console.log(id_arr)
             }
 
+            let btn_time_sync = document.createElement("button")
+            btn_time_sync.innerText = "Sync Time"
+            btn_time_sync.id = "btn_time_sync"
+            btn_time_sync.onclick = function() {
+                let id_arr = getSelected()
+                if (id_arr.length != 0) {
+                    axios.post('/api/time_sync',{
+                        params: {
+                            ids: id_arr,
+                            time: 0
+                        }
+                    })
+                }
+                console.log(id_arr)
+            }
 
+            function exe_play() {
+                self.mgr.wavesurfer.playPause()
+            }
+
+            let countdown_div = document.createElement("div")
+            countdown_div.id="countDown"
+            // document.body.appendChild(countdown_div)
 
             let btn_play = document.createElement("button")
             btn_play.id = "btn_play"
@@ -470,7 +493,7 @@ class Commandcenter {
                     self.mgr.wavesurfer.playPause()
                 }else{
                     let id_arr = getSelected()
-                    let scheduled_time = Math.floor(new Date()/1) + 5000
+                    let scheduled_time = Date.now() + 5000
                     if (id_arr.length != 0) {
                         axios.post('/api/play', {
                             params: {
@@ -479,12 +502,22 @@ class Commandcenter {
                                 start_at_time : scheduled_time
 
                             }
+                        }).then((response)=>{
+                            console.log("RESPONSE",response)
+                            
+                            while(Date.now() < scheduled_time){
+                                // countdown_div.innerText = (scheduled_time -Date.now())/1000
+                            }
+                            exe_play()
                         });
                     }
-                    // while(Math.floor(new Date()/1) < scheduled_time+200){
+                    // schedule.scheduleJob('42 * * * *', function(){
+                    // let j = schedule.scheduleJob({ start: startTime, end: endTime, rule: '*/1 * * * * *' }, function(){
+                    //     console.log('Time for tea!');
+                    //   });
 
-                    // }
-                    self.mgr.wavesurfer.playPause()
+                    
+                    
                 }
 
                 
@@ -523,9 +556,11 @@ class Commandcenter {
             boards_control_zone.appendChild(btn_halt)
             boards_control_zone.appendChild(btn_git_pull)
             boards_control_zone.appendChild(btn_make)
+            boards_control_zone.appendChild(btn_time_sync)
+            
 
             boards_control_zone.appendChild(btn_upload_test)
-            boards_control_zone.appendChild(btn_exe_test)
+            // boards_control_zone.appendChild(btn_exe_test)
             
             // boards_control_zone.appendChild(btn_pause)
 

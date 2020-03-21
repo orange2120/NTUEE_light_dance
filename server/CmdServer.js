@@ -4,6 +4,8 @@ const WebSocket = require('ws')
 const os = require('os');
 const path = require('path');
 
+const udp = require('dgram');
+
 
 const libarp = require('arp');
 
@@ -31,6 +33,11 @@ class CmdServer {
     constructor(_port = 8081, _config) {
         this.testing_timeline = []
         this.wss = new WebSocket.Server({ port: _port })
+        this.udp_server = udp.createSocket('udp4');
+        this.init_UDP_Server()
+        this.udp_server.bind(2222)
+
+
         this.pngs = {}
         // this.wss.waitingList = []
         this.config = -1
@@ -41,6 +48,68 @@ class CmdServer {
         this.wss.on('connection', this.processConnection);
 
         this.initInterval()
+    }
+    init_UDP_Server(){
+        let self = this
+        this.udp_server.on('error',function(error){
+            console.log('[Udp Server] Server Error: ' + error);
+            self.udp_server.close();
+        });
+        this.udp_server.on('listening',function(){
+            let address = self.udp_server.address();
+            let port = address.port;
+            let family = address.family;
+            let ipaddr = address.address;
+            console.log('[Udp Server] Server is listening at port' + port);
+            console.log('[Udp Server]Server ip :' + ipaddr);
+            console.log('[Udp Server] Server is IP4/IP6 : ' + family);
+        });
+        this.udp_server.on('close',function(){
+            console.log('[Udp Server] Socket is closed !');
+        });
+        this.udp_server.on('message',function(msg,info){
+            let recieve_timestamp = new Date()
+              console.log('[Udp Server] Data received from client : ' + msg.toString());
+              console.log('[Udp Server] Received %d bytes from %s:%d\n',msg.length, info.address, info.port);
+              if(msg.toString().startsWith("re"))
+              {
+                let msg_parse = msg.toString().split('_')[1]
+                msg_parse = Number(msg_parse)
+                let d = new Date()
+                // console.log('before',d)
+                d.setMilliseconds(d.getMilliseconds() + msg_parse)
+                // console.log('aafter',d)
+                // d = d + msg_parse
+                let msg_date  = Buffer.from(d.toISOString());
+                //sending msg
+                self.udp_server.send(msg_date,info.port,info.address,function(error){
+                    if(error){
+                        // client.close();
+                    }else{
+                    console.log('[Udp Server] time Data sent !!!');
+                    }
+              
+                });
+              } else {
+                let parse_msg = JSON.parse(msg.toString())
+            
+                parse_msg.t1 = Math.floor(recieve_timestamp/1)
+                parse_msg.t2 = Math.floor(new Date()/1)
+                const data_buffer = Buffer.from(JSON.stringify(parse_msg))
+                self.udp_server.send(data_buffer,info.port,info.address,function(error){
+                    if(error){
+                        // client.close();
+                    }else{
+                        console.log('[Udp Server] t1 Data sent !!!');
+                    }
+              
+                });
+                
+              }
+            
+            
+            
+        });
     }
     startServer() {
 
@@ -181,9 +250,15 @@ class CmdServer {
                     console.log(`[Server] Board(${ws.hostname}) not registered`)
 
                 }else{
+                    let tt = new Date()
                     console.log(`[Server] Connecting Board: ip = ${ip} hostname = ${ws.hostname} id = ${self.BOARDS[boards_correspond_id].id}`);
                     response_msg.type = "ACKs"
-                    response_msg.data = { ack_type: "request_to_join", board_id: self.BOARDS[boards_correspond_id].id}
+                    response_msg.data = { 
+                        ack_type: "request_to_join", 
+                        board_id: self.BOARDS[boards_correspond_id].id,
+                        server_time : tt.toISOString()
+                    
+                    }
                     
                     ws.send(JSON.stringify(response_msg))
                     self.BOARDS[boards_correspond_id].status = "connected"
@@ -294,6 +369,18 @@ class CmdServer {
         }
         let boardMsg = {
             type: 'prepare',
+            data: {}//control
+        }
+        this.sendToBoards(boardMsg,params.ids)
+    }
+
+    time_sync(cmd_start_time,params) {
+        for (let i =0;i<params.ids.length;++i)
+        {
+            this.wss.BOARDS[params.ids[i]].msg = "Syncing"
+        }
+        let boardMsg = {
+            type: 'time_sync',
             data: {}//control
         }
         this.sendToBoards(boardMsg,params.ids)
