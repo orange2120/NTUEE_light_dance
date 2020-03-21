@@ -31,7 +31,7 @@ const TIME_SERVER_PORT = 2222
 
 const SERVER_IP = "192.168.1.6"//CONFIG.settings.server_ip_addr
 
-const PATH_clientApp = path.join(__dirname, "./clientApp_sim")
+const PATH_clientApp = path.join(__dirname, "./clientApp")
 let clientApp_cmd = ""
 
 const WebSocket = require('ws')
@@ -269,7 +269,7 @@ function mainSocket() {
       // spawnClientApp()
       console.log(`recieved Play from ${msg.data.p}`)
       if (isClientAppOn()) {
-        while (Math.floor(new Date() / 1) < msg.data.sc - 500) {
+        while (Date.now() < msg.data.sc - 300) {
           // console.log(new Date() / 1, msg.data.sc);
 
         }
