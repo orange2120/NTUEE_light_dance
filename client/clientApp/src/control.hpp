@@ -137,13 +137,13 @@ void run(const int id, long currentTime) {
         cerr << "[ERROR] Input time exceed total time!!" << endl;
         return;
     }
-    for(size_t i = 0; i < p.time_line.size(); ++i) {
-        if(currentTime < p.time_line[i].start_time) {
-            p.t_index = i;
-            continue;
-        }
-        else break;
-    }
+    // for(size_t i = 0; i < p.time_line.size(); ++i) {
+    //     if(currentTime < p.time_line[i].start_time) {
+    //         p.t_index = i;
+    //         continue;
+    //     }
+    //     else break;
+    // }
 
     cout << "Dancer ["<< id << "] Starting From " << currentTime << "..." << endl;
     sendSig(id);
