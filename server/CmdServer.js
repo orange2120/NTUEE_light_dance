@@ -354,7 +354,7 @@ class CmdServer {
             if (client.readyState === WebSocket.OPEN && params.ids.includes(client.board_ID)) {
                 if(client.board_type === "raspberrypi") {
                     // rpi clientApp constant delay
-                    msg.sc = msg.sc - 300
+                    msg.sc = msg.sc //- 300
                 }
                 // let boardMsg = {
                 //     type: 'upload',
