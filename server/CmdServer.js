@@ -350,7 +350,21 @@ class CmdServer {
             }
         }
         console.log(msg)
-        this.sendToBoards(msg, params.ids)
+        this.wss.clients.forEach((client) => {
+            if (client.readyState === WebSocket.OPEN && params.ids.includes(client.board_ID)) {
+                if(client.board_type === "raspberrypi") {
+                    // rpi clientApp constant delay
+                    msg.sc = msg.sc - 300
+                }
+                // let boardMsg = {
+                //     type: 'upload',
+                //     data: CONTROL[client.board_ID] //boardData[client.boardId]
+                //     // wsdata: wsData[client.boardId]
+                // };
+                client.send(JSON.stringify(msg));
+            }
+        });
+        // this.sendToBoards(msg, params.ids)
     }
     pause(cmd_start_time, params) {
         let msg = {
