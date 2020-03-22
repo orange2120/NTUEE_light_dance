@@ -492,7 +492,7 @@ class Commandcenter {
                     self.mgr.wavesurfer.playPause()
                 }else{
                     let id_arr = getSelected()
-                    let scheduled_time = Date.now() + 5000
+                    let scheduled_time = Date.now() + 3000
                     if (id_arr.length != 0) {
                         axios.post('/api/play', {
                             params: {
@@ -543,6 +543,7 @@ class Commandcenter {
                 console.log(id_arr)
             }
 
+            boards_control_zone.appendChild(btn_time_sync)
             boards_control_zone.appendChild(btn_compile)
             boards_control_zone.appendChild(btn_upload_leds)
             boards_control_zone.appendChild(btn_upload_timeline)
@@ -555,7 +556,7 @@ class Commandcenter {
             boards_control_zone.appendChild(btn_halt)
             boards_control_zone.appendChild(btn_git_pull)
             boards_control_zone.appendChild(btn_make)
-            boards_control_zone.appendChild(btn_time_sync)
+            
             
 
             boards_control_zone.appendChild(btn_upload_test)

@@ -181,12 +181,13 @@ class CmdServer {
         // if id=[] : only remove board that is not alive
         // console.log("[Server] kick boards")
         this.wss.clients.forEach((client) => {
-            // if(client.isAlive == false){
-            //     client.terminate()
-            //     this.wss.BOARDS[client.board_ID].status = "disconnect"
-            //     console.log(`[Server] Board remove upexpectedly (${client.board_ID}) at ${client.ipAddr}`)
+            if(client.isAlive == false && client.board_ID==-1){
+                client.terminate()
+                this.wss.BOARDS[client.board_ID].status = "disconnect"
+                console.log(`[Server] Unregistered Board remove upexpectedly (${client.board_ID}) at ${client.ipAddr}`)
 
-            // }else 
+            }
+            //else 
             if (client.readyState === WebSocket.OPEN && _id.includes(client.board_ID)) {
 
                 // this.sendToBoards("{}",[client.board_ID])
@@ -354,7 +355,7 @@ class CmdServer {
             if (client.readyState === WebSocket.OPEN && params.ids.includes(client.board_ID)) {
                 if(client.board_type === "raspberrypi") {
                     // rpi clientApp constant delay
-                    msg.sc = msg.sc //- 300
+                    msg.sc = msg.sc + 300 //- 300
                 }
                 // let boardMsg = {
                 //     type: 'upload',
@@ -463,7 +464,7 @@ class CmdServer {
         // console.log(control)
         
         let self = this
-        for (let i =0;i<3;++i){
+        for (let i =0;i<8;++i){
             self.tmp_control.push([])
         }
         
