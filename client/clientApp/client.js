@@ -29,7 +29,7 @@ const SERVER_MAC = ""//CONFIG.settings.server_mac_addr
 const PORT = 8081
 const TIME_SERVER_PORT = 2222
 
-const SERVER_IP = "192.168.1.6"//CONFIG.settings.server_ip_addr
+const SERVER_IP = "192.168.0.200"//CONFIG.settings.server_ip_addr
 
 const PATH_clientApp = path.join(__dirname, "./clientApp")
 let clientApp_cmd = ""
