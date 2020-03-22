@@ -269,7 +269,7 @@ function mainSocket() {
       // spawnClientApp()
       console.log(`recieved Play from ${msg.data.p}`)
       if (isClientAppOn()) {
-        while (Date.now() < msg.data.sc - 300) {
+        while (Date.now() < msg.data.sc) {
           // console.log(new Date() / 1, msg.data.sc);
 
         }
