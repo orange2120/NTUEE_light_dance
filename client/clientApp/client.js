@@ -409,6 +409,9 @@ function mainSocket() {
     } else if (msg.type === "make_clientApp") {
       console.log(`Shutting down clientApp.. for make`)
       closeClientApp()
+      if (!fs.existsSync(path.join(__dirname, "./bin"))) {
+        fs.mkdirSync(path.join(__dirname, "./bin"))
+      }
       const process_make_clientApp = spawn(path.join(__dirname, "./make_clientApp.sh"));
       process_make_clientApp.stdout.on('data', (data) => {
         console.log('[spawn stdout]', String(data))
