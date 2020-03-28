@@ -52,6 +52,7 @@ function spawnClientApp() {
 }
 
 function closeClientApp() {
+  clearTimeout(time_out_id)
   if (clientApp_cmd != '' && !clientApp_cmd.killed) {
     clientApp_cmd.kill('SIGUSR1')
     clientApp_cmd.kill(9)
@@ -167,6 +168,7 @@ function mainSocket() {
     // });
   }
   function play_timeline() {
+    clearTimeout(time_out_id)
     clientApp_cmd.stdin.write('run ' + String(0) + '\n')
         console.log('Start Playing')
         let response_msg = {
@@ -282,7 +284,7 @@ function mainSocket() {
       // spawnClientApp()
       console.log(`recieved Play from ${msg.data.p}`)
       if (isClientAppOn()) {
-        setTimeout(play_timeline,msg.data.sc - Date.now())
+        time_out_id = setTimeout(play_timeline,msg.data.sc - Date.now())
         console.log("Timeout set",msg.data.sc,Date.now())
         // while (Date.now() < msg.data.sc) {
         //   // console.log(new Date() / 1, msg.data.sc);
