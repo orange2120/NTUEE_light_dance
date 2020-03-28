@@ -7,6 +7,7 @@ const udp_client = udp.createSocket('udp4');
 const rimraf = require("rimraf");
 // const ntpClient = require('ntp-client');
 console.log("test")
+let time_out_id = -1
 // const ntpClient = require('ntp-client');
 //  //pool.ntp.org
 // ntpClient.getNetworkTime("192.168.0.200", 123, function(err, date) {
@@ -165,7 +166,19 @@ function mainSocket() {
     //   // DateTimeControl
     // });
   }
-
+  function play_timeline() {
+    clientApp_cmd.stdin.write('run ' + String(0) + '\n')
+        console.log('Start Playing')
+        let response_msg = {
+          type: "ACKc",
+          data: {
+            board_type: "dancer",
+            ack_type: "playing"
+          }
+        }
+        connection.send(JSON.stringify(response_msg))
+        console.log(`ACKc playing sent`)
+  }
   connection.onerror = (error) => {
     console.log(`WebSocket error: ${error.message}`)
   }
@@ -269,21 +282,13 @@ function mainSocket() {
       // spawnClientApp()
       console.log(`recieved Play from ${msg.data.p}`)
       if (isClientAppOn()) {
-        while (Date.now() < msg.data.sc) {
-          // console.log(new Date() / 1, msg.data.sc);
+        setTimeout(play_timeline,msg.data.sc - Date.now())
+        console.log("Timeout set",msg.data.sc,Date.now())
+        // while (Date.now() < msg.data.sc) {
+        //   // console.log(new Date() / 1, msg.data.sc);
 
-        }
-        clientApp_cmd.stdin.write('run ' + String(msg.data.p) + '\n')
-        console.log('Play')
-        let response_msg = {
-          type: "ACKc",
-          data: {
-            board_type: "dancer",
-            ack_type: "playing"
-          }
-        }
-        connection.send(JSON.stringify(response_msg))
-        console.log(`ACKc playing sent`)
+        // }
+        
 
       } else {
         let response_msg = {
