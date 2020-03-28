@@ -85,7 +85,7 @@ void sendSig(const int id) {
         // double br = e.EL_parts[i].get_brightness()*EL_BRIGHTNESS_SCALE;
         if(i < 16) el1.setEL(i, uint16_t(e.EL_parts[i].get_brightness()));
         else el2.setEL(i%16, uint16_t(e.EL_parts[i].get_brightness()));
-        cerr << e.EL_parts[i].get_brightness() << " ";
+        // cerr << e.EL_parts[i].get_brightness() << " ";
     }
     cout << endl;
     // send LED sig
