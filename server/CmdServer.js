@@ -4,6 +4,8 @@ const WebSocket = require('ws')
 const os = require('os');
 const path = require('path');
 
+const udp = require('dgram');
+
 
 const libarp = require('arp');
 
@@ -17,6 +19,7 @@ const getPixels = require("get-pixels")
 
 const DANCER_NUM  = 8
 const LED_PATH = "../asset/LED/"
+const TESTDATA_PATH = "../data/json/testing_timeline.json"
 
 function arr_transpose(a) {
     return Object.keys(a[0]).map(function (c) {
@@ -28,8 +31,13 @@ function arr_transpose(a) {
 
 class CmdServer {
     constructor(_port = 8081, _config) {
-
+        this.testing_timeline = []
         this.wss = new WebSocket.Server({ port: _port })
+        this.udp_server = udp.createSocket('udp4');
+        this.init_UDP_Server()
+        this.udp_server.bind(2222)
+
+
         this.pngs = {}
         // this.wss.waitingList = []
         this.config = -1
@@ -40,6 +48,68 @@ class CmdServer {
         this.wss.on('connection', this.processConnection);
 
         this.initInterval()
+    }
+    init_UDP_Server(){
+        let self = this
+        this.udp_server.on('error',function(error){
+            console.log('[Udp Server] Server Error: ' + error);
+            self.udp_server.close();
+        });
+        this.udp_server.on('listening',function(){
+            let address = self.udp_server.address();
+            let port = address.port;
+            let family = address.family;
+            let ipaddr = address.address;
+            console.log('[Udp Server] Server is listening at port' + port);
+            console.log('[Udp Server]Server ip :' + ipaddr);
+            console.log('[Udp Server] Server is IP4/IP6 : ' + family);
+        });
+        this.udp_server.on('close',function(){
+            console.log('[Udp Server] Socket is closed !');
+        });
+        this.udp_server.on('message',function(msg,info){
+            let recieve_timestamp = new Date()
+              console.log('[Udp Server] Data received from client : ' + msg.toString());
+              console.log('[Udp Server] Received %d bytes from %s:%d\n',msg.length, info.address, info.port);
+              if(msg.toString().startsWith("re"))
+              {
+                let msg_parse = msg.toString().split('_')[1]
+                msg_parse = Number(msg_parse)
+                let d = new Date()
+                // console.log('before',d)
+                d.setMilliseconds(d.getMilliseconds() + msg_parse)
+                // console.log('aafter',d)
+                // d = d + msg_parse
+                let msg_date  = Buffer.from(d.toISOString());
+                //sending msg
+                self.udp_server.send(msg_date,info.port,info.address,function(error){
+                    if(error){
+                        // client.close();
+                    }else{
+                    console.log('[Udp Server] time Data sent !!!');
+                    }
+              
+                });
+              } else {
+                let parse_msg = JSON.parse(msg.toString())
+            
+                parse_msg.t1 = Math.floor(recieve_timestamp/1)
+                parse_msg.t2 = Math.floor(new Date()/1)
+                const data_buffer = Buffer.from(JSON.stringify(parse_msg))
+                self.udp_server.send(data_buffer,info.port,info.address,function(error){
+                    if(error){
+                        // client.close();
+                    }else{
+                        console.log('[Udp Server] t1 Data sent !!!');
+                    }
+              
+                });
+                
+              }
+            
+            
+            
+        });
     }
     startServer() {
 
@@ -111,12 +181,13 @@ class CmdServer {
         // if id=[] : only remove board that is not alive
         // console.log("[Server] kick boards")
         this.wss.clients.forEach((client) => {
-            // if(client.isAlive == false){
-            //     client.terminate()
-            //     this.wss.BOARDS[client.board_ID].status = "disconnect"
-            //     console.log(`[Server] Board remove upexpectedly (${client.board_ID}) at ${client.ipAddr}`)
+            if(client.isAlive == false && client.board_ID==-1){
+                client.terminate()
+                this.wss.BOARDS[client.board_ID].status = "disconnect"
+                console.log(`[Server] Unregistered Board remove upexpectedly (${client.board_ID}) at ${client.ipAddr}`)
 
-            // }else 
+            }
+            //else 
             if (client.readyState === WebSocket.OPEN && _id.includes(client.board_ID)) {
 
                 // this.sendToBoards("{}",[client.board_ID])
@@ -180,9 +251,15 @@ class CmdServer {
                     console.log(`[Server] Board(${ws.hostname}) not registered`)
 
                 }else{
+                    let tt = new Date()
                     console.log(`[Server] Connecting Board: ip = ${ip} hostname = ${ws.hostname} id = ${self.BOARDS[boards_correspond_id].id}`);
                     response_msg.type = "ACKs"
-                    response_msg.data = { ack_type: "request_to_join", board_id: self.BOARDS[boards_correspond_id].id}
+                    response_msg.data = { 
+                        ack_type: "request_to_join", 
+                        board_id: self.BOARDS[boards_correspond_id].id,
+                        server_time : tt.toISOString()
+                    
+                    }
                     
                     ws.send(JSON.stringify(response_msg))
                     self.BOARDS[boards_correspond_id].status = "connected"
@@ -274,7 +351,21 @@ class CmdServer {
             }
         }
         console.log(msg)
-        this.sendToBoards(msg, params.ids)
+        this.wss.clients.forEach((client) => {
+            if (client.readyState === WebSocket.OPEN && params.ids.includes(client.board_ID)) {
+                if(client.board_type === "raspberrypi") {
+                    // rpi clientApp constant delay
+                    msg.sc = msg.sc + 300 //- 300
+                }
+                // let boardMsg = {
+                //     type: 'upload',
+                //     data: CONTROL[client.board_ID] //boardData[client.boardId]
+                //     // wsdata: wsData[client.boardId]
+                // };
+                client.send(JSON.stringify(msg));
+            }
+        });
+        // this.sendToBoards(msg, params.ids)
     }
     pause(cmd_start_time, params) {
         let msg = {
@@ -298,10 +389,20 @@ class CmdServer {
         this.sendToBoards(boardMsg,params.ids)
     }
 
+    time_sync(cmd_start_time,params) {
+        for (let i =0;i<params.ids.length;++i)
+        {
+            this.wss.BOARDS[params.ids[i]].msg = "Syncing"
+        }
+        let boardMsg = {
+            type: 'time_sync',
+            data: {}//control
+        }
+        this.sendToBoards(boardMsg,params.ids)
+    }
+
     upload_timeline(cmd_start_time, params, control) {
-        
         let self = this
-        
         this.wss.clients.forEach((client) => {
             if (client.readyState === WebSocket.OPEN && params.ids.includes(client.board_ID)) {
                 self.wss.BOARDS[client.board_ID].msg = "uploading_timeline"
@@ -361,13 +462,9 @@ class CmdServer {
     process_control() {
         
         // console.log(control)
-        let parsed_control=[]
-        /*
-        for (let i =0;i<control.length;++i){
-            control.push([0])
-        }*/
+        
         let self = this
-        for (let i =0;i<3;++i){
+        for (let i =0;i<8;++i){
             self.tmp_control.push([])
         }
         
@@ -393,6 +490,8 @@ class CmdServer {
                         }
                         return new_frame
                     })
+                    
+                    // console.log("processing", client.board_ID)
                 }
 
                 // }else 
@@ -427,6 +526,7 @@ class CmdServer {
         });
     }
     compile(control){
+        this.load_testing_timeline()
         this.tmp_control = JSON.parse(JSON.stringify(control))
         this.pngs = []
         this.convert_png('LED_FAN')
@@ -434,6 +534,10 @@ class CmdServer {
         this.convert_png('LED_L_SHOE')
         this.convert_png('LED_R_SHOE')
         this.process_control()
+    }
+    load_testing_timeline(){
+        this.testing_timeline = []
+        this.testing_timeline  = JSON.parse(fs.readFileSync(path.join(__dirname, TESTDATA_PATH)))
     }
     convert_png(f){
         // this.pngs[f] = {}
@@ -508,7 +612,7 @@ class CmdServer {
                     }
                     // self.pngs[f][file.substr(0,file.length-4)]=img_arr
                     self.pngs.push(new_led)
-                    console.log("Convert",file); 
+                    // console.log("Convert",file); 
                     // console.log(rgb_arr)
                     
                     // let filee = fs.createWriteStream('array.txt');
@@ -520,7 +624,34 @@ class CmdServer {
             });
         });
     }
-
+    upload_test(cmd_start_time,params) {
+        let self = this
+                this.wss.clients.forEach((client) => {
+                    if (client.readyState === WebSocket.OPEN && params.ids.includes(client.board_ID)) {
+                        self.wss.BOARDS[client.board_ID].msg = "uploading_testing_data"
+                        console.log("uploading_testing_data", client.board_ID)
+                let boardMsg = {}
+                if (client.board_type === "dancer") {
+                    boardMsg = {
+                        type: 'upload',
+                        data: {
+                            upload_type : "testing_timeline",
+                            data : self.testing_timeline[client.board_ID]
+                                }//control
+                            }
+                        }else{
+                    
+                    boardMsg = {
+                        type: 'fuck',
+                        data: []
+                        //control
+                    };
+                    console.log(boardMsg)
+                }
+                client.send(JSON.stringify(boardMsg));
+            }
+        });
+    }
     update_Board_Msg(id,s) {
         this.wss.BOARDS[id].msg = s
     }
@@ -590,6 +721,38 @@ class CmdServer {
         }
         console.log(params)
         this.sendToBoards(msg, params.ids)
+    }
+    git_pull(cmd_start_time, params, forced = true) {
+        let self = this
+        this.wss.clients.forEach((client) => {
+            if (client.readyState === WebSocket.OPEN && params.ids.includes(client.board_ID)) {
+                self.wss.BOARDS[client.board_ID].msg = "git pulling"
+                console.log("git pull ", client.board_ID)
+                let boardMsg = {}
+                boardMsg = {
+                    type: 'git_pull_force',
+                    data: {}//control
+                }
+                
+                client.send(JSON.stringify(boardMsg));
+            }
+        });
+    }
+    make_clientApp(cmd_start_time, params) {
+        let self = this
+        this.wss.clients.forEach((client) => {
+            if (client.readyState === WebSocket.OPEN && params.ids.includes(client.board_ID)) {
+                self.wss.BOARDS[client.board_ID].msg = "making clientApp"
+                console.log("make", client.board_ID)
+                let boardMsg = {}
+                boardMsg = {
+                    type: 'make_clientApp',
+                    data: {}//control
+                }
+                
+                client.send(JSON.stringify(boardMsg));
+            }
+        });
     }
     runTest(cmd_start_time, params) {
         let msg = {

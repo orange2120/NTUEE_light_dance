@@ -33,26 +33,20 @@
 #define NUM_EL_2       8
 #define PCA9685_ADDR_1 0x40
 #define PCA9685_ADDR_2 0x60
-#define EL_BRIGHTNESS_SCALE 0.25*4095
+#define EL_BRIGHTNESS_SCALE 4095*0.25
 // Json file's path
 const std::string DIR = "/home/pi/NTUEE_light_dance/client/clientApp/json/current/"; //"./json/";
 const std::string FILENAME = "timeline.json";
 
 // EL parts' name
 const std::string ELs[NUM_OF_EL] = {
-  "L_COAT2", "L_COAT1",
-  "R_ARM2", "R_ARM1",
-  "L_ARM2", "L_ARM1",
-  "L_HAND", "R_HAND",
-  "INNER1", "INNER2",
-  "R_COAT2", "R_COAT1",
-  "FACE2", "FACE1", "HAT1", "HAT2",
+  "INNER1", "INNER2", "R_COAT2", "R_COAT1", "L_COAT2", "L_COAT1", "R_ARM2", "R_ARM1",
+  "L_ARM2", "L_ARM1", "R_HAND", "L_HAND", "FACE2", "FACE1", "HAT2", "HAT1",
+  "R_SHOES1", "L_SHOES1", "R_PANTS2", "R_PANTS1", "L_PANTS2", "L_PANTS1"
 
-  "L_PANTS2", "L_PANTS1",
-  "R_SHOES1", "L_SHOES1",
-  "R_PANTS2", "R_PANTS1"
 };
 
+const double convertEL[11] = {0, 26, 32, 40, 64, 128, 256, 512, 1024, 2048, 4095};
 
 // LED parts' name
 const std::string LEDs[NUM_OF_LED] = {

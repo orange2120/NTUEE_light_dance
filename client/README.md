@@ -33,6 +33,19 @@ $ sudo ./test <strip ID> <LED number>
 ## PCA9685_test
 Test program for PCA9685 PWM module.
 
+Compile:
+```
+$ make ADDR=[I2C address]
+```
+
+Usage:
+```
+$ sudo ./PCAtest
+>> <ID> <duty cycle>
+```
+**Note:**assign ID=-1 to set add channels at the same time.
+
+
 ## Hardware architecture
 
 ```
