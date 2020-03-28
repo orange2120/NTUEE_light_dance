@@ -21,10 +21,10 @@ all: $(BIN)
 
 $(BIN): $(OBJ)
 	$(CXX) $(CFLAGS) $(OPTFLAGS) $(LDFLAGS) $^ $(LIB) -o $(BIN)
+	@echo "FINISH"
 
 %.o : %.cpp
 	@echo ">> compiling: $<"
 	$(CXX) $(CFLAGS) $(INC) $(LIB) $(LIBDEP) -c $< -o $@
-
 clean:
 	rm -f $(BIN) $(OBJ)

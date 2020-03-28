@@ -82,10 +82,12 @@ void sendSig(const int id) {
     Execute &e = people[id].time_line[people[id].t_index];
     // send EL sig 
     for(int i = 0; i < NUM_OF_EL; ++i) {
-        double br = e.EL_parts[i].get_brightness()*EL_BRIGHTNESS_SCALE;
-        if(i < 16) el1.setEL(i, uint16_t(br));
-        else el2.setEL(i%16, uint16_t(br));
+        // double br = e.EL_parts[i].get_brightness()*EL_BRIGHTNESS_SCALE;
+        if(i < 16) el1.setEL(i, uint16_t(e.EL_parts[i].get_brightness()));
+        else el2.setEL(i%16, uint16_t(e.EL_parts[i].get_brightness()));
+        cerr << e.EL_parts[i].get_brightness() << " ";
     }
+    cout << endl;
     // send LED sig
     for(int i = 0; i < NUM_OF_LED; ++i) {
         if(e.LED_parts[i]->get_data() == 0) { // no file => turnoff
@@ -135,13 +137,13 @@ void run(const int id, long currentTime) {
         cerr << "[ERROR] Input time exceed total time!!" << endl;
         return;
     }
-    for(size_t i = 0; i < p.time_line.size(); ++i) {
-        if(currentTime < p.time_line[i].start_time) {
-            p.t_index = i;
-            continue;
-        }
-        else break;
-    }
+    // for(size_t i = 0; i < p.time_line.size(); ++i) {
+    //     if(currentTime < p.time_line[i].start_time) {
+    //         p.t_index = i;
+    //         continue;
+    //     }
+    //     else break;
+    // }
 
     cout << "Dancer ["<< id << "] Starting From " << currentTime << "..." << endl;
     sendSig(id);
@@ -150,7 +152,7 @@ void run(const int id, long currentTime) {
     while(!off) 
     {
         // printf("%d\n",currentTime);
-        // cout << currentTime<<'\n';
+        // cout << currentTime << endl;
         // auto start = high_resolution_clock::now();
         if(currentTime >= p.time_line[p.t_index+1].start_time) { 
             if(p.t_index == p.time_line.size()-2) { // last one is a dummy execution
@@ -173,7 +175,7 @@ void run(const int id, long currentTime) {
         // cerr << double(duration.count()) << endl;
         // if(double(duration.count()) < PERIOD*1000) usleep(PERIOD*1000-double(duration.count())); // delay until PERIOD
         // else {
-        //     for(unsigned i = 0; i < to_string(time).length()+10; ++i) cerr << '\b';
+        //     for(unsigned i = 0; i < to_string(time).length()+10; ++i) cout << '\b';
         //     cerr << "[ERROR] Sending Time Exceeds " << PERIOD << "ms!!" << endl;
         //     return;
         // }

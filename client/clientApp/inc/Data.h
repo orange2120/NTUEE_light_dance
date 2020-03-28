@@ -60,8 +60,8 @@ class EL_part { // for each part of EL
     friend class Person;
   public:
     // Member function
-    EL_part(const double& s){ 
-      brightness = double(s); 
+    EL_part(const uint16_t& s){ 
+      brightness = s;
       idx = el_count; 
       ++el_count; 
     }
@@ -72,7 +72,7 @@ class EL_part { // for each part of EL
     int idx;
 
   private:
-    double brightness; // 0~1
+    uint16_t brightness; // 0~4095
 };
 
 class LED_part { // for each part of LED
