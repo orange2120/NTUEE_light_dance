@@ -167,19 +167,19 @@ function mainSocket() {
     //   // DateTimeControl
     // });
   }
-  function play_timeline() {
+  function play_timeline(t) {
     clearTimeout(time_out_id)
-    clientApp_cmd.stdin.write('run ' + String(0) + '\n')
-        console.log('Start Playing')
-        let response_msg = {
-          type: "ACKc",
-          data: {
-            board_type: "dancer",
-            ack_type: "playing"
-          }
-        }
-        connection.send(JSON.stringify(response_msg))
-        console.log(`ACKc playing sent`)
+    clientApp_cmd.stdin.write('run ' + String(t) + '\n')
+    console.log('Start Playing')
+    let response_msg = {
+      type: "ACKc",
+      data: {
+        board_type: "dancer",
+        ack_type: "playing"
+      }
+    }
+    connection.send(JSON.stringify(response_msg))
+    console.log(`ACKc playing sent`)
   }
   connection.onerror = (error) => {
     console.log(`WebSocket error: ${error.message}`)
@@ -284,8 +284,20 @@ function mainSocket() {
       // spawnClientApp()
       console.log(`recieved Play from ${msg.data.p}`)
       if (isClientAppOn()) {
-        time_out_id = setTimeout(play_timeline,msg.data.sc - Date.now())
+
+        time_out_id = setTimeout(function(){play_timeline(msg.data.p)},msg.data.sc - Date.now())
         console.log("Timeout set",msg.data.sc,Date.now())
+        clientApp_cmd.stdin.write('jump ' + String(msg.data.p) + '\n')
+        console.log('skip to frame')
+        let response_msg = {
+          type: "ACKc",
+          data: {
+            board_type: "dancer",
+            ack_type: "frame jumped"
+          }
+        }
+        connection.send(JSON.stringify(response_msg))
+        console.log(`ACKc frame jumped sent`)
         // while (Date.now() < msg.data.sc) {
         //   // console.log(new Date() / 1, msg.data.sc);
 
