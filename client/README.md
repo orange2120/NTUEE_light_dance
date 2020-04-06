@@ -14,6 +14,9 @@ Receive RGB data via SPI protocol from RPi, convert to WS2812 signal.
 ## Arduino/testColor
 Test the color with LED strip by adjusting 3 potentiometer.
 
+## turnOffLED
+Turn off all the LED strips.
+
 ## image_test
 Testing program for test LED strips from converted RGB JSON file.  
 
