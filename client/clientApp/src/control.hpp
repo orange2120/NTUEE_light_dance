@@ -129,14 +129,14 @@ unsigned jumpIndex(const int id, long currentTime) {
     Person &p = people[id];
     p.t_index = 0;
     int startTime = currentTime;
-    if(currentTime < 0) {
-        cerr << "[ERROR] Input time should >= 0 !!" << endl;
-        return;
-    }
-    if(currentTime > p.time_line[p.time_line.size()-1].start_time) {
-        cerr << "[ERROR] Input time exceed total time!!" << endl;
-        return;
-    }
+    // if(currentTime < 0) {
+    //     cerr << "[ERROR] Input time should >= 0 !!" << endl;
+    //     return;
+    // }
+    // if(currentTime > p.time_line[p.time_line.size()-1].start_time) {
+    //     cerr << "[ERROR] Input time exceed total time!!" << endl;
+    //     return;
+    // }
 
     int  first, last, middle;
     first = 0;
