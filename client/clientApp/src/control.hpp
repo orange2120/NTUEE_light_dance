@@ -124,8 +124,8 @@ void turnOff()
     }
 }
 
-void run(const int id, long currentTime) {
-    // time (ms)
+unsigned jumpIndex(const int id, long currentTime) {
+
     Person &p = people[id];
     p.t_index = 0;
     int startTime = currentTime;
@@ -137,6 +137,58 @@ void run(const int id, long currentTime) {
         cerr << "[ERROR] Input time exceed total time!!" << endl;
         return;
     }
+
+    int  first, last, middle;
+    first = 0;
+	last = p.time_line.size()-1;
+	middle = (first+last)/2;
+	while (first <= last)
+	{
+        if(p.time_line[middle].start_time < currentTime)
+        {
+            first = middle + 1;
+
+        }
+	    else if(p.time_line[middle].start_time == currentTime)
+	    {
+            
+            p.t_index = middle;
+            // sendSig(id);
+            // return middle;
+		    // cout<<num<<" found in the array at the location "<<middle+1<<"\n"; 
+            break; 
+        }
+        else { 
+            last = middle - 1; 
+        } 
+        middle = (first + last)/2; 
+    } 
+    if(first > last)
+    {
+        // cout << "Found corressponding location at frame="<<middle<<endl;
+        p.t_index = middle;
+            // sendSig(id);
+            // return middle;    
+    }
+    cout << "Found corressponding location at frame="<<middle<<endl;
+    sendSig(id);
+    cout << "Signal sent"<<endl;
+    return middle;
+}
+
+void run(const int id, long currentTime,unsigned startframe) {
+    // time (ms)
+    Person &p = people[id];
+    p.t_index = startframe;
+    int startTime = currentTime;
+    // if(currentTime < 0) {
+    //     cerr << "[ERROR] Input time should >= 0 !!" << endl;
+    //     return;
+    // }
+    // if(currentTime > p.time_line[p.time_line.size()-1].start_time) {
+    //     cerr << "[ERROR] Input time exceed total time!!" << endl;
+    //     return;
+    // }
     // for(size_t i = 0; i < p.time_line.size(); ++i) {
     //     if(currentTime < p.time_line[i].start_time) {
     //         p.t_index = i;
@@ -146,7 +198,7 @@ void run(const int id, long currentTime) {
     // }
 
     cout << "Dancer ["<< id << "] Starting From " << currentTime << "..." << endl;
-    sendSig(id);
+    // sendSig(id);
     bool off = false;
     cout << "Time now: ";
     while(!off) 

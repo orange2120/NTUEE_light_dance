@@ -84,6 +84,7 @@ int main(int argc, char *argv[]) // arg[1] = person id
     size_t pos;
     int time = 0; // begin time
     bool end = false;
+    unsigned start_frame = 0;
     setjmp(jmpbuffer);
     // if(setjmp(jmpbuffer) == 1)  signal(SIGUSR1, sig_pause);
     cout << "Usage:\"run [start time]\"" << endl;
@@ -98,11 +99,7 @@ int main(int argc, char *argv[]) // arg[1] = person id
             people[dancer_id].print();
             continue;
         }
-        else if(tok != "run") {
-            cerr << "[ERROR] Invalid command! \"" << tok << "\"" << endl;
-            continue;
-        }
-        else {
+        else if(tok == "jump") {
             if(myStrGetTok(cmd, tok, pos) == string::npos) { // default begin time = 0
                 time = 0;
             }
@@ -110,9 +107,25 @@ int main(int argc, char *argv[]) // arg[1] = person id
                 cerr << "[ERROR] Format Error, "  << tok << " Is Not a Number!!"<< endl;
                 continue;
             }
+            start_frame = jumpIndex(dancer_id,time);
+            
         }
-        sysStartTime = getsystime();
-        run(dancer_id, time);
+        else if(tok == "run") {
+            if(myStrGetTok(cmd, tok, pos) == string::npos) { // default begin time = 0
+                time = 0;
+            }
+            else if (!myStr2Int(tok, time)) {
+                cerr << "[ERROR] Format Error, "  << tok << " Is Not a Number!!"<< endl;
+                continue;
+            }
+            sysStartTime = getsystime();
+            run(dancer_id, time,start_frame);
+        }
+        else {
+            cerr << "[ERROR] Invalid command! \"" << tok << "\"" << endl;
+            continue;
+        }
+        
     }
 
     printf("Exiting...\n");
