@@ -24,7 +24,7 @@ using namespace std;
 
 int NUM_LEDS[] = LEDS;
 
-void genColorSeq(char *, const uint16_t &, const uint8_t, const uint8_t, const uint8_t);
+void genColorSeq(uint8_t, uint16_t, char *, const uint16_t &, const uint8_t, const uint8_t, const uint8_t);
 
 int main(int argc, char *argv[])
 {
@@ -55,14 +55,13 @@ int main(int argc, char *argv[])
 	bcm2835_spi_chipSelect(BCM2835_SPI_CS0);                      // The default
 	bcm2835_spi_setChipSelectPolarity(BCM2835_SPI_CS0, LOW);      // the default
 
-	for (int i = 0; i < NUM_OF_LED; ++i)
+	for (uint8_t i = 0; i < NUM_OF_LED; ++i)
 	{
 		uint16_t dataLen = 6 + 3 * NUM_LEDS[i];
 		char test_seq[dataLen + 1];
 		genColorSeq(i, NUM_LEDS[i], test_seq, dataLen, 0x00, 0x00, 0x00);
 		bcm2835_spi_transfern(test_seq, dataLen);
 		usleep(SEND_DELAY);
-
 	}
 
 	printf("done.\n");
