@@ -87,7 +87,7 @@ void sendSig(const int id) {
         else el2.setEL(i%16, uint16_t(e.EL_parts[i].get_brightness()));
         // cerr << e.EL_parts[i].get_brightness() << " ";
     }
-    cout << endl;
+    // cout << endl;
     // send LED sig
     for(int i = 0; i < NUM_OF_LED; ++i) {
         if(e.LED_parts[i]->get_data() == 0) { // no file => turnoff
@@ -200,7 +200,7 @@ void run(const int id, long currentTime,unsigned startframe) {
     cout << "Dancer ["<< id << "] Starting From " << currentTime << "..." << endl;
     // sendSig(id);
     bool off = false;
-    cout << "Time now: ";
+    // cout << "Time now: ";
     while(!off) 
     {
         // printf("%d\n",currentTime);
