@@ -28,7 +28,7 @@ void genColorSeq(uint8_t, uint16_t, char *, const uint16_t &, const uint8_t, con
 
 int main(int argc, char *argv[])
 {
-	if (argc != 3)
+	if (argc != 1)
 	{
 		cerr << "Invalid parameter\n";
 		cerr << "Usage: sudo ./turnOffLED\n";
