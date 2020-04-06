@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
 	{
 		uint16_t dataLen = 6 + 3 * NUM_LEDS[i];
 		char test_seq[dataLen + 1];
-		genColorSeq(test_seq, dataLen, 0x00, 0x00, 0x00);
+		genColorSeq(i, NUM_LEDS[i], test_seq, dataLen, 0x00, 0x00, 0x00);
 		bcm2835_spi_transfern(test_seq, dataLen);
 		usleep(SEND_DELAY);
 
@@ -72,23 +72,18 @@ int main(int argc, char *argv[])
 	bcm2835_close();
 }
 
-void genColorSeq(char *seq, const uint16_t &len, const uint8_t r, const uint8_t g, const uint8_t b)
+void genColorSeq(uint8_t id, uint16_t numLED, char *seq, const uint16_t &len, const uint8_t r, const uint8_t g, const uint8_t b)
 {
 	seq[0] = START_BYTE;
-	seq[1] = LED_ID;
-	seq[2] = NUM_LED >> 8;
-	seq[3] = NUM_LED;
-	for (uint16_t i = 0 ; i < NUM_LED; ++i)
+	seq[1] = id;
+	seq[2] = numLED >> 8;
+	seq[3] = numLED;
+	for (uint16_t i = 0 ; i < numLED; ++i)
 	{
-		// printf("[%3d] ", 3 * i + DATA_OFFSET);
-		
 		seq[3 * i + DATA_OFFSET] = r;
 		seq[3 * i + DATA_OFFSET + 1] = g;
 		seq[3 * i + DATA_OFFSET + 2] = b;
-
-	// printf("%.2X-%.2X-%.2X\n", seq[3 * i + DATA_OFFSET], seq[3 * i + DATA_OFFSET + 1] , seq[3 * i + DATA_OFFSET + 2]);
 	}
 	seq[len - 2] = STOP_BYTE_0;
 	seq[len - 1] = STOP_BYTE_1;
-	// printf("%d\n", strlen(seq));
 }
