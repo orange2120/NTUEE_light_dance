@@ -22,6 +22,7 @@
 #define LEDS_0 300
 #define LEDS_1 35
 #define LEDS_2 35
+#define LEDS {LEDS_0, LEDS_1, LEDS_2}
 
 // refresh interval
 #define PERIOD 50 // ms
