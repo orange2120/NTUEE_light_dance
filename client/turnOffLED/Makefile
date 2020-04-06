@@ -3,7 +3,7 @@ CFLAGS = -g -Wall -std=c++11
 LIB = -lbcm2835
 .PHONY: all clean
 
-TARGET = test
+TARGET = turnOffLED
 
 all: $(TARGET)
 
