@@ -181,14 +181,14 @@ void run(const int id, long currentTime,unsigned startframe) {
     Person &p = people[id];
     p.t_index = startframe;
     int startTime = currentTime;
-    // if(currentTime < 0) {
-    //     cerr << "[ERROR] Input time should >= 0 !!" << endl;
-    //     return;
-    // }
-    // if(currentTime > p.time_line[p.time_line.size()-1].start_time) {
-    //     cerr << "[ERROR] Input time exceed total time!!" << endl;
-    //     return;
-    // }
+    if(currentTime < 0) {
+        cerr << "[ERROR] Input time should >= 0 !!" << endl;
+        return;
+    }
+    if(currentTime > p.time_line[p.time_line.size()-1].start_time) {
+        cerr << "[ERROR] Input time exceed total time!!" << endl;
+        return;
+    }
     // for(size_t i = 0; i < p.time_line.size(); ++i) {
     //     if(currentTime < p.time_line[i].start_time) {
     //         p.t_index = i;
