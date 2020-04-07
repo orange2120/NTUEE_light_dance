@@ -1,5 +1,5 @@
 // import tableDragger from 'table-dragger'
-
+const TIME_WAIT_TO_PLAY = 3000
 const axios = require('axios').default;
 class Commandcenter {
     constructor(mgr) {
@@ -492,7 +492,7 @@ class Commandcenter {
                     self.mgr.wavesurfer.playPause()
                 }else{
                     let id_arr = getSelected()
-                    let scheduled_time = Date.now() + 3000
+                    let scheduled_time = Date.now() + TIME_WAIT_TO_PLAY
                     if (id_arr.length != 0) {
                         axios.post('/api/play', {
                             params: {
