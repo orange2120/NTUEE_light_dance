@@ -21,6 +21,9 @@ const DANCER_NUM  = 8
 const LED_PATH = "../asset/LED/"
 const TESTDATA_PATH = "../data/json/testing_timeline.json"
 
+const RPI_DELAY_ADJUST = 300
+const FAN_DELAY_ADJUST = 300
+
 function arr_transpose(a) {
     return Object.keys(a[0]).map(function (c) {
         return a.map(function (r) {
@@ -355,7 +358,9 @@ class CmdServer {
             if (client.readyState === WebSocket.OPEN && params.ids.includes(client.board_ID)) {
                 if(client.board_type === "raspberrypi") {
                     // rpi clientApp constant delay
-                    msg.sc = msg.sc + 300 //- 300
+                    msg.sc = msg.sc + RPI_DELAY_ADJUST//+ 300 //- 300
+                }else if (client.board_type === "fan") {
+                    msg.sc = msg.sc + FAN_DELAY_ADJUST//+ 300 //- 300
                 }
                 // let boardMsg = {
                 //     type: 'upload',
