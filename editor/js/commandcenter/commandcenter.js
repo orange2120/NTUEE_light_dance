@@ -503,11 +503,11 @@ class Commandcenter {
                             }
                         }).then((response)=>{
                             console.log("RESPONSE",response)
-                            
-                            while(Date.now() < scheduled_time){
-                                // countdown_div.innerText = (scheduled_time -Date.now())/1000
-                            }
-                            exe_play()
+                            setTimeout(function(){exe_play()},scheduled_time - Date.now())
+                            // while(Date.now() < scheduled_time){
+                            //     // countdown_div.innerText = (scheduled_time -Date.now())/1000
+                            // }
+                            // exe_play()
                         });
                     }
                     // schedule.scheduleJob('42 * * * *', function(){
