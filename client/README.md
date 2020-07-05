@@ -40,6 +40,7 @@ Compile:
 ```
 $ make ADDR=[I2C address]
 ```
+**Note:**the address of upper backpack is `0x40`, lower is  `0x60`
 
 Usage:
 ```
