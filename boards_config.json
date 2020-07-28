@@ -1,1 +1,81 @@
-{"boards":[{"ip":"192.168.0.24","hostname":"lightdancer-0","status":"connected","msg":"idle","id":0,"board_type":"dancer"},{"ip":"192.168.0.159","hostname":"lightdancer-1","status":"disconnect","msg":"","id":1,"board_type":"dancer"},{"ip":"192.168.0.129","hostname":"lightdancer-2","status":"connected","msg":"idle","id":2,"board_type":"dancer"},{"ip":"192.168.0.81","hostname":"lightdancer-3","status":"connected","msg":"idle","id":3,"board_type":"dancer"},{"ip":"192.168.0.152","hostname":"lightdancer-4","status":"disconnect","msg":"","id":4,"board_type":"dancer"},{"ip":"192.168.0.73","hostname":"lightdancer-5","status":"connected","msg":"idle","id":5,"board_type":"dancer"},{"ip":"192.168.0.147","hostname":"lightdancer-6","status":"connected","msg":"idle","id":6,"board_type":"dancer"},{"ip":"192.168.0.242","hostname":"lightdancer-7","status":"connected","msg":"idle","id":7,"board_type":"dancer"},{"ip":"192.168.0.113","hostname":"fan1","status":"connected","msg":"cmd_not_exist","id":8,"board_type":"fan"}],"settings":{"ping_interval":3000,"server_mac_addr":"8c:85:90:d1:41:dc","server_ip_addr":"192.168.0.200"}}
+{
+  "boards": [
+    {
+      "ip": "192.168.0.24",
+      "hostname": "lightdancer-0",
+      "status": "connected",
+      "msg": "idle",
+      "id": 0,
+      "board_type": "dancer"
+    },
+    {
+      "ip": "192.168.0.159",
+      "hostname": "lightdancer-1",
+      "status": "disconnect",
+      "msg": "",
+      "id": 1,
+      "board_type": "dancer"
+    },
+    {
+      "ip": "192.168.0.129",
+      "hostname": "lightdancer-2",
+      "status": "connected",
+      "msg": "idle",
+      "id": 2,
+      "board_type": "dancer"
+    },
+    {
+      "ip": "192.168.0.81",
+      "hostname": "lightdancer-3",
+      "status": "connected",
+      "msg": "idle",
+      "id": 3,
+      "board_type": "dancer"
+    },
+    {
+      "ip": "192.168.0.152",
+      "hostname": "lightdancer-4",
+      "status": "disconnect",
+      "msg": "",
+      "id": 4,
+      "board_type": "dancer"
+    },
+    {
+      "ip": "192.168.0.73",
+      "hostname": "lightdancer-5",
+      "status": "connected",
+      "msg": "idle",
+      "id": 5,
+      "board_type": "dancer"
+    },
+    {
+      "ip": "192.168.0.147",
+      "hostname": "lightdancer-6",
+      "status": "connected",
+      "msg": "idle",
+      "id": 6,
+      "board_type": "dancer"
+    },
+    {
+      "ip": "192.168.0.242",
+      "hostname": "lightdancer-7",
+      "status": "connected",
+      "msg": "idle",
+      "id": 7,
+      "board_type": "dancer"
+    },
+    {
+      "ip": "192.168.0.113",
+      "hostname": "fan1",
+      "status": "connected",
+      "msg": "cmd_not_exist",
+      "id": 8,
+      "board_type": "fan"
+    }
+  ],
+  "settings": {
+    "ping_interval": 3000,
+    "server_mac_addr": "8c:85:90:d1:41:dc",
+    "server_ip_addr": "192.168.0.200"
+  }
+}

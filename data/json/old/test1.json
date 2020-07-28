@@ -1,212 +1,212 @@
 [
-    [
-        {
-            "Start": 0,
-            "End": 1000,
-            "Status": {
-                "LEDH": {
-                    "path": "./json/test1.png.json",
-                    "alpha": 1
-                },
-                "A": 0.8,
-                "B": 0,
-                "C": 0.8,
-                "D": 0.8,
-                "E": 0.8,
-                "F": 0.8,
-                "G": 0.8
-            }
+  [
+    {
+      "Start": 0,
+      "End": 1000,
+      "Status": {
+        "LEDH": {
+          "path": "./json/test1.png.json",
+          "alpha": 1
         },
-        {
-            "Start": 1000,
-            "End": 2000,
-            "Status": {
-                "LEDH": {
-                    "path": "./json/test2.png.json",
-                    "alpha": 1
-                },
-                "A": 0, 
-                "B": 0.8,
-                "C": 0,
-                "D": 0.8,
-                "E": 0.8,
-                "F": 0.8,
-                "G": 0.8
-            }
+        "A": 0.8,
+        "B": 0,
+        "C": 0.8,
+        "D": 0.8,
+        "E": 0.8,
+        "F": 0.8,
+        "G": 0.8
+      }
+    },
+    {
+      "Start": 1000,
+      "End": 2000,
+      "Status": {
+        "LEDH": {
+          "path": "./json/test2.png.json",
+          "alpha": 1
         },
-        {
-            "Start": 2000,
-            "End": 4000,
-            "Status": {
-                "LEDH": {
-                    "path": "./json/test3.png.json",
-                    "alpha": 0.5
-                },
-                "A": 0.8, 
-                "B": 0,
-                "C": 0.8,
-                "D": 0.8,
-                "E": 0.8,
-                "F": 0.8,
-                "G": 0.8
-            }
+        "A": 0,
+        "B": 0.8,
+        "C": 0,
+        "D": 0.8,
+        "E": 0.8,
+        "F": 0.8,
+        "G": 0.8
+      }
+    },
+    {
+      "Start": 2000,
+      "End": 4000,
+      "Status": {
+        "LEDH": {
+          "path": "./json/test3.png.json",
+          "alpha": 0.5
         },
-        {
-            "Start": 4000,
-            "End": 5000,
-            "Status": {
-                "LEDH": {
-                    "path": "./json/test1.png.json",
-                    "alpha": 0.8
-                },
-                "A": 0.8, 
-                "B": 0.8,
-                "C": 0.8,
-                "D": 0.8,
-                "E": 0.8,
-                "F": 0.8,
-                "G": 0.8
-            }
-        }
-    ],
-    [
-        {
-            "Start": 0,
-            "End": 1000,
-            "Status": {
-                "LEDH": {
-                    "path": "./json/test1.png.json",
-                    "alpha": 1
-                },
-                "A": 0.8, 
-                "B": 0.8,
-                "C": 0.8,
-                "D": 0.8,
-                "E": 0.8,
-                "F": 0.8,
-                "G": 0.8
-            }
+        "A": 0.8,
+        "B": 0,
+        "C": 0.8,
+        "D": 0.8,
+        "E": 0.8,
+        "F": 0.8,
+        "G": 0.8
+      }
+    },
+    {
+      "Start": 4000,
+      "End": 5000,
+      "Status": {
+        "LEDH": {
+          "path": "./json/test1.png.json",
+          "alpha": 0.8
         },
-        {
-            "Start": 1000,
-            "End": 2000,
-            "Status": {
-                "LEDH": {
-                    "path": "./json/test1.png.json",
-                    "alpha": 1
-                },
-                "A": 0.8, 
-                "B": 0.8,
-                "C": 0.8,
-                "D": 0.8,
-                "E": 0.8,
-                "F": 0.8,
-                "G": 0.8
-            }
+        "A": 0.8,
+        "B": 0.8,
+        "C": 0.8,
+        "D": 0.8,
+        "E": 0.8,
+        "F": 0.8,
+        "G": 0.8
+      }
+    }
+  ],
+  [
+    {
+      "Start": 0,
+      "End": 1000,
+      "Status": {
+        "LEDH": {
+          "path": "./json/test1.png.json",
+          "alpha": 1
         },
-        {
-            "Start": 2000,
-            "End": 4000,
-            "Status": {
-                "LEDH": {
-                    "path": "./json/test1.png.json",
-                    "alpha": 0.5
-                },
-                "A": 0.8, 
-                "B": 0.8,
-                "C": 0.8,
-                "D": 0.8,
-                "E": 0.8,
-                "F": 0.8,
-                "G": 0.8
-            }
+        "A": 0.8,
+        "B": 0.8,
+        "C": 0.8,
+        "D": 0.8,
+        "E": 0.8,
+        "F": 0.8,
+        "G": 0.8
+      }
+    },
+    {
+      "Start": 1000,
+      "End": 2000,
+      "Status": {
+        "LEDH": {
+          "path": "./json/test1.png.json",
+          "alpha": 1
         },
-        {
-            "Start": 4000,
-            "End": 5000,
-            "Status": {
-                "LEDH": {
-                    "path": "./json/test1.png.json",
-                    "alpha": 0.8
-                },
-                "A": 0.8, 
-                "B": 0.8,
-                "C": 0.8,
-                "D": 0.8,
-                "E": 0.8,
-                "F": 0.8,
-                "G": 0.8
-            }
-        }
-    ],
-    [
-        {
-            "Start": 0,
-            "End": 1000,
-            "Status": {
-                "LEDH": {
-                    "path": "./json/test1.png.json",
-                    "alpha": 1
-                },
-                "A": 0, 
-                "B": 0.8,
-                "C": 0.8,
-                "D": 0.8,
-                "E": 0.8,
-                "F": 0.8,
-                "G": 0.8
-            }
+        "A": 0.8,
+        "B": 0.8,
+        "C": 0.8,
+        "D": 0.8,
+        "E": 0.8,
+        "F": 0.8,
+        "G": 0.8
+      }
+    },
+    {
+      "Start": 2000,
+      "End": 4000,
+      "Status": {
+        "LEDH": {
+          "path": "./json/test1.png.json",
+          "alpha": 0.5
         },
-        {
-            "Start": 1000,
-            "End": 2000,
-            "Status": {
-                "LEDH": {
-                    "path": "./json/test1.png.json",
-                    "alpha": 1
-                },
-                "A": 0.8, 
-                "B": 0.8,
-                "C": 0.8,
-                "D": 0.8,
-                "E": 0.8,
-                "F": 0.8,
-                "G": 0.8
-            }
+        "A": 0.8,
+        "B": 0.8,
+        "C": 0.8,
+        "D": 0.8,
+        "E": 0.8,
+        "F": 0.8,
+        "G": 0.8
+      }
+    },
+    {
+      "Start": 4000,
+      "End": 5000,
+      "Status": {
+        "LEDH": {
+          "path": "./json/test1.png.json",
+          "alpha": 0.8
         },
-        {
-            "Start": 2000,
-            "End": 4000,
-            "Status": {
-                "LEDH": {
-                    "path": "./json/test1.png.json",
-                    "alpha": 0.5
-                },
-                "A": 0.8, 
-                "B": 0.8,
-                "C": 0.8,
-                "D": 0.8,
-                "E": 0.8,
-                "F": 0.8,
-                "G": 0.8
-            }
+        "A": 0.8,
+        "B": 0.8,
+        "C": 0.8,
+        "D": 0.8,
+        "E": 0.8,
+        "F": 0.8,
+        "G": 0.8
+      }
+    }
+  ],
+  [
+    {
+      "Start": 0,
+      "End": 1000,
+      "Status": {
+        "LEDH": {
+          "path": "./json/test1.png.json",
+          "alpha": 1
         },
-        {
-            "Start": 4000,
-            "End": 5000,
-            "Status": {
-                "LEDH": {
-                    "path": "./json/test1.png.json",
-                    "alpha": 0.8
-                },
-                "A": 0.8, 
-                "B": 0.8,
-                "C": 0.8,
-                "D": 0.8,
-                "E": 0.8,
-                "F": 0.8,
-                "G": 0.8
-            }
-        }
-    ]
+        "A": 0,
+        "B": 0.8,
+        "C": 0.8,
+        "D": 0.8,
+        "E": 0.8,
+        "F": 0.8,
+        "G": 0.8
+      }
+    },
+    {
+      "Start": 1000,
+      "End": 2000,
+      "Status": {
+        "LEDH": {
+          "path": "./json/test1.png.json",
+          "alpha": 1
+        },
+        "A": 0.8,
+        "B": 0.8,
+        "C": 0.8,
+        "D": 0.8,
+        "E": 0.8,
+        "F": 0.8,
+        "G": 0.8
+      }
+    },
+    {
+      "Start": 2000,
+      "End": 4000,
+      "Status": {
+        "LEDH": {
+          "path": "./json/test1.png.json",
+          "alpha": 0.5
+        },
+        "A": 0.8,
+        "B": 0.8,
+        "C": 0.8,
+        "D": 0.8,
+        "E": 0.8,
+        "F": 0.8,
+        "G": 0.8
+      }
+    },
+    {
+      "Start": 4000,
+      "End": 5000,
+      "Status": {
+        "LEDH": {
+          "path": "./json/test1.png.json",
+          "alpha": 0.8
+        },
+        "A": 0.8,
+        "B": 0.8,
+        "C": 0.8,
+        "D": 0.8,
+        "E": 0.8,
+        "F": 0.8,
+        "G": 0.8
+      }
+    }
+  ]
 ]

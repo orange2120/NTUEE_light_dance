@@ -8,6 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --write .",
     "start": "node server/main.js",
     "editor:build": "webpack --mode production",
     "editor:dev": "webpack-dev-server --mode development",
@@ -65,12 +66,21 @@
     "clean-webpack-plugin": "^3.0.0",
     "cross-env": "^6.0.3",
     "css-loader": "^3.4.0",
+    "eslint": "^7.5.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.4",
+    "eslint-plugin-react-hooks": "^4.0.8",
     "file-loader": "^5.1.0",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.9.0",
+    "prettier": "^2.0.5",
     "style-loader": "^1.1.1",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.10.1",
+    "webpack-dev-server": "^3.11.0",
     "webpack-hot-middleware": "^2.25.0"
   }
 }

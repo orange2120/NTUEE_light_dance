@@ -1,0 +1,18 @@
+package-lock.json
+
+# Dependency directories
+node_modules/
+
+# Optional eslint cache
+.eslintcache
+
+# webpack bundle
+bundle/
+build/
+dist/
+
+# user data
+data/
+asset/
+*.json
+
