@@ -9,7 +9,7 @@ const libarp = require("arp");
 
 const math = require("mathjs");
 
-const PNG = require("pngjs").PNG;
+const { PNG } = require("pngjs");
 
 const axios = require("axios").default;
 const getPixels = require("get-pixels");
@@ -41,34 +41,34 @@ class CmdServer {
     // this.wss.waitingList = []
     this.config = -1;
     this.loadConfig(_config);
-    this.server_ip = "serverip"; //this.getLocalIp()
+    this.server_ip = "serverip"; // this.getLocalIp()
     // this.BOARDS=[]
 
     this.wss.on("connection", this.processConnection);
 
     this.initInterval();
   }
+
   init_UDP_Server() {
-    let self = this;
+    const self = this;
     this.udp_server.on("error", function (error) {
-      console.log("[Udp Server] Server Error: " + error);
+      console.log(`[Udp Server] Server Error: ${error}`);
       self.udp_server.close();
     });
     this.udp_server.on("listening", function () {
-      let address = self.udp_server.address();
-      let port = address.port;
-      let family = address.family;
-      let ipaddr = address.address;
-      console.log("[Udp Server] Server is listening at port" + port);
-      console.log("[Udp Server]Server ip :" + ipaddr);
-      console.log("[Udp Server] Server is IP4/IP6 : " + family);
+      const address = self.udp_server.address();
+      const { port, family } = address;
+      const ipaddr = address.address;
+      console.log(`[Udp Server] Server is listening at port ${port}`);
+      console.log(`[Udp Server]Server ip : ${ipaddr}`);
+      console.log(`[Udp Server] Server is IP4/IP6 :  ${family}`);
     });
     this.udp_server.on("close", function () {
       console.log("[Udp Server] Socket is closed !");
     });
     this.udp_server.on("message", function (msg, info) {
-      let recieve_timestamp = new Date();
-      console.log("[Udp Server] Data received from client : " + msg.toString());
+      const recieve_timestamp = new Date();
+      console.log(`[Udp Server] Data received from client : ${msg.toString()}`);
       console.log(
         "[Udp Server] Received %d bytes from %s:%d\n",
         msg.length,
@@ -78,13 +78,13 @@ class CmdServer {
       if (msg.toString().startsWith("re")) {
         let msg_parse = msg.toString().split("_")[1];
         msg_parse = Number(msg_parse);
-        let d = new Date();
+        const d = new Date();
         // console.log('before',d)
         d.setMilliseconds(d.getMilliseconds() + msg_parse);
         // console.log('aafter',d)
         // d = d + msg_parse
-        let msg_date = Buffer.from(d.toISOString());
-        //sending msg
+        const msg_date = Buffer.from(d.toISOString());
+        // sending msg
         self.udp_server.send(msg_date, info.port, info.address, function (
           error
         ) {
@@ -112,13 +112,14 @@ class CmdServer {
       }
     });
   }
+
   startServer() {}
+
   loadConfig(_config) {
-    if (this.config != -1) {
+    if (this.config !== -1) {
       this.wss.clients.forEach((client) => {
         if (client.readyState === WebSocket.OPEN) {
           // this.sendToBoards("{}",[client.board_ID])
-
           console.log(
             `[Server] Kick Board(${client.board_ID}) at ${client.ipAddr} for reload config`
           );
@@ -142,7 +143,7 @@ class CmdServer {
 
   printServerSats() {
     console.log("[Server Status]");
-    console.log("Server local ip: " + String(this.server_ip));
+    console.log(`Server local ip:  ${String(this.server_ip)}`);
     console.log("Boards");
     for (let i = 0; i < this.wss.BOARDS.length; ++i) {
       console.log(

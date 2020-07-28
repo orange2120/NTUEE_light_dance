@@ -2,15 +2,15 @@
 const fs = require("fs");
 
 const args = process.argv.slice(2);
-const filePath = args[0],
-  timeShift = Number(args[1]);
+const filePath = args[0];
+const timeShift = Number(args[1]);
 console.log("Reading json from ... ", filePath);
 console.log("Timesfhit", timeShift.toString());
 const raw = fs.readFileSync(filePath);
 const control = JSON.parse(raw);
 console.log("Original control:\n", control);
 
-let re = [];
+const re = [];
 for (let id = 0; id < control.length; ++id) {
   re.push([]);
   const timeline = control[id];

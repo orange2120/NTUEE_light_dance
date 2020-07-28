@@ -26,15 +26,15 @@ const rightSide = [
 
 const args = process.argv.slice(2);
 const filePath = args[0];
-let startTime = args[1] ? Number(args[1]) : 0;
-let endTime = args[2] ? Number(args[2]) : Number.MAX_SAFE_INTEGER;
+const startTime = args[1] ? Number(args[1]) : 0;
+const endTime = args[2] ? Number(args[2]) : Number.MAX_SAFE_INTEGER;
 console.log(`Mirroring from time: ${startTime} to time: ${endTime}`);
 
 console.log("Reading json from ... ", filePath);
 const raw = fs.readFileSync(filePath);
 const control = JSON.parse(raw);
 // console.log("Original control:\n", control);
-let re = [];
+const re = [];
 for (let id = 0; id < control.length; ++id) {
   re.push([]);
   const timeline = control[id];
@@ -44,7 +44,7 @@ for (let id = 0; id < control.length; ++id) {
     if (newCue["Start"] >= startTime && newCue["Start"] <= endTime) {
       // mirroring
       leftSide.map((left, ind) => {
-        let right = rightSide[ind];
+        const right = rightSide[ind];
         newCue["Status"][left] = cue["Status"][right];
         newCue["Status"][right] = cue["Status"][left];
       });

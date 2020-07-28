@@ -1,6 +1,6 @@
 import Wavesurfer from "wavesurfer.js";
-import CursorPlugin from "wavesurfer.js/dist/plugin/wavesurfer.cursor.js";
-import TimelinePlugin from "wavesurfer.js/dist/plugin/wavesurfer.timeline.min.js";
+import CursorPlugin from "wavesurfer.js/dist/plugin/wavesurfer.cursor";
+import TimelinePlugin from "wavesurfer.js/dist/plugin/wavesurfer.timeline.min";
 
 class MyWaveSurfer {
   constructor(mgr, music) {
@@ -59,18 +59,20 @@ class MyWaveSurfer {
     // mouseEvent
     this.addClickEvent();
   }
+
   addKeyEvent() {
     document.addEventListener("keydown", (e) => {
       if (e.target.closest("input, select, button")) return;
-      const SPACE = e.keyCode == 32;
+      const SPACE = e.keyCode === 32;
       if (SPACE) this.playPause();
     });
   }
+
   addClickEvent() {
     document.getElementById("waveform").addEventListener("click", (e) => {
       // From CursorPlugin Source Code
       const bbox = this.wavesurfer.container.getBoundingClientRect();
-      let xpos = e.clientX - bbox.left;
+      const xpos = e.clientX - bbox.left;
       const duration = this.wavesurfer.getDuration();
       const elementWidth =
         this.wavesurfer.drawer.width / this.wavesurfer.params.pixelRatio;
@@ -84,6 +86,7 @@ class MyWaveSurfer {
       this.mgr.changeTime(Math.round(timeValue * 1000));
     });
   }
+
   playPause() {
     if (!this.ready) {
       console.log("Audio is not ready yet!!");
@@ -91,15 +94,18 @@ class MyWaveSurfer {
     }
     this.wavesurfer.playPause();
   }
+
   updateAudioProcess() {
     // console.log("Audio Process ", this.wavesurfer.getCurrentTime());
     const newTime = this.wavesurfer.getCurrentTime();
     this.mgr.changeTime(Math.round(newTime * 1000), true);
   }
+
   zoom(val) {
     // console.log("Zooming", Number(val));
     this.wavesurfer.zoom(Number(val));
   }
+
   update() {
     // sync to mgr
     if (this.wavesurfer.isPlaying()) return;
