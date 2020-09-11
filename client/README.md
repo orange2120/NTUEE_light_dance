@@ -14,54 +14,9 @@ client application is running on Raspberry Pi.
 
 Receive RGB data via SPI protocol from RPi, convert to WS2812 signal.
 
-## Arduino/testColor
-
-Test the color with LED strip by adjusting 3 potentiometer.
-
 ## turnOffLED
 
 Turn off all the LED strips.
-
-## image_test
-
-Testing program for test LED strips from converted RGB JSON file.
-
-Usage:
-
-```
-$ sudo ./testImg <strip ID> <JSON file path>
-```
-
-## WS2812_SPI_R2Atest
-
-Test program for SPI protocol to WS2812 LED strip from RPi to Ardunio.
-
-Usage:
-
-```
-$ sudo ./test <strip ID> <LED number>
-```
-
-## PCA9685_test
-
-Test program for PCA9685 PWM module.
-
-Compile:
-
-```
-$ make ADDR=[I2C address]
-```
-
-**Note:**the address of upper backpack is `0x40`, lower is `0x60`
-
-Usage:
-
-```
-$ sudo ./PCAtest
->> <ID> <duty cycle>
-```
-
-**Note:**assign ID=-1 to set add channels at the same time.
 
 ## Hardware architecture
 

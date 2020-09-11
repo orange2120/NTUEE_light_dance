@@ -1,3 +1,4 @@
+#!/bin/bash
 FOLDER="./"
 
 if [ $1 != "" ]

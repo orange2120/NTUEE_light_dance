@@ -1,7 +1,7 @@
 /****************************************************************************
-  FileName     [ testColor.ino ]
+  FileName     [ rgbColorTester.ino ]
   PackageName  [ Arduino ]
-  Synopsis     [ LED strip RGB color test program ]
+  Synopsis     [ LED strip RGB color test program with potentiometer ]
   Author       [  ]
   Copyright    [ Copyleft(c) , NTUEE, Taiwan ]
 ****************************************************************************/
@@ -9,15 +9,16 @@
 #include "Adafruit_NeoPixel.h"
 
 #define NUM_LEDS 10
-#define LED_PIN  8
+#define LED_PIN 8
 #define COLOR_ORDER NEO_GRB
-#define DATA_RATE   NEO_KHZ800
+#define DATA_RATE NEO_KHZ800
 
+// Pin of potentiometers
 #define R_POT A0
 #define G_POT A1
 #define B_POT A2
 
-Adafruit_NeoPixel strip(NUM_LEDS, LED_PIN, COLOR_ORDER + DATA_RATE);;
+Adafruit_NeoPixel strip(NUM_LEDS, LED_PIN, COLOR_ORDER + DATA_RATE);
 
 void setup()
 {
