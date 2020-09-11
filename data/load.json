@@ -85,6 +85,7 @@
                          "mute_1_8", "mute_2_8", "mute_3_8",
                          "wave_7_1", "wave_7_6", "wave_8_3", "wave_8_5",
                          "wave_8_8","wave_9_4",
+                         "button_red", "button_yellow", "button_blue", "button_green", "button_black",
                          "testing_1","testing_2","testing_3","testing_4",
                          "testing_5","testing_6","testing_7","testing_0",
                          "testing_blue","testing_green","testing_red","testing_white"],

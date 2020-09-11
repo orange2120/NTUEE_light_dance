@@ -21,8 +21,8 @@ const DANCER_NUM  = 8
 const LED_PATH = "../asset/LED/"
 const TESTDATA_PATH = "../data/json/testing_timeline.json"
 
-const RPI_DELAY_ADJUST = 300
-const FAN_DELAY_ADJUST = 300
+const RPI_DELAY_ADJUST = 300 //delay this amount of time after scheduled time
+const FAN_DELAY_ADJUST = 300 //delay this amount of time after scheduled time
 
 function arr_transpose(a) {
     return Object.keys(a[0]).map(function (c) {
