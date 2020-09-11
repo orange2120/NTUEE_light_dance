@@ -23,6 +23,12 @@ After read-in the json file (should show "[Done!!]")...
 
 **Note:** even from the begin, you should type `run 0`
 
+After read-in the json file (should show "[Done!!]")...
+```c++
+>> run <time>
+```
+**Note:** even from the begin, you should type `run 0`
+
 Catch system `signal` to do following actions:
 
 - `2/SIGINT` (ctrl + c): Exit the process. Turn off all the ELs, LEDs.
@@ -56,6 +62,33 @@ $ ps -C clientApp -o pid=|xargs kill -2
       - brightness
 
 ### EL_part
+<<<<<<< HEAD
+=======
+1. "HAT1"
+2. "HAT2"
+3. "FACE1"
+4. "FACE2"
+5. "R_COAT1"
+6. "R_COAT2"
+7. "L_COAT1"
+8. "L_COAT2"
+9. "INNER1"
+10. "INNER2"
+11. "R_ARM1"
+12. "R_ARM2"
+13. "R_HAND"
+14. "L_ARM1"
+15. "L_ARM2"
+16. "L_HAND"
+17. "R_PANTS1"
+18. "R_PANTS2"
+19. "L_PANTS1"
+20. "L_PANTS2"
+21. "R_SHOE1"
+22. "R_SHOE2"
+23. "L_SHOE1"
+24. "L_SHOE2"
+>>>>>>> 230d97cb7ce450a186f13542c264e7b8cecbaac0
 
 1. "HAT1"
 2. "HAT2"
@@ -83,13 +116,19 @@ $ ps -C clientApp -o pid=|xargs kill -2
 24. "L_SHOE2"
 
 ### LED_part
+<<<<<<< HEAD
 
+=======
+>>>>>>> 230d97cb7ce450a186f13542c264e7b8cecbaac0
 1. "CHEST"
 2. "R_SHOE"
 3. "L_SHOE"
 
 ## Json File
+<<<<<<< HEAD
 
+=======
+>>>>>>> 230d97cb7ce450a186f13542c264e7b8cecbaac0
 Json file should follow specific format: "./json/test2.json"
 
 **Note** The last execution of every dancer should be **ALL BLACK**

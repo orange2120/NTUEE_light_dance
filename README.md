@@ -34,6 +34,7 @@ Light dance system for 2020 NTUEE night
 ## System architecture
 
 ### Server
+<<<<<<< HEAD
 
 Control dancers via a Wi-Fi router.
 
@@ -42,22 +43,38 @@ Control dancers via a Wi-Fi router.
 1. if boards_config.json exists, delete it.
 2. build server
 
+=======
+Control dancers via a Wi-Fi router. 
+#### setup (only for first time)
+1. if boards_config.json exists, delete it.
+2. build server
+>>>>>>> 230d97cb7ce450a186f13542c264e7b8cecbaac0
 ```bash
 $ npm i
 $ npm run build
 ```
+<<<<<<< HEAD
 
 the program will automatically generate new `boards_config.json`
 
 3. on RPi, (make sure we use new generated `boards_config.json`)
 
+=======
+the program will automatically generate new `boards_config.json`
+3. on RPi, (make sure we use new generated `boards_config.json`)
+>>>>>>> 230d97cb7ce450a186f13542c264e7b8cecbaac0
 ```bash
 $ cd client/clientApp
 $ sudo node client.js
 ```
+<<<<<<< HEAD
 
 4. on ESP8266, just open it
 5. on your laptop(server), go to http://localhost:8080
+=======
+4. on ESP8266, just open it
+5. on your laptop(server), go to http://localhost:8080 
+>>>>>>> 230d97cb7ce450a186f13542c264e7b8cecbaac0
 6. toogle control+alt/option+c to show the CommandCenter panel
 7. make sure edit board configuration is enabled
 8. at the right side of the panel is the boards not registered
@@ -67,21 +84,32 @@ $ sudo node client.js
 12. you can now send command to your boards!!
 
 #### afterward usage
+<<<<<<< HEAD
 
 1.
 
+=======
+1. 
+>>>>>>> 230d97cb7ce450a186f13542c264e7b8cecbaac0
 ```bash
 $ npm start
 ```
 
+<<<<<<< HEAD
 2. on your laptop(server), go to http://localhost:8080
 3. the rest is the same(RPi, ESP8266)
+=======
+2. on your laptop(server), go to http://localhost:8080  
+3. the rest is the same(RPi, ESP8266)  
+
+>>>>>>> 230d97cb7ce450a186f13542c264e7b8cecbaac0
 
 ### Client
 
 Each dancer is a client device. Receive commands from the server.
 
 ### Editor
+<<<<<<< HEAD
 
 > usage for develop front-end:
 
@@ -106,6 +134,9 @@ npm install webpack -g
 ```
 
 4. build
+=======
+> usage for develop front-end:
+>>>>>>> 230d97cb7ce450a186f13542c264e7b8cecbaac0
 
 ```bash
 npm run editor:dev
@@ -123,6 +154,44 @@ npm start
 1. ADD the picture to asset/LED/LED_CHEST or LED_L_SHOE or LED_R_SHOE
 2. Go data/load.json, add new LED name to valid "Texture":
 
+```json
+"Texture": {
+  "LED_CHEST": ["bl_chest", "chest1", "chest2"],
+  "LED_R_SHOE": ["bl_shoe", "r_shoe1", "r_shoe2"],
+  "LED_L_SHOE": ["bl_shoe", "l_shoe1", "l_shoe2"]
+}
+// for example
+```
+
+> usage for editor
+
+1. install node
+
+2. install packages
+```bash
+$ npm install
+```
+
+3. install webpack globally
+```bash
+npm install webpack -g
+```
+
+4. build
+```bash
+npm run editor:dev
+```
+
+5. run
+```bash
+npm start
+# editor will run at localhost:8080
+```
+
+> adding new LED pictures
+
+1. ADD the picture to asset/LED/LED_CHEST or LED_L_SHOE or LED_R_SHOE
+2. Go data/load.json, add new LED name to valid "Texture":
 ```json
 "Texture": {
   "LED_CHEST": ["bl_chest", "chest1", "chest2"],

@@ -1,3 +1,11 @@
+/****************************************************************************
+  FileName     [ test.cpp ]
+  PackageName  [ WS2812_SPI_R2Atest ]
+  Synopsis     [ RGB data to Arduino via SPI protocol for LED strip ]
+  Author       [  ]
+  Copyright    [ Copyleft(c) , NTUEE, Taiwan ]
+****************************************************************************/
+
 #include <iostream>
 #include <cstdio>
 #include <bcm2835.h>
@@ -6,18 +14,31 @@
 
 using namespace std;
 
+<<<<<<< HEAD:test/WS2812_SPI_R2Atest_fixed_DL/test.cpp
 #define TEST_TIMES 1
 #define TEST_DELAY 100000 // us 
+=======
+#define TEST_TIMES 2
+#define TEST_DELAY 500000 // us 
+>>>>>>> 230d97cb7ce450a186f13542c264e7b8cecbaac0:client/WS2812_SPI_R2Atest/test.cpp
 
 #define COLOR1 0xFFEE00
 #define COLOR2 0x11EE22
 
+<<<<<<< HEAD:test/WS2812_SPI_R2Atest_fixed_DL/test.cpp
 #define START_BYTE 0xFF
 #define STOP_BYTE  0xFF
 #define DATA_OFFSET 4
 
 #define BUF_SIZE 1024
 
+=======
+#define START_BYTE  0xFF
+#define STOP_BYTE_0 0x55
+#define STOP_BYTE_1 0xFF
+#define DATA_OFFSET 4
+
+>>>>>>> 230d97cb7ce450a186f13542c264e7b8cecbaac0:client/WS2812_SPI_R2Atest/test.cpp
 uint8_t LED_ID =  0x00;
 uint16_t NUM_LED = 10;
 
@@ -64,6 +85,7 @@ int main(int argc, char *argv[])
 	for (int i = 0; i < TEST_TIMES; ++i)
 	{
 		printf("Send color 1..\n");
+<<<<<<< HEAD:test/WS2812_SPI_R2Atest_fixed_DL/test.cpp
 		genColorSeq(test_seq, dataLen, 0xFF, 0xFF, 0xFF); 
 		bcm2835_spi_transfern(test_seq, BUF_SIZE);
 		usleep(TEST_DELAY);
@@ -73,21 +95,41 @@ int main(int argc, char *argv[])
 		printf("Send color 2...\n");
 		genColorSeq(test_seq, dataLen, 0xFF, 0x00, 0x00);
 		bcm2835_spi_transfern(test_seq, BUF_SIZE);
+=======
+		genColorSeq(test_seq, dataLen, 0x16, 0x16, 0x16); 		
+		bcm2835_spi_transfern(test_seq, dataLen);
+		usleep(TEST_DELAY);
+
+		printf("Send color 2...\n");
+		genColorSeq(test_seq, dataLen, 0x00, 0xFF, 0x00);
+		bcm2835_spi_transfern(test_seq, dataLen);
+>>>>>>> 230d97cb7ce450a186f13542c264e7b8cecbaac0:client/WS2812_SPI_R2Atest/test.cpp
 		usleep(TEST_DELAY);
 
 		memset(test_seq, 0x00, sizeof(char) * BUF_SIZE);
 		
 		printf("Send color 3...\n");
+<<<<<<< HEAD:test/WS2812_SPI_R2Atest_fixed_DL/test.cpp
 		genColorSeq(test_seq, dataLen, 0x00, 0x00, 0xFF);
 		bcm2835_spi_transfern(test_seq, BUF_SIZE);
+=======
+		genColorSeq(test_seq, dataLen, 0x00, 0x00, 0x16);
+		bcm2835_spi_transfern(test_seq, dataLen);
+>>>>>>> 230d97cb7ce450a186f13542c264e7b8cecbaac0:client/WS2812_SPI_R2Atest/test.cpp
 		usleep(TEST_DELAY);
 
 		memset(test_seq, 0x00, sizeof(char) * BUF_SIZE);
 
 		printf("Send color 4...\n");
+<<<<<<< HEAD:test/WS2812_SPI_R2Atest_fixed_DL/test.cpp
 		genColorSeq(test_seq, dataLen, 0x00, 0xFF, 0xFF);
 		bcm2835_spi_transfern(test_seq, BUF_SIZE);
+=======
+		genColorSeq(test_seq, dataLen, 0x00, 0x16, 0x00);
+		bcm2835_spi_transfern(test_seq, dataLen);
+>>>>>>> 230d97cb7ce450a186f13542c264e7b8cecbaac0:client/WS2812_SPI_R2Atest/test.cpp
 		usleep(TEST_DELAY);
+
 	}
 
 	memset(test_seq, 0x00, sizeof(char) * BUF_SIZE);
@@ -116,7 +158,7 @@ void genColorSeq(char *seq, const uint16_t &len, const uint8_t r, const uint8_t 
 
 	// printf("%.2X-%.2X-%.2X\n", seq[3 * i + DATA_OFFSET], seq[3 * i + DATA_OFFSET + 1] , seq[3 * i + DATA_OFFSET + 2]);
 	}
-	seq[len - 2] = 0xFF;
-	seq[len - 1] = 0xFF;
+	seq[len - 2] = STOP_BYTE_0;
+	seq[len - 1] = STOP_BYTE_1;
 	// printf("%d\n", strlen(seq));
 }

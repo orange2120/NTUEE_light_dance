@@ -18,6 +18,19 @@ Receive RGB data via SPI protocol from RPi, convert to WS2812 signal.
 
 Turn off all the LED strips.
 
+Compile:
+```
+$ make ADDR=[I2C address]
+```
+
+Usage:
+```
+$ sudo ./PCAtest
+>> <ID> <duty cycle>
+```
+**Note:**assign ID=-1 to set add channels at the same time.
+
+
 ## Hardware architecture
 
 ```

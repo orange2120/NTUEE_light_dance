@@ -3,6 +3,7 @@
 Hardware design
 
 ## Controller
+For each dancer
 
 For each dancer
 
@@ -28,9 +29,16 @@ Display bitmap picture
 ### Electroluminescent wire (EL)
 
 ## PCB
+<<<<<<< HEAD
 
 [RPi-Arduino adapter](https://easyeda.com/orange21201/lightdanceconverter)
 
 [EL_wire controller](https://easyeda.com/nawmrofed/el_controller_v3)
 
 ## References
+=======
+[RPi-Arduino adapter](https://easyeda.com/orange21201/lightdanceconverter)
+
+
+## References
+>>>>>>> 230d97cb7ce450a186f13542c264e7b8cecbaac0

@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "path": [
     "bl_chest.png",
     "chest1.png",
@@ -17,4 +18,24 @@
     [200, "test2"],
     [300, "test3"]
   ]
+=======
+    "path": [
+        "bl_chest.png",
+        "chest1.png",
+        "chest2.png",
+        "Test.out0.png",
+        "Test.out1.png",
+        "Test.out2.png",
+        "Test.out3.png",
+        "Test.out4.png",
+        "Test.out5.png",
+        "Test.out6.png",
+        "Test.out7.png"
+    ],
+    "time_line":[ 
+        [100, 200, "a5b4"],
+        [200, "test2"],
+        [300, "test3"]
+	]
+>>>>>>> 230d97cb7ce450a186f13542c264e7b8cecbaac0
 }

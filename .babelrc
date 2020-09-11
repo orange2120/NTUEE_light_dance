@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "presets": ["@babel/preset-env", "@babel/preset-react"],
   "plugins": [
     [
@@ -6,6 +7,16 @@
       {
         "regenerator": true
       }
+=======
+    "presets": [
+        "@babel/preset-env",
+        "@babel/preset-react"
+    ],
+    "plugins": [
+        ["@babel/transform-runtime", {
+          "regenerator": true
+        }]
+>>>>>>> 230d97cb7ce450a186f13542c264e7b8cecbaac0
     ]
   ]
 }

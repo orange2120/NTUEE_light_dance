@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 import "./timeliner_v1.4.js";
+=======
+import   './timeliner_v1.4.js'
+>>>>>>> 230d97cb7ce450a186f13542c264e7b8cecbaac0
 
 // todo: play flag move and scroll
 
 class Mytimeline {
+<<<<<<< HEAD
   constructor(mgr) {
     this.mgr = mgr;
     this.target = {
@@ -49,6 +54,75 @@ class Mytimeline {
     } else {
       this.timelineData = JSON.parse(JSON.stringify(data));
     }
+=======
+    constructor(mgr) {
+        this.mgr = mgr;
+        this.target = {
+            currentTime: 0
+        };
+        this.timeliner = new Timeliner(this.target, mgr);
+        this.timelineData = null;
+
+        // Expose API
+        this.setCurrentTime = this.timeliner.setCurrentTime;;
+    }
+    createFromRaw(data){
+        this.target = {
+            dancer_1: 0,
+            dancer_2: 0,
+            dancer_3: 0,
+            dancer_4: 0,
+            dancer_5: 0,
+            dancer_6: 0,
+            dancer_7: 0,
+            dancer_8: 0,
+            pos_1: 0,
+            pos_2: 0,
+            pos_3: 0,
+            currentTime: 0
+        };
+        this.timelineData = JSON.parse(JSON.stringify(data));
+        this.timeliner.load(this.timelineData)
+    }
+    createFromData(data_control,data_load){
+        this.target = {
+            currentTime: 0
+        };
+        let data = this.convertData(data_control,data_load,this.target)
+        this.timelineData = JSON.parse(JSON.stringify(data));
+        console.log(this.timelineData)
+        this.timeliner.load(this.timelineData)
+    }
+    reload(data,ui_conserve = true){
+        if(ui_conserve){
+            let _tmp_ui = this.timelineData.ui
+            this.timelineData = JSON.parse(JSON.stringify(data))
+            this.timelineData.ui = _tmp_ui
+        }else{
+            this.timelineData = JSON.parse(JSON.stringify(data))
+        }
+        
+        this.timeliner.loadJSONString(JSON.stringify(this.timelineData))
+        this.timeliner.load(this.timelineData)
+    }
+    convertData(data_control,data_load,_tar){
+        let data_from_load = data_load["timeline_setting"]
+        let newa = data_control.map(timeline => { 
+            return{ name : "dancer_",tmpValue : 3.500023, _color: "#6ee167",
+            _value: 0.9955620977777778 ,values : timeline.map( entry => {
+                return {time : Number.parseFloat(entry.Start) / 1000, value: 0, _color : "#1b3e5c"};
+            })
+        }; 
+        })
+        for (let i = 0; i < newa.length; i++) { 
+            newa[i].name = 'dancer_' + String(i+1);
+            _tar['dancer_' + String(i+1)] = 0;
+        }
+        data_from_load.layers = newa
+        return data_from_load
+    }
+    gotoTime(t){
+>>>>>>> 230d97cb7ce450a186f13542c264e7b8cecbaac0
 
     this.timeliner.loadJSONString(JSON.stringify(this.timelineData));
     this.timeliner.load(this.timelineData);
@@ -74,6 +148,7 @@ class Mytimeline {
       newa[i].name = "dancer_" + String(i + 1);
       _tar["dancer_" + String(i + 1)] = 0;
     }
+<<<<<<< HEAD
     data_from_load.layers = newa;
     return data_from_load;
   }
@@ -87,6 +162,20 @@ class Mytimeline {
   // console.log(this.timeliner);
   // this.timeliner.change_snap(t);
   // }
+=======
+    addKeyFrame(layer_index,time){
+        this.timeliner.addKeyFrame(layer_index, time, 0)
+    }
+    getCurrentTime(){
+        
+    }
+
+    // change_dock(t){
+        // console.log(this.timeliner);
+        // this.timeliner.change_snap(t);
+    // }
+
+>>>>>>> 230d97cb7ce450a186f13542c264e7b8cecbaac0
 }
 
 export default Mytimeline;
