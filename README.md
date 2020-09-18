@@ -34,82 +34,50 @@ Light dance system for 2020 NTUEE night
 ## System architecture
 
 ### Server
-<<<<<<< HEAD
 
 Control dancers via a Wi-Fi router.
 
 #### setup (only for first time)
 
-1. if boards_config.json exists, delete it.
+1. if `boards_config.json` exists, delete it.
 2. build server
 
-=======
-Control dancers via a Wi-Fi router. 
-#### setup (only for first time)
-1. if boards_config.json exists, delete it.
-2. build server
->>>>>>> 230d97cb7ce450a186f13542c264e7b8cecbaac0
 ```bash
 $ npm i
 $ npm run build
 ```
-<<<<<<< HEAD
-
-the program will automatically generate new `boards_config.json`
-
-3. on RPi, (make sure we use new generated `boards_config.json`)
-
-=======
 the program will automatically generate new `boards_config.json`
 3. on RPi, (make sure we use new generated `boards_config.json`)
->>>>>>> 230d97cb7ce450a186f13542c264e7b8cecbaac0
+
 ```bash
 $ cd client/clientApp
 $ sudo node client.js
 ```
-<<<<<<< HEAD
 
-4. on ESP8266, just open it
-5. on your laptop(server), go to http://localhost:8080
-=======
-4. on ESP8266, just open it
-5. on your laptop(server), go to http://localhost:8080 
->>>>>>> 230d97cb7ce450a186f13542c264e7b8cecbaac0
-6. toogle control+alt/option+c to show the CommandCenter panel
-7. make sure edit board configuration is enabled
-8. at the right side of the panel is the boards not registered
-9. there you should see your rpi, click add board
-10. after adjusting boards' id pattern , remember to click Save
-11. disable edit board configuration
-12. you can now send command to your boards!!
+1. on ESP8266, just open it
+2. on your laptop(server), go to http://localhost:8080
+3. toggle control+alt/option+c to show the CommandCenter panel
+4. make sure edit board configuration is enabled
+5. at the right side of the panel is the boards not registered
+6. there you should see your rpi, click add board
+7. after adjusting boards' id pattern , remember to click Save
+8. disable edit board configuration
+9. you can now send command to your boards!!
 
 #### afterward usage
-<<<<<<< HEAD
-
-1.
-
-=======
 1. 
->>>>>>> 230d97cb7ce450a186f13542c264e7b8cecbaac0
 ```bash
 $ npm start
 ```
 
-<<<<<<< HEAD
-2. on your laptop(server), go to http://localhost:8080
-3. the rest is the same(RPi, ESP8266)
-=======
 2. on your laptop(server), go to http://localhost:8080  
 3. the rest is the same(RPi, ESP8266)  
-
->>>>>>> 230d97cb7ce450a186f13542c264e7b8cecbaac0
 
 ### Client
 
 Each dancer is a client device. Receive commands from the server.
 
 ### Editor
-<<<<<<< HEAD
 
 > usage for develop front-end:
 
@@ -120,7 +88,6 @@ $ npm run editor:dev
 > usage for editor
 
 1. install node
-
 2. install packages
 
 ```bash
@@ -134,9 +101,7 @@ npm install webpack -g
 ```
 
 4. build
-=======
 > usage for develop front-end:
->>>>>>> 230d97cb7ce450a186f13542c264e7b8cecbaac0
 
 ```bash
 npm run editor:dev
@@ -166,23 +131,26 @@ npm start
 > usage for editor
 
 1. install node
-
 2. install packages
+
 ```bash
 $ npm install
 ```
 
 3. install webpack globally
+
 ```bash
 npm install webpack -g
 ```
 
 4. build
+
 ```bash
 npm run editor:dev
 ```
 
 5. run
+
 ```bash
 npm start
 # editor will run at localhost:8080
@@ -256,8 +224,6 @@ Server program for dancers control
 ### test
 
 For Testing Everything
-
-Orange Hsu is not god
 
 ## References
 
